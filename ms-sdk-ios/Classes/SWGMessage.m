@@ -4,6 +4,8 @@
 @implementation SWGMessage
 
 -(id)code: (NSString*) code
+    userCode: (NSString*) userCode
+    appCode: (NSString*) appCode
     version: (NSString*) version
     workflow: (SWGWorkflow*) workflow
     notification: (SWGNotification*) notification
@@ -14,6 +16,8 @@
     error: (SWGErrorResponse*) error
 {
   _code = code;
+  _userCode = userCode;
+  _appCode = appCode;
   _version = version;
   _workflow = workflow;
   _notification = notification;
@@ -30,6 +34,8 @@
     self = [super init];
     if(self) {
         _code = dict[@"code"]; 
+        _userCode = dict[@"userCode"]; 
+        _appCode = dict[@"appCode"]; 
         _version = dict[@"version"]; 
         id workflow_dict = dict[@"workflow"];
         if(workflow_dict != nil)
@@ -93,6 +99,8 @@
 -(NSDictionary*) asDictionary {
     NSMutableDictionary* dict = [[NSMutableDictionary alloc] init];
     if(_code != nil) dict[@"code"] = _code ;
+        if(_userCode != nil) dict[@"userCode"] = _userCode ;
+        if(_appCode != nil) dict[@"appCode"] = _appCode ;
         if(_version != nil) dict[@"version"] = _version ;
         if(_workflow != nil){
         if([_workflow isKindOfClass:[NSArray class]]){

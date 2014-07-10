@@ -25,6 +25,10 @@
 
 @property(nonatomic) NSString* viafirmaCertificate;  
 
+@property(nonatomic) NSString* region;  
+
+@property(nonatomic) NSString* pos;  
+
 - (id) code: (NSString*) code
      nationalId: (NSString*) nationalId
      email: (NSString*) email
@@ -35,7 +39,9 @@
      description: (NSString*) description
      viafirmaKey: (NSString*) viafirmaKey
      viafirmaPassword: (NSString*) viafirmaPassword
-     viafirmaCertificate: (NSString*) viafirmaCertificate;
+     viafirmaCertificate: (NSString*) viafirmaCertificate
+     region: (NSString*) region
+     pos: (NSString*) pos;
 
 - (id) initWithValues: (NSDictionary*)dict;
 - (NSDictionary*) asDictionary;

@@ -14,6 +14,8 @@
     viafirmaKey: (NSString*) viafirmaKey
     viafirmaPassword: (NSString*) viafirmaPassword
     viafirmaCertificate: (NSString*) viafirmaCertificate
+    region: (NSString*) region
+    pos: (NSString*) pos
 {
   _code = code;
   _nationalId = nationalId;
@@ -26,6 +28,8 @@
   _viafirmaKey = viafirmaKey;
   _viafirmaPassword = viafirmaPassword;
   _viafirmaCertificate = viafirmaCertificate;
+  _region = region;
+  _pos = pos;
   return self;
 }
 
@@ -44,6 +48,8 @@
         _viafirmaKey = dict[@"viafirmaKey"]; 
         _viafirmaPassword = dict[@"viafirmaPassword"]; 
         _viafirmaCertificate = dict[@"viafirmaCertificate"]; 
+        _region = dict[@"region"]; 
+        _pos = dict[@"pos"]; 
         
 
     }
@@ -63,6 +69,8 @@
         if(_viafirmaKey != nil) dict[@"viafirmaKey"] = _viafirmaKey ;
         if(_viafirmaPassword != nil) dict[@"viafirmaPassword"] = _viafirmaPassword ;
         if(_viafirmaCertificate != nil) dict[@"viafirmaCertificate"] = _viafirmaCertificate ;
+        if(_region != nil) dict[@"region"] = _region ;
+        if(_pos != nil) dict[@"pos"] = _pos ;
         NSDictionary* output = [dict copy];
     return output;
 }

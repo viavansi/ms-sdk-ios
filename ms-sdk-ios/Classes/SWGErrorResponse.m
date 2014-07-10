@@ -3,15 +3,15 @@
 
 @implementation SWGErrorResponse
 
--(id)_id: (NSString*) _id
-    status: (NSNumber*) status
-    errorCode: (NSString*) errorCode
-    error: (NSString*) error
+-(id)code: (NSNumber*) code
+    status: (NSString*) status
+    message: (NSString*) message
+    trace: (NSString*) trace
 {
-  __id = _id;
+  _code = code;
   _status = status;
-  _errorCode = errorCode;
-  _error = error;
+  _message = message;
+  _trace = trace;
   return self;
 }
 
@@ -19,10 +19,10 @@
 {
     self = [super init];
     if(self) {
-        __id = dict[@"id"]; 
+        _code = dict[@"code"]; 
         _status = dict[@"status"]; 
-        _errorCode = dict[@"errorCode"]; 
-        _error = dict[@"error"]; 
+        _message = dict[@"message"]; 
+        _trace = dict[@"trace"]; 
         
 
     }
@@ -31,10 +31,10 @@
 
 -(NSDictionary*) asDictionary {
     NSMutableDictionary* dict = [[NSMutableDictionary alloc] init];
-    if(__id != nil) dict[@"id"] = __id ;
+    if(_code != nil) dict[@"code"] = _code ;
         if(_status != nil) dict[@"status"] = _status ;
-        if(_errorCode != nil) dict[@"errorCode"] = _errorCode ;
-        if(_error != nil) dict[@"error"] = _error ;
+        if(_message != nil) dict[@"message"] = _message ;
+        if(_trace != nil) dict[@"trace"] = _trace ;
         NSDictionary* output = [dict copy];
     return output;
 }

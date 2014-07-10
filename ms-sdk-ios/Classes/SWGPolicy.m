@@ -4,8 +4,12 @@
 @implementation SWGPolicy
 
 -(id)code: (NSString*) code
+    userCode: (NSString*) userCode
     typeFormatSign: (NSString*) typeFormatSign
     typeSign: (NSString*) typeSign
+    signByServer: (NSNumber*) signByServer
+    certificateAlias: (NSString*) certificateAlias
+    certificatePassword: (NSString*) certificatePassword
     idTemporal: (NSString*) idTemporal
     idSign: (NSString*) idSign
     paramList: (NSArray*) paramList
@@ -13,8 +17,12 @@
     error: (SWGErrorResponse*) error
 {
   _code = code;
+  _userCode = userCode;
   _typeFormatSign = typeFormatSign;
   _typeSign = typeSign;
+  _signByServer = signByServer;
+  _certificateAlias = certificateAlias;
+  _certificatePassword = certificatePassword;
   _idTemporal = idTemporal;
   _idSign = idSign;
   _paramList = paramList;
@@ -28,8 +36,12 @@
     self = [super init];
     if(self) {
         _code = dict[@"code"]; 
+        _userCode = dict[@"userCode"]; 
         _typeFormatSign = dict[@"typeFormatSign"]; 
         _typeSign = dict[@"typeSign"]; 
+        _signByServer = dict[@"signByServer"]; 
+        _certificateAlias = dict[@"certificateAlias"]; 
+        _certificatePassword = dict[@"certificatePassword"]; 
         _idTemporal = dict[@"idTemporal"]; 
         _idSign = dict[@"idSign"]; 
         id paramList_dict = dict[@"paramList"];
@@ -84,8 +96,12 @@
 -(NSDictionary*) asDictionary {
     NSMutableDictionary* dict = [[NSMutableDictionary alloc] init];
     if(_code != nil) dict[@"code"] = _code ;
+        if(_userCode != nil) dict[@"userCode"] = _userCode ;
         if(_typeFormatSign != nil) dict[@"typeFormatSign"] = _typeFormatSign ;
         if(_typeSign != nil) dict[@"typeSign"] = _typeSign ;
+        if(_signByServer != nil) dict[@"signByServer"] = _signByServer ;
+        if(_certificateAlias != nil) dict[@"certificateAlias"] = _certificateAlias ;
+        if(_certificatePassword != nil) dict[@"certificatePassword"] = _certificatePassword ;
         if(_idTemporal != nil) dict[@"idTemporal"] = _idTemporal ;
         if(_idSign != nil) dict[@"idSign"] = _idSign ;
         if(_paramList != nil){

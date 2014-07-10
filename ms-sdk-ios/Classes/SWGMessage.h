@@ -11,6 +11,10 @@
 
 @property(nonatomic) NSString* code;  
 
+@property(nonatomic) NSString* userCode;  
+
+@property(nonatomic) NSString* appCode;  
+
 @property(nonatomic) NSString* version;  
 
 @property(nonatomic) SWGWorkflow* workflow;  
@@ -28,6 +32,8 @@
 @property(nonatomic) SWGErrorResponse* error;  
 
 - (id) code: (NSString*) code
+     userCode: (NSString*) userCode
+     appCode: (NSString*) appCode
      version: (NSString*) version
      workflow: (SWGWorkflow*) workflow
      notification: (SWGNotification*) notification

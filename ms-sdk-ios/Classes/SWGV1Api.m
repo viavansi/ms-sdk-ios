@@ -2,7 +2,9 @@
 #import "SWGFile.h"
 #import "SWGApiClient.h"
 #import "SWGPolicy.h"
+#import "SWGToken.h"
 #import "SWGUser.h"
+#import "SWGEvidence.h"
 #import "SWGFile.h"
 #import "SWGMessage.h"
 #import "SWGDevice.h"
@@ -12,7 +14,7 @@
 
 
 @implementation SWGV1Api
-static NSString * basePath = @"http://127.0.0.1:8080/mobile-services/api";
+static NSString * basePath = @"/";
 
 +(SWGV1Api*) apiWithHeader:(NSString*)headerValue key:(NSString*)key {
     static SWGV1Api* singletonAPI = nil;
@@ -286,7 +288,7 @@ static NSString * basePath = @"http://127.0.0.1:8080/mobile-services/api";
         metadata:(NSString*) metadata
         fingerID:(NSString*) fingerID
         algorithmic:(NSString*) algorithmic
-        completionHandler: (void (^)(NSError* error))completionBlock{
+        completionHandler: (void (^)(SWGEvidence* output, NSError* error))completionBlock{
 
     NSMutableString* requestUrl = [NSMutableString stringWithFormat:@"%@/v1/evidences/upload", basePath];
 
@@ -335,20 +337,22 @@ static NSString * basePath = @"http://127.0.0.1:8080/mobile-services/api";
 
     SWGApiClient* client = [SWGApiClient sharedClientFromPool:basePath];
 
-    return [client stringWithCompletionBlock:requestUrl 
-                                             method:@"POST" 
-                                        queryParams:queryParams 
-                                               body:bodyDictionary 
-                                       headerParams:headerParams
-                                 requestContentType: requestContentType
-                                responseContentType: responseContentType
-                                    completionBlock:^(NSString *data, NSError *error) {
+    return [client dictionary:requestUrl 
+                              method:@"POST" 
+                         queryParams:queryParams 
+                                body:bodyDictionary 
+                        headerParams:headerParams
+                  requestContentType:requestContentType
+                 responseContentType:responseContentType
+                     completionBlock:^(NSDictionary *data, NSError *error) {
                         if (error) {
-                            completionBlock(error);
-                            return;
+                            completionBlock(nil, error);return;
                         }
-                        completionBlock(nil);
-                    }];
+                        SWGEvidence *result = nil;
+                        if (data) {
+                            result = [[SWGEvidence alloc]initWithValues: data];
+                        }
+                        completionBlock(result , nil);}];
     
 
 }
@@ -979,11 +983,9 @@ static NSString * basePath = @"http://127.0.0.1:8080/mobile-services/api";
 
 }
 
--(NSNumber*) loginUserWithCompletionBlock:(NSString*) code
-        password:(NSString*) password
-        completionHandler: (void (^)(SWGUser* output, NSError* error))completionBlock{
+-(NSNumber*) postRequestTokenWithCompletionBlock: (void (^)(SWGToken* output, NSError* error))completionBlock{
 
-    NSMutableString* requestUrl = [NSMutableString stringWithFormat:@"%@/v1/users/login", basePath];
+    NSMutableString* requestUrl = [NSMutableString stringWithFormat:@"%@/v1/oauth/requestToken", basePath];
 
     // remove format in URL if needed
     if ([requestUrl rangeOfString:@".{format}"].location != NSNotFound)
@@ -995,7 +997,52 @@ static NSString * basePath = @"http://127.0.0.1:8080/mobile-services/api";
         NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     NSMutableDictionary* headerParams = [[NSMutableDictionary alloc] init];
     id bodyDictionary = nil;
-        if(code == nil) {
+        SWGApiClient* client = [SWGApiClient sharedClientFromPool:basePath];
+
+    return [client dictionary:requestUrl 
+                              method:@"POST" 
+                         queryParams:queryParams 
+                                body:bodyDictionary 
+                        headerParams:headerParams
+                  requestContentType:requestContentType
+                 responseContentType:responseContentType
+                     completionBlock:^(NSDictionary *data, NSError *error) {
+                        if (error) {
+                            completionBlock(nil, error);return;
+                        }
+                        SWGToken *result = nil;
+                        if (data) {
+                            result = [[SWGToken alloc]initWithValues: data];
+                        }
+                        completionBlock(result , nil);}];
+    
+
+}
+
+-(NSNumber*) postAccessTokenWithCompletionBlock:(NSString*) x_auth_username
+        x_auth_password:(NSString*) x_auth_password
+        x_auth_mode:(NSString*) x_auth_mode
+        completionHandler: (void (^)(SWGToken* output, NSError* error))completionBlock{
+
+    NSMutableString* requestUrl = [NSMutableString stringWithFormat:@"%@/v1/oauth/accessToken", basePath];
+
+    // remove format in URL if needed
+    if ([requestUrl rangeOfString:@".{format}"].location != NSNotFound)
+        [requestUrl replaceCharactersInRange: [requestUrl rangeOfString:@".{format}"] withString:@".json"];
+
+    NSString* requestContentType = @"application/json";
+    NSString* responseContentType = @"application/json";
+
+        NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
+    NSMutableDictionary* headerParams = [[NSMutableDictionary alloc] init];
+    id bodyDictionary = nil;
+        if(x_auth_mode == nil) {
+        // error
+    }
+    if(x_auth_username == nil) {
+        // error
+    }
+    if(x_auth_password == nil) {
         // error
     }
     SWGApiClient* client = [SWGApiClient sharedClientFromPool:basePath];
@@ -1011,9 +1058,9 @@ static NSString * basePath = @"http://127.0.0.1:8080/mobile-services/api";
                         if (error) {
                             completionBlock(nil, error);return;
                         }
-                        SWGUser *result = nil;
+                        SWGToken *result = nil;
                         if (data) {
-                            result = [[SWGUser alloc]initWithValues: data];
+                            result = [[SWGToken alloc]initWithValues: data];
                         }
                         completionBlock(result , nil);}];
     

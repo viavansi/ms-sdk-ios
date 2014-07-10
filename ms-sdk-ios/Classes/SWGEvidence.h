@@ -30,6 +30,10 @@
 
 @property(nonatomic) NSString* typeFormatSign;  
 
+@property(nonatomic) NSString* certificateAlias;  
+
+@property(nonatomic) NSString* certificatePassword;  
+
 - (id) type: (NSString*) type
      code: (NSString*) code
      status: (NSString*) status
@@ -42,7 +46,9 @@
      hashImage: (NSString*) hashImage
      algorithmic: (NSString*) algorithmic
      fingerID: (NSString*) fingerID
-     typeFormatSign: (NSString*) typeFormatSign;
+     typeFormatSign: (NSString*) typeFormatSign
+     certificateAlias: (NSString*) certificateAlias
+     certificatePassword: (NSString*) certificatePassword;
 
 - (id) initWithValues: (NSDictionary*)dict;
 - (NSDictionary*) asDictionary;

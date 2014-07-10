@@ -16,6 +16,8 @@
     algorithmic: (NSString*) algorithmic
     fingerID: (NSString*) fingerID
     typeFormatSign: (NSString*) typeFormatSign
+    certificateAlias: (NSString*) certificateAlias
+    certificatePassword: (NSString*) certificatePassword
 {
   _type = type;
   _code = code;
@@ -30,6 +32,8 @@
   _algorithmic = algorithmic;
   _fingerID = fingerID;
   _typeFormatSign = typeFormatSign;
+  _certificateAlias = certificateAlias;
+  _certificatePassword = certificatePassword;
   return self;
 }
 
@@ -69,6 +73,8 @@
         _algorithmic = dict[@"algorithmic"]; 
         _fingerID = dict[@"fingerID"]; 
         _typeFormatSign = dict[@"typeFormatSign"]; 
+        _certificateAlias = dict[@"certificateAlias"]; 
+        _certificatePassword = dict[@"certificatePassword"]; 
         
 
     }
@@ -107,6 +113,8 @@
         if(_algorithmic != nil) dict[@"algorithmic"] = _algorithmic ;
         if(_fingerID != nil) dict[@"fingerID"] = _fingerID ;
         if(_typeFormatSign != nil) dict[@"typeFormatSign"] = _typeFormatSign ;
+        if(_certificateAlias != nil) dict[@"certificateAlias"] = _certificateAlias ;
+        if(_certificatePassword != nil) dict[@"certificatePassword"] = _certificatePassword ;
         NSDictionary* output = [dict copy];
     return output;
 }

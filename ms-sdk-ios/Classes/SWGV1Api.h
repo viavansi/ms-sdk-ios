@@ -1,6 +1,8 @@
 #import <Foundation/Foundation.h>
 #import "SWGPolicy.h"
+#import "SWGToken.h"
 #import "SWGUser.h"
+#import "SWGEvidence.h"
 #import "SWGFile.h"
 #import "SWGMessage.h"
 #import "SWGDevice.h"
@@ -75,7 +77,7 @@
         metadata:(NSString*) metadata 
         fingerID:(NSString*) fingerID 
         algorithmic:(NSString*) algorithmic 
-        completionHandler: (void (^)(NSError* error))completionBlock;
+        completionHandler: (void (^)(SWGEvidence* output, NSError* error))completionBlock;
 
 /**
 
@@ -199,13 +201,22 @@
 
 /**
 
- Method for user login
- Login user
- @param code 
- @param password 
+ Method for register new access token
+ 
  */
--(NSNumber*) loginUserWithCompletionBlock :(NSString*) code 
-        password:(NSString*) password 
-        completionHandler: (void (^)(SWGUser* output, NSError* error))completionBlock;
+-(NSNumber*) postRequestTokenWithCompletionBlock :(void (^)(SWGToken* output, NSError* error))completionBlock;
+
+/**
+
+ Method for register new access token
+ 
+ @param x_auth_username x_auth_username
+ @param x_auth_password x_auth_password
+ @param x_auth_mode x_auth_mode
+ */
+-(NSNumber*) postAccessTokenWithCompletionBlock :(NSString*) x_auth_username 
+        x_auth_password:(NSString*) x_auth_password 
+        x_auth_mode:(NSString*) x_auth_mode 
+        completionHandler: (void (^)(SWGToken* output, NSError* error))completionBlock;
 
 @end
