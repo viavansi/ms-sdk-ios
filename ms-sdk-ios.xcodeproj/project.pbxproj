@@ -8,50 +8,54 @@
 
 /* Begin PBXBuildFile section */
 		6158CC1FCD8D41799C0907C9 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 143D673615D44581927CF7C9 /* libPods.a */; };
-		D8CD6816E63C4B1284090E96 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 143D673615D44581927CF7C9 /* libPods.a */; };
+		EA5F26AB1ABB426800E2F2F9 /* MSV1configurationApi.m in Sources */ = {isa = PBXBuildFile; fileRef = EA5F26921ABB426800E2F2F9 /* MSV1configurationApi.m */; };
+		EA5F26AC1ABB426800E2F2F9 /* MSV1devicesApi.m in Sources */ = {isa = PBXBuildFile; fileRef = EA5F26941ABB426800E2F2F9 /* MSV1devicesApi.m */; };
+		EA5F26AD1ABB426800E2F2F9 /* MSV1documentsApi.m in Sources */ = {isa = PBXBuildFile; fileRef = EA5F26961ABB426800E2F2F9 /* MSV1documentsApi.m */; };
+		EA5F26AE1ABB426800E2F2F9 /* MSV1evidencesApi.m in Sources */ = {isa = PBXBuildFile; fileRef = EA5F26981ABB426800E2F2F9 /* MSV1evidencesApi.m */; };
+		EA5F26AF1ABB426800E2F2F9 /* MSV1messagesApi.m in Sources */ = {isa = PBXBuildFile; fileRef = EA5F269A1ABB426800E2F2F9 /* MSV1messagesApi.m */; };
+		EA5F26B01ABB426800E2F2F9 /* MSV1notificationsApi.m in Sources */ = {isa = PBXBuildFile; fileRef = EA5F269C1ABB426800E2F2F9 /* MSV1notificationsApi.m */; };
+		EA5F26B11ABB426800E2F2F9 /* MSV1oauthApi.m in Sources */ = {isa = PBXBuildFile; fileRef = EA5F269E1ABB426800E2F2F9 /* MSV1oauthApi.m */; };
+		EA5F26B21ABB426800E2F2F9 /* MSV1signaturesApi.m in Sources */ = {isa = PBXBuildFile; fileRef = EA5F26A01ABB426800E2F2F9 /* MSV1signaturesApi.m */; };
+		EA5F26B31ABB426800E2F2F9 /* MSV1systemApi.m in Sources */ = {isa = PBXBuildFile; fileRef = EA5F26A21ABB426800E2F2F9 /* MSV1systemApi.m */; };
+		EA5F26B41ABB426800E2F2F9 /* MSV1templateApi.m in Sources */ = {isa = PBXBuildFile; fileRef = EA5F26A41ABB426800E2F2F9 /* MSV1templateApi.m */; };
+		EA5F26B51ABB426800E2F2F9 /* MSV1usersApi.m in Sources */ = {isa = PBXBuildFile; fileRef = EA5F26A61ABB426800E2F2F9 /* MSV1usersApi.m */; };
+		EA5F26B61ABB426800E2F2F9 /* OAuth1Client.m in Sources */ = {isa = PBXBuildFile; fileRef = EA5F26A91ABB426800E2F2F9 /* OAuth1Client.m */; };
+		EA5F26F31ABB442000E2F2F9 /* MSWorkflow.m in Sources */ = {isa = PBXBuildFile; fileRef = EA5F26B71ABB442000E2F2F9 /* MSWorkflow.m */; };
+		EA5F26F41ABB442000E2F2F9 /* MSUser.m in Sources */ = {isa = PBXBuildFile; fileRef = EA5F26B91ABB442000E2F2F9 /* MSUser.m */; };
+		EA5F26F51ABB442000E2F2F9 /* MSToken.m in Sources */ = {isa = PBXBuildFile; fileRef = EA5F26BB1ABB442000E2F2F9 /* MSToken.m */; };
+		EA5F26F61ABB442000E2F2F9 /* MSTemplateList.m in Sources */ = {isa = PBXBuildFile; fileRef = EA5F26BD1ABB442000E2F2F9 /* MSTemplateList.m */; };
+		EA5F26F71ABB442000E2F2F9 /* MSTemplate.m in Sources */ = {isa = PBXBuildFile; fileRef = EA5F26BF1ABB442000E2F2F9 /* MSTemplate.m */; };
+		EA5F26F81ABB442000E2F2F9 /* MSSystemStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = EA5F26C11ABB442000E2F2F9 /* MSSystemStatus.m */; };
+		EA5F26F91ABB442000E2F2F9 /* MSSetting.m in Sources */ = {isa = PBXBuildFile; fileRef = EA5F26C31ABB442000E2F2F9 /* MSSetting.m */; };
+		EA5F26FA1ABB442000E2F2F9 /* MSRow.m in Sources */ = {isa = PBXBuildFile; fileRef = EA5F26C51ABB442000E2F2F9 /* MSRow.m */; };
+		EA5F26FB1ABB442000E2F2F9 /* MSRectangle.m in Sources */ = {isa = PBXBuildFile; fileRef = EA5F26C71ABB442000E2F2F9 /* MSRectangle.m */; };
+		EA5F26FC1ABB442000E2F2F9 /* MSPosition.m in Sources */ = {isa = PBXBuildFile; fileRef = EA5F26C91ABB442000E2F2F9 /* MSPosition.m */; };
+		EA5F26FD1ABB442000E2F2F9 /* MSPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = EA5F26CB1ABB442000E2F2F9 /* MSPolicy.m */; };
+		EA5F26FE1ABB442000E2F2F9 /* MSParam.m in Sources */ = {isa = PBXBuildFile; fileRef = EA5F26CD1ABB442000E2F2F9 /* MSParam.m */; };
+		EA5F26FF1ABB442000E2F2F9 /* MSNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = EA5F26CF1ABB442000E2F2F9 /* MSNotification.m */; };
+		EA5F27001ABB442000E2F2F9 /* MSMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = EA5F26D11ABB442000E2F2F9 /* MSMessage.m */; };
+		EA5F27011ABB442000E2F2F9 /* MSMenuOption.m in Sources */ = {isa = PBXBuildFile; fileRef = EA5F26D31ABB442000E2F2F9 /* MSMenuOption.m */; };
+		EA5F27021ABB442000E2F2F9 /* MSMailConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = EA5F26D51ABB442000E2F2F9 /* MSMailConfig.m */; };
+		EA5F27031ABB442000E2F2F9 /* MSMail.m in Sources */ = {isa = PBXBuildFile; fileRef = EA5F26D71ABB442000E2F2F9 /* MSMail.m */; };
+		EA5F27041ABB442000E2F2F9 /* MSItem.m in Sources */ = {isa = PBXBuildFile; fileRef = EA5F26D91ABB442000E2F2F9 /* MSItem.m */; };
+		EA5F27051ABB442000E2F2F9 /* MSInfoSystemStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = EA5F26DB1ABB442000E2F2F9 /* MSInfoSystemStatus.m */; };
+		EA5F27061ABB442000E2F2F9 /* MSFormValue.m in Sources */ = {isa = PBXBuildFile; fileRef = EA5F26DD1ABB442000E2F2F9 /* MSFormValue.m */; };
+		EA5F27071ABB442000E2F2F9 /* MSFormNestedValue.m in Sources */ = {isa = PBXBuildFile; fileRef = EA5F26DF1ABB442000E2F2F9 /* MSFormNestedValue.m */; };
+		EA5F27081ABB442000E2F2F9 /* MSForm.m in Sources */ = {isa = PBXBuildFile; fileRef = EA5F26E11ABB442000E2F2F9 /* MSForm.m */; };
+		EA5F27091ABB442000E2F2F9 /* MSEvidence.m in Sources */ = {isa = PBXBuildFile; fileRef = EA5F26E31ABB442000E2F2F9 /* MSEvidence.m */; };
+		EA5F270A1ABB442000E2F2F9 /* MSEventHistory.m in Sources */ = {isa = PBXBuildFile; fileRef = EA5F26E51ABB442000E2F2F9 /* MSEventHistory.m */; };
+		EA5F270B1ABB442000E2F2F9 /* MSErrorResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = EA5F26E71ABB442000E2F2F9 /* MSErrorResponse.m */; };
+		EA5F270C1ABB442000E2F2F9 /* MSDownload.m in Sources */ = {isa = PBXBuildFile; fileRef = EA5F26E91ABB442000E2F2F9 /* MSDownload.m */; };
+		EA5F270D1ABB442000E2F2F9 /* MSDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = EA5F26EB1ABB442000E2F2F9 /* MSDocument.m */; };
+		EA5F270E1ABB442000E2F2F9 /* MSDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = EA5F26ED1ABB442000E2F2F9 /* MSDevice.m */; };
+		EA5F270F1ABB442000E2F2F9 /* MSContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = EA5F26EF1ABB442000E2F2F9 /* MSContainer.m */; };
+		EA5F27101ABB442000E2F2F9 /* MSConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = EA5F26F11ABB442000E2F2F9 /* MSConfiguration.m */; };
+		EA5F27171ABB444E00E2F2F9 /* SWGObject.m in Sources */ = {isa = PBXBuildFile; fileRef = EA5F27111ABB444E00E2F2F9 /* SWGObject.m */; };
+		EA5F27181ABB444E00E2F2F9 /* SWGFile.m in Sources */ = {isa = PBXBuildFile; fileRef = EA5F27131ABB444E00E2F2F9 /* SWGFile.m */; };
+		EA5F27191ABB444E00E2F2F9 /* SWGDate.m in Sources */ = {isa = PBXBuildFile; fileRef = EA5F27151ABB444E00E2F2F9 /* SWGDate.m */; };
+		EA8F04611ABB2558005CB771 /* ApiClient.m in Sources */ = {isa = PBXBuildFile; fileRef = EA8F04331ABB2558005CB771 /* ApiClient.m */; };
 		EAB529D31AA0D7D100CC9A00 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EAB529D11AA0D7D100CC9A00 /* MainViewController.m */; };
 		EAB529D41AA0D7D100CC9A00 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EAB529D21AA0D7D100CC9A00 /* MainViewController.xib */; };
-		EAB52A271AA0DADD00CC9A00 /* ApiClient.m in Sources */ = {isa = PBXBuildFile; fileRef = EAB529D61AA0DADC00CC9A00 /* ApiClient.m */; };
-		EAB52A281AA0DADD00CC9A00 /* SWGDate.m in Sources */ = {isa = PBXBuildFile; fileRef = EAB529D91AA0DADC00CC9A00 /* SWGDate.m */; };
-		EAB52A291AA0DADD00CC9A00 /* SWGFile.m in Sources */ = {isa = PBXBuildFile; fileRef = EAB529DB1AA0DADC00CC9A00 /* SWGFile.m */; };
-		EAB52A2A1AA0DADD00CC9A00 /* SWGObject.m in Sources */ = {isa = PBXBuildFile; fileRef = EAB529DD1AA0DADC00CC9A00 /* SWGObject.m */; };
-		EAB52A2B1AA0DADD00CC9A00 /* V1configurationApi.m in Sources */ = {isa = PBXBuildFile; fileRef = EAB529DF1AA0DADC00CC9A00 /* V1configurationApi.m */; };
-		EAB52A2C1AA0DADD00CC9A00 /* V1devicesApi.m in Sources */ = {isa = PBXBuildFile; fileRef = EAB529E11AA0DADC00CC9A00 /* V1devicesApi.m */; };
-		EAB52A2D1AA0DADD00CC9A00 /* V1documentsApi.m in Sources */ = {isa = PBXBuildFile; fileRef = EAB529E31AA0DADC00CC9A00 /* V1documentsApi.m */; };
-		EAB52A2E1AA0DADD00CC9A00 /* V1evidencesApi.m in Sources */ = {isa = PBXBuildFile; fileRef = EAB529E51AA0DADC00CC9A00 /* V1evidencesApi.m */; };
-		EAB52A2F1AA0DADD00CC9A00 /* V1messagesApi.m in Sources */ = {isa = PBXBuildFile; fileRef = EAB529E71AA0DADC00CC9A00 /* V1messagesApi.m */; };
-		EAB52A301AA0DADD00CC9A00 /* V1notificationsApi.m in Sources */ = {isa = PBXBuildFile; fileRef = EAB529E91AA0DADC00CC9A00 /* V1notificationsApi.m */; };
-		EAB52A311AA0DADD00CC9A00 /* V1oauthApi.m in Sources */ = {isa = PBXBuildFile; fileRef = EAB529EB1AA0DADC00CC9A00 /* V1oauthApi.m */; };
-		EAB52A321AA0DADD00CC9A00 /* V1signaturesApi.m in Sources */ = {isa = PBXBuildFile; fileRef = EAB529ED1AA0DADC00CC9A00 /* V1signaturesApi.m */; };
-		EAB52A331AA0DADD00CC9A00 /* V1systemApi.m in Sources */ = {isa = PBXBuildFile; fileRef = EAB529EF1AA0DADC00CC9A00 /* V1systemApi.m */; };
-		EAB52A341AA0DADD00CC9A00 /* V1templateApi.m in Sources */ = {isa = PBXBuildFile; fileRef = EAB529F11AA0DADC00CC9A00 /* V1templateApi.m */; };
-		EAB52A351AA0DADD00CC9A00 /* V1usersApi.m in Sources */ = {isa = PBXBuildFile; fileRef = EAB529F31AA0DADC00CC9A00 /* V1usersApi.m */; };
-		EAB52A361AA0DADD00CC9A00 /* Container.m in Sources */ = {isa = PBXBuildFile; fileRef = EAB529F61AA0DADC00CC9A00 /* Container.m */; };
-		EAB52A371AA0DADD00CC9A00 /* Device.m in Sources */ = {isa = PBXBuildFile; fileRef = EAB529F81AA0DADC00CC9A00 /* Device.m */; };
-		EAB52A381AA0DADD00CC9A00 /* Document.m in Sources */ = {isa = PBXBuildFile; fileRef = EAB529FA1AA0DADC00CC9A00 /* Document.m */; };
-		EAB52A391AA0DADD00CC9A00 /* ErrorResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = EAB529FC1AA0DADC00CC9A00 /* ErrorResponse.m */; };
-		EAB52A3A1AA0DADD00CC9A00 /* EventHistory.m in Sources */ = {isa = PBXBuildFile; fileRef = EAB529FE1AA0DADD00CC9A00 /* EventHistory.m */; };
-		EAB52A3B1AA0DADD00CC9A00 /* Evidence.m in Sources */ = {isa = PBXBuildFile; fileRef = EAB52A001AA0DADD00CC9A00 /* Evidence.m */; };
-		EAB52A3C1AA0DADD00CC9A00 /* Form.m in Sources */ = {isa = PBXBuildFile; fileRef = EAB52A021AA0DADD00CC9A00 /* Form.m */; };
-		EAB52A3D1AA0DADD00CC9A00 /* FormNestedValue.m in Sources */ = {isa = PBXBuildFile; fileRef = EAB52A041AA0DADD00CC9A00 /* FormNestedValue.m */; };
-		EAB52A3E1AA0DADD00CC9A00 /* FormValue.m in Sources */ = {isa = PBXBuildFile; fileRef = EAB52A061AA0DADD00CC9A00 /* FormValue.m */; };
-		EAB52A3F1AA0DADD00CC9A00 /* InfoSystemStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = EAB52A081AA0DADD00CC9A00 /* InfoSystemStatus.m */; };
-		EAB52A401AA0DADD00CC9A00 /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = EAB52A0A1AA0DADD00CC9A00 /* Item.m */; };
-		EAB52A411AA0DADD00CC9A00 /* Message.m in Sources */ = {isa = PBXBuildFile; fileRef = EAB52A0C1AA0DADD00CC9A00 /* Message.m */; };
-		EAB52A421AA0DADD00CC9A00 /* Notification.m in Sources */ = {isa = PBXBuildFile; fileRef = EAB52A0E1AA0DADD00CC9A00 /* Notification.m */; };
-		EAB52A431AA0DADD00CC9A00 /* Param.m in Sources */ = {isa = PBXBuildFile; fileRef = EAB52A101AA0DADD00CC9A00 /* Param.m */; };
-		EAB52A441AA0DADD00CC9A00 /* Policy.m in Sources */ = {isa = PBXBuildFile; fileRef = EAB52A121AA0DADD00CC9A00 /* Policy.m */; };
-		EAB52A451AA0DADD00CC9A00 /* Position.m in Sources */ = {isa = PBXBuildFile; fileRef = EAB52A141AA0DADD00CC9A00 /* Position.m */; };
-		EAB52A461AA0DADD00CC9A00 /* Rectangle.m in Sources */ = {isa = PBXBuildFile; fileRef = EAB52A161AA0DADD00CC9A00 /* Rectangle.m */; };
-		EAB52A471AA0DADD00CC9A00 /* Row.m in Sources */ = {isa = PBXBuildFile; fileRef = EAB52A181AA0DADD00CC9A00 /* Row.m */; };
-		EAB52A481AA0DADD00CC9A00 /* Setting.m in Sources */ = {isa = PBXBuildFile; fileRef = EAB52A1A1AA0DADD00CC9A00 /* Setting.m */; };
-		EAB52A491AA0DADD00CC9A00 /* SystemStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = EAB52A1C1AA0DADD00CC9A00 /* SystemStatus.m */; };
-		EAB52A4A1AA0DADD00CC9A00 /* Template.m in Sources */ = {isa = PBXBuildFile; fileRef = EAB52A1E1AA0DADD00CC9A00 /* Template.m */; };
-		EAB52A4B1AA0DADD00CC9A00 /* Token.m in Sources */ = {isa = PBXBuildFile; fileRef = EAB52A201AA0DADD00CC9A00 /* Token.m */; };
-		EAB52A4C1AA0DADD00CC9A00 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = EAB52A221AA0DADD00CC9A00 /* User.m */; };
-		EAB52A4D1AA0DADD00CC9A00 /* Workflow.m in Sources */ = {isa = PBXBuildFile; fileRef = EAB52A241AA0DADD00CC9A00 /* Workflow.m */; };
-		EAB52A511AA0DDE700CC9A00 /* Configuration.m in Sources */ = {isa = PBXBuildFile; fileRef = EAB52A501AA0DDE700CC9A00 /* Configuration.m */; };
-		EAB52A541AA1303000CC9A00 /* Download.m in Sources */ = {isa = PBXBuildFile; fileRef = EAB52A531AA1303000CC9A00 /* Download.m */; };
 		EAE023AA196E811F00964A4A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAE023A9196E811F00964A4A /* Foundation.framework */; };
 		EAE023AC196E811F00964A4A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAE023AB196E811F00964A4A /* CoreGraphics.framework */; };
 		EAE023AE196E811F00964A4A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAE023AD196E811F00964A4A /* UIKit.framework */; };
@@ -59,112 +63,107 @@
 		EAE023B6196E811F00964A4A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EAE023B5196E811F00964A4A /* main.m */; };
 		EAE023BA196E811F00964A4A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EAE023B9196E811F00964A4A /* AppDelegate.m */; };
 		EAE023BC196E811F00964A4A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EAE023BB196E811F00964A4A /* Images.xcassets */; };
-		EAE023C3196E812000964A4A /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAE023C2196E812000964A4A /* XCTest.framework */; };
-		EAE023C4196E812000964A4A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAE023A9196E811F00964A4A /* Foundation.framework */; };
-		EAE023C5196E812000964A4A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAE023AD196E811F00964A4A /* UIKit.framework */; };
-		EAE023CD196E812000964A4A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = EAE023CB196E812000964A4A /* InfoPlist.strings */; };
-		EAE023CF196E812000964A4A /* ms_sdk_iosTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EAE023CE196E812000964A4A /* ms_sdk_iosTests.m */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		EAE023C6196E812000964A4A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = EAE0239E196E811F00964A4A /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = EAE023A5196E811F00964A4A;
-			remoteInfo = "ms-sdk-ios";
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		0F84E4BD4063EA47B9DA0D96 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		143D673615D44581927CF7C9 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		5AEDF93E9C3BED92E6A5D43A /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		EA5F26911ABB426800E2F2F9 /* MSV1configurationApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSV1configurationApi.h; sourceTree = "<group>"; };
+		EA5F26921ABB426800E2F2F9 /* MSV1configurationApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSV1configurationApi.m; sourceTree = "<group>"; };
+		EA5F26931ABB426800E2F2F9 /* MSV1devicesApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSV1devicesApi.h; sourceTree = "<group>"; };
+		EA5F26941ABB426800E2F2F9 /* MSV1devicesApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSV1devicesApi.m; sourceTree = "<group>"; };
+		EA5F26951ABB426800E2F2F9 /* MSV1documentsApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSV1documentsApi.h; sourceTree = "<group>"; };
+		EA5F26961ABB426800E2F2F9 /* MSV1documentsApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSV1documentsApi.m; sourceTree = "<group>"; };
+		EA5F26971ABB426800E2F2F9 /* MSV1evidencesApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSV1evidencesApi.h; sourceTree = "<group>"; };
+		EA5F26981ABB426800E2F2F9 /* MSV1evidencesApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSV1evidencesApi.m; sourceTree = "<group>"; };
+		EA5F26991ABB426800E2F2F9 /* MSV1messagesApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSV1messagesApi.h; sourceTree = "<group>"; };
+		EA5F269A1ABB426800E2F2F9 /* MSV1messagesApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSV1messagesApi.m; sourceTree = "<group>"; };
+		EA5F269B1ABB426800E2F2F9 /* MSV1notificationsApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSV1notificationsApi.h; sourceTree = "<group>"; };
+		EA5F269C1ABB426800E2F2F9 /* MSV1notificationsApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSV1notificationsApi.m; sourceTree = "<group>"; };
+		EA5F269D1ABB426800E2F2F9 /* MSV1oauthApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSV1oauthApi.h; sourceTree = "<group>"; };
+		EA5F269E1ABB426800E2F2F9 /* MSV1oauthApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSV1oauthApi.m; sourceTree = "<group>"; };
+		EA5F269F1ABB426800E2F2F9 /* MSV1signaturesApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSV1signaturesApi.h; sourceTree = "<group>"; };
+		EA5F26A01ABB426800E2F2F9 /* MSV1signaturesApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSV1signaturesApi.m; sourceTree = "<group>"; };
+		EA5F26A11ABB426800E2F2F9 /* MSV1systemApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSV1systemApi.h; sourceTree = "<group>"; };
+		EA5F26A21ABB426800E2F2F9 /* MSV1systemApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSV1systemApi.m; sourceTree = "<group>"; };
+		EA5F26A31ABB426800E2F2F9 /* MSV1templateApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSV1templateApi.h; sourceTree = "<group>"; };
+		EA5F26A41ABB426800E2F2F9 /* MSV1templateApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSV1templateApi.m; sourceTree = "<group>"; };
+		EA5F26A51ABB426800E2F2F9 /* MSV1usersApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSV1usersApi.h; sourceTree = "<group>"; };
+		EA5F26A61ABB426800E2F2F9 /* MSV1usersApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSV1usersApi.m; sourceTree = "<group>"; };
+		EA5F26A81ABB426800E2F2F9 /* OAuth1Client.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAuth1Client.h; sourceTree = "<group>"; };
+		EA5F26A91ABB426800E2F2F9 /* OAuth1Client.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OAuth1Client.m; sourceTree = "<group>"; };
+		EA5F26B71ABB442000E2F2F9 /* MSWorkflow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSWorkflow.m; sourceTree = "<group>"; };
+		EA5F26B81ABB442000E2F2F9 /* MSWorkflow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSWorkflow.h; sourceTree = "<group>"; };
+		EA5F26B91ABB442000E2F2F9 /* MSUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSUser.m; sourceTree = "<group>"; };
+		EA5F26BA1ABB442000E2F2F9 /* MSUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSUser.h; sourceTree = "<group>"; };
+		EA5F26BB1ABB442000E2F2F9 /* MSToken.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSToken.m; sourceTree = "<group>"; };
+		EA5F26BC1ABB442000E2F2F9 /* MSToken.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSToken.h; sourceTree = "<group>"; };
+		EA5F26BD1ABB442000E2F2F9 /* MSTemplateList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSTemplateList.m; sourceTree = "<group>"; };
+		EA5F26BE1ABB442000E2F2F9 /* MSTemplateList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSTemplateList.h; sourceTree = "<group>"; };
+		EA5F26BF1ABB442000E2F2F9 /* MSTemplate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSTemplate.m; sourceTree = "<group>"; };
+		EA5F26C01ABB442000E2F2F9 /* MSTemplate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSTemplate.h; sourceTree = "<group>"; };
+		EA5F26C11ABB442000E2F2F9 /* MSSystemStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSSystemStatus.m; sourceTree = "<group>"; };
+		EA5F26C21ABB442000E2F2F9 /* MSSystemStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSystemStatus.h; sourceTree = "<group>"; };
+		EA5F26C31ABB442000E2F2F9 /* MSSetting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSSetting.m; sourceTree = "<group>"; };
+		EA5F26C41ABB442000E2F2F9 /* MSSetting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSetting.h; sourceTree = "<group>"; };
+		EA5F26C51ABB442000E2F2F9 /* MSRow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSRow.m; sourceTree = "<group>"; };
+		EA5F26C61ABB442000E2F2F9 /* MSRow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSRow.h; sourceTree = "<group>"; };
+		EA5F26C71ABB442000E2F2F9 /* MSRectangle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSRectangle.m; sourceTree = "<group>"; };
+		EA5F26C81ABB442000E2F2F9 /* MSRectangle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSRectangle.h; sourceTree = "<group>"; };
+		EA5F26C91ABB442000E2F2F9 /* MSPosition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSPosition.m; sourceTree = "<group>"; };
+		EA5F26CA1ABB442000E2F2F9 /* MSPosition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSPosition.h; sourceTree = "<group>"; };
+		EA5F26CB1ABB442000E2F2F9 /* MSPolicy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSPolicy.m; sourceTree = "<group>"; };
+		EA5F26CC1ABB442000E2F2F9 /* MSPolicy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSPolicy.h; sourceTree = "<group>"; };
+		EA5F26CD1ABB442000E2F2F9 /* MSParam.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSParam.m; sourceTree = "<group>"; };
+		EA5F26CE1ABB442000E2F2F9 /* MSParam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSParam.h; sourceTree = "<group>"; };
+		EA5F26CF1ABB442000E2F2F9 /* MSNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSNotification.m; sourceTree = "<group>"; };
+		EA5F26D01ABB442000E2F2F9 /* MSNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSNotification.h; sourceTree = "<group>"; };
+		EA5F26D11ABB442000E2F2F9 /* MSMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSMessage.m; sourceTree = "<group>"; };
+		EA5F26D21ABB442000E2F2F9 /* MSMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSMessage.h; sourceTree = "<group>"; };
+		EA5F26D31ABB442000E2F2F9 /* MSMenuOption.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSMenuOption.m; sourceTree = "<group>"; };
+		EA5F26D41ABB442000E2F2F9 /* MSMenuOption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSMenuOption.h; sourceTree = "<group>"; };
+		EA5F26D51ABB442000E2F2F9 /* MSMailConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSMailConfig.m; sourceTree = "<group>"; };
+		EA5F26D61ABB442000E2F2F9 /* MSMailConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSMailConfig.h; sourceTree = "<group>"; };
+		EA5F26D71ABB442000E2F2F9 /* MSMail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSMail.m; sourceTree = "<group>"; };
+		EA5F26D81ABB442000E2F2F9 /* MSMail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSMail.h; sourceTree = "<group>"; };
+		EA5F26D91ABB442000E2F2F9 /* MSItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSItem.m; sourceTree = "<group>"; };
+		EA5F26DA1ABB442000E2F2F9 /* MSItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSItem.h; sourceTree = "<group>"; };
+		EA5F26DB1ABB442000E2F2F9 /* MSInfoSystemStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSInfoSystemStatus.m; sourceTree = "<group>"; };
+		EA5F26DC1ABB442000E2F2F9 /* MSInfoSystemStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSInfoSystemStatus.h; sourceTree = "<group>"; };
+		EA5F26DD1ABB442000E2F2F9 /* MSFormValue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSFormValue.m; sourceTree = "<group>"; };
+		EA5F26DE1ABB442000E2F2F9 /* MSFormValue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSFormValue.h; sourceTree = "<group>"; };
+		EA5F26DF1ABB442000E2F2F9 /* MSFormNestedValue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSFormNestedValue.m; sourceTree = "<group>"; };
+		EA5F26E01ABB442000E2F2F9 /* MSFormNestedValue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSFormNestedValue.h; sourceTree = "<group>"; };
+		EA5F26E11ABB442000E2F2F9 /* MSForm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSForm.m; sourceTree = "<group>"; };
+		EA5F26E21ABB442000E2F2F9 /* MSForm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSForm.h; sourceTree = "<group>"; };
+		EA5F26E31ABB442000E2F2F9 /* MSEvidence.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSEvidence.m; sourceTree = "<group>"; };
+		EA5F26E41ABB442000E2F2F9 /* MSEvidence.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSEvidence.h; sourceTree = "<group>"; };
+		EA5F26E51ABB442000E2F2F9 /* MSEventHistory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSEventHistory.m; sourceTree = "<group>"; };
+		EA5F26E61ABB442000E2F2F9 /* MSEventHistory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSEventHistory.h; sourceTree = "<group>"; };
+		EA5F26E71ABB442000E2F2F9 /* MSErrorResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSErrorResponse.m; sourceTree = "<group>"; };
+		EA5F26E81ABB442000E2F2F9 /* MSErrorResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSErrorResponse.h; sourceTree = "<group>"; };
+		EA5F26E91ABB442000E2F2F9 /* MSDownload.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSDownload.m; sourceTree = "<group>"; };
+		EA5F26EA1ABB442000E2F2F9 /* MSDownload.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSDownload.h; sourceTree = "<group>"; };
+		EA5F26EB1ABB442000E2F2F9 /* MSDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSDocument.m; sourceTree = "<group>"; };
+		EA5F26EC1ABB442000E2F2F9 /* MSDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSDocument.h; sourceTree = "<group>"; };
+		EA5F26ED1ABB442000E2F2F9 /* MSDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSDevice.m; sourceTree = "<group>"; };
+		EA5F26EE1ABB442000E2F2F9 /* MSDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSDevice.h; sourceTree = "<group>"; };
+		EA5F26EF1ABB442000E2F2F9 /* MSContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSContainer.m; sourceTree = "<group>"; };
+		EA5F26F01ABB442000E2F2F9 /* MSContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSContainer.h; sourceTree = "<group>"; };
+		EA5F26F11ABB442000E2F2F9 /* MSConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSConfiguration.m; sourceTree = "<group>"; };
+		EA5F26F21ABB442000E2F2F9 /* MSConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSConfiguration.h; sourceTree = "<group>"; };
+		EA5F27111ABB444E00E2F2F9 /* SWGObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWGObject.m; sourceTree = "<group>"; };
+		EA5F27121ABB444E00E2F2F9 /* SWGObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWGObject.h; sourceTree = "<group>"; };
+		EA5F27131ABB444E00E2F2F9 /* SWGFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWGFile.m; sourceTree = "<group>"; };
+		EA5F27141ABB444E00E2F2F9 /* SWGFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWGFile.h; sourceTree = "<group>"; };
+		EA5F27151ABB444E00E2F2F9 /* SWGDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWGDate.m; sourceTree = "<group>"; };
+		EA5F27161ABB444E00E2F2F9 /* SWGDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWGDate.h; sourceTree = "<group>"; };
+		EA8F04331ABB2558005CB771 /* ApiClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApiClient.m; sourceTree = "<group>"; };
+		EA8F04341ABB2558005CB771 /* ApiClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApiClient.h; sourceTree = "<group>"; };
 		EAB529D01AA0D7D100CC9A00 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		EAB529D11AA0D7D100CC9A00 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		EAB529D21AA0D7D100CC9A00 /* MainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
-		EAB529D51AA0DADC00CC9A00 /* ApiClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApiClient.h; sourceTree = "<group>"; };
-		EAB529D61AA0DADC00CC9A00 /* ApiClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApiClient.m; sourceTree = "<group>"; };
-		EAB529D81AA0DADC00CC9A00 /* SWGDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWGDate.h; sourceTree = "<group>"; };
-		EAB529D91AA0DADC00CC9A00 /* SWGDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWGDate.m; sourceTree = "<group>"; };
-		EAB529DA1AA0DADC00CC9A00 /* SWGFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWGFile.h; sourceTree = "<group>"; };
-		EAB529DB1AA0DADC00CC9A00 /* SWGFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWGFile.m; sourceTree = "<group>"; };
-		EAB529DC1AA0DADC00CC9A00 /* SWGObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWGObject.h; sourceTree = "<group>"; };
-		EAB529DD1AA0DADC00CC9A00 /* SWGObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWGObject.m; sourceTree = "<group>"; };
-		EAB529DE1AA0DADC00CC9A00 /* V1configurationApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = V1configurationApi.h; sourceTree = "<group>"; };
-		EAB529DF1AA0DADC00CC9A00 /* V1configurationApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = V1configurationApi.m; sourceTree = "<group>"; };
-		EAB529E01AA0DADC00CC9A00 /* V1devicesApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = V1devicesApi.h; sourceTree = "<group>"; };
-		EAB529E11AA0DADC00CC9A00 /* V1devicesApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = V1devicesApi.m; sourceTree = "<group>"; };
-		EAB529E21AA0DADC00CC9A00 /* V1documentsApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = V1documentsApi.h; sourceTree = "<group>"; };
-		EAB529E31AA0DADC00CC9A00 /* V1documentsApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = V1documentsApi.m; sourceTree = "<group>"; };
-		EAB529E41AA0DADC00CC9A00 /* V1evidencesApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = V1evidencesApi.h; sourceTree = "<group>"; };
-		EAB529E51AA0DADC00CC9A00 /* V1evidencesApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = V1evidencesApi.m; sourceTree = "<group>"; };
-		EAB529E61AA0DADC00CC9A00 /* V1messagesApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = V1messagesApi.h; sourceTree = "<group>"; };
-		EAB529E71AA0DADC00CC9A00 /* V1messagesApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = V1messagesApi.m; sourceTree = "<group>"; };
-		EAB529E81AA0DADC00CC9A00 /* V1notificationsApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = V1notificationsApi.h; sourceTree = "<group>"; };
-		EAB529E91AA0DADC00CC9A00 /* V1notificationsApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = V1notificationsApi.m; sourceTree = "<group>"; };
-		EAB529EA1AA0DADC00CC9A00 /* V1oauthApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = V1oauthApi.h; sourceTree = "<group>"; };
-		EAB529EB1AA0DADC00CC9A00 /* V1oauthApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = V1oauthApi.m; sourceTree = "<group>"; };
-		EAB529EC1AA0DADC00CC9A00 /* V1signaturesApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = V1signaturesApi.h; sourceTree = "<group>"; };
-		EAB529ED1AA0DADC00CC9A00 /* V1signaturesApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = V1signaturesApi.m; sourceTree = "<group>"; };
-		EAB529EE1AA0DADC00CC9A00 /* V1systemApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = V1systemApi.h; sourceTree = "<group>"; };
-		EAB529EF1AA0DADC00CC9A00 /* V1systemApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = V1systemApi.m; sourceTree = "<group>"; };
-		EAB529F01AA0DADC00CC9A00 /* V1templateApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = V1templateApi.h; sourceTree = "<group>"; };
-		EAB529F11AA0DADC00CC9A00 /* V1templateApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = V1templateApi.m; sourceTree = "<group>"; };
-		EAB529F21AA0DADC00CC9A00 /* V1usersApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = V1usersApi.h; sourceTree = "<group>"; };
-		EAB529F31AA0DADC00CC9A00 /* V1usersApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = V1usersApi.m; sourceTree = "<group>"; };
-		EAB529F51AA0DADC00CC9A00 /* Container.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Container.h; sourceTree = "<group>"; };
-		EAB529F61AA0DADC00CC9A00 /* Container.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Container.m; sourceTree = "<group>"; };
-		EAB529F71AA0DADC00CC9A00 /* Device.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Device.h; sourceTree = "<group>"; };
-		EAB529F81AA0DADC00CC9A00 /* Device.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Device.m; sourceTree = "<group>"; };
-		EAB529F91AA0DADC00CC9A00 /* Document.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Document.h; sourceTree = "<group>"; };
-		EAB529FA1AA0DADC00CC9A00 /* Document.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Document.m; sourceTree = "<group>"; };
-		EAB529FB1AA0DADC00CC9A00 /* ErrorResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ErrorResponse.h; sourceTree = "<group>"; };
-		EAB529FC1AA0DADC00CC9A00 /* ErrorResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ErrorResponse.m; sourceTree = "<group>"; };
-		EAB529FD1AA0DADD00CC9A00 /* EventHistory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventHistory.h; sourceTree = "<group>"; };
-		EAB529FE1AA0DADD00CC9A00 /* EventHistory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventHistory.m; sourceTree = "<group>"; };
-		EAB529FF1AA0DADD00CC9A00 /* Evidence.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Evidence.h; sourceTree = "<group>"; };
-		EAB52A001AA0DADD00CC9A00 /* Evidence.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Evidence.m; sourceTree = "<group>"; };
-		EAB52A011AA0DADD00CC9A00 /* Form.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Form.h; sourceTree = "<group>"; };
-		EAB52A021AA0DADD00CC9A00 /* Form.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Form.m; sourceTree = "<group>"; };
-		EAB52A031AA0DADD00CC9A00 /* FormNestedValue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FormNestedValue.h; sourceTree = "<group>"; };
-		EAB52A041AA0DADD00CC9A00 /* FormNestedValue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FormNestedValue.m; sourceTree = "<group>"; };
-		EAB52A051AA0DADD00CC9A00 /* FormValue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FormValue.h; sourceTree = "<group>"; };
-		EAB52A061AA0DADD00CC9A00 /* FormValue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FormValue.m; sourceTree = "<group>"; };
-		EAB52A071AA0DADD00CC9A00 /* InfoSystemStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoSystemStatus.h; sourceTree = "<group>"; };
-		EAB52A081AA0DADD00CC9A00 /* InfoSystemStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoSystemStatus.m; sourceTree = "<group>"; };
-		EAB52A091AA0DADD00CC9A00 /* Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Item.h; sourceTree = "<group>"; };
-		EAB52A0A1AA0DADD00CC9A00 /* Item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Item.m; sourceTree = "<group>"; };
-		EAB52A0B1AA0DADD00CC9A00 /* Message.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Message.h; sourceTree = "<group>"; };
-		EAB52A0C1AA0DADD00CC9A00 /* Message.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Message.m; sourceTree = "<group>"; };
-		EAB52A0D1AA0DADD00CC9A00 /* Notification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Notification.h; sourceTree = "<group>"; };
-		EAB52A0E1AA0DADD00CC9A00 /* Notification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Notification.m; sourceTree = "<group>"; };
-		EAB52A0F1AA0DADD00CC9A00 /* Param.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Param.h; sourceTree = "<group>"; };
-		EAB52A101AA0DADD00CC9A00 /* Param.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Param.m; sourceTree = "<group>"; };
-		EAB52A111AA0DADD00CC9A00 /* Policy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Policy.h; sourceTree = "<group>"; };
-		EAB52A121AA0DADD00CC9A00 /* Policy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Policy.m; sourceTree = "<group>"; };
-		EAB52A131AA0DADD00CC9A00 /* Position.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Position.h; sourceTree = "<group>"; };
-		EAB52A141AA0DADD00CC9A00 /* Position.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Position.m; sourceTree = "<group>"; };
-		EAB52A151AA0DADD00CC9A00 /* Rectangle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Rectangle.h; sourceTree = "<group>"; };
-		EAB52A161AA0DADD00CC9A00 /* Rectangle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Rectangle.m; sourceTree = "<group>"; };
-		EAB52A171AA0DADD00CC9A00 /* Row.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Row.h; sourceTree = "<group>"; };
-		EAB52A181AA0DADD00CC9A00 /* Row.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Row.m; sourceTree = "<group>"; };
-		EAB52A191AA0DADD00CC9A00 /* Setting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Setting.h; sourceTree = "<group>"; };
-		EAB52A1A1AA0DADD00CC9A00 /* Setting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Setting.m; sourceTree = "<group>"; };
-		EAB52A1B1AA0DADD00CC9A00 /* SystemStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SystemStatus.h; sourceTree = "<group>"; };
-		EAB52A1C1AA0DADD00CC9A00 /* SystemStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SystemStatus.m; sourceTree = "<group>"; };
-		EAB52A1D1AA0DADD00CC9A00 /* Template.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Template.h; sourceTree = "<group>"; };
-		EAB52A1E1AA0DADD00CC9A00 /* Template.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Template.m; sourceTree = "<group>"; };
-		EAB52A1F1AA0DADD00CC9A00 /* Token.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Token.h; sourceTree = "<group>"; };
-		EAB52A201AA0DADD00CC9A00 /* Token.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Token.m; sourceTree = "<group>"; };
-		EAB52A211AA0DADD00CC9A00 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
-		EAB52A221AA0DADD00CC9A00 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
-		EAB52A231AA0DADD00CC9A00 /* Workflow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Workflow.h; sourceTree = "<group>"; };
-		EAB52A241AA0DADD00CC9A00 /* Workflow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Workflow.m; sourceTree = "<group>"; };
-		EAB52A4F1AA0DDE700CC9A00 /* Configuration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Configuration.h; sourceTree = "<group>"; };
-		EAB52A501AA0DDE700CC9A00 /* Configuration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Configuration.m; sourceTree = "<group>"; };
-		EAB52A521AA1303000CC9A00 /* Download.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Download.h; sourceTree = "<group>"; };
-		EAB52A531AA1303000CC9A00 /* Download.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Download.m; sourceTree = "<group>"; };
 		EAE023A6196E811F00964A4A /* ms-sdk-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ms-sdk-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EAE023A9196E811F00964A4A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		EAE023AB196E811F00964A4A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -176,7 +175,6 @@
 		EAE023B8196E811F00964A4A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		EAE023B9196E811F00964A4A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		EAE023BB196E811F00964A4A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		EAE023C1196E812000964A4A /* ms-sdk-iosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ms-sdk-iosTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EAE023C2196E812000964A4A /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		EAE023CA196E812000964A4A /* ms-sdk-iosTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ms-sdk-iosTests-Info.plist"; sourceTree = "<group>"; };
 		EAE023CC196E812000964A4A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -195,17 +193,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		EAE023BE196E812000964A4A /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				EAE023C3196E812000964A4A /* XCTest.framework in Frameworks */,
-				EAE023C5196E812000964A4A /* UIKit.framework in Frameworks */,
-				EAE023C4196E812000964A4A /* Foundation.framework in Frameworks */,
-				D8CD6816E63C4B1284090E96 /* libPods.a in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -218,74 +205,120 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		EAB529D71AA0DADC00CC9A00 /* util */ = {
+		EA5F268F1ABB426800E2F2F9 /* util */ = {
 			isa = PBXGroup;
 			children = (
-				EAB529D81AA0DADC00CC9A00 /* SWGDate.h */,
-				EAB529D91AA0DADC00CC9A00 /* SWGDate.m */,
-				EAB529DA1AA0DADC00CC9A00 /* SWGFile.h */,
-				EAB529DB1AA0DADC00CC9A00 /* SWGFile.m */,
-				EAB529DC1AA0DADC00CC9A00 /* SWGObject.h */,
-				EAB529DD1AA0DADC00CC9A00 /* SWGObject.m */,
+				EA5F27111ABB444E00E2F2F9 /* SWGObject.m */,
+				EA5F27121ABB444E00E2F2F9 /* SWGObject.h */,
+				EA5F27131ABB444E00E2F2F9 /* SWGFile.m */,
+				EA5F27141ABB444E00E2F2F9 /* SWGFile.h */,
+				EA5F27151ABB444E00E2F2F9 /* SWGDate.m */,
+				EA5F27161ABB444E00E2F2F9 /* SWGDate.h */,
 			);
 			path = util;
 			sourceTree = "<group>";
 		};
-		EAB529F41AA0DADC00CC9A00 /* model */ = {
+		EA5F26901ABB426800E2F2F9 /* service */ = {
 			isa = PBXGroup;
 			children = (
-				EAB52A521AA1303000CC9A00 /* Download.h */,
-				EAB52A531AA1303000CC9A00 /* Download.m */,
-				EAB52A4F1AA0DDE700CC9A00 /* Configuration.h */,
-				EAB52A501AA0DDE700CC9A00 /* Configuration.m */,
-				EAB529F51AA0DADC00CC9A00 /* Container.h */,
-				EAB529F61AA0DADC00CC9A00 /* Container.m */,
-				EAB529F71AA0DADC00CC9A00 /* Device.h */,
-				EAB529F81AA0DADC00CC9A00 /* Device.m */,
-				EAB529F91AA0DADC00CC9A00 /* Document.h */,
-				EAB529FA1AA0DADC00CC9A00 /* Document.m */,
-				EAB529FB1AA0DADC00CC9A00 /* ErrorResponse.h */,
-				EAB529FC1AA0DADC00CC9A00 /* ErrorResponse.m */,
-				EAB529FD1AA0DADD00CC9A00 /* EventHistory.h */,
-				EAB529FE1AA0DADD00CC9A00 /* EventHistory.m */,
-				EAB529FF1AA0DADD00CC9A00 /* Evidence.h */,
-				EAB52A001AA0DADD00CC9A00 /* Evidence.m */,
-				EAB52A011AA0DADD00CC9A00 /* Form.h */,
-				EAB52A021AA0DADD00CC9A00 /* Form.m */,
-				EAB52A031AA0DADD00CC9A00 /* FormNestedValue.h */,
-				EAB52A041AA0DADD00CC9A00 /* FormNestedValue.m */,
-				EAB52A051AA0DADD00CC9A00 /* FormValue.h */,
-				EAB52A061AA0DADD00CC9A00 /* FormValue.m */,
-				EAB52A071AA0DADD00CC9A00 /* InfoSystemStatus.h */,
-				EAB52A081AA0DADD00CC9A00 /* InfoSystemStatus.m */,
-				EAB52A091AA0DADD00CC9A00 /* Item.h */,
-				EAB52A0A1AA0DADD00CC9A00 /* Item.m */,
-				EAB52A0B1AA0DADD00CC9A00 /* Message.h */,
-				EAB52A0C1AA0DADD00CC9A00 /* Message.m */,
-				EAB52A0D1AA0DADD00CC9A00 /* Notification.h */,
-				EAB52A0E1AA0DADD00CC9A00 /* Notification.m */,
-				EAB52A0F1AA0DADD00CC9A00 /* Param.h */,
-				EAB52A101AA0DADD00CC9A00 /* Param.m */,
-				EAB52A111AA0DADD00CC9A00 /* Policy.h */,
-				EAB52A121AA0DADD00CC9A00 /* Policy.m */,
-				EAB52A131AA0DADD00CC9A00 /* Position.h */,
-				EAB52A141AA0DADD00CC9A00 /* Position.m */,
-				EAB52A151AA0DADD00CC9A00 /* Rectangle.h */,
-				EAB52A161AA0DADD00CC9A00 /* Rectangle.m */,
-				EAB52A171AA0DADD00CC9A00 /* Row.h */,
-				EAB52A181AA0DADD00CC9A00 /* Row.m */,
-				EAB52A191AA0DADD00CC9A00 /* Setting.h */,
-				EAB52A1A1AA0DADD00CC9A00 /* Setting.m */,
-				EAB52A1B1AA0DADD00CC9A00 /* SystemStatus.h */,
-				EAB52A1C1AA0DADD00CC9A00 /* SystemStatus.m */,
-				EAB52A1D1AA0DADD00CC9A00 /* Template.h */,
-				EAB52A1E1AA0DADD00CC9A00 /* Template.m */,
-				EAB52A1F1AA0DADD00CC9A00 /* Token.h */,
-				EAB52A201AA0DADD00CC9A00 /* Token.m */,
-				EAB52A211AA0DADD00CC9A00 /* User.h */,
-				EAB52A221AA0DADD00CC9A00 /* User.m */,
-				EAB52A231AA0DADD00CC9A00 /* Workflow.h */,
-				EAB52A241AA0DADD00CC9A00 /* Workflow.m */,
+				EA5F26911ABB426800E2F2F9 /* MSV1configurationApi.h */,
+				EA5F26921ABB426800E2F2F9 /* MSV1configurationApi.m */,
+				EA5F26931ABB426800E2F2F9 /* MSV1devicesApi.h */,
+				EA5F26941ABB426800E2F2F9 /* MSV1devicesApi.m */,
+				EA5F26951ABB426800E2F2F9 /* MSV1documentsApi.h */,
+				EA5F26961ABB426800E2F2F9 /* MSV1documentsApi.m */,
+				EA5F26971ABB426800E2F2F9 /* MSV1evidencesApi.h */,
+				EA5F26981ABB426800E2F2F9 /* MSV1evidencesApi.m */,
+				EA5F26991ABB426800E2F2F9 /* MSV1messagesApi.h */,
+				EA5F269A1ABB426800E2F2F9 /* MSV1messagesApi.m */,
+				EA5F269B1ABB426800E2F2F9 /* MSV1notificationsApi.h */,
+				EA5F269C1ABB426800E2F2F9 /* MSV1notificationsApi.m */,
+				EA5F269D1ABB426800E2F2F9 /* MSV1oauthApi.h */,
+				EA5F269E1ABB426800E2F2F9 /* MSV1oauthApi.m */,
+				EA5F269F1ABB426800E2F2F9 /* MSV1signaturesApi.h */,
+				EA5F26A01ABB426800E2F2F9 /* MSV1signaturesApi.m */,
+				EA5F26A11ABB426800E2F2F9 /* MSV1systemApi.h */,
+				EA5F26A21ABB426800E2F2F9 /* MSV1systemApi.m */,
+				EA5F26A31ABB426800E2F2F9 /* MSV1templateApi.h */,
+				EA5F26A41ABB426800E2F2F9 /* MSV1templateApi.m */,
+				EA5F26A51ABB426800E2F2F9 /* MSV1usersApi.h */,
+				EA5F26A61ABB426800E2F2F9 /* MSV1usersApi.m */,
+			);
+			path = service;
+			sourceTree = "<group>";
+		};
+		EA5F26A71ABB426800E2F2F9 /* oauth */ = {
+			isa = PBXGroup;
+			children = (
+				EA5F26A81ABB426800E2F2F9 /* OAuth1Client.h */,
+				EA5F26A91ABB426800E2F2F9 /* OAuth1Client.m */,
+			);
+			path = oauth;
+			sourceTree = "<group>";
+		};
+		EA5F26AA1ABB426800E2F2F9 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				EA5F26B71ABB442000E2F2F9 /* MSWorkflow.m */,
+				EA5F26B81ABB442000E2F2F9 /* MSWorkflow.h */,
+				EA5F26B91ABB442000E2F2F9 /* MSUser.m */,
+				EA5F26BA1ABB442000E2F2F9 /* MSUser.h */,
+				EA5F26BB1ABB442000E2F2F9 /* MSToken.m */,
+				EA5F26BC1ABB442000E2F2F9 /* MSToken.h */,
+				EA5F26BD1ABB442000E2F2F9 /* MSTemplateList.m */,
+				EA5F26BE1ABB442000E2F2F9 /* MSTemplateList.h */,
+				EA5F26BF1ABB442000E2F2F9 /* MSTemplate.m */,
+				EA5F26C01ABB442000E2F2F9 /* MSTemplate.h */,
+				EA5F26C11ABB442000E2F2F9 /* MSSystemStatus.m */,
+				EA5F26C21ABB442000E2F2F9 /* MSSystemStatus.h */,
+				EA5F26C31ABB442000E2F2F9 /* MSSetting.m */,
+				EA5F26C41ABB442000E2F2F9 /* MSSetting.h */,
+				EA5F26C51ABB442000E2F2F9 /* MSRow.m */,
+				EA5F26C61ABB442000E2F2F9 /* MSRow.h */,
+				EA5F26C71ABB442000E2F2F9 /* MSRectangle.m */,
+				EA5F26C81ABB442000E2F2F9 /* MSRectangle.h */,
+				EA5F26C91ABB442000E2F2F9 /* MSPosition.m */,
+				EA5F26CA1ABB442000E2F2F9 /* MSPosition.h */,
+				EA5F26CB1ABB442000E2F2F9 /* MSPolicy.m */,
+				EA5F26CC1ABB442000E2F2F9 /* MSPolicy.h */,
+				EA5F26CD1ABB442000E2F2F9 /* MSParam.m */,
+				EA5F26CE1ABB442000E2F2F9 /* MSParam.h */,
+				EA5F26CF1ABB442000E2F2F9 /* MSNotification.m */,
+				EA5F26D01ABB442000E2F2F9 /* MSNotification.h */,
+				EA5F26D11ABB442000E2F2F9 /* MSMessage.m */,
+				EA5F26D21ABB442000E2F2F9 /* MSMessage.h */,
+				EA5F26D31ABB442000E2F2F9 /* MSMenuOption.m */,
+				EA5F26D41ABB442000E2F2F9 /* MSMenuOption.h */,
+				EA5F26D51ABB442000E2F2F9 /* MSMailConfig.m */,
+				EA5F26D61ABB442000E2F2F9 /* MSMailConfig.h */,
+				EA5F26D71ABB442000E2F2F9 /* MSMail.m */,
+				EA5F26D81ABB442000E2F2F9 /* MSMail.h */,
+				EA5F26D91ABB442000E2F2F9 /* MSItem.m */,
+				EA5F26DA1ABB442000E2F2F9 /* MSItem.h */,
+				EA5F26DB1ABB442000E2F2F9 /* MSInfoSystemStatus.m */,
+				EA5F26DC1ABB442000E2F2F9 /* MSInfoSystemStatus.h */,
+				EA5F26DD1ABB442000E2F2F9 /* MSFormValue.m */,
+				EA5F26DE1ABB442000E2F2F9 /* MSFormValue.h */,
+				EA5F26DF1ABB442000E2F2F9 /* MSFormNestedValue.m */,
+				EA5F26E01ABB442000E2F2F9 /* MSFormNestedValue.h */,
+				EA5F26E11ABB442000E2F2F9 /* MSForm.m */,
+				EA5F26E21ABB442000E2F2F9 /* MSForm.h */,
+				EA5F26E31ABB442000E2F2F9 /* MSEvidence.m */,
+				EA5F26E41ABB442000E2F2F9 /* MSEvidence.h */,
+				EA5F26E51ABB442000E2F2F9 /* MSEventHistory.m */,
+				EA5F26E61ABB442000E2F2F9 /* MSEventHistory.h */,
+				EA5F26E71ABB442000E2F2F9 /* MSErrorResponse.m */,
+				EA5F26E81ABB442000E2F2F9 /* MSErrorResponse.h */,
+				EA5F26E91ABB442000E2F2F9 /* MSDownload.m */,
+				EA5F26EA1ABB442000E2F2F9 /* MSDownload.h */,
+				EA5F26EB1ABB442000E2F2F9 /* MSDocument.m */,
+				EA5F26EC1ABB442000E2F2F9 /* MSDocument.h */,
+				EA5F26ED1ABB442000E2F2F9 /* MSDevice.m */,
+				EA5F26EE1ABB442000E2F2F9 /* MSDevice.h */,
+				EA5F26EF1ABB442000E2F2F9 /* MSContainer.m */,
+				EA5F26F01ABB442000E2F2F9 /* MSContainer.h */,
+				EA5F26F11ABB442000E2F2F9 /* MSConfiguration.m */,
+				EA5F26F21ABB442000E2F2F9 /* MSConfiguration.h */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -305,7 +338,6 @@
 			isa = PBXGroup;
 			children = (
 				EAE023A6196E811F00964A4A /* ms-sdk-ios.app */,
-				EAE023C1196E812000964A4A /* ms-sdk-iosTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -369,32 +401,12 @@
 		EAE023D8196E828A00964A4A /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				EAB529D51AA0DADC00CC9A00 /* ApiClient.h */,
-				EAB529D61AA0DADC00CC9A00 /* ApiClient.m */,
-				EAB529D71AA0DADC00CC9A00 /* util */,
-				EAB529DE1AA0DADC00CC9A00 /* V1configurationApi.h */,
-				EAB529DF1AA0DADC00CC9A00 /* V1configurationApi.m */,
-				EAB529E01AA0DADC00CC9A00 /* V1devicesApi.h */,
-				EAB529E11AA0DADC00CC9A00 /* V1devicesApi.m */,
-				EAB529E21AA0DADC00CC9A00 /* V1documentsApi.h */,
-				EAB529E31AA0DADC00CC9A00 /* V1documentsApi.m */,
-				EAB529E41AA0DADC00CC9A00 /* V1evidencesApi.h */,
-				EAB529E51AA0DADC00CC9A00 /* V1evidencesApi.m */,
-				EAB529E61AA0DADC00CC9A00 /* V1messagesApi.h */,
-				EAB529E71AA0DADC00CC9A00 /* V1messagesApi.m */,
-				EAB529E81AA0DADC00CC9A00 /* V1notificationsApi.h */,
-				EAB529E91AA0DADC00CC9A00 /* V1notificationsApi.m */,
-				EAB529EA1AA0DADC00CC9A00 /* V1oauthApi.h */,
-				EAB529EB1AA0DADC00CC9A00 /* V1oauthApi.m */,
-				EAB529EC1AA0DADC00CC9A00 /* V1signaturesApi.h */,
-				EAB529ED1AA0DADC00CC9A00 /* V1signaturesApi.m */,
-				EAB529EE1AA0DADC00CC9A00 /* V1systemApi.h */,
-				EAB529EF1AA0DADC00CC9A00 /* V1systemApi.m */,
-				EAB529F01AA0DADC00CC9A00 /* V1templateApi.h */,
-				EAB529F11AA0DADC00CC9A00 /* V1templateApi.m */,
-				EAB529F21AA0DADC00CC9A00 /* V1usersApi.h */,
-				EAB529F31AA0DADC00CC9A00 /* V1usersApi.m */,
-				EAB529F41AA0DADC00CC9A00 /* model */,
+				EA5F268F1ABB426800E2F2F9 /* util */,
+				EA5F26901ABB426800E2F2F9 /* service */,
+				EA5F26A71ABB426800E2F2F9 /* oauth */,
+				EA5F26AA1ABB426800E2F2F9 /* model */,
+				EA8F04331ABB2558005CB771 /* ApiClient.m */,
+				EA8F04341ABB2558005CB771 /* ApiClient.h */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -421,26 +433,6 @@
 			productReference = EAE023A6196E811F00964A4A /* ms-sdk-ios.app */;
 			productType = "com.apple.product-type.application";
 		};
-		EAE023C0196E812000964A4A /* ms-sdk-iosTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = EAE023D5196E812000964A4A /* Build configuration list for PBXNativeTarget "ms-sdk-iosTests" */;
-			buildPhases = (
-				A9E8091BCF1041909CB5824A /* Check Pods Manifest.lock */,
-				EAE023BD196E812000964A4A /* Sources */,
-				EAE023BE196E812000964A4A /* Frameworks */,
-				EAE023BF196E812000964A4A /* Resources */,
-				6ED6A18E84FF469CB878B65B /* Copy Pods Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				EAE023C7196E812000964A4A /* PBXTargetDependency */,
-			);
-			name = "ms-sdk-iosTests";
-			productName = "ms-sdk-iosTests";
-			productReference = EAE023C1196E812000964A4A /* ms-sdk-iosTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -449,11 +441,6 @@
 			attributes = {
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Viafirma S.L.";
-				TargetAttributes = {
-					EAE023C0196E812000964A4A = {
-						TestTargetID = EAE023A5196E811F00964A4A;
-					};
-				};
 			};
 			buildConfigurationList = EAE023A1196E811F00964A4A /* Build configuration list for PBXProject "ms-sdk-ios" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -468,7 +455,6 @@
 			projectRoot = "";
 			targets = (
 				EAE023A5196E811F00964A4A /* ms-sdk-ios */,
-				EAE023C0196E812000964A4A /* ms-sdk-iosTests */,
 			);
 		};
 /* End PBXProject section */
@@ -481,14 +467,6 @@
 				EAE023B4196E811F00964A4A /* InfoPlist.strings in Resources */,
 				EAB529D41AA0D7D100CC9A00 /* MainViewController.xib in Resources */,
 				EAE023BC196E811F00964A4A /* Images.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		EAE023BF196E812000964A4A /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				EAE023CD196E812000964A4A /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -525,36 +503,6 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		6ED6A18E84FF469CB878B65B /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		A9E8091BCF1041909CB5824A /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -562,70 +510,59 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EAB52A471AA0DADD00CC9A00 /* Row.m in Sources */,
-				EAB52A3C1AA0DADD00CC9A00 /* Form.m in Sources */,
-				EAB52A441AA0DADD00CC9A00 /* Policy.m in Sources */,
-				EAB52A351AA0DADD00CC9A00 /* V1usersApi.m in Sources */,
-				EAB52A2B1AA0DADD00CC9A00 /* V1configurationApi.m in Sources */,
-				EAB52A541AA1303000CC9A00 /* Download.m in Sources */,
-				EAB52A2A1AA0DADD00CC9A00 /* SWGObject.m in Sources */,
-				EAB52A381AA0DADD00CC9A00 /* Document.m in Sources */,
-				EAB52A3A1AA0DADD00CC9A00 /* EventHistory.m in Sources */,
-				EAB52A4C1AA0DADD00CC9A00 /* User.m in Sources */,
-				EAB52A3D1AA0DADD00CC9A00 /* FormNestedValue.m in Sources */,
-				EAB52A411AA0DADD00CC9A00 /* Message.m in Sources */,
-				EAB52A3E1AA0DADD00CC9A00 /* FormValue.m in Sources */,
-				EAB52A4B1AA0DADD00CC9A00 /* Token.m in Sources */,
-				EAB52A421AA0DADD00CC9A00 /* Notification.m in Sources */,
-				EAB52A371AA0DADD00CC9A00 /* Device.m in Sources */,
-				EAB52A301AA0DADD00CC9A00 /* V1notificationsApi.m in Sources */,
-				EAB52A281AA0DADD00CC9A00 /* SWGDate.m in Sources */,
-				EAB52A511AA0DDE700CC9A00 /* Configuration.m in Sources */,
-				EAB52A401AA0DADD00CC9A00 /* Item.m in Sources */,
-				EAB52A4D1AA0DADD00CC9A00 /* Workflow.m in Sources */,
-				EAB52A4A1AA0DADD00CC9A00 /* Template.m in Sources */,
-				EAB52A3B1AA0DADD00CC9A00 /* Evidence.m in Sources */,
-				EAB52A451AA0DADD00CC9A00 /* Position.m in Sources */,
-				EAB52A361AA0DADD00CC9A00 /* Container.m in Sources */,
+				EA5F27041ABB442000E2F2F9 /* MSItem.m in Sources */,
+				EA5F26B11ABB426800E2F2F9 /* MSV1oauthApi.m in Sources */,
+				EA5F26FE1ABB442000E2F2F9 /* MSParam.m in Sources */,
+				EA5F27021ABB442000E2F2F9 /* MSMailConfig.m in Sources */,
+				EA5F26B51ABB426800E2F2F9 /* MSV1usersApi.m in Sources */,
+				EA5F27001ABB442000E2F2F9 /* MSMessage.m in Sources */,
+				EA5F26FB1ABB442000E2F2F9 /* MSRectangle.m in Sources */,
+				EA5F270A1ABB442000E2F2F9 /* MSEventHistory.m in Sources */,
 				EAE023BA196E811F00964A4A /* AppDelegate.m in Sources */,
-				EAB52A3F1AA0DADD00CC9A00 /* InfoSystemStatus.m in Sources */,
-				EAB52A2D1AA0DADD00CC9A00 /* V1documentsApi.m in Sources */,
-				EAB52A431AA0DADD00CC9A00 /* Param.m in Sources */,
-				EAB52A321AA0DADD00CC9A00 /* V1signaturesApi.m in Sources */,
-				EAB52A2C1AA0DADD00CC9A00 /* V1devicesApi.m in Sources */,
-				EAB52A341AA0DADD00CC9A00 /* V1templateApi.m in Sources */,
+				EA5F270E1ABB442000E2F2F9 /* MSDevice.m in Sources */,
+				EA5F270C1ABB442000E2F2F9 /* MSDownload.m in Sources */,
+				EA5F26AC1ABB426800E2F2F9 /* MSV1devicesApi.m in Sources */,
+				EA5F26AB1ABB426800E2F2F9 /* MSV1configurationApi.m in Sources */,
+				EA5F26FF1ABB442000E2F2F9 /* MSNotification.m in Sources */,
+				EA5F27051ABB442000E2F2F9 /* MSInfoSystemStatus.m in Sources */,
+				EA5F270F1ABB442000E2F2F9 /* MSContainer.m in Sources */,
+				EA5F27171ABB444E00E2F2F9 /* SWGObject.m in Sources */,
+				EA5F270D1ABB442000E2F2F9 /* MSDocument.m in Sources */,
+				EA8F04611ABB2558005CB771 /* ApiClient.m in Sources */,
+				EA5F26AE1ABB426800E2F2F9 /* MSV1evidencesApi.m in Sources */,
+				EA5F26AF1ABB426800E2F2F9 /* MSV1messagesApi.m in Sources */,
+				EA5F27181ABB444E00E2F2F9 /* SWGFile.m in Sources */,
 				EAB529D31AA0D7D100CC9A00 /* MainViewController.m in Sources */,
-				EAB52A2F1AA0DADD00CC9A00 /* V1messagesApi.m in Sources */,
-				EAB52A291AA0DADD00CC9A00 /* SWGFile.m in Sources */,
+				EA5F27091ABB442000E2F2F9 /* MSEvidence.m in Sources */,
+				EA5F26F71ABB442000E2F2F9 /* MSTemplate.m in Sources */,
+				EA5F27061ABB442000E2F2F9 /* MSFormValue.m in Sources */,
+				EA5F26F51ABB442000E2F2F9 /* MSToken.m in Sources */,
+				EA5F26B21ABB426800E2F2F9 /* MSV1signaturesApi.m in Sources */,
+				EA5F26F61ABB442000E2F2F9 /* MSTemplateList.m in Sources */,
+				EA5F26FC1ABB442000E2F2F9 /* MSPosition.m in Sources */,
+				EA5F26B61ABB426800E2F2F9 /* OAuth1Client.m in Sources */,
+				EA5F27031ABB442000E2F2F9 /* MSMail.m in Sources */,
+				EA5F26F31ABB442000E2F2F9 /* MSWorkflow.m in Sources */,
+				EA5F27071ABB442000E2F2F9 /* MSFormNestedValue.m in Sources */,
+				EA5F27101ABB442000E2F2F9 /* MSConfiguration.m in Sources */,
+				EA5F26AD1ABB426800E2F2F9 /* MSV1documentsApi.m in Sources */,
+				EA5F27081ABB442000E2F2F9 /* MSForm.m in Sources */,
+				EA5F26F81ABB442000E2F2F9 /* MSSystemStatus.m in Sources */,
+				EA5F27011ABB442000E2F2F9 /* MSMenuOption.m in Sources */,
+				EA5F26B01ABB426800E2F2F9 /* MSV1notificationsApi.m in Sources */,
+				EA5F27191ABB444E00E2F2F9 /* SWGDate.m in Sources */,
+				EA5F26FA1ABB442000E2F2F9 /* MSRow.m in Sources */,
+				EA5F270B1ABB442000E2F2F9 /* MSErrorResponse.m in Sources */,
+				EA5F26B31ABB426800E2F2F9 /* MSV1systemApi.m in Sources */,
 				EAE023B6196E811F00964A4A /* main.m in Sources */,
-				EAB52A481AA0DADD00CC9A00 /* Setting.m in Sources */,
-				EAB52A461AA0DADD00CC9A00 /* Rectangle.m in Sources */,
-				EAB52A391AA0DADD00CC9A00 /* ErrorResponse.m in Sources */,
-				EAB52A2E1AA0DADD00CC9A00 /* V1evidencesApi.m in Sources */,
-				EAB52A491AA0DADD00CC9A00 /* SystemStatus.m in Sources */,
-				EAB52A271AA0DADD00CC9A00 /* ApiClient.m in Sources */,
-				EAB52A331AA0DADD00CC9A00 /* V1systemApi.m in Sources */,
-				EAB52A311AA0DADD00CC9A00 /* V1oauthApi.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		EAE023BD196E812000964A4A /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				EAE023CF196E812000964A4A /* ms_sdk_iosTests.m in Sources */,
+				EA5F26F91ABB442000E2F2F9 /* MSSetting.m in Sources */,
+				EA5F26F41ABB442000E2F2F9 /* MSUser.m in Sources */,
+				EA5F26FD1ABB442000E2F2F9 /* MSPolicy.m in Sources */,
+				EA5F26B41ABB426800E2F2F9 /* MSV1templateApi.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		EAE023C7196E812000964A4A /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = EAE023A5196E811F00964A4A /* ms-sdk-ios */;
-			targetProxy = EAE023C6196E812000964A4A /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		EAE023B2196E811F00964A4A /* InfoPlist.strings */ = {
@@ -747,46 +684,6 @@
 			};
 			name = Release;
 		};
-		EAE023D6196E812000964A4A /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/ms-sdk-ios.app/ms-sdk-ios";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "ms-sdk-ios/ms-sdk-ios-Prefix.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "ms-sdk-iosTests/ms-sdk-iosTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
-			};
-			name = Debug;
-		};
-		EAE023D7196E812000964A4A /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/ms-sdk-ios.app/ms-sdk-ios";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "ms-sdk-ios/ms-sdk-ios-Prefix.pch";
-				INFOPLIST_FILE = "ms-sdk-iosTests/ms-sdk-iosTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -804,15 +701,6 @@
 			buildConfigurations = (
 				EAE023D3196E812000964A4A /* Debug */,
 				EAE023D4196E812000964A4A /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		EAE023D5196E812000964A4A /* Build configuration list for PBXNativeTarget "ms-sdk-iosTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				EAE023D6196E812000964A4A /* Debug */,
-				EAE023D7196E812000964A4A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

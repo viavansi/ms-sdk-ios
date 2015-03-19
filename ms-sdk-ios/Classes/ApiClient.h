@@ -3,7 +3,7 @@
 
 /**
  * A key for `NSError` user info dictionaries.
- * 
+ *
  * The corresponding value is the parsed response body for an HTTP error.
  */
 extern NSString *const SWGResponseObjectErrorKey;
@@ -20,37 +20,28 @@ extern NSString *const SWGResponseObjectErrorKey;
 @property(nonatomic, assign) BOOL logHTTP;
 @property(nonatomic, readonly) NSOperationQueue* queue;
 
-+(ApiClient *)sharedClientFromPool:(NSString *)baseUrl;
+@property (strong, nonatomic) NSString *url;
+@property (strong, nonatomic) NSString *consumerKey;
+@property (strong, nonatomic) NSString *consumerSecret;
+@property (strong, nonatomic) NSString *token;
+@property (strong, nonatomic) NSString *tokenSecret;
 
+#define SWGResponseObjectErrorKey @"SWGResponseObject"
+
++(ApiClient *) sharedInstance;
 +(NSOperationQueue*) sharedQueue;
-
 +(void)setLoggingEnabled:(bool) state;
-
 +(void)clearCache;
-
 +(void)setCacheEnabled:(BOOL) enabled;
-
 +(unsigned long)requestQueueSize;
-
 +(void) setOfflineState:(BOOL) state;
-
 +(AFNetworkReachabilityStatus) getReachabilityStatus;
-
 +(NSNumber*) nextRequestId;
-
 +(NSNumber*) queueRequest;
-
 +(void) cancelRequest:(NSNumber*)requestId;
-
 +(NSString*) escape:(id)unescaped;
-
 +(void) setReachabilityChangeBlock:(void(^)(int))changeBlock;
-
-+(void) configureCacheReachibilityForHost:(NSString*)host;
-
--(void)setHeaderValue:(NSString*) value
-                forKey:(NSString*) forKey;
-
++(void) configureCacheReachibility;
 -(NSNumber*)  dictionary:(NSString*) path
                   method:(NSString*) method
              queryParams:(NSDictionary*) queryParams
@@ -58,8 +49,8 @@ extern NSString *const SWGResponseObjectErrorKey;
             headerParams:(NSDictionary*) headerParams
       requestContentType:(NSString*) requestContentType
      responseContentType:(NSString*) responseContentType
-         completionBlock:(void (^)(NSDictionary*, NSError *))completionBlock;
-
+         successBlock:(void (^)(NSDictionary*))successBlock
+			errorBlock:(void (^)(NSError *))errorBlock;
 -(NSNumber*)  stringWithCompletionBlock:(NSString*) path
                                  method:(NSString*) method
                             queryParams:(NSDictionary*) queryParams
@@ -67,6 +58,7 @@ extern NSString *const SWGResponseObjectErrorKey;
                            headerParams:(NSDictionary*) headerParams
                      requestContentType:(NSString*) requestContentType
                     responseContentType:(NSString*) responseContentType
-                        completionBlock:(void (^)(NSString*, NSError *))completionBlock;
+                        successBlock:(void (^)(NSString*))successBlock
+						errorBlock:(void (^)(NSError *))errorBlock;
 @end
 
