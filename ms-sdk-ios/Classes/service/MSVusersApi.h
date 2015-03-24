@@ -4,7 +4,7 @@
 #import "SWGObject.h"
 
 
-@interface MSV1usersApi: NSObject
+@interface MSVusersApi: NSObject
 
 +(unsigned long) requestQueueSize;
 /**

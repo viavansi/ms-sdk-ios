@@ -7,18 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0D3822A51ABC156200580E53 /* MSVconfigurationApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D3822901ABC156200580E53 /* MSVconfigurationApi.m */; };
+		0D3822A61ABC156200580E53 /* MSVdevicesApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D3822921ABC156200580E53 /* MSVdevicesApi.m */; };
+		0D3822A71ABC156200580E53 /* MSVdocumentsApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D3822941ABC156200580E53 /* MSVdocumentsApi.m */; };
+		0D3822A81ABC156200580E53 /* MSVevidencesApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D3822961ABC156200580E53 /* MSVevidencesApi.m */; };
+		0D3822A91ABC156200580E53 /* MSVmessagesApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D3822981ABC156200580E53 /* MSVmessagesApi.m */; };
+		0D3822AA1ABC156200580E53 /* MSVnotificationsApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D38229A1ABC156200580E53 /* MSVnotificationsApi.m */; };
+		0D3822AB1ABC156200580E53 /* MSVoauthApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D38229C1ABC156200580E53 /* MSVoauthApi.m */; };
+		0D3822AC1ABC156200580E53 /* MSVsignaturesApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D38229E1ABC156200580E53 /* MSVsignaturesApi.m */; };
+		0D3822AD1ABC156200580E53 /* MSVsystemApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D3822A01ABC156200580E53 /* MSVsystemApi.m */; };
+		0D3822AE1ABC156200580E53 /* MSVtemplateApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D3822A21ABC156200580E53 /* MSVtemplateApi.m */; };
+		0D3822AF1ABC156200580E53 /* MSVusersApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D3822A41ABC156200580E53 /* MSVusersApi.m */; };
 		6158CC1FCD8D41799C0907C9 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 143D673615D44581927CF7C9 /* libPods.a */; };
-		EA5F26AB1ABB426800E2F2F9 /* MSV1configurationApi.m in Sources */ = {isa = PBXBuildFile; fileRef = EA5F26921ABB426800E2F2F9 /* MSV1configurationApi.m */; };
-		EA5F26AC1ABB426800E2F2F9 /* MSV1devicesApi.m in Sources */ = {isa = PBXBuildFile; fileRef = EA5F26941ABB426800E2F2F9 /* MSV1devicesApi.m */; };
-		EA5F26AD1ABB426800E2F2F9 /* MSV1documentsApi.m in Sources */ = {isa = PBXBuildFile; fileRef = EA5F26961ABB426800E2F2F9 /* MSV1documentsApi.m */; };
-		EA5F26AE1ABB426800E2F2F9 /* MSV1evidencesApi.m in Sources */ = {isa = PBXBuildFile; fileRef = EA5F26981ABB426800E2F2F9 /* MSV1evidencesApi.m */; };
-		EA5F26AF1ABB426800E2F2F9 /* MSV1messagesApi.m in Sources */ = {isa = PBXBuildFile; fileRef = EA5F269A1ABB426800E2F2F9 /* MSV1messagesApi.m */; };
-		EA5F26B01ABB426800E2F2F9 /* MSV1notificationsApi.m in Sources */ = {isa = PBXBuildFile; fileRef = EA5F269C1ABB426800E2F2F9 /* MSV1notificationsApi.m */; };
-		EA5F26B11ABB426800E2F2F9 /* MSV1oauthApi.m in Sources */ = {isa = PBXBuildFile; fileRef = EA5F269E1ABB426800E2F2F9 /* MSV1oauthApi.m */; };
-		EA5F26B21ABB426800E2F2F9 /* MSV1signaturesApi.m in Sources */ = {isa = PBXBuildFile; fileRef = EA5F26A01ABB426800E2F2F9 /* MSV1signaturesApi.m */; };
-		EA5F26B31ABB426800E2F2F9 /* MSV1systemApi.m in Sources */ = {isa = PBXBuildFile; fileRef = EA5F26A21ABB426800E2F2F9 /* MSV1systemApi.m */; };
-		EA5F26B41ABB426800E2F2F9 /* MSV1templateApi.m in Sources */ = {isa = PBXBuildFile; fileRef = EA5F26A41ABB426800E2F2F9 /* MSV1templateApi.m */; };
-		EA5F26B51ABB426800E2F2F9 /* MSV1usersApi.m in Sources */ = {isa = PBXBuildFile; fileRef = EA5F26A61ABB426800E2F2F9 /* MSV1usersApi.m */; };
 		EA5F26B61ABB426800E2F2F9 /* OAuth1Client.m in Sources */ = {isa = PBXBuildFile; fileRef = EA5F26A91ABB426800E2F2F9 /* OAuth1Client.m */; };
 		EA5F26F31ABB442000E2F2F9 /* MSWorkflow.m in Sources */ = {isa = PBXBuildFile; fileRef = EA5F26B71ABB442000E2F2F9 /* MSWorkflow.m */; };
 		EA5F26F41ABB442000E2F2F9 /* MSUser.m in Sources */ = {isa = PBXBuildFile; fileRef = EA5F26B91ABB442000E2F2F9 /* MSUser.m */; };
@@ -66,31 +66,31 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0D38228F1ABC156200580E53 /* MSVconfigurationApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSVconfigurationApi.h; sourceTree = "<group>"; };
+		0D3822901ABC156200580E53 /* MSVconfigurationApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSVconfigurationApi.m; sourceTree = "<group>"; };
+		0D3822911ABC156200580E53 /* MSVdevicesApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSVdevicesApi.h; sourceTree = "<group>"; };
+		0D3822921ABC156200580E53 /* MSVdevicesApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSVdevicesApi.m; sourceTree = "<group>"; };
+		0D3822931ABC156200580E53 /* MSVdocumentsApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSVdocumentsApi.h; sourceTree = "<group>"; };
+		0D3822941ABC156200580E53 /* MSVdocumentsApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSVdocumentsApi.m; sourceTree = "<group>"; };
+		0D3822951ABC156200580E53 /* MSVevidencesApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSVevidencesApi.h; sourceTree = "<group>"; };
+		0D3822961ABC156200580E53 /* MSVevidencesApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSVevidencesApi.m; sourceTree = "<group>"; };
+		0D3822971ABC156200580E53 /* MSVmessagesApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSVmessagesApi.h; sourceTree = "<group>"; };
+		0D3822981ABC156200580E53 /* MSVmessagesApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSVmessagesApi.m; sourceTree = "<group>"; };
+		0D3822991ABC156200580E53 /* MSVnotificationsApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSVnotificationsApi.h; sourceTree = "<group>"; };
+		0D38229A1ABC156200580E53 /* MSVnotificationsApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSVnotificationsApi.m; sourceTree = "<group>"; };
+		0D38229B1ABC156200580E53 /* MSVoauthApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSVoauthApi.h; sourceTree = "<group>"; };
+		0D38229C1ABC156200580E53 /* MSVoauthApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSVoauthApi.m; sourceTree = "<group>"; };
+		0D38229D1ABC156200580E53 /* MSVsignaturesApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSVsignaturesApi.h; sourceTree = "<group>"; };
+		0D38229E1ABC156200580E53 /* MSVsignaturesApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSVsignaturesApi.m; sourceTree = "<group>"; };
+		0D38229F1ABC156200580E53 /* MSVsystemApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSVsystemApi.h; sourceTree = "<group>"; };
+		0D3822A01ABC156200580E53 /* MSVsystemApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSVsystemApi.m; sourceTree = "<group>"; };
+		0D3822A11ABC156200580E53 /* MSVtemplateApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSVtemplateApi.h; sourceTree = "<group>"; };
+		0D3822A21ABC156200580E53 /* MSVtemplateApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSVtemplateApi.m; sourceTree = "<group>"; };
+		0D3822A31ABC156200580E53 /* MSVusersApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSVusersApi.h; sourceTree = "<group>"; };
+		0D3822A41ABC156200580E53 /* MSVusersApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSVusersApi.m; sourceTree = "<group>"; };
 		0F84E4BD4063EA47B9DA0D96 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		143D673615D44581927CF7C9 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		5AEDF93E9C3BED92E6A5D43A /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
-		EA5F26911ABB426800E2F2F9 /* MSV1configurationApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSV1configurationApi.h; sourceTree = "<group>"; };
-		EA5F26921ABB426800E2F2F9 /* MSV1configurationApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSV1configurationApi.m; sourceTree = "<group>"; };
-		EA5F26931ABB426800E2F2F9 /* MSV1devicesApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSV1devicesApi.h; sourceTree = "<group>"; };
-		EA5F26941ABB426800E2F2F9 /* MSV1devicesApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSV1devicesApi.m; sourceTree = "<group>"; };
-		EA5F26951ABB426800E2F2F9 /* MSV1documentsApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSV1documentsApi.h; sourceTree = "<group>"; };
-		EA5F26961ABB426800E2F2F9 /* MSV1documentsApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSV1documentsApi.m; sourceTree = "<group>"; };
-		EA5F26971ABB426800E2F2F9 /* MSV1evidencesApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSV1evidencesApi.h; sourceTree = "<group>"; };
-		EA5F26981ABB426800E2F2F9 /* MSV1evidencesApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSV1evidencesApi.m; sourceTree = "<group>"; };
-		EA5F26991ABB426800E2F2F9 /* MSV1messagesApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSV1messagesApi.h; sourceTree = "<group>"; };
-		EA5F269A1ABB426800E2F2F9 /* MSV1messagesApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSV1messagesApi.m; sourceTree = "<group>"; };
-		EA5F269B1ABB426800E2F2F9 /* MSV1notificationsApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSV1notificationsApi.h; sourceTree = "<group>"; };
-		EA5F269C1ABB426800E2F2F9 /* MSV1notificationsApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSV1notificationsApi.m; sourceTree = "<group>"; };
-		EA5F269D1ABB426800E2F2F9 /* MSV1oauthApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSV1oauthApi.h; sourceTree = "<group>"; };
-		EA5F269E1ABB426800E2F2F9 /* MSV1oauthApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSV1oauthApi.m; sourceTree = "<group>"; };
-		EA5F269F1ABB426800E2F2F9 /* MSV1signaturesApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSV1signaturesApi.h; sourceTree = "<group>"; };
-		EA5F26A01ABB426800E2F2F9 /* MSV1signaturesApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSV1signaturesApi.m; sourceTree = "<group>"; };
-		EA5F26A11ABB426800E2F2F9 /* MSV1systemApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSV1systemApi.h; sourceTree = "<group>"; };
-		EA5F26A21ABB426800E2F2F9 /* MSV1systemApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSV1systemApi.m; sourceTree = "<group>"; };
-		EA5F26A31ABB426800E2F2F9 /* MSV1templateApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSV1templateApi.h; sourceTree = "<group>"; };
-		EA5F26A41ABB426800E2F2F9 /* MSV1templateApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSV1templateApi.m; sourceTree = "<group>"; };
-		EA5F26A51ABB426800E2F2F9 /* MSV1usersApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSV1usersApi.h; sourceTree = "<group>"; };
-		EA5F26A61ABB426800E2F2F9 /* MSV1usersApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSV1usersApi.m; sourceTree = "<group>"; };
 		EA5F26A81ABB426800E2F2F9 /* OAuth1Client.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAuth1Client.h; sourceTree = "<group>"; };
 		EA5F26A91ABB426800E2F2F9 /* OAuth1Client.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OAuth1Client.m; sourceTree = "<group>"; };
 		EA5F26B71ABB442000E2F2F9 /* MSWorkflow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSWorkflow.m; sourceTree = "<group>"; };
@@ -221,28 +221,28 @@
 		EA5F26901ABB426800E2F2F9 /* service */ = {
 			isa = PBXGroup;
 			children = (
-				EA5F26911ABB426800E2F2F9 /* MSV1configurationApi.h */,
-				EA5F26921ABB426800E2F2F9 /* MSV1configurationApi.m */,
-				EA5F26931ABB426800E2F2F9 /* MSV1devicesApi.h */,
-				EA5F26941ABB426800E2F2F9 /* MSV1devicesApi.m */,
-				EA5F26951ABB426800E2F2F9 /* MSV1documentsApi.h */,
-				EA5F26961ABB426800E2F2F9 /* MSV1documentsApi.m */,
-				EA5F26971ABB426800E2F2F9 /* MSV1evidencesApi.h */,
-				EA5F26981ABB426800E2F2F9 /* MSV1evidencesApi.m */,
-				EA5F26991ABB426800E2F2F9 /* MSV1messagesApi.h */,
-				EA5F269A1ABB426800E2F2F9 /* MSV1messagesApi.m */,
-				EA5F269B1ABB426800E2F2F9 /* MSV1notificationsApi.h */,
-				EA5F269C1ABB426800E2F2F9 /* MSV1notificationsApi.m */,
-				EA5F269D1ABB426800E2F2F9 /* MSV1oauthApi.h */,
-				EA5F269E1ABB426800E2F2F9 /* MSV1oauthApi.m */,
-				EA5F269F1ABB426800E2F2F9 /* MSV1signaturesApi.h */,
-				EA5F26A01ABB426800E2F2F9 /* MSV1signaturesApi.m */,
-				EA5F26A11ABB426800E2F2F9 /* MSV1systemApi.h */,
-				EA5F26A21ABB426800E2F2F9 /* MSV1systemApi.m */,
-				EA5F26A31ABB426800E2F2F9 /* MSV1templateApi.h */,
-				EA5F26A41ABB426800E2F2F9 /* MSV1templateApi.m */,
-				EA5F26A51ABB426800E2F2F9 /* MSV1usersApi.h */,
-				EA5F26A61ABB426800E2F2F9 /* MSV1usersApi.m */,
+				0D38228F1ABC156200580E53 /* MSVconfigurationApi.h */,
+				0D3822901ABC156200580E53 /* MSVconfigurationApi.m */,
+				0D3822911ABC156200580E53 /* MSVdevicesApi.h */,
+				0D3822921ABC156200580E53 /* MSVdevicesApi.m */,
+				0D3822931ABC156200580E53 /* MSVdocumentsApi.h */,
+				0D3822941ABC156200580E53 /* MSVdocumentsApi.m */,
+				0D3822951ABC156200580E53 /* MSVevidencesApi.h */,
+				0D3822961ABC156200580E53 /* MSVevidencesApi.m */,
+				0D3822971ABC156200580E53 /* MSVmessagesApi.h */,
+				0D3822981ABC156200580E53 /* MSVmessagesApi.m */,
+				0D3822991ABC156200580E53 /* MSVnotificationsApi.h */,
+				0D38229A1ABC156200580E53 /* MSVnotificationsApi.m */,
+				0D38229B1ABC156200580E53 /* MSVoauthApi.h */,
+				0D38229C1ABC156200580E53 /* MSVoauthApi.m */,
+				0D38229D1ABC156200580E53 /* MSVsignaturesApi.h */,
+				0D38229E1ABC156200580E53 /* MSVsignaturesApi.m */,
+				0D38229F1ABC156200580E53 /* MSVsystemApi.h */,
+				0D3822A01ABC156200580E53 /* MSVsystemApi.m */,
+				0D3822A11ABC156200580E53 /* MSVtemplateApi.h */,
+				0D3822A21ABC156200580E53 /* MSVtemplateApi.m */,
+				0D3822A31ABC156200580E53 /* MSVusersApi.h */,
+				0D3822A41ABC156200580E53 /* MSVusersApi.m */,
 			);
 			path = service;
 			sourceTree = "<group>";
@@ -511,33 +511,33 @@
 			buildActionMask = 2147483647;
 			files = (
 				EA5F27041ABB442000E2F2F9 /* MSItem.m in Sources */,
-				EA5F26B11ABB426800E2F2F9 /* MSV1oauthApi.m in Sources */,
 				EA5F26FE1ABB442000E2F2F9 /* MSParam.m in Sources */,
 				EA5F27021ABB442000E2F2F9 /* MSMailConfig.m in Sources */,
-				EA5F26B51ABB426800E2F2F9 /* MSV1usersApi.m in Sources */,
 				EA5F27001ABB442000E2F2F9 /* MSMessage.m in Sources */,
 				EA5F26FB1ABB442000E2F2F9 /* MSRectangle.m in Sources */,
+				0D3822A71ABC156200580E53 /* MSVdocumentsApi.m in Sources */,
 				EA5F270A1ABB442000E2F2F9 /* MSEventHistory.m in Sources */,
+				0D3822AD1ABC156200580E53 /* MSVsystemApi.m in Sources */,
 				EAE023BA196E811F00964A4A /* AppDelegate.m in Sources */,
 				EA5F270E1ABB442000E2F2F9 /* MSDevice.m in Sources */,
+				0D3822AF1ABC156200580E53 /* MSVusersApi.m in Sources */,
 				EA5F270C1ABB442000E2F2F9 /* MSDownload.m in Sources */,
-				EA5F26AC1ABB426800E2F2F9 /* MSV1devicesApi.m in Sources */,
-				EA5F26AB1ABB426800E2F2F9 /* MSV1configurationApi.m in Sources */,
 				EA5F26FF1ABB442000E2F2F9 /* MSNotification.m in Sources */,
 				EA5F27051ABB442000E2F2F9 /* MSInfoSystemStatus.m in Sources */,
 				EA5F270F1ABB442000E2F2F9 /* MSContainer.m in Sources */,
 				EA5F27171ABB444E00E2F2F9 /* SWGObject.m in Sources */,
+				0D3822AA1ABC156200580E53 /* MSVnotificationsApi.m in Sources */,
+				0D3822A51ABC156200580E53 /* MSVconfigurationApi.m in Sources */,
 				EA5F270D1ABB442000E2F2F9 /* MSDocument.m in Sources */,
 				EA8F04611ABB2558005CB771 /* ApiClient.m in Sources */,
-				EA5F26AE1ABB426800E2F2F9 /* MSV1evidencesApi.m in Sources */,
-				EA5F26AF1ABB426800E2F2F9 /* MSV1messagesApi.m in Sources */,
 				EA5F27181ABB444E00E2F2F9 /* SWGFile.m in Sources */,
 				EAB529D31AA0D7D100CC9A00 /* MainViewController.m in Sources */,
+				0D3822A91ABC156200580E53 /* MSVmessagesApi.m in Sources */,
 				EA5F27091ABB442000E2F2F9 /* MSEvidence.m in Sources */,
 				EA5F26F71ABB442000E2F2F9 /* MSTemplate.m in Sources */,
 				EA5F27061ABB442000E2F2F9 /* MSFormValue.m in Sources */,
+				0D3822A61ABC156200580E53 /* MSVdevicesApi.m in Sources */,
 				EA5F26F51ABB442000E2F2F9 /* MSToken.m in Sources */,
-				EA5F26B21ABB426800E2F2F9 /* MSV1signaturesApi.m in Sources */,
 				EA5F26F61ABB442000E2F2F9 /* MSTemplateList.m in Sources */,
 				EA5F26FC1ABB442000E2F2F9 /* MSPosition.m in Sources */,
 				EA5F26B61ABB426800E2F2F9 /* OAuth1Client.m in Sources */,
@@ -545,20 +545,20 @@
 				EA5F26F31ABB442000E2F2F9 /* MSWorkflow.m in Sources */,
 				EA5F27071ABB442000E2F2F9 /* MSFormNestedValue.m in Sources */,
 				EA5F27101ABB442000E2F2F9 /* MSConfiguration.m in Sources */,
-				EA5F26AD1ABB426800E2F2F9 /* MSV1documentsApi.m in Sources */,
+				0D3822AB1ABC156200580E53 /* MSVoauthApi.m in Sources */,
 				EA5F27081ABB442000E2F2F9 /* MSForm.m in Sources */,
 				EA5F26F81ABB442000E2F2F9 /* MSSystemStatus.m in Sources */,
 				EA5F27011ABB442000E2F2F9 /* MSMenuOption.m in Sources */,
-				EA5F26B01ABB426800E2F2F9 /* MSV1notificationsApi.m in Sources */,
+				0D3822A81ABC156200580E53 /* MSVevidencesApi.m in Sources */,
+				0D3822AE1ABC156200580E53 /* MSVtemplateApi.m in Sources */,
 				EA5F27191ABB444E00E2F2F9 /* SWGDate.m in Sources */,
 				EA5F26FA1ABB442000E2F2F9 /* MSRow.m in Sources */,
 				EA5F270B1ABB442000E2F2F9 /* MSErrorResponse.m in Sources */,
-				EA5F26B31ABB426800E2F2F9 /* MSV1systemApi.m in Sources */,
 				EAE023B6196E811F00964A4A /* main.m in Sources */,
+				0D3822AC1ABC156200580E53 /* MSVsignaturesApi.m in Sources */,
 				EA5F26F91ABB442000E2F2F9 /* MSSetting.m in Sources */,
 				EA5F26F41ABB442000E2F2F9 /* MSUser.m in Sources */,
 				EA5F26FD1ABB442000E2F2F9 /* MSPolicy.m in Sources */,
-				EA5F26B41ABB426800E2F2F9 /* MSV1templateApi.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,11 +1,11 @@
-#import "MSV1configurationApi.h"
+#import "MSVconfigurationApi.h"
 #import "SWGFile.h"
 #import "ApiClient.h"
 #import "MSConfiguration.h"
 
 
 
-@implementation MSV1configurationApi
+@implementation MSVconfigurationApi
 
 +(unsigned long) requestQueueSize {
     return [ApiClient requestQueueSize];
@@ -20,15 +20,19 @@
     NSMutableString* requestUrl = [NSMutableString stringWithFormat:@"%@/v1/application/{appIdentifier}/config", [[ApiClient sharedInstance] url]];
 
     // remove format in URL if needed
-    if ([requestUrl rangeOfString:@".{format}"].location != NSNotFound)
+    if ([requestUrl rangeOfString:@".{format}"].location != NSNotFound){
         [requestUrl replaceCharactersInRange: [requestUrl rangeOfString:@".{format}"] withString:@".json"];
+    }
 
     [requestUrl replaceCharactersInRange: [requestUrl rangeOfString:[NSString stringWithFormat:@"%@%@%@", @"{", @"appIdentifier", @"}"]] withString: [ApiClient escape:appIdentifier]];
     
 
-    NSString* requestContentType = @"application/json";
-    NSString* responseContentType = @"application/json";
-
+	NSArray * requestContentTypes = @[];
+    NSString* requestContentType = requestContentTypes.count > 0 ? requestContentTypes[0] : @"application/json";
+    
+    NSArray * responseContentTypes = @[@"application/json"];
+    NSString* responseContentType = responseContentTypes.count > 0 ? responseContentTypes[0] : @"application/json";
+	
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     
     NSMutableDictionary* headerParams = [[NSMutableDictionary alloc] init];

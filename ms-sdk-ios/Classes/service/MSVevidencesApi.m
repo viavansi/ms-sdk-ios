@@ -1,11 +1,11 @@
-#import "MSV1evidencesApi.h"
+#import "MSVevidencesApi.h"
 #import "SWGFile.h"
 #import "ApiClient.h"
 #import "MSEvidence.h"
 
 
 
-@implementation MSV1evidencesApi
+@implementation MSVevidencesApi
 
 +(unsigned long) requestQueueSize {
     return [ApiClient requestQueueSize];
@@ -26,14 +26,18 @@
     NSMutableString* requestUrl = [NSMutableString stringWithFormat:@"%@/v1/evidences/", [[ApiClient sharedInstance] url]];
 
     // remove format in URL if needed
-    if ([requestUrl rangeOfString:@".{format}"].location != NSNotFound)
+    if ([requestUrl rangeOfString:@".{format}"].location != NSNotFound){
         [requestUrl replaceCharactersInRange: [requestUrl rangeOfString:@".{format}"] withString:@".json"];
+    }
 
     
 
-    NSString* requestContentType = @"application/json";
-    NSString* responseContentType = @"application/json";
-
+	NSArray * requestContentTypes = @[@"application/x-www-form-urlencoded"];
+    NSString* requestContentType = requestContentTypes.count > 0 ? requestContentTypes[0] : @"application/json";
+    
+    NSArray * responseContentTypes = @[@"application/json"];
+    NSString* responseContentType = responseContentTypes.count > 0 ? responseContentTypes[0] : @"application/json";
+	
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     
     NSMutableDictionary* headerParams = [[NSMutableDictionary alloc] init];
