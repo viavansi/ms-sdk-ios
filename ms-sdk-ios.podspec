@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = 'ms-sdk-ios'
-  s.version      = ''
+  s.version      = '2.3.0'
   s.summary      = 'ms-sdk-ios SDK for native iOS Apps'
   s.author = {
     'Jesus Lopez' => 'inyenia@gmail.com'
