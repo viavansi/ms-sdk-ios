@@ -3,13 +3,14 @@ Mobile Services SDK iOS
 
 Cliente iOS para Mobile Services - Viafirma
 
-Instalación
+###Instalación
 Para instalar la librería será necesario añadir en nuestro Podfile la siguiente línea:
 pod 'ms-sdk-ios', :git => 'https://github.com/viavansi/ms-sdk-ios.git', :branch => 'ms-sdk-ios-2.3.x'
 
-Petición de un token:
+####Petición de un token:
 Este método nos servirá de ayuda para solicitar un nuevo token.
 
+```objective-c
 - (void) oauthTokenWithUserCode:(NSString *)userName andUserPassword:(NSString*)userPassword onSuccess:(void (^)(MSToken *response))onSuccess onError:(void (^)(NSError *error))onError {
 
     [MSVoauthApi requestToken:^(MSToken *response) {
@@ -27,15 +28,16 @@ Este método nos servirá de ayuda para solicitar un nuevo token.
     }];
 
 }
+```
 
 El token lo obtenemos del objeto response.
 Token: response.oauth_token
 Token secret: response.oauth_token_secret
 
-Ejemplos:
+###Ejemplos:
 
-Buscar un usuario:
-
+####Buscar un usuario:
+```objective-c
 -(void) findUser:(NSString *)userCode{
 
     [MSVusersApi findUserByCode:userCode onSuccess:^(MSUser *response) {
@@ -50,8 +52,9 @@ Buscar un usuario:
     }];
 
 }
-
-Objeto de respuesta: MSUser
+```
+*Objeto de respuesta: MSUser*
+```objective-c
 @property(nonatomic) NSString* code;
 @property(nonatomic) NSString* nationalId;
 @property(nonatomic) NSString* email;
@@ -67,9 +70,10 @@ Objeto de respuesta: MSUser
 @property(nonatomic) NSString* pos;
 @property(nonatomic) NSString* mobile;
 @property(nonatomic) NSString* channel;
+```
+####Buscar dispositivos de un usuario:
 
-Buscar dispositivos de un usuario:
-
+```objective-c
 -(void) findUserDevice:(NSString *) userCode{
 
     [MSVdevicesApi findDeviceByUser:userCode onSuccess:^(NSArray *response) {
@@ -81,9 +85,11 @@ Buscar dispositivos de un usuario:
     }];
 
 }
+```
 
-Objeto de respuesta: NSArray de MSDevice
+*Objeto de respuesta: NSArray de MSDevice*
 MSDevice:
+```objective-c
 @property(nonatomic) NSString* appCode;
 @property(nonatomic) NSString* code;
 @property(nonatomic) NSString* _description;
@@ -95,10 +101,11 @@ MSDevice:
 @property(nonatomic) NSString* userEmail;
 @property(nonatomic) NSString* userCode;
 @property(nonatomic) NSString* userNationalId;
+```
 
+####Obtener un mensaje:
 
-Obtener un mensaje:
-
+```objective-c
 -(void) getMessageByCode:(NSString*) messageCode{
 
     [MSVmessagesApi getMessageByCode:messageCode onSuccess:^(MSMessage *response) {
@@ -110,8 +117,10 @@ Obtener un mensaje:
         NSLog(@"");
     }];
 }
+```
 
-Objeto de respuesta: MSMessage
+*Objeto de respuesta: MSMessage*
+```objective-c
 @property(nonatomic) NSString* code;
 @property(nonatomic) NSString* userCode;
 @property(nonatomic) NSString* groupCode;
@@ -127,9 +136,11 @@ Objeto de respuesta: MSMessage
 @property(nonatomic) NSArray* callbackMailsFormKeys;
 @property(nonatomic) MSErrorResponse* error;
 @property(nonatomic) NSString* commentReject;
+```
 
-Obtener un documento:
+####Obtener un documento:
 
+```objective-c
 -(void) getDocumentPreview:(NSString*) messageCode{
 
     [MSVdocumentsApi downloadPreview:messageCode onSuccess:^(MSDownload *response) {
@@ -159,9 +170,12 @@ Obtener un documento:
     }];
 
 }
+```
 
-Objeto de respuesta: MSDownload
+*Objeto de respuesta: MSDownload*
+```objective-c
 @property(nonatomic) NSString* link;
 @property(nonatomic) NSString* md5;
 @property(nonatomic) NSString* fileName;
 @property(nonatomic) SWGDate* expires;
+```
