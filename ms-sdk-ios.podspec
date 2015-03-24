@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
     :branch => 'ms-sdk-ios-2.3.x'
   }
   s.requires_arc = true
-  s.source_files = 'ms-sdk-ios/Classes/**/*.{h,m,cat}'
+  s.source_files = 'ms-sdk-ios/Classes/**/*.{h,m}', 'ms-sdk-ios/Classes/util/*.{h,m}'
   s.ios.dependency 	'AFNetworking', '~> 1.0'
   s.ios.framework = 'SystemConfiguration', 'MobileCoreServices'
 end
