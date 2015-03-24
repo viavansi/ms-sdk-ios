@@ -5,8 +5,9 @@ Cliente iOS para Mobile Services - Viafirma
 
 ###Instalación
 Para instalar la librería será necesario añadir en nuestro Podfile la siguiente línea:
+```
 pod 'ms-sdk-ios', :git => 'https://github.com/viavansi/ms-sdk-ios.git', :branch => 'ms-sdk-ios-2.3.x'
-
+```
 ####Petición de un token:
 Este método nos servirá de ayuda para solicitar un nuevo token.
 
