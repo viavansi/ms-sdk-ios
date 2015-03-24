@@ -92,7 +92,6 @@
     } onError:^(NSError *error) {
         NSLog(@"");
     }];
-    
 }
 
 -(void) findUserDevice:(NSString *) userCode{
