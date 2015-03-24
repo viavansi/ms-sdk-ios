@@ -53,7 +53,7 @@ Token secret: response.oauth_token_secret
 
 }
 ```
-*Objeto de respuesta: MSUser*
+**Objeto de respuesta: MSUser**
 ```objective-c
 @property(nonatomic) NSString* code;
 @property(nonatomic) NSString* nationalId;
@@ -87,7 +87,7 @@ Token secret: response.oauth_token_secret
 }
 ```
 
-*Objeto de respuesta: NSArray de MSDevice*
+**Objeto de respuesta: NSArray de MSDevice**
 MSDevice:
 ```objective-c
 @property(nonatomic) NSString* appCode;
@@ -119,7 +119,7 @@ MSDevice:
 }
 ```
 
-*Objeto de respuesta: MSMessage*
+**Objeto de respuesta: MSMessage**
 ```objective-c
 @property(nonatomic) NSString* code;
 @property(nonatomic) NSString* userCode;
@@ -172,7 +172,8 @@ MSDevice:
 }
 ```
 
-*Objeto de respuesta: MSDownload*
+**Objeto de respuesta: MSDownload**
+
 ```objective-c
 @property(nonatomic) NSString* link;
 @property(nonatomic) NSString* md5;
