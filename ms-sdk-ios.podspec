@@ -6,12 +6,11 @@ Pod::Spec.new do |s|
     'Jesus Lopez' => 'inyenia@gmail.com'
   }
   s.source = {
-    :git => '',
-    :tag => ""
+    :git => 'https://github.com/viavansi/ms-sdk-ios.git',
+    :branch => 'ms-sdk-ios-2.3.x'
   }
   s.requires_arc = true
   s.source_files = 'ms-sdk-ios/Classes/*.{h,m}'
   s.ios.dependency 	'AFNetworking', '~> 1.0'
-  s.ios.dependency  'STLOAuth', :git => 'https://github.com/inyenia/stl-oauth-client.git'
   s.ios.framework = 'SystemConfiguration', 'MobileCoreServices'
 end
