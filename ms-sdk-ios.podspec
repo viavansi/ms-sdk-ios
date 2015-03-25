@@ -11,5 +11,7 @@ Pod::Spec.new do |s|
   }
   s.requires_arc = true
   s.source_files = 'ms-sdk-ios/Classes/**/*.{h,m}'
+  s.ios.dependency 	'AFNetworking', '~> 2.0'
+  s.ios.dependency  'STLOAuth', :git => 'https://github.com/inyenia/stl-oauth-client.git'
   s.ios.framework = 'SystemConfiguration', 'MobileCoreServices'
 end
