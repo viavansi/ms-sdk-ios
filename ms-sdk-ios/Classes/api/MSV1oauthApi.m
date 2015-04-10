@@ -1,25 +1,25 @@
-#import "MSVsignaturesApi.h"
+#import "MSV1oauthApi.h"
 #import "SWGFile.h"
 #import "ApiClient.h"
-#import "MSPolicy.h"
+#import "MSToken.h"
 
 
 
-@implementation MSVsignaturesApi
+@implementation MSV1oauthApi
 
 +(unsigned long) requestQueueSize {
     return [ApiClient requestQueueSize];
 }
 
 
-+(NSNumber*) prepareSignature: (NSString*) messageCode
-         policyCode: (NSString*) policyCode
-         userCode: (NSString*) userCode
++(NSNumber*) accessToken: (NSString*) x_auth_mode
+         x_auth_username: (NSString*) x_auth_username
+         x_auth_password: (NSString*) x_auth_password
         
-        onSuccess: (void (^)(MSPolicy* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock
+        onSuccess: (void (^)(MSToken* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock
          {
 
-    NSMutableString* requestUrl = [NSMutableString stringWithFormat:@"%@/v1/signatures/prepare", [[ApiClient sharedInstance] url]];
+    NSMutableString* requestUrl = [NSMutableString stringWithFormat:@"%@/v1/oauth/accessToken", [[ApiClient sharedInstance] url]];
 
     // remove format in URL if needed
     if ([requestUrl rangeOfString:@".{format}"].location != NSNotFound){
@@ -28,7 +28,7 @@
 
     
 
-	NSArray * requestContentTypes = @[];
+	NSArray * requestContentTypes = @[@"application/x-www-form-urlencoded"];
     NSString* requestContentType = requestContentTypes.count > 0 ? requestContentTypes[0] : @"application/json";
     
     NSArray * responseContentTypes = @[@"application/json"];
@@ -47,11 +47,11 @@
     NSMutableDictionary * formParams = [[NSMutableDictionary alloc]init]; 
 
     
-    formParams[@"messageCode"] = messageCode;
+    formParams[@"x_auth_mode"] = x_auth_mode;
     
-    formParams[@"policyCode"] = policyCode;
+    formParams[@"x_auth_username"] = x_auth_username;
     
-    formParams[@"userCode"] = userCode;
+    formParams[@"x_auth_password"] = x_auth_password;
     
     [bodyDictionary addObject:formParams];
     
@@ -74,9 +74,9 @@
           responseContentType: responseContentType
               successBlock: ^(NSDictionary *data) {
                 
-                MSPolicy *result = nil;
+                MSToken *result = nil;
                 if (data) {
-                    result = [[MSPolicy    alloc]initWithValues: data];
+                    result = [[MSToken    alloc]initWithValues: data];
                 }
                 onSuccessBlock(result);
                 
@@ -89,14 +89,11 @@
     
 }
 
-+(NSNumber*) registerSignature: (NSString*) messageCode
-         policyCode: (NSString*) policyCode
-         signatureCode: (NSString*) signatureCode
-        
-        onSuccess: (void (^)(MSPolicy* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock
++(NSNumber*) requestToken: 
+        (void (^)(MSToken* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock
          {
 
-    NSMutableString* requestUrl = [NSMutableString stringWithFormat:@"%@/v1/signatures/register", [[ApiClient sharedInstance] url]];
+    NSMutableString* requestUrl = [NSMutableString stringWithFormat:@"%@/v1/oauth/requestToken", [[ApiClient sharedInstance] url]];
 
     // remove format in URL if needed
     if ([requestUrl rangeOfString:@".{format}"].location != NSNotFound){
@@ -124,12 +121,6 @@
     NSMutableDictionary * formParams = [[NSMutableDictionary alloc]init]; 
 
     
-    formParams[@"messageCode"] = messageCode;
-    
-    formParams[@"policyCode"] = policyCode;
-    
-    formParams[@"signatureCode"] = signatureCode;
-    
     [bodyDictionary addObject:formParams];
     
 
@@ -143,7 +134,7 @@
         
     // comples response type
     return [client dictionary: requestUrl 
-                       method: @"POST" 
+                       method: @"GET" 
                   queryParams: queryParams 
                          body: bodyDictionary 
                  headerParams: headerParams
@@ -151,9 +142,9 @@
           responseContentType: responseContentType
               successBlock: ^(NSDictionary *data) {
                 
-                MSPolicy *result = nil;
+                MSToken *result = nil;
                 if (data) {
-                    result = [[MSPolicy    alloc]initWithValues: data];
+                    result = [[MSToken    alloc]initWithValues: data];
                 }
                 onSuccessBlock(result);
                 

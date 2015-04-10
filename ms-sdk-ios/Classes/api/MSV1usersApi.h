@@ -4,7 +4,7 @@
 #import "SWGObject.h"
 
 
-@interface MSVusersApi: NSObject
+@interface MSV1usersApi: NSObject
 
 +(unsigned long) requestQueueSize;
 /**
@@ -43,6 +43,25 @@
  */
 +(NSNumber*) loginUser :(NSString*) code 
      password:(NSString*) password 
+    
+    onSuccess: (void (^)(MSUser* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    
+
+
+/**
+
+ Method to request account reactivation by code
+ 
+ Request account reactivation by code
+ 
+
+ 
+ @param userCode User code
+ 
+
+ return type: MSUser*
+ */
++(NSNumber*) reactivateUserByCode :(NSString*) userCode 
     
     onSuccess: (void (^)(MSUser* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     

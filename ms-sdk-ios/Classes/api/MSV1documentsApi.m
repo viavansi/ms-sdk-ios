@@ -1,11 +1,11 @@
-#import "MSVdocumentsApi.h"
+#import "MSV1documentsApi.h"
 #import "SWGFile.h"
 #import "ApiClient.h"
 #import "MSDownload.h"
 
 
 
-@implementation MSVdocumentsApi
+@implementation MSV1documentsApi
 
 +(unsigned long) requestQueueSize {
     return [ApiClient requestQueueSize];

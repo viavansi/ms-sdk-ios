@@ -1,28 +1,30 @@
-#import "MSVsystemApi.h"
+#import "MSV1configurationApi.h"
 #import "SWGFile.h"
 #import "ApiClient.h"
-#import "MSInfoSystemStatus.h"
+#import "MSConfiguration.h"
 
 
 
-@implementation MSVsystemApi
+@implementation MSV1configurationApi
 
 +(unsigned long) requestQueueSize {
     return [ApiClient requestQueueSize];
 }
 
 
-+(NSNumber*) getSystemInfo: 
-        (void (^)(MSInfoSystemStatus* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock
++(NSNumber*) getDeviceConfiguration: (NSString*) appIdentifier
+        
+        onSuccess: (void (^)(MSConfiguration* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock
          {
 
-    NSMutableString* requestUrl = [NSMutableString stringWithFormat:@"%@/v1/system/info", [[ApiClient sharedInstance] url]];
+    NSMutableString* requestUrl = [NSMutableString stringWithFormat:@"%@/v1/application/{appIdentifier}/config", [[ApiClient sharedInstance] url]];
 
     // remove format in URL if needed
     if ([requestUrl rangeOfString:@".{format}"].location != NSNotFound){
         [requestUrl replaceCharactersInRange: [requestUrl rangeOfString:@".{format}"] withString:@".json"];
     }
 
+    [requestUrl replaceCharactersInRange: [requestUrl rangeOfString:[NSString stringWithFormat:@"%@%@%@", @"{", @"appIdentifier", @"}"]] withString: [ApiClient escape:appIdentifier]];
     
 
 	NSArray * requestContentTypes = @[];
@@ -65,9 +67,9 @@
           responseContentType: responseContentType
               successBlock: ^(NSDictionary *data) {
                 
-                MSInfoSystemStatus *result = nil;
+                MSConfiguration *result = nil;
                 if (data) {
-                    result = [[MSInfoSystemStatus    alloc]initWithValues: data];
+                    result = [[MSConfiguration    alloc]initWithValues: data];
                 }
                 onSuccessBlock(result);
                 

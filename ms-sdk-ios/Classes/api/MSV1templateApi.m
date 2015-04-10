@@ -1,4 +1,4 @@
-#import "MSVtemplateApi.h"
+#import "MSV1templateApi.h"
 #import "SWGFile.h"
 #import "ApiClient.h"
 #import "MSTemplateList.h"
@@ -6,7 +6,7 @@
 
 
 
-@implementation MSVtemplateApi
+@implementation MSV1templateApi
 
 +(unsigned long) requestQueueSize {
     return [ApiClient requestQueueSize];

@@ -1,23 +1,23 @@
-#import "MSVmessagesApi.h"
+#import "MSV1devicesApi.h"
 #import "SWGFile.h"
 #import "ApiClient.h"
-#import "MSMessage.h"
+#import "MSDevice.h"
 
 
 
-@implementation MSVmessagesApi
+@implementation MSV1devicesApi
 
 +(unsigned long) requestQueueSize {
     return [ApiClient requestQueueSize];
 }
 
 
-+(NSNumber*) sendMessage: (MSMessage*) body
++(NSNumber*) registerDevice: (MSDevice*) body
         
-        onSuccess: (void (^)(NSString* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock
+        onSuccess: (void (^)(MSDevice* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock
          {
 
-    NSMutableString* requestUrl = [NSMutableString stringWithFormat:@"%@/v1/messages", [[ApiClient sharedInstance] url]];
+    NSMutableString* requestUrl = [NSMutableString stringWithFormat:@"%@/v1/devices", [[ApiClient sharedInstance] url]];
 
     // remove format in URL if needed
     if ([requestUrl rangeOfString:@".{format}"].location != NSNotFound){
@@ -29,7 +29,7 @@
 	NSArray * requestContentTypes = @[@"application/json"];
     NSString* requestContentType = requestContentTypes.count > 0 ? requestContentTypes[0] : @"application/json";
     
-    NSArray * responseContentTypes = @[@"application/json",@"text/plain"];
+    NSArray * responseContentTypes = @[];
     NSString* responseContentType = responseContentTypes.count > 0 ? responseContentTypes[0] : @"application/json";
 	
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
@@ -75,48 +75,52 @@
 
     
     
-            // primitive response type
-    return [client stringWithCompletionBlock: requestUrl 
-                                              method: @"POST" 
-                                         queryParams: queryParams 
-                                                body: bodyDictionary 
-                                        headerParams: headerParams
-                                  requestContentType: requestContentType
-                                 responseContentType: responseContentType
-                                     successBlock: ^(NSString *data) {
-                                        NSString *result = data ? [[NSString  alloc]initWithString: data] : nil;
-                                        onSuccessBlock(result);
-                                     }
-                                     errorBlock: ^(NSError *error) {
-                         onErrorBlock(error);
-                     }];
-    
-    
     
         
+    // comples response type
+    return [client dictionary: requestUrl 
+                       method: @"POST" 
+                  queryParams: queryParams 
+                         body: bodyDictionary 
+                 headerParams: headerParams
+           requestContentType: requestContentType
+          responseContentType: responseContentType
+              successBlock: ^(NSDictionary *data) {
+                
+                MSDevice *result = nil;
+                if (data) {
+                    result = [[MSDevice    alloc]initWithValues: data];
+                }
+                onSuccessBlock(result);
+                
+              }
+              errorBlock: ^(NSError *error) {
+                    onErrorBlock(error);
+                    
+              }];
+    
     
 }
 
-+(NSNumber*) rejectMessageByCode: (NSString*) messageCode
-         comment: (NSString*) comment
++(NSNumber*) findDeviceByUser: (NSString*) userCode
         
-        onSuccess: (void (^)(MSMessage* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock
+        onSuccess: (void (^)(NSArray* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock
          {
 
-    NSMutableString* requestUrl = [NSMutableString stringWithFormat:@"%@/v1/messages/reject/{messageCode}", [[ApiClient sharedInstance] url]];
+    NSMutableString* requestUrl = [NSMutableString stringWithFormat:@"%@/v1/devices/user/{userCode}", [[ApiClient sharedInstance] url]];
 
     // remove format in URL if needed
     if ([requestUrl rangeOfString:@".{format}"].location != NSNotFound){
         [requestUrl replaceCharactersInRange: [requestUrl rangeOfString:@".{format}"] withString:@".json"];
     }
 
-    [requestUrl replaceCharactersInRange: [requestUrl rangeOfString:[NSString stringWithFormat:@"%@%@%@", @"{", @"messageCode", @"}"]] withString: [ApiClient escape:messageCode]];
+    [requestUrl replaceCharactersInRange: [requestUrl rangeOfString:[NSString stringWithFormat:@"%@%@%@", @"{", @"userCode", @"}"]] withString: [ApiClient escape:userCode]];
     
 
-	NSArray * requestContentTypes = @[@"application/x-www-form-urlencoded"];
+	NSArray * requestContentTypes = @[];
     NSString* requestContentType = requestContentTypes.count > 0 ? requestContentTypes[0] : @"application/json";
     
-    NSArray * responseContentTypes = @[@"application/json"];
+    NSArray * responseContentTypes = @[];
     NSString* responseContentType = responseContentTypes.count > 0 ? responseContentTypes[0] : @"application/json";
 	
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
@@ -132,8 +136,6 @@
     NSMutableDictionary * formParams = [[NSMutableDictionary alloc]init]; 
 
     
-    formParams[@"comment"] = comment;
-    
     [bodyDictionary addObject:formParams];
     
 
@@ -141,54 +143,54 @@
 
     ApiClient* client = [ApiClient sharedInstance];
 
-    
-    
-    
-        
-    // comples response type
+        // array container response type
     return [client dictionary: requestUrl 
-                       method: @"PUT" 
+                       method: @"GET" 
                   queryParams: queryParams 
                          body: bodyDictionary 
                  headerParams: headerParams
            requestContentType: requestContentType
           responseContentType: responseContentType
-              successBlock: ^(NSDictionary *data) {
-                
-                MSMessage *result = nil;
-                if (data) {
-                    result = [[MSMessage    alloc]initWithValues: data];
+              successBlock: ^(NSDictionary *data){
+                if([data isKindOfClass:[NSArray class]]){
+                    NSMutableArray * objs = [[NSMutableArray alloc] initWithCapacity:[data count]];
+                    for (NSDictionary* dict in (NSArray*)data) {
+                        
+                        
+                        MSDevice* d = [[MSDevice alloc]initWithValues: dict];
+                        
+                        [objs addObject:d];
+                    }
+                    onSuccessBlock(objs);
                 }
-                onSuccessBlock(result);
-                
               }
               errorBlock: ^(NSError *error) {
-                    onErrorBlock(error);
-                    
-              }];
+                onErrorBlock(error);
+                
+            }];
     
     
 }
 
-+(NSNumber*) getMessageByCode: (NSString*) messageCode
++(NSNumber*) findDeviceByIdentifier: (NSString*) identifier
         
-        onSuccess: (void (^)(MSMessage* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock
+        onSuccess: (void (^)(MSDevice* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock
          {
 
-    NSMutableString* requestUrl = [NSMutableString stringWithFormat:@"%@/v1/messages/{messageCode}", [[ApiClient sharedInstance] url]];
+    NSMutableString* requestUrl = [NSMutableString stringWithFormat:@"%@/v1/devices/{identifier}", [[ApiClient sharedInstance] url]];
 
     // remove format in URL if needed
     if ([requestUrl rangeOfString:@".{format}"].location != NSNotFound){
         [requestUrl replaceCharactersInRange: [requestUrl rangeOfString:@".{format}"] withString:@".json"];
     }
 
-    [requestUrl replaceCharactersInRange: [requestUrl rangeOfString:[NSString stringWithFormat:@"%@%@%@", @"{", @"messageCode", @"}"]] withString: [ApiClient escape:messageCode]];
+    [requestUrl replaceCharactersInRange: [requestUrl rangeOfString:[NSString stringWithFormat:@"%@%@%@", @"{", @"identifier", @"}"]] withString: [ApiClient escape:identifier]];
     
 
 	NSArray * requestContentTypes = @[];
     NSString* requestContentType = requestContentTypes.count > 0 ? requestContentTypes[0] : @"application/json";
     
-    NSArray * responseContentTypes = @[@"application/json"];
+    NSArray * responseContentTypes = @[];
     NSString* responseContentType = responseContentTypes.count > 0 ? responseContentTypes[0] : @"application/json";
 	
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
@@ -225,9 +227,9 @@
           responseContentType: responseContentType
               successBlock: ^(NSDictionary *data) {
                 
-                MSMessage *result = nil;
+                MSDevice *result = nil;
                 if (data) {
-                    result = [[MSMessage    alloc]initWithValues: data];
+                    result = [[MSDevice    alloc]initWithValues: data];
                 }
                 onSuccessBlock(result);
                 

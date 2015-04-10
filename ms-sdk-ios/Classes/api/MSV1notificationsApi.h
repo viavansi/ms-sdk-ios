@@ -3,7 +3,7 @@
 #import "SWGObject.h"
 
 
-@interface MSVnotificationsApi: NSObject
+@interface MSV1notificationsApi: NSObject
 
 +(unsigned long) requestQueueSize;
 /**
@@ -20,6 +20,25 @@
  return type: MSNotification*
  */
 +(NSNumber*) sendNotification :(MSNotification*) body 
+    
+    onSuccess: (void (^)(MSNotification* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    
+
+
+/**
+
+ Method for get a notification by code
+ 
+ Get notification by code
+ 
+
+ 
+ @param code Notification code
+ 
+
+ return type: MSNotification*
+ */
++(NSNumber*) findNotificationsByCode :(NSString*) code 
     
     onSuccess: (void (^)(MSNotification* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     

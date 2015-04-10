@@ -9,7 +9,7 @@
     version: (NSString*) version
     templateCode: (NSString*) templateCode
     containers: (NSArray*) containers
-    setting: (MSSetting*) setting
+    settings: (MSSetting*) settings
     values: (NSArray*) values
     nestedValues: (NSArray*) nestedValues
     
@@ -20,7 +20,7 @@
     _version = version;
     _templateCode = templateCode;
     _containers = containers;
-    _setting = setting;
+    _settings = settings;
     _values = values;
     _nestedValues = nestedValues;
     
@@ -65,10 +65,10 @@
         
         
         
-        id setting_dict = dict[@"setting"];
+        id settings_dict = dict[@"settings"];
         
-        if(setting_dict != nil)
-            _setting = [[MSSetting  alloc]initWithValues:setting_dict];
+        if(settings_dict != nil)
+            _settings = [[MSSetting  alloc]initWithValues:settings_dict];
         
         
         
@@ -165,23 +165,23 @@
     
     
     
-    if(_setting != nil){
-        if([_setting isKindOfClass:[NSArray class]]){
+    if(_settings != nil){
+        if([_settings isKindOfClass:[NSArray class]]){
             NSMutableArray * array = [[NSMutableArray alloc] init];
-            for( MSSetting *setting in (NSArray*)_setting) {
-                [array addObject:[(SWGObject*)setting asDictionary]];
+            for( MSSetting *settings in (NSArray*)_settings) {
+                [array addObject:[(SWGObject*)settings asDictionary]];
             }
-            dict[@"setting"] = array;
+            dict[@"settings"] = array;
         }
-        else if(_setting && [_setting isKindOfClass:[SWGDate class]]) {
-            NSString * dateString = [(SWGDate*)_setting toString];
+        else if(_settings && [_settings isKindOfClass:[SWGDate class]]) {
+            NSString * dateString = [(SWGDate*)_settings toString];
             if(dateString){
-                dict[@"setting"] = dateString;
+                dict[@"settings"] = dateString;
             }
         }
         else {
         
-            if(_setting != nil) dict[@"setting"] = [(SWGObject*)_setting asDictionary];
+            if(_settings != nil) dict[@"settings"] = [(SWGObject*)_settings asDictionary];
         
         }
     }

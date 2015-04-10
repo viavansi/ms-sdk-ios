@@ -3,11 +3,13 @@
 
 @implementation MSErrorResponse
 
--(id)type: (NSString*) type
+-(id)code: (NSNumber*) code
+    type: (NSString*) type
     message: (NSString*) message
     trace: (NSString*) trace
     
 {
+    _code = code;
     _type = type;
     _message = message;
     _trace = trace;
@@ -20,6 +22,8 @@
 {
     self = [super init];
     if(self) {
+        _code = dict[@"code"];
+        
         _type = dict[@"type"];
         
         _message = dict[@"message"];
@@ -33,6 +37,10 @@
 
 -(NSDictionary*) asDictionary {
     NSMutableDictionary* dict = [[NSMutableDictionary alloc] init];
+    
+    
+            if(_code != nil) dict[@"code"] = _code ;
+        
     
     
             if(_type != nil) dict[@"type"] = _type ;

@@ -3,7 +3,7 @@
 #import "SWGObject.h"
 
 
-@interface MSVoauthApi: NSObject
+@interface MSV1oauthApi: NSObject
 
 +(unsigned long) requestQueueSize;
 /**

@@ -225,7 +225,17 @@ static bool loggingEnabled = true;
 	  requestContentType: (NSString*) requestContentType
 	 responseContentType: (NSString*) responseContentType
 		 successBlock: (void (^)(NSDictionary*))successBlock
-		errorBlock: (void (^)(NSError *))errorBlock{
+			  errorBlock: (void (^)(NSError *))errorBlock{
+	
+	if([requestContentType isEqualToString:@"application/json"]){
+		self.requestSerializer = [AFJSONRequestSerializer serializer];
+	}else{
+		self.requestSerializer = [AFHTTPRequestSerializer serializer];
+	}
+	
+	if([responseContentType isEqualToString:@"application/json"]){
+		self.responseSerializer = [AFJSONResponseSerializer serializer];
+	}
 	
 	NSMutableURLRequest * request = nil;
 	if (body != nil && [body isKindOfClass:[NSArray class]]){
@@ -273,8 +283,7 @@ static bool loggingEnabled = true;
 													 parameters:params
 														  error:nil];
 		}
-	}
-	else {
+	} else {
 		NSString * pathWithQueryParams = [self pathWithQueryParamsToString:path queryParams:queryParams];
 		NSURL *absoluteURL = [NSURL URLWithString:self.url];
 		NSString * urlString = [[NSURL URLWithString:pathWithQueryParams relativeToURL:absoluteURL] absoluteString];
@@ -304,7 +313,7 @@ static bool loggingEnabled = true;
 	
 	if(body != nil) {
 		if([body isKindOfClass:[NSDictionary class]] || [body isKindOfClass:[NSArray class]]){
-			[requestSerializer setValue:requestContentType forHTTPHeaderField:@"Content-Type"];
+			[request setValue:requestContentType forHTTPHeaderField:@"Content-Type"];
 		}
 		else if ([body isKindOfClass:[SWGFile class]]) {}
 		else {
@@ -368,8 +377,17 @@ static bool loggingEnabled = true;
 						   headerParams: (NSDictionary*) headerParams
 					 requestContentType: (NSString*) requestContentType
 					responseContentType: (NSString*) responseContentType
-						successBlock: (void (^)(NSString*))successBlock
-						errorBlock: (void (^)(NSError *))errorBlock{
+						   successBlock: (void (^)(NSString*))successBlock
+							 errorBlock: (void (^)(NSError *))errorBlock{
+	
+	if([requestContentType isEqualToString:@"application/json"]){
+		self.requestSerializer = [AFJSONRequestSerializer serializer];
+	}else{
+		self.requestSerializer = [AFHTTPRequestSerializer serializer];
+	}
+	
+	self.responseSerializer = [AFHTTPResponseSerializer serializer];
+	
 	NSMutableURLRequest * request = nil;
 	if (body != nil && [body isKindOfClass:[NSArray class]]){
 		SWGFile * file;
@@ -433,11 +451,9 @@ static bool loggingEnabled = true;
 	}
 	
 	
-	AFJSONRequestSerializer *requestSerializer = [AFJSONRequestSerializer serializer];
-	
 	if(body != nil) {
 		if([body isKindOfClass:[NSDictionary class]] || [body isKindOfClass:[NSArray class]]){
-			[requestSerializer setValue:requestContentType forHTTPHeaderField:@"Content-Type"];
+			[request setValue:requestContentType forHTTPHeaderField:@"Content-Type"];
 		}
 		else if ([body isKindOfClass:[SWGFile class]]){}
 		else {
@@ -449,8 +465,6 @@ static bool loggingEnabled = true;
 			[request setValue:[headerParams valueForKey:key] forHTTPHeaderField:key];
 		}
 	}
-	[requestSerializer setValue:responseContentType forHTTPHeaderField:@"Accept"];
-	
 	
 	// Always disable cookies!
 	[request setHTTPShouldHandleCookies:NO];

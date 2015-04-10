@@ -14,7 +14,7 @@
 @property(nonatomic) NSString* version;  
 @property(nonatomic) NSString* templateCode;  
 @property(nonatomic) NSArray* containers;  
-@property(nonatomic) MSSetting* setting;  
+@property(nonatomic) MSSetting* settings;  
 @property(nonatomic) NSArray* values;  
 @property(nonatomic) NSArray* nestedValues;  
 - (id) code: (NSString*) code     
@@ -23,7 +23,7 @@
     version: (NSString*) version     
     templateCode: (NSString*) templateCode     
     containers: (NSArray*) containers     
-    setting: (MSSetting*) setting     
+    settings: (MSSetting*) settings     
     values: (NSArray*) values     
     nestedValues: (NSArray*) nestedValues;
     

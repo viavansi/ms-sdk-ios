@@ -1,11 +1,11 @@
-#import "MSVevidencesApi.h"
+#import "MSV1evidencesApi.h"
 #import "SWGFile.h"
 #import "ApiClient.h"
 #import "MSEvidence.h"
 
 
 
-@implementation MSVevidencesApi
+@implementation MSV1evidencesApi
 
 +(unsigned long) requestQueueSize {
     return [ApiClient requestQueueSize];

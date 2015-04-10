@@ -1,99 +1,25 @@
-#import "MSVoauthApi.h"
+#import "MSV1signaturesApi.h"
 #import "SWGFile.h"
 #import "ApiClient.h"
-#import "MSToken.h"
+#import "MSPolicy.h"
 
 
 
-@implementation MSVoauthApi
+@implementation MSV1signaturesApi
 
 +(unsigned long) requestQueueSize {
     return [ApiClient requestQueueSize];
 }
 
 
-+(NSNumber*) accessToken: (NSString*) x_auth_mode
-         x_auth_username: (NSString*) x_auth_username
-         x_auth_password: (NSString*) x_auth_password
++(NSNumber*) prepareSignature: (NSString*) messageCode
+         policyCode: (NSString*) policyCode
+         userCode: (NSString*) userCode
         
-        onSuccess: (void (^)(MSToken* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock
+        onSuccess: (void (^)(MSPolicy* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock
          {
 
-    NSMutableString* requestUrl = [NSMutableString stringWithFormat:@"%@/v1/oauth/accessToken", [[ApiClient sharedInstance] url]];
-
-    // remove format in URL if needed
-    if ([requestUrl rangeOfString:@".{format}"].location != NSNotFound){
-        [requestUrl replaceCharactersInRange: [requestUrl rangeOfString:@".{format}"] withString:@".json"];
-    }
-
-    
-
-	NSArray * requestContentTypes = @[@"application/x-www-form-urlencoded"];
-    NSString* requestContentType = requestContentTypes.count > 0 ? requestContentTypes[0] : @"application/json";
-    
-    NSArray * responseContentTypes = @[@"application/json"];
-    NSString* responseContentType = responseContentTypes.count > 0 ? responseContentTypes[0] : @"application/json";
-	
-    NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
-    
-    NSMutableDictionary* headerParams = [[NSMutableDictionary alloc] init];
-    
-
-    id bodyDictionary = nil;
-    
-    
-    bodyDictionary = [[NSMutableArray alloc] init];
-
-    NSMutableDictionary * formParams = [[NSMutableDictionary alloc]init]; 
-
-    
-    formParams[@"x_auth_mode"] = x_auth_mode;
-    
-    formParams[@"x_auth_username"] = x_auth_username;
-    
-    formParams[@"x_auth_password"] = x_auth_password;
-    
-    [bodyDictionary addObject:formParams];
-    
-
-    
-
-    ApiClient* client = [ApiClient sharedInstance];
-
-    
-    
-    
-        
-    // comples response type
-    return [client dictionary: requestUrl 
-                       method: @"POST" 
-                  queryParams: queryParams 
-                         body: bodyDictionary 
-                 headerParams: headerParams
-           requestContentType: requestContentType
-          responseContentType: responseContentType
-              successBlock: ^(NSDictionary *data) {
-                
-                MSToken *result = nil;
-                if (data) {
-                    result = [[MSToken    alloc]initWithValues: data];
-                }
-                onSuccessBlock(result);
-                
-              }
-              errorBlock: ^(NSError *error) {
-                    onErrorBlock(error);
-                    
-              }];
-    
-    
-}
-
-+(NSNumber*) requestToken: 
-        (void (^)(MSToken* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock
-         {
-
-    NSMutableString* requestUrl = [NSMutableString stringWithFormat:@"%@/v1/oauth/requestToken", [[ApiClient sharedInstance] url]];
+    NSMutableString* requestUrl = [NSMutableString stringWithFormat:@"%@/v1/signatures/prepare", [[ApiClient sharedInstance] url]];
 
     // remove format in URL if needed
     if ([requestUrl rangeOfString:@".{format}"].location != NSNotFound){
@@ -121,6 +47,12 @@
     NSMutableDictionary * formParams = [[NSMutableDictionary alloc]init]; 
 
     
+    formParams[@"messageCode"] = messageCode;
+    
+    formParams[@"policyCode"] = policyCode;
+    
+    formParams[@"userCode"] = userCode;
+    
     [bodyDictionary addObject:formParams];
     
 
@@ -134,7 +66,7 @@
         
     // comples response type
     return [client dictionary: requestUrl 
-                       method: @"GET" 
+                       method: @"POST" 
                   queryParams: queryParams 
                          body: bodyDictionary 
                  headerParams: headerParams
@@ -142,9 +74,86 @@
           responseContentType: responseContentType
               successBlock: ^(NSDictionary *data) {
                 
-                MSToken *result = nil;
+                MSPolicy *result = nil;
                 if (data) {
-                    result = [[MSToken    alloc]initWithValues: data];
+                    result = [[MSPolicy    alloc]initWithValues: data];
+                }
+                onSuccessBlock(result);
+                
+              }
+              errorBlock: ^(NSError *error) {
+                    onErrorBlock(error);
+                    
+              }];
+    
+    
+}
+
++(NSNumber*) registerSignature: (NSString*) messageCode
+         policyCode: (NSString*) policyCode
+         signatureCode: (NSString*) signatureCode
+        
+        onSuccess: (void (^)(MSPolicy* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock
+         {
+
+    NSMutableString* requestUrl = [NSMutableString stringWithFormat:@"%@/v1/signatures/register", [[ApiClient sharedInstance] url]];
+
+    // remove format in URL if needed
+    if ([requestUrl rangeOfString:@".{format}"].location != NSNotFound){
+        [requestUrl replaceCharactersInRange: [requestUrl rangeOfString:@".{format}"] withString:@".json"];
+    }
+
+    
+
+	NSArray * requestContentTypes = @[];
+    NSString* requestContentType = requestContentTypes.count > 0 ? requestContentTypes[0] : @"application/json";
+    
+    NSArray * responseContentTypes = @[@"application/json"];
+    NSString* responseContentType = responseContentTypes.count > 0 ? responseContentTypes[0] : @"application/json";
+	
+    NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
+    
+    NSMutableDictionary* headerParams = [[NSMutableDictionary alloc] init];
+    
+
+    id bodyDictionary = nil;
+    
+    
+    bodyDictionary = [[NSMutableArray alloc] init];
+
+    NSMutableDictionary * formParams = [[NSMutableDictionary alloc]init]; 
+
+    
+    formParams[@"messageCode"] = messageCode;
+    
+    formParams[@"policyCode"] = policyCode;
+    
+    formParams[@"signatureCode"] = signatureCode;
+    
+    [bodyDictionary addObject:formParams];
+    
+
+    
+
+    ApiClient* client = [ApiClient sharedInstance];
+
+    
+    
+    
+        
+    // comples response type
+    return [client dictionary: requestUrl 
+                       method: @"POST" 
+                  queryParams: queryParams 
+                         body: bodyDictionary 
+                 headerParams: headerParams
+           requestContentType: requestContentType
+          responseContentType: responseContentType
+              successBlock: ^(NSDictionary *data) {
+                
+                MSPolicy *result = nil;
+                if (data) {
+                    result = [[MSPolicy    alloc]initWithValues: data];
                 }
                 onSuccessBlock(result);
                 

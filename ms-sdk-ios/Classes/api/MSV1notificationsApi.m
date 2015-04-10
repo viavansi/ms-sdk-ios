@@ -1,11 +1,11 @@
-#import "MSVnotificationsApi.h"
+#import "MSV1notificationsApi.h"
 #import "SWGFile.h"
 #import "ApiClient.h"
 #import "MSNotification.h"
 
 
 
-@implementation MSVnotificationsApi
+@implementation MSV1notificationsApi
 
 +(unsigned long) requestQueueSize {
     return [ApiClient requestQueueSize];
@@ -80,6 +80,76 @@
     // comples response type
     return [client dictionary: requestUrl 
                        method: @"POST" 
+                  queryParams: queryParams 
+                         body: bodyDictionary 
+                 headerParams: headerParams
+           requestContentType: requestContentType
+          responseContentType: responseContentType
+              successBlock: ^(NSDictionary *data) {
+                
+                MSNotification *result = nil;
+                if (data) {
+                    result = [[MSNotification    alloc]initWithValues: data];
+                }
+                onSuccessBlock(result);
+                
+              }
+              errorBlock: ^(NSError *error) {
+                    onErrorBlock(error);
+                    
+              }];
+    
+    
+}
+
++(NSNumber*) findNotificationsByCode: (NSString*) code
+        
+        onSuccess: (void (^)(MSNotification* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock
+         {
+
+    NSMutableString* requestUrl = [NSMutableString stringWithFormat:@"%@/v1/notifications/code/{code}", [[ApiClient sharedInstance] url]];
+
+    // remove format in URL if needed
+    if ([requestUrl rangeOfString:@".{format}"].location != NSNotFound){
+        [requestUrl replaceCharactersInRange: [requestUrl rangeOfString:@".{format}"] withString:@".json"];
+    }
+
+    [requestUrl replaceCharactersInRange: [requestUrl rangeOfString:[NSString stringWithFormat:@"%@%@%@", @"{", @"code", @"}"]] withString: [ApiClient escape:code]];
+    
+
+	NSArray * requestContentTypes = @[];
+    NSString* requestContentType = requestContentTypes.count > 0 ? requestContentTypes[0] : @"application/json";
+    
+    NSArray * responseContentTypes = @[];
+    NSString* responseContentType = responseContentTypes.count > 0 ? responseContentTypes[0] : @"application/json";
+	
+    NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
+    
+    NSMutableDictionary* headerParams = [[NSMutableDictionary alloc] init];
+    
+
+    id bodyDictionary = nil;
+    
+    
+    bodyDictionary = [[NSMutableArray alloc] init];
+
+    NSMutableDictionary * formParams = [[NSMutableDictionary alloc]init]; 
+
+    
+    [bodyDictionary addObject:formParams];
+    
+
+    
+
+    ApiClient* client = [ApiClient sharedInstance];
+
+    
+    
+    
+        
+    // comples response type
+    return [client dictionary: requestUrl 
+                       method: @"GET" 
                   queryParams: queryParams 
                          body: bodyDictionary 
                  headerParams: headerParams
