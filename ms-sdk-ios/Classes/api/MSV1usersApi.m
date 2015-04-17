@@ -137,9 +137,13 @@
     NSMutableDictionary * formParams = [[NSMutableDictionary alloc]init]; 
 
     
+    if(code){
     formParams[@"code"] = code;
+    }
     
+    if(password){
     formParams[@"password"] = password;
+    }
     
     [bodyDictionary addObject:formParams];
     

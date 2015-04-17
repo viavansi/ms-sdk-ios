@@ -51,19 +51,33 @@
     NSMutableDictionary * formParams = [[NSMutableDictionary alloc]init]; 
 
     
+    if(messageCode){
     formParams[@"messageCode"] = messageCode;
+    }
     
+    if(policyCode){
     formParams[@"policyCode"] = policyCode;
+    }
     
+    if(evidenceCode){
     formParams[@"evidenceCode"] = evidenceCode;
+    }
     
+    if(imageBase64){
     formParams[@"imageBase64"] = imageBase64;
+    }
     
+    if(metadata){
     formParams[@"metadata"] = metadata;
+    }
     
+    if(fingerID){
     formParams[@"fingerID"] = fingerID;
+    }
     
+    if(algorithmic){
     formParams[@"algorithmic"] = algorithmic;
+    }
     
     [bodyDictionary addObject:formParams];
     

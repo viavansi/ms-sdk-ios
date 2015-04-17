@@ -47,11 +47,17 @@
     NSMutableDictionary * formParams = [[NSMutableDictionary alloc]init]; 
 
     
+    if(x_auth_mode){
     formParams[@"x_auth_mode"] = x_auth_mode;
+    }
     
+    if(x_auth_username){
     formParams[@"x_auth_username"] = x_auth_username;
+    }
     
+    if(x_auth_password){
     formParams[@"x_auth_password"] = x_auth_password;
+    }
     
     [bodyDictionary addObject:formParams];
     

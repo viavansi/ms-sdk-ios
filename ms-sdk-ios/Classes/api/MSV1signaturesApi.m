@@ -28,7 +28,7 @@
 
     
 
-	NSArray * requestContentTypes = @[];
+	NSArray * requestContentTypes = @[@"application/x-www-form-urlencoded"];
     NSString* requestContentType = requestContentTypes.count > 0 ? requestContentTypes[0] : @"application/json";
     
     NSArray * responseContentTypes = @[@"application/json"];
@@ -47,11 +47,17 @@
     NSMutableDictionary * formParams = [[NSMutableDictionary alloc]init]; 
 
     
+    if(messageCode){
     formParams[@"messageCode"] = messageCode;
+    }
     
+    if(policyCode){
     formParams[@"policyCode"] = policyCode;
+    }
     
+    if(userCode){
     formParams[@"userCode"] = userCode;
+    }
     
     [bodyDictionary addObject:formParams];
     
@@ -105,7 +111,7 @@
 
     
 
-	NSArray * requestContentTypes = @[];
+	NSArray * requestContentTypes = @[@"application/x-www-form-urlencoded"];
     NSString* requestContentType = requestContentTypes.count > 0 ? requestContentTypes[0] : @"application/json";
     
     NSArray * responseContentTypes = @[@"application/json"];
@@ -124,11 +130,17 @@
     NSMutableDictionary * formParams = [[NSMutableDictionary alloc]init]; 
 
     
+    if(messageCode){
     formParams[@"messageCode"] = messageCode;
+    }
     
+    if(policyCode){
     formParams[@"policyCode"] = policyCode;
+    }
     
+    if(signatureCode){
     formParams[@"signatureCode"] = signatureCode;
+    }
     
     [bodyDictionary addObject:formParams];
     

@@ -132,7 +132,9 @@
     NSMutableDictionary * formParams = [[NSMutableDictionary alloc]init]; 
 
     
+    if(comment){
     formParams[@"comment"] = comment;
+    }
     
     [bodyDictionary addObject:formParams];
     
