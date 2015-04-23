@@ -94,7 +94,7 @@ static inline NSString * AFNounce() {
 		requestString = [NSString stringWithFormat:@"%@&%@", requestString, oauthParameters];
 	}
 	
-	NSLog(@"Data to sign: %@", requestString);
+	//NSLog(@"Data to sign: %@", requestString);
 	
 	NSData *requestStringData = [requestString dataUsingEncoding:NSUTF8StringEncoding];
 	
@@ -105,7 +105,7 @@ static inline NSString * AFNounce() {
 	CCHmacFinal(&cx, digest);
 	
 	NSString *signedString = AFEncodeBase64WithData([NSData dataWithBytes:digest length:CC_SHA1_DIGEST_LENGTH]);
-	NSLog(@"Signed data: %@", signedString);
+	//NSLog(@"Signed data: %@", signedString);
 	
 	return signedString;
 }
@@ -171,7 +171,7 @@ static inline NSString * AFNounce() {
 		}
 	}
 	NSString *authorization = [NSString stringWithFormat:kAFOAuth1AuthorizationFormatString, [mutableComponents componentsJoinedByString:@", "]];
-	NSLog(@"%@", authorization);
+	//NSLog(@"%@", authorization);
 	return authorization;
 }
 

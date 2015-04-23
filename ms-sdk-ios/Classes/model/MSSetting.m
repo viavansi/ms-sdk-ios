@@ -6,6 +6,7 @@
 -(id)titleKey: (NSString*) titleKey
     descriptionKey: (NSString*) descriptionKey
     policy: (MSPolicy*) policy
+    computec_key: (NSString*) computec_key
     policies: (NSArray*) policies
     callbackURL: (NSString*) callbackURL
     callbackMails: (NSString*) callbackMails
@@ -17,6 +18,7 @@
     _titleKey = titleKey;
     _descriptionKey = descriptionKey;
     _policy = policy;
+    _computec_key = computec_key;
     _policies = policies;
     _callbackURL = callbackURL;
     _callbackMails = callbackMails;
@@ -43,6 +45,8 @@
         if(policy_dict != nil)
             _policy = [[MSPolicy  alloc]initWithValues:policy_dict];
         
+        
+        _computec_key = dict[@"computec_key"];
         
         
         
@@ -113,6 +117,10 @@
         }
     }
     
+    
+    
+            if(_computec_key != nil) dict[@"computec_key"] = _computec_key ;
+        
     
     
     if(_policies != nil){

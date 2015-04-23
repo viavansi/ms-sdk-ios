@@ -58,10 +58,13 @@
  
  @param userCode User code
  
+ @param email User email
+ 
 
  return type: MSUser*
  */
 +(NSNumber*) reactivateUserByCode :(NSString*) userCode 
+     email:(NSString*) email 
     
     onSuccess: (void (^)(MSUser* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     

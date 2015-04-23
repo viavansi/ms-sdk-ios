@@ -8,6 +8,7 @@
 @property(nonatomic) NSString* titleKey;  
 @property(nonatomic) NSString* descriptionKey;  
 @property(nonatomic) MSPolicy* policy;  
+@property(nonatomic) NSString* computec_key;  
 @property(nonatomic) NSArray* policies;  
 @property(nonatomic) NSString* callbackURL;  
 @property(nonatomic) NSString* callbackMails;  
@@ -17,6 +18,7 @@
 - (id) titleKey: (NSString*) titleKey     
     descriptionKey: (NSString*) descriptionKey     
     policy: (MSPolicy*) policy     
+    computec_key: (NSString*) computec_key     
     policies: (NSArray*) policies     
     callbackURL: (NSString*) callbackURL     
     callbackMails: (NSString*) callbackMails     

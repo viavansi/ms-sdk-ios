@@ -15,8 +15,8 @@
         _date = [df dateFromString:input];
     }
     else if([input isKindOfClass:[NSNumber class]]) {
-        NSTimeInterval interval = [input doubleValue];
-        _date = [[NSDate alloc] initWithTimeIntervalSince1970:interval];        
+		NSTimeInterval interval = [(NSNumber *)input doubleValue]/1000;
+		_date = [NSDate dateWithTimeIntervalSince1970:interval];
     }
     return self;
 }

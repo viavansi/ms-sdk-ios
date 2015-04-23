@@ -182,11 +182,12 @@
 }
 
 +(NSNumber*) reactivateUserByCode: (NSString*) userCode
+         email: (NSString*) email
         
         onSuccess: (void (^)(MSUser* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock
          {
 
-    NSMutableString* requestUrl = [NSMutableString stringWithFormat:@"%@/v1/users/reactivate/{userCode}", [[ApiClient sharedInstance] url]];
+    NSMutableString* requestUrl = [NSMutableString stringWithFormat:@"%@/v1/users/reactivate/{userCode}/email/{email}", [[ApiClient sharedInstance] url]];
 
     // remove format in URL if needed
     if ([requestUrl rangeOfString:@".{format}"].location != NSNotFound){
@@ -194,6 +195,7 @@
     }
 
     [requestUrl replaceCharactersInRange: [requestUrl rangeOfString:[NSString stringWithFormat:@"%@%@%@", @"{", @"userCode", @"}"]] withString: [ApiClient escape:userCode]];
+    [requestUrl replaceCharactersInRange: [requestUrl rangeOfString:[NSString stringWithFormat:@"%@%@%@", @"{", @"email", @"}"]] withString: [ApiClient escape:email]];
     
 
 	NSArray * requestContentTypes = @[];
