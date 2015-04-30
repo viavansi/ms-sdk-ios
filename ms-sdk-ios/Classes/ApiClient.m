@@ -237,6 +237,10 @@ static bool loggingEnabled = true;
 		self.responseSerializer = [AFJSONResponseSerializer serializer];
 	}
 	
+	if (self.timeoutInterval) {
+		[self.requestSerializer setTimeoutInterval:self.timeoutInterval];
+	}
+	
 	NSMutableURLRequest * request = nil;
 	if (body != nil && [body isKindOfClass:[NSArray class]]){
 		SWGFile * file;
@@ -387,6 +391,10 @@ static bool loggingEnabled = true;
 	}
 	
 	self.responseSerializer = [AFHTTPResponseSerializer serializer];
+	
+	if (self.timeoutInterval) {
+		[self.requestSerializer setTimeoutInterval:self.timeoutInterval];
+	}
 	
 	NSMutableURLRequest * request = nil;
 	if (body != nil && [body isKindOfClass:[NSArray class]]){
