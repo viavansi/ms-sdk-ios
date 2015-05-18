@@ -8,8 +8,11 @@
     draftedCode: (NSString*) draftedCode
     draftedReference: (NSString*) draftedReference
     signedCode: (NSString*) signedCode
+    signedID: (NSString*) signedID
     signedReference: (NSString*) signedReference
     templateType: (NSString*) templateType
+    formRequired: (NSNumber*) formRequired
+    formDisabled: (NSNumber*) formDisabled
     items: (NSArray*) items
     
 {
@@ -18,8 +21,11 @@
     _draftedCode = draftedCode;
     _draftedReference = draftedReference;
     _signedCode = signedCode;
+    _signedID = signedID;
     _signedReference = signedReference;
     _templateType = templateType;
+    _formRequired = formRequired;
+    _formDisabled = formDisabled;
     _items = items;
     
 
@@ -40,9 +46,15 @@
         
         _signedCode = dict[@"signedCode"];
         
+        _signedID = dict[@"signedID"];
+        
         _signedReference = dict[@"signedReference"];
         
         _templateType = dict[@"templateType"];
+        
+        _formRequired = dict[@"formRequired"];
+        
+        _formDisabled = dict[@"formDisabled"];
         
         
         
@@ -94,11 +106,23 @@
         
     
     
+            if(_signedID != nil) dict[@"signedID"] = _signedID ;
+        
+    
+    
             if(_signedReference != nil) dict[@"signedReference"] = _signedReference ;
         
     
     
             if(_templateType != nil) dict[@"templateType"] = _templateType ;
+        
+    
+    
+            if(_formRequired != nil) dict[@"formRequired"] = _formRequired ;
+        
+    
+    
+            if(_formDisabled != nil) dict[@"formDisabled"] = _formDisabled ;
         
     
     

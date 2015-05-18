@@ -7,12 +7,14 @@
     title: (NSString*) title
     _description: (NSString*) _description
     creationDate: (SWGDate*) creationDate
+    version: (NSNumber*) version
     
 {
     _code = code;
     _title = title;
     __description = _description;
     _creationDate = creationDate;
+    _version = version;
     
 
     return self;
@@ -35,6 +37,8 @@
         if(creationDate_dict != nil)
             _creationDate = [[SWGDate  alloc]initWithValues:creationDate_dict];
         
+        
+        _version = dict[@"version"];
         
         
     }
@@ -78,6 +82,10 @@
         }
     }
     
+    
+    
+            if(_version != nil) dict[@"version"] = _version ;
+        
     
 
     NSDictionary* output = [dict copy];

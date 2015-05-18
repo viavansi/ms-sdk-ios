@@ -1,20 +1,16 @@
 #import <Foundation/Foundation.h>
 #import "SWGObject.h"
-#import "SWGDate.h"
+#import "MSStatus.h"
 
 
-@interface MSTemplateList : SWGObject
+@interface MSWorkflowConfig : SWGObject
 
 @property(nonatomic) NSString* code;  
-@property(nonatomic) NSString* title;  
 @property(nonatomic) NSString* _description;  
-@property(nonatomic) SWGDate* creationDate;  
-@property(nonatomic) NSNumber* version;  
+@property(nonatomic) NSArray* status;  
 - (id) code: (NSString*) code     
-    title: (NSString*) title     
     _description: (NSString*) _description     
-    creationDate: (SWGDate*) creationDate     
-    version: (NSNumber*) version;
+    status: (NSArray*) status;
     
 
 - (id) initWithValues: (NSDictionary*)dict;

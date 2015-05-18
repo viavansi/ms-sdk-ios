@@ -11,11 +11,13 @@
 @property(nonatomic) NSString* _description;  
 @property(nonatomic) SWGDate* creationDate;  
 @property(nonatomic) MSForm* form;  
+@property(nonatomic) NSString* version;  
 - (id) code: (NSString*) code     
     title: (NSString*) title     
     _description: (NSString*) _description     
     creationDate: (SWGDate*) creationDate     
-    form: (MSForm*) form;
+    form: (MSForm*) form     
+    version: (NSString*) version;
     
 
 - (id) initWithValues: (NSDictionary*)dict;

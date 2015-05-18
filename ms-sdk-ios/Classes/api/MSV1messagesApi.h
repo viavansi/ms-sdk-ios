@@ -1,5 +1,6 @@
 #import <Foundation/Foundation.h>
 #import "MSMessage.h"
+#import "MSDocument.h"
 #import "SWGObject.h"
 
 
@@ -42,6 +43,28 @@
  */
 +(NSNumber*) rejectMessageByCode :(NSString*) messageCode 
      comment:(NSString*) comment 
+    
+    onSuccess: (void (^)(MSMessage* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    
+
+
+/**
+
+ Method for update a document
+ 
+ Update document
+ 
+
+ 
+ @param messageCode messageCode
+ 
+ @param body JSDocument object that needs to be updated
+ 
+
+ return type: MSMessage*
+ */
++(NSNumber*) updateDocument :(NSString*) messageCode 
+     body:(MSDocument*) body 
     
     onSuccess: (void (^)(MSMessage* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     

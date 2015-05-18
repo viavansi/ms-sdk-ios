@@ -31,7 +31,7 @@
 
  return type: MSEvidence*
  */
-+(NSNumber*) update :(NSString*) messageCode 
++(NSNumber*) sendEvidence :(NSString*) messageCode 
      policyCode:(NSString*) policyCode 
      evidenceCode:(NSString*) evidenceCode 
      imageBase64:(NSString*) imageBase64 

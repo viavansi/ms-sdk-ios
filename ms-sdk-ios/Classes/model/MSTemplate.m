@@ -8,6 +8,7 @@
     _description: (NSString*) _description
     creationDate: (SWGDate*) creationDate
     form: (MSForm*) form
+    version: (NSString*) version
     
 {
     _code = code;
@@ -15,6 +16,7 @@
     __description = _description;
     _creationDate = creationDate;
     _form = form;
+    _version = version;
     
 
     return self;
@@ -45,6 +47,8 @@
         if(form_dict != nil)
             _form = [[MSForm  alloc]initWithValues:form_dict];
         
+        
+        _version = dict[@"version"];
         
         
     }
@@ -111,6 +115,10 @@
         }
     }
     
+    
+    
+            if(_version != nil) dict[@"version"] = _version ;
+        
     
 
     NSDictionary* output = [dict copy];
