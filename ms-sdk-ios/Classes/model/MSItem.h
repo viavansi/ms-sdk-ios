@@ -28,6 +28,7 @@
 @property(nonatomic) NSString* minLength;  
 @property(nonatomic) NSArray* monthNames;  
 @property(nonatomic) NSArray* dayNames;  
+@property(nonatomic) NSNumber* increment;  
 - (id) key: (NSString*) key     
     value: (NSString*) value     
     type: (NSString*) type     
@@ -51,7 +52,8 @@
     maxLength: (NSString*) maxLength     
     minLength: (NSString*) minLength     
     monthNames: (NSArray*) monthNames     
-    dayNames: (NSArray*) dayNames;
+    dayNames: (NSArray*) dayNames     
+    increment: (NSNumber*) increment;
     
 
 - (id) initWithValues: (NSDictionary*)dict;

@@ -27,6 +27,7 @@
     minLength: (NSString*) minLength
     monthNames: (NSArray*) monthNames
     dayNames: (NSArray*) dayNames
+    increment: (NSNumber*) increment
     
 {
     _key = key;
@@ -53,6 +54,7 @@
     _minLength = minLength;
     _monthNames = monthNames;
     _dayNames = dayNames;
+    _increment = increment;
     
 
     return self;
@@ -109,6 +111,8 @@
         _monthNames = dict[@"monthNames"];
         
         _dayNames = dict[@"dayNames"];
+        
+        _increment = dict[@"increment"];
         
         
     }
@@ -212,6 +216,10 @@
     
     
             if(_dayNames != nil) dict[@"dayNames"] = _dayNames ;
+        
+    
+    
+            if(_increment != nil) dict[@"increment"] = _increment ;
         
     
 

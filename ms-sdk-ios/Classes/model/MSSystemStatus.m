@@ -7,12 +7,14 @@
     _description: (NSString*) _description
     status: (NSString*) status
     message: (NSString*) message
+    notification: (NSString*) notification
     
 {
     _name = name;
     __description = _description;
     _status = status;
     _message = message;
+    _notification = notification;
     
 
     return self;
@@ -29,6 +31,8 @@
         _status = dict[@"status"];
         
         _message = dict[@"message"];
+        
+        _notification = dict[@"notification"];
         
         
     }
@@ -52,6 +56,10 @@
     
     
             if(_message != nil) dict[@"message"] = _message ;
+        
+    
+    
+            if(_notification != nil) dict[@"notification"] = _notification ;
         
     
 
