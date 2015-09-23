@@ -17,6 +17,9 @@
     callbackMails: (NSString*) callbackMails
     callbackMailsFormKeys: (NSArray*) callbackMailsFormKeys
     error: (MSErrorResponse*) error
+    pid: (NSString*) pid
+    server: (NSString*) server
+    processTimeExpired: (SWGDate*) processTimeExpired
     commentReject: (NSString*) commentReject
     
 {
@@ -34,6 +37,9 @@
     _callbackMails = callbackMails;
     _callbackMailsFormKeys = callbackMailsFormKeys;
     _error = error;
+    _pid = pid;
+    _server = server;
+    _processTimeExpired = processTimeExpired;
     _commentReject = commentReject;
     
 
@@ -132,6 +138,18 @@
         
         if(error_dict != nil)
             _error = [[MSErrorResponse  alloc]initWithValues:error_dict];
+        
+        
+        _pid = dict[@"pid"];
+        
+        _server = dict[@"server"];
+        
+        
+        
+        id processTimeExpired_dict = dict[@"processTimeExpired"];
+        
+        if(processTimeExpired_dict != nil)
+            _processTimeExpired = [[SWGDate  alloc]initWithValues:processTimeExpired_dict];
         
         
         _commentReject = dict[@"commentReject"];
@@ -309,6 +327,37 @@
         else {
         
             if(_error != nil) dict[@"error"] = [(SWGObject*)_error asDictionary];
+        
+        }
+    }
+    
+    
+    
+            if(_pid != nil) dict[@"pid"] = _pid ;
+        
+    
+    
+            if(_server != nil) dict[@"server"] = _server ;
+        
+    
+    
+    if(_processTimeExpired != nil){
+        if([_processTimeExpired isKindOfClass:[NSArray class]]){
+            NSMutableArray * array = [[NSMutableArray alloc] init];
+            for( SWGDate *processTimeExpired in (NSArray*)_processTimeExpired) {
+                [array addObject:[(SWGObject*)processTimeExpired asDictionary]];
+            }
+            dict[@"processTimeExpired"] = array;
+        }
+        else if(_processTimeExpired && [_processTimeExpired isKindOfClass:[SWGDate class]]) {
+            NSString * dateString = [(SWGDate*)_processTimeExpired toString];
+            if(dateString){
+                dict[@"processTimeExpired"] = dateString;
+            }
+        }
+        else {
+        
+            if(_processTimeExpired != nil) dict[@"processTimeExpired"] = [(SWGObject*)_processTimeExpired asDictionary];
         
         }
     }

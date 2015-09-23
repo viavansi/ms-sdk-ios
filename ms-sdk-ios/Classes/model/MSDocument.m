@@ -5,6 +5,7 @@
 
 -(id)templateCode: (NSString*) templateCode
     templateReference: (NSString*) templateReference
+    templateVersion: (NSNumber*) templateVersion
     draftedCode: (NSString*) draftedCode
     draftedReference: (NSString*) draftedReference
     signedCode: (NSString*) signedCode
@@ -18,6 +19,7 @@
 {
     _templateCode = templateCode;
     _templateReference = templateReference;
+    _templateVersion = templateVersion;
     _draftedCode = draftedCode;
     _draftedReference = draftedReference;
     _signedCode = signedCode;
@@ -39,6 +41,8 @@
         _templateCode = dict[@"templateCode"];
         
         _templateReference = dict[@"templateReference"];
+        
+        _templateVersion = dict[@"templateVersion"];
         
         _draftedCode = dict[@"draftedCode"];
         
@@ -91,6 +95,10 @@
     
     
             if(_templateReference != nil) dict[@"templateReference"] = _templateReference ;
+        
+    
+    
+            if(_templateVersion != nil) dict[@"templateVersion"] = _templateVersion ;
         
     
     

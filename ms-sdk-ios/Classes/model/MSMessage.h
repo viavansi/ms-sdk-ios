@@ -1,6 +1,7 @@
 #import <Foundation/Foundation.h>
 #import "SWGObject.h"
 #import "MSDocument.h"
+#import "SWGDate.h"
 #import "MSNotification.h"
 #import "MSWorkflow.h"
 #import "MSPolicy.h"
@@ -24,6 +25,9 @@
 @property(nonatomic) NSString* callbackMails;  
 @property(nonatomic) NSArray* callbackMailsFormKeys;  
 @property(nonatomic) MSErrorResponse* error;  
+@property(nonatomic) NSString* pid;  
+@property(nonatomic) NSString* server;  
+@property(nonatomic) SWGDate* processTimeExpired;  
 @property(nonatomic) NSString* commentReject;  
 - (id) code: (NSString*) code     
     userCode: (NSString*) userCode     
@@ -39,6 +43,9 @@
     callbackMails: (NSString*) callbackMails     
     callbackMailsFormKeys: (NSArray*) callbackMailsFormKeys     
     error: (MSErrorResponse*) error     
+    pid: (NSString*) pid     
+    server: (NSString*) server     
+    processTimeExpired: (SWGDate*) processTimeExpired     
     commentReject: (NSString*) commentReject;
     
 
