@@ -9,12 +9,12 @@
 @property(nonatomic) NSString* title;  
 @property(nonatomic) NSString* _description;  
 @property(nonatomic) SWGDate* creationDate;  
-@property(nonatomic) NSNumber* version;  
+@property(nonatomic) NSString* version;  
 - (id) code: (NSString*) code     
     title: (NSString*) title     
     _description: (NSString*) _description     
     creationDate: (SWGDate*) creationDate     
-    version: (NSNumber*) version;
+    version: (NSString*) version;
     
 
 - (id) initWithValues: (NSDictionary*)dict;

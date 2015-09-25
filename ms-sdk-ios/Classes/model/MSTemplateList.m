@@ -7,7 +7,7 @@
     title: (NSString*) title
     _description: (NSString*) _description
     creationDate: (SWGDate*) creationDate
-    version: (NSNumber*) version
+    version: (NSString*) version
     
 {
     _code = code;
