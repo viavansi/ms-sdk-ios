@@ -301,15 +301,15 @@ static bool loggingEnabled = true;
 	if(headerParams != nil && [headerParams count] > 0)
 		hasHeaderParams = true;
 	if(offlineState) {
-		NSLog(@"%@ cache forced", path);
+		//NSLog(@"%@ cache forced", path);
 		[request setCachePolicy:NSURLRequestReturnCacheDataDontLoad];
 	}
 	else if(!hasHeaderParams && [method isEqualToString:@"GET"] && cacheEnabled) {
-		NSLog(@"%@ cache enabled", path);
+		//NSLog(@"%@ cache enabled", path);
 		[request setCachePolicy:NSURLRequestUseProtocolCachePolicy];
 	}
 	else {
-		NSLog(@"%@ cache disabled", path);
+		//NSLog(@"%@ cache disabled", path);
 		[request setCachePolicy:NSURLRequestReloadIgnoringLocalCacheData];
 	}
 	
@@ -370,6 +370,11 @@ static bool loggingEnabled = true;
 									  }
 								  }
 	 ];
+	
+	
+	AFSecurityPolicy *securityPolicy = [AFSecurityPolicy policyWithPinningMode:AFSSLPinningModeCertificate];
+	securityPolicy.allowInvalidCertificates = YES;
+	op.securityPolicy = securityPolicy;
 	[self.operationQueue addOperation:op];
 	return requestId;
 }
@@ -446,15 +451,15 @@ static bool loggingEnabled = true;
 	if(headerParams != nil && [headerParams count] > 0)
 		hasHeaderParams = true;
 	if(offlineState) {
-		NSLog(@"%@ cache forced", path);
+		//NSLog(@"%@ cache forced", path);
 		[request setCachePolicy:NSURLRequestReturnCacheDataDontLoad];
 	}
 	else if(!hasHeaderParams && [method isEqualToString:@"GET"] && cacheEnabled) {
-		NSLog(@"%@ cache enabled", path);
+		//NSLog(@"%@ cache enabled", path);
 		[request setCachePolicy:NSURLRequestUseProtocolCachePolicy];
 	}
 	else {
-		NSLog(@"%@ cache disabled", path);
+		//NSLog(@"%@ cache disabled", path);
 		[request setCachePolicy:NSURLRequestReloadIgnoringLocalCacheData];
 	}
 	
@@ -508,6 +513,9 @@ static bool loggingEnabled = true;
 																   }
 															   }];
 	
+	AFSecurityPolicy *securityPolicy = [AFSecurityPolicy policyWithPinningMode:AFSSLPinningModeCertificate];
+	securityPolicy.allowInvalidCertificates = YES;
+	op.securityPolicy = securityPolicy;
 	[self.operationQueue addOperation:op];
 	return requestId;
 }
