@@ -60,7 +60,9 @@
     if(_expires != nil){
         if([_expires isKindOfClass:[NSArray class]]){
             NSMutableArray * array = [[NSMutableArray alloc] init];
-            for( SWGDate *expires in (NSArray*)_expires) {
+            for( int i=0 ; i<[(NSArray*)_expires count] ; i++ ) {
+				SWGDate *expires = [[SWGDate alloc]init];
+				expires = [(NSArray*)_expires objectAtIndex:i];            
                 [array addObject:[(SWGObject*)expires asDictionary]];
             }
             dict[@"expires"] = array;

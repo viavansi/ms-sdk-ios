@@ -74,7 +74,9 @@
     if(_creationDate != nil){
         if([_creationDate isKindOfClass:[NSArray class]]){
             NSMutableArray * array = [[NSMutableArray alloc] init];
-            for( SWGDate *creationDate in (NSArray*)_creationDate) {
+            for( int i=0 ; i<[(NSArray*)_creationDate count] ; i++ ) {
+				SWGDate *creationDate = [[SWGDate alloc]init];
+				creationDate = [(NSArray*)_creationDate objectAtIndex:i];            
                 [array addObject:[(SWGObject*)creationDate asDictionary]];
             }
             dict[@"creationDate"] = array;
@@ -97,7 +99,9 @@
     if(_form != nil){
         if([_form isKindOfClass:[NSArray class]]){
             NSMutableArray * array = [[NSMutableArray alloc] init];
-            for( MSForm *form in (NSArray*)_form) {
+            for( int i=0 ; i<[(NSArray*)_form count] ; i++ ) {
+				MSForm *form = [[MSForm alloc]init];
+				form = [(NSArray*)_form objectAtIndex:i];            
                 [array addObject:[(SWGObject*)form asDictionary]];
             }
             dict[@"form"] = array;

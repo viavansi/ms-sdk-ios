@@ -49,7 +49,8 @@
         if([containers_dict isKindOfClass:[NSArray class]]) {
             NSMutableArray * objs = [[NSMutableArray alloc] initWithCapacity:[(NSArray*)containers_dict count]];
             if([(NSArray*)containers_dict count] > 0) {
-                for (NSDictionary* dict in (NSArray*)containers_dict) {
+                for (int i=0 ; i<[(NSArray*)containers_dict count] ; i++) {
+                	NSDictionary *dict = [[NSDictionary alloc] initWithDictionary:[containers_dict objectAtIndex:i]];
                     MSContainer* d = [[MSContainer alloc] initWithValues:dict];
                     [objs addObject:d];
                 }
@@ -78,7 +79,8 @@
         if([values_dict isKindOfClass:[NSArray class]]) {
             NSMutableArray * objs = [[NSMutableArray alloc] initWithCapacity:[(NSArray*)values_dict count]];
             if([(NSArray*)values_dict count] > 0) {
-                for (NSDictionary* dict in (NSArray*)values_dict) {
+                for (int i=0 ; i<[(NSArray*)values_dict count] ; i++) {
+                	NSDictionary *dict = [[NSDictionary alloc] initWithDictionary:[values_dict objectAtIndex:i]];
                     MSFormValue* d = [[MSFormValue alloc] initWithValues:dict];
                     [objs addObject:d];
                 }
@@ -99,7 +101,8 @@
         if([nestedValues_dict isKindOfClass:[NSArray class]]) {
             NSMutableArray * objs = [[NSMutableArray alloc] initWithCapacity:[(NSArray*)nestedValues_dict count]];
             if([(NSArray*)nestedValues_dict count] > 0) {
-                for (NSDictionary* dict in (NSArray*)nestedValues_dict) {
+                for (int i=0 ; i<[(NSArray*)nestedValues_dict count] ; i++) {
+                	NSDictionary *dict = [[NSDictionary alloc] initWithDictionary:[nestedValues_dict objectAtIndex:i]];
                     MSFormNestedValue* d = [[MSFormNestedValue alloc] initWithValues:dict];
                     [objs addObject:d];
                 }
@@ -145,7 +148,9 @@
     if(_containers != nil){
         if([_containers isKindOfClass:[NSArray class]]){
             NSMutableArray * array = [[NSMutableArray alloc] init];
-            for( MSContainer *containers in (NSArray*)_containers) {
+            for( int i=0 ; i<[(NSArray*)_containers count] ; i++ ) {
+				MSContainer *containers = [[MSContainer alloc]init];
+				containers = [(NSArray*)_containers objectAtIndex:i];            
                 [array addObject:[(SWGObject*)containers asDictionary]];
             }
             dict[@"containers"] = array;
@@ -168,7 +173,9 @@
     if(_settings != nil){
         if([_settings isKindOfClass:[NSArray class]]){
             NSMutableArray * array = [[NSMutableArray alloc] init];
-            for( MSSetting *settings in (NSArray*)_settings) {
+            for( int i=0 ; i<[(NSArray*)_settings count] ; i++ ) {
+				MSSetting *settings = [[MSSetting alloc]init];
+				settings = [(NSArray*)_settings objectAtIndex:i];            
                 [array addObject:[(SWGObject*)settings asDictionary]];
             }
             dict[@"settings"] = array;
@@ -191,7 +198,9 @@
     if(_values != nil){
         if([_values isKindOfClass:[NSArray class]]){
             NSMutableArray * array = [[NSMutableArray alloc] init];
-            for( MSFormValue *values in (NSArray*)_values) {
+            for( int i=0 ; i<[(NSArray*)_values count] ; i++ ) {
+				MSFormValue *values = [[MSFormValue alloc]init];
+				values = [(NSArray*)_values objectAtIndex:i];            
                 [array addObject:[(SWGObject*)values asDictionary]];
             }
             dict[@"values"] = array;
@@ -214,7 +223,9 @@
     if(_nestedValues != nil){
         if([_nestedValues isKindOfClass:[NSArray class]]){
             NSMutableArray * array = [[NSMutableArray alloc] init];
-            for( MSFormNestedValue *nestedValues in (NSArray*)_nestedValues) {
+            for( int i=0 ; i<[(NSArray*)_nestedValues count] ; i++ ) {
+				MSFormNestedValue *nestedValues = [[MSFormNestedValue alloc]init];
+				nestedValues = [(NSArray*)_nestedValues objectAtIndex:i];            
                 [array addObject:[(SWGObject*)nestedValues asDictionary]];
             }
             dict[@"nestedValues"] = array;

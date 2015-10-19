@@ -55,7 +55,8 @@
         if([policies_dict isKindOfClass:[NSArray class]]) {
             NSMutableArray * objs = [[NSMutableArray alloc] initWithCapacity:[(NSArray*)policies_dict count]];
             if([(NSArray*)policies_dict count] > 0) {
-                for (NSDictionary* dict in (NSArray*)policies_dict) {
+                for (int i=0 ; i<[(NSArray*)policies_dict count] ; i++) {
+                	NSDictionary *dict = [[NSDictionary alloc] initWithDictionary:[policies_dict objectAtIndex:i]];
                     MSPolicy* d = [[MSPolicy alloc] initWithValues:dict];
                     [objs addObject:d];
                 }
@@ -99,7 +100,9 @@
     if(_policy != nil){
         if([_policy isKindOfClass:[NSArray class]]){
             NSMutableArray * array = [[NSMutableArray alloc] init];
-            for( MSPolicy *policy in (NSArray*)_policy) {
+            for( int i=0 ; i<[(NSArray*)_policy count] ; i++ ) {
+				MSPolicy *policy = [[MSPolicy alloc]init];
+				policy = [(NSArray*)_policy objectAtIndex:i];            
                 [array addObject:[(SWGObject*)policy asDictionary]];
             }
             dict[@"policy"] = array;
@@ -126,7 +129,9 @@
     if(_policies != nil){
         if([_policies isKindOfClass:[NSArray class]]){
             NSMutableArray * array = [[NSMutableArray alloc] init];
-            for( MSPolicy *policies in (NSArray*)_policies) {
+            for( int i=0 ; i<[(NSArray*)_policies count] ; i++ ) {
+				MSPolicy *policies = [[MSPolicy alloc]init];
+				policies = [(NSArray*)_policies objectAtIndex:i];            
                 [array addObject:[(SWGObject*)policies asDictionary]];
             }
             dict[@"policies"] = array;

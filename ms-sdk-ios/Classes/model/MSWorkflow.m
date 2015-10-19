@@ -41,7 +41,8 @@
         if([history_dict isKindOfClass:[NSArray class]]) {
             NSMutableArray * objs = [[NSMutableArray alloc] initWithCapacity:[(NSArray*)history_dict count]];
             if([(NSArray*)history_dict count] > 0) {
-                for (NSDictionary* dict in (NSArray*)history_dict) {
+                for (int i=0 ; i<[(NSArray*)history_dict count] ; i++) {
+                	NSDictionary *dict = [[NSDictionary alloc] initWithDictionary:[history_dict objectAtIndex:i]];
                     MSEventHistory* d = [[MSEventHistory alloc] initWithValues:dict];
                     [objs addObject:d];
                 }
@@ -103,7 +104,9 @@
     if(_history != nil){
         if([_history isKindOfClass:[NSArray class]]){
             NSMutableArray * array = [[NSMutableArray alloc] init];
-            for( MSEventHistory *history in (NSArray*)_history) {
+            for( int i=0 ; i<[(NSArray*)_history count] ; i++ ) {
+				MSEventHistory *history = [[MSEventHistory alloc]init];
+				history = [(NSArray*)_history objectAtIndex:i];            
                 [array addObject:[(SWGObject*)history asDictionary]];
             }
             dict[@"history"] = array;
@@ -126,7 +129,9 @@
     if(_initiate != nil){
         if([_initiate isKindOfClass:[NSArray class]]){
             NSMutableArray * array = [[NSMutableArray alloc] init];
-            for( SWGDate *initiate in (NSArray*)_initiate) {
+            for( int i=0 ; i<[(NSArray*)_initiate count] ; i++ ) {
+				SWGDate *initiate = [[SWGDate alloc]init];
+				initiate = [(NSArray*)_initiate objectAtIndex:i];            
                 [array addObject:[(SWGObject*)initiate asDictionary]];
             }
             dict[@"initiate"] = array;
@@ -149,7 +154,9 @@
     if(_lastUpdated != nil){
         if([_lastUpdated isKindOfClass:[NSArray class]]){
             NSMutableArray * array = [[NSMutableArray alloc] init];
-            for( SWGDate *lastUpdated in (NSArray*)_lastUpdated) {
+            for( int i=0 ; i<[(NSArray*)_lastUpdated count] ; i++ ) {
+				SWGDate *lastUpdated = [[SWGDate alloc]init];
+				lastUpdated = [(NSArray*)_lastUpdated objectAtIndex:i];            
                 [array addObject:[(SWGObject*)lastUpdated asDictionary]];
             }
             dict[@"lastUpdated"] = array;
@@ -172,7 +179,9 @@
     if(_expires != nil){
         if([_expires isKindOfClass:[NSArray class]]){
             NSMutableArray * array = [[NSMutableArray alloc] init];
-            for( SWGDate *expires in (NSArray*)_expires) {
+            for( int i=0 ; i<[(NSArray*)_expires count] ; i++ ) {
+				SWGDate *expires = [[SWGDate alloc]init];
+				expires = [(NSArray*)_expires objectAtIndex:i];            
                 [array addObject:[(SWGObject*)expires asDictionary]];
             }
             dict[@"expires"] = array;

@@ -67,7 +67,8 @@
         if([items_dict isKindOfClass:[NSArray class]]) {
             NSMutableArray * objs = [[NSMutableArray alloc] initWithCapacity:[(NSArray*)items_dict count]];
             if([(NSArray*)items_dict count] > 0) {
-                for (NSDictionary* dict in (NSArray*)items_dict) {
+                for (int i=0 ; i<[(NSArray*)items_dict count] ; i++) {
+                	NSDictionary *dict = [[NSDictionary alloc] initWithDictionary:[items_dict objectAtIndex:i]];
                     MSItem* d = [[MSItem alloc] initWithValues:dict];
                     [objs addObject:d];
                 }
@@ -137,7 +138,9 @@
     if(_items != nil){
         if([_items isKindOfClass:[NSArray class]]){
             NSMutableArray * array = [[NSMutableArray alloc] init];
-            for( MSItem *items in (NSArray*)_items) {
+            for( int i=0 ; i<[(NSArray*)_items count] ; i++ ) {
+				MSItem *items = [[MSItem alloc]init];
+				items = [(NSArray*)_items objectAtIndex:i];            
                 [array addObject:[(SWGObject*)items asDictionary]];
             }
             dict[@"items"] = array;

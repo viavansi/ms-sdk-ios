@@ -64,7 +64,9 @@
     if(_start != nil){
         if([_start isKindOfClass:[NSArray class]]){
             NSMutableArray * array = [[NSMutableArray alloc] init];
-            for( SWGDate *start in (NSArray*)_start) {
+            for( int i=0 ; i<[(NSArray*)_start count] ; i++ ) {
+				SWGDate *start = [[SWGDate alloc]init];
+				start = [(NSArray*)_start objectAtIndex:i];            
                 [array addObject:[(SWGObject*)start asDictionary]];
             }
             dict[@"start"] = array;
@@ -87,7 +89,9 @@
     if(_ends != nil){
         if([_ends isKindOfClass:[NSArray class]]){
             NSMutableArray * array = [[NSMutableArray alloc] init];
-            for( SWGDate *ends in (NSArray*)_ends) {
+            for( int i=0 ; i<[(NSArray*)_ends count] ; i++ ) {
+				SWGDate *ends = [[SWGDate alloc]init];
+				ends = [(NSArray*)_ends objectAtIndex:i];            
                 [array addObject:[(SWGObject*)ends asDictionary]];
             }
             dict[@"ends"] = array;
@@ -118,7 +122,9 @@
     if(_error != nil){
         if([_error isKindOfClass:[NSArray class]]){
             NSMutableArray * array = [[NSMutableArray alloc] init];
-            for( MSErrorResponse *error in (NSArray*)_error) {
+            for( int i=0 ; i<[(NSArray*)_error count] ; i++ ) {
+				MSErrorResponse *error = [[MSErrorResponse alloc]init];
+				error = [(NSArray*)_error objectAtIndex:i];            
                 [array addObject:[(SWGObject*)error asDictionary]];
             }
             dict[@"error"] = array;

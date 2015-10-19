@@ -25,7 +25,8 @@
         if([tasks_dict isKindOfClass:[NSArray class]]) {
             NSMutableArray * objs = [[NSMutableArray alloc] initWithCapacity:[(NSArray*)tasks_dict count]];
             if([(NSArray*)tasks_dict count] > 0) {
-                for (NSDictionary* dict in (NSArray*)tasks_dict) {
+                for (int i=0 ; i<[(NSArray*)tasks_dict count] ; i++) {
+                	NSDictionary *dict = [[NSDictionary alloc] initWithDictionary:[tasks_dict objectAtIndex:i]];
                     MSTask* d = [[MSTask alloc] initWithValues:dict];
                     [objs addObject:d];
                 }
@@ -46,7 +47,8 @@
         if([workflows_dict isKindOfClass:[NSArray class]]) {
             NSMutableArray * objs = [[NSMutableArray alloc] initWithCapacity:[(NSArray*)workflows_dict count]];
             if([(NSArray*)workflows_dict count] > 0) {
-                for (NSDictionary* dict in (NSArray*)workflows_dict) {
+                for (int i=0 ; i<[(NSArray*)workflows_dict count] ; i++) {
+                	NSDictionary *dict = [[NSDictionary alloc] initWithDictionary:[workflows_dict objectAtIndex:i]];
                     MSWorkflowConfig* d = [[MSWorkflowConfig alloc] initWithValues:dict];
                     [objs addObject:d];
                 }
@@ -72,7 +74,9 @@
     if(_tasks != nil){
         if([_tasks isKindOfClass:[NSArray class]]){
             NSMutableArray * array = [[NSMutableArray alloc] init];
-            for( MSTask *tasks in (NSArray*)_tasks) {
+            for( int i=0 ; i<[(NSArray*)_tasks count] ; i++ ) {
+				MSTask *tasks = [[MSTask alloc]init];
+				tasks = [(NSArray*)_tasks objectAtIndex:i];            
                 [array addObject:[(SWGObject*)tasks asDictionary]];
             }
             dict[@"tasks"] = array;
@@ -95,7 +99,9 @@
     if(_workflows != nil){
         if([_workflows isKindOfClass:[NSArray class]]){
             NSMutableArray * array = [[NSMutableArray alloc] init];
-            for( MSWorkflowConfig *workflows in (NSArray*)_workflows) {
+            for( int i=0 ; i<[(NSArray*)_workflows count] ; i++ ) {
+				MSWorkflowConfig *workflows = [[MSWorkflowConfig alloc]init];
+				workflows = [(NSArray*)_workflows objectAtIndex:i];            
                 [array addObject:[(SWGObject*)workflows asDictionary]];
             }
             dict[@"workflows"] = array;

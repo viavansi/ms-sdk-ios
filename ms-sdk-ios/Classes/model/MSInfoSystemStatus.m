@@ -27,7 +27,8 @@
         if([info_dict isKindOfClass:[NSArray class]]) {
             NSMutableArray * objs = [[NSMutableArray alloc] initWithCapacity:[(NSArray*)info_dict count]];
             if([(NSArray*)info_dict count] > 0) {
-                for (NSDictionary* dict in (NSArray*)info_dict) {
+                for (int i=0 ; i<[(NSArray*)info_dict count] ; i++) {
+                	NSDictionary *dict = [[NSDictionary alloc] initWithDictionary:[info_dict objectAtIndex:i]];
                     MSSystemStatus* d = [[MSSystemStatus alloc] initWithValues:dict];
                     [objs addObject:d];
                 }
@@ -57,7 +58,9 @@
     if(_info != nil){
         if([_info isKindOfClass:[NSArray class]]){
             NSMutableArray * array = [[NSMutableArray alloc] init];
-            for( MSSystemStatus *info in (NSArray*)_info) {
+            for( int i=0 ; i<[(NSArray*)_info count] ; i++ ) {
+				MSSystemStatus *info = [[MSSystemStatus alloc]init];
+				info = [(NSArray*)_info objectAtIndex:i];            
                 [array addObject:[(SWGObject*)info asDictionary]];
             }
             dict[@"info"] = array;
