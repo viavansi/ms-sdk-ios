@@ -27,7 +27,8 @@
         if([values_dict isKindOfClass:[NSArray class]]) {
             NSMutableArray * objs = [[NSMutableArray alloc] initWithCapacity:[(NSArray*)values_dict count]];
             if([(NSArray*)values_dict count] > 0) {
-                for (NSDictionary* dict in (NSArray*)values_dict) {
+                for (int i=0 ; i<[(NSArray*)values_dict count] ; i++) {
+                	NSDictionary *dict = [[NSDictionary alloc] initWithDictionary:[values_dict objectAtIndex:i]];
                     MSFormValue* d = [[MSFormValue alloc] initWithValues:dict];
                     [objs addObject:d];
                 }
@@ -57,7 +58,9 @@
     if(_values != nil){
         if([_values isKindOfClass:[NSArray class]]){
             NSMutableArray * array = [[NSMutableArray alloc] init];
-            for( MSFormValue *values in (NSArray*)_values) {
+            for( int i=0 ; i<[(NSArray*)_values count] ; i++ ) {
+				MSFormValue *values = [[MSFormValue alloc]init];
+				values = [(NSArray*)_values objectAtIndex:i];            
                 [array addObject:[(SWGObject*)values asDictionary]];
             }
             dict[@"values"] = array;

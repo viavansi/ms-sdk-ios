@@ -63,7 +63,8 @@
         if([paramList_dict isKindOfClass:[NSArray class]]) {
             NSMutableArray * objs = [[NSMutableArray alloc] initWithCapacity:[(NSArray*)paramList_dict count]];
             if([(NSArray*)paramList_dict count] > 0) {
-                for (NSDictionary* dict in (NSArray*)paramList_dict) {
+                for (int i=0 ; i<[(NSArray*)paramList_dict count] ; i++) {
+                	NSDictionary *dict = [[NSDictionary alloc] initWithDictionary:[paramList_dict objectAtIndex:i]];
                     MSParam* d = [[MSParam alloc] initWithValues:dict];
                     [objs addObject:d];
                 }
@@ -84,7 +85,8 @@
         if([evidences_dict isKindOfClass:[NSArray class]]) {
             NSMutableArray * objs = [[NSMutableArray alloc] initWithCapacity:[(NSArray*)evidences_dict count]];
             if([(NSArray*)evidences_dict count] > 0) {
-                for (NSDictionary* dict in (NSArray*)evidences_dict) {
+                for (int i=0 ; i<[(NSArray*)evidences_dict count] ; i++) {
+                	NSDictionary *dict = [[NSDictionary alloc] initWithDictionary:[evidences_dict objectAtIndex:i]];
                     MSEvidence* d = [[MSEvidence alloc] initWithValues:dict];
                     [objs addObject:d];
                 }
@@ -154,7 +156,9 @@
     if(_paramList != nil){
         if([_paramList isKindOfClass:[NSArray class]]){
             NSMutableArray * array = [[NSMutableArray alloc] init];
-            for( MSParam *paramList in (NSArray*)_paramList) {
+            for( int i=0 ; i<[(NSArray*)_paramList count] ; i++ ) {
+				MSParam *paramList = [[MSParam alloc]init];
+				paramList = [(NSArray*)_paramList objectAtIndex:i];            
                 [array addObject:[(SWGObject*)paramList asDictionary]];
             }
             dict[@"paramList"] = array;
@@ -177,7 +181,9 @@
     if(_evidences != nil){
         if([_evidences isKindOfClass:[NSArray class]]){
             NSMutableArray * array = [[NSMutableArray alloc] init];
-            for( MSEvidence *evidences in (NSArray*)_evidences) {
+            for( int i=0 ; i<[(NSArray*)_evidences count] ; i++ ) {
+				MSEvidence *evidences = [[MSEvidence alloc]init];
+				evidences = [(NSArray*)_evidences objectAtIndex:i];            
                 [array addObject:[(SWGObject*)evidences asDictionary]];
             }
             dict[@"evidences"] = array;
@@ -200,7 +206,9 @@
     if(_error != nil){
         if([_error isKindOfClass:[NSArray class]]){
             NSMutableArray * array = [[NSMutableArray alloc] init];
-            for( MSErrorResponse *error in (NSArray*)_error) {
+            for( int i=0 ; i<[(NSArray*)_error count] ; i++ ) {
+				MSErrorResponse *error = [[MSErrorResponse alloc]init];
+				error = [(NSArray*)_error objectAtIndex:i];            
                 [array addObject:[(SWGObject*)error asDictionary]];
             }
             dict[@"error"] = array;

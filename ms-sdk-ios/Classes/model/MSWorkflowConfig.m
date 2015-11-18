@@ -31,7 +31,8 @@
         if([status_dict isKindOfClass:[NSArray class]]) {
             NSMutableArray * objs = [[NSMutableArray alloc] initWithCapacity:[(NSArray*)status_dict count]];
             if([(NSArray*)status_dict count] > 0) {
-                for (NSDictionary* dict in (NSArray*)status_dict) {
+                for (int i=0 ; i<[(NSArray*)status_dict count] ; i++) {
+                	NSDictionary *dict = [[NSDictionary alloc] initWithDictionary:[status_dict objectAtIndex:i]];
                     MSStatus* d = [[MSStatus alloc] initWithValues:dict];
                     [objs addObject:d];
                 }
@@ -65,7 +66,9 @@
     if(_status != nil){
         if([_status isKindOfClass:[NSArray class]]){
             NSMutableArray * array = [[NSMutableArray alloc] init];
-            for( MSStatus *status in (NSArray*)_status) {
+            for( int i=0 ; i<[(NSArray*)_status count] ; i++ ) {
+				MSStatus *status = [[MSStatus alloc]init];
+				status = [(NSArray*)_status objectAtIndex:i];            
                 [array addObject:[(SWGObject*)status asDictionary]];
             }
             dict[@"status"] = array;

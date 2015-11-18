@@ -61,7 +61,8 @@
         if([finalize_menu_options_dict isKindOfClass:[NSArray class]]) {
             NSMutableArray * objs = [[NSMutableArray alloc] initWithCapacity:[(NSArray*)finalize_menu_options_dict count]];
             if([(NSArray*)finalize_menu_options_dict count] > 0) {
-                for (NSDictionary* dict in (NSArray*)finalize_menu_options_dict) {
+                for (int i=0 ; i<[(NSArray*)finalize_menu_options_dict count] ; i++) {
+                	NSDictionary *dict = [[NSDictionary alloc] initWithDictionary:[finalize_menu_options_dict objectAtIndex:i]];
                     MSMenuOption* d = [[MSMenuOption alloc] initWithValues:dict];
                     [objs addObject:d];
                 }
@@ -125,7 +126,9 @@
     if(_finalize_menu_options != nil){
         if([_finalize_menu_options isKindOfClass:[NSArray class]]){
             NSMutableArray * array = [[NSMutableArray alloc] init];
-            for( MSMenuOption *finalize_menu_options in (NSArray*)_finalize_menu_options) {
+            for( int i=0 ; i<[(NSArray*)_finalize_menu_options count] ; i++ ) {
+				MSMenuOption *finalize_menu_options = [[MSMenuOption alloc]init];
+				finalize_menu_options = [(NSArray*)_finalize_menu_options objectAtIndex:i];            
                 [array addObject:[(SWGObject*)finalize_menu_options asDictionary]];
             }
             dict[@"finalize_menu_options"] = array;

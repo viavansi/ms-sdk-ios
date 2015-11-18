@@ -40,7 +40,9 @@
     if(_rectangle != nil){
         if([_rectangle isKindOfClass:[NSArray class]]){
             NSMutableArray * array = [[NSMutableArray alloc] init];
-            for( MSRectangle *rectangle in (NSArray*)_rectangle) {
+            for( int i=0 ; i<[(NSArray*)_rectangle count] ; i++ ) {
+				MSRectangle *rectangle = [[MSRectangle alloc]init];
+				rectangle = [(NSArray*)_rectangle objectAtIndex:i];            
                 [array addObject:[(SWGObject*)rectangle asDictionary]];
             }
             dict[@"rectangle"] = array;

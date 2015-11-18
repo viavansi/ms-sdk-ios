@@ -31,7 +31,8 @@
         if([rows_dict isKindOfClass:[NSArray class]]) {
             NSMutableArray * objs = [[NSMutableArray alloc] initWithCapacity:[(NSArray*)rows_dict count]];
             if([(NSArray*)rows_dict count] > 0) {
-                for (NSDictionary* dict in (NSArray*)rows_dict) {
+                for (int i=0 ; i<[(NSArray*)rows_dict count] ; i++) {
+                	NSDictionary *dict = [[NSDictionary alloc] initWithDictionary:[rows_dict objectAtIndex:i]];
                     MSRow* d = [[MSRow alloc] initWithValues:dict];
                     [objs addObject:d];
                 }
@@ -65,7 +66,9 @@
     if(_rows != nil){
         if([_rows isKindOfClass:[NSArray class]]){
             NSMutableArray * array = [[NSMutableArray alloc] init];
-            for( MSRow *rows in (NSArray*)_rows) {
+            for( int i=0 ; i<[(NSArray*)_rows count] ; i++ ) {
+				MSRow *rows = [[MSRow alloc]init];
+				rows = [(NSArray*)_rows objectAtIndex:i];            
                 [array addObject:[(SWGObject*)rows asDictionary]];
             }
             dict[@"rows"] = array;

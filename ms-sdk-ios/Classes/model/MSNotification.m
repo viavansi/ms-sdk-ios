@@ -53,7 +53,8 @@
         if([metadata_dict isKindOfClass:[NSArray class]]) {
             NSMutableArray * objs = [[NSMutableArray alloc] initWithCapacity:[(NSArray*)metadata_dict count]];
             if([(NSArray*)metadata_dict count] > 0) {
-                for (NSDictionary* dict in (NSArray*)metadata_dict) {
+                for (int i=0 ; i<[(NSArray*)metadata_dict count] ; i++) {
+                	NSDictionary *dict = [[NSDictionary alloc] initWithDictionary:[metadata_dict objectAtIndex:i]];
                     MSParam* d = [[MSParam alloc] initWithValues:dict];
                     [objs addObject:d];
                 }
@@ -74,7 +75,8 @@
         if([devices_dict isKindOfClass:[NSArray class]]) {
             NSMutableArray * objs = [[NSMutableArray alloc] initWithCapacity:[(NSArray*)devices_dict count]];
             if([(NSArray*)devices_dict count] > 0) {
-                for (NSDictionary* dict in (NSArray*)devices_dict) {
+                for (int i=0 ; i<[(NSArray*)devices_dict count] ; i++) {
+                	NSDictionary *dict = [[NSDictionary alloc] initWithDictionary:[devices_dict objectAtIndex:i]];
                     MSDevice* d = [[MSDevice alloc] initWithValues:dict];
                     [objs addObject:d];
                 }
@@ -128,7 +130,9 @@
     if(_metadata != nil){
         if([_metadata isKindOfClass:[NSArray class]]){
             NSMutableArray * array = [[NSMutableArray alloc] init];
-            for( MSParam *metadata in (NSArray*)_metadata) {
+            for( int i=0 ; i<[(NSArray*)_metadata count] ; i++ ) {
+				MSParam *metadata = [[MSParam alloc]init];
+				metadata = [(NSArray*)_metadata objectAtIndex:i];            
                 [array addObject:[(SWGObject*)metadata asDictionary]];
             }
             dict[@"metadata"] = array;
@@ -151,7 +155,9 @@
     if(_devices != nil){
         if([_devices isKindOfClass:[NSArray class]]){
             NSMutableArray * array = [[NSMutableArray alloc] init];
-            for( MSDevice *devices in (NSArray*)_devices) {
+            for( int i=0 ; i<[(NSArray*)_devices count] ; i++ ) {
+				MSDevice *devices = [[MSDevice alloc]init];
+				devices = [(NSArray*)_devices objectAtIndex:i];            
                 [array addObject:[(SWGObject*)devices asDictionary]];
             }
             dict[@"devices"] = array;

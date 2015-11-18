@@ -63,7 +63,8 @@
         if([positions_dict isKindOfClass:[NSArray class]]) {
             NSMutableArray * objs = [[NSMutableArray alloc] initWithCapacity:[(NSArray*)positions_dict count]];
             if([(NSArray*)positions_dict count] > 0) {
-                for (NSDictionary* dict in (NSArray*)positions_dict) {
+                for (int i=0 ; i<[(NSArray*)positions_dict count] ; i++) {
+                	NSDictionary *dict = [[NSDictionary alloc] initWithDictionary:[positions_dict objectAtIndex:i]];
                     MSPosition* d = [[MSPosition alloc] initWithValues:dict];
                     [objs addObject:d];
                 }
@@ -129,7 +130,9 @@
     if(_positions != nil){
         if([_positions isKindOfClass:[NSArray class]]){
             NSMutableArray * array = [[NSMutableArray alloc] init];
-            for( MSPosition *positions in (NSArray*)_positions) {
+            for( int i=0 ; i<[(NSArray*)_positions count] ; i++ ) {
+				MSPosition *positions = [[MSPosition alloc]init];
+				positions = [(NSArray*)_positions objectAtIndex:i];            
                 [array addObject:[(SWGObject*)positions asDictionary]];
             }
             dict[@"positions"] = array;

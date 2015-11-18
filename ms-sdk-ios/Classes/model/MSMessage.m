@@ -91,7 +91,8 @@
         if([metadataList_dict isKindOfClass:[NSArray class]]) {
             NSMutableArray * objs = [[NSMutableArray alloc] initWithCapacity:[(NSArray*)metadataList_dict count]];
             if([(NSArray*)metadataList_dict count] > 0) {
-                for (NSDictionary* dict in (NSArray*)metadataList_dict) {
+                for (int i=0 ; i<[(NSArray*)metadataList_dict count] ; i++) {
+                	NSDictionary *dict = [[NSDictionary alloc] initWithDictionary:[metadataList_dict objectAtIndex:i]];
                     MSParam* d = [[MSParam alloc] initWithValues:dict];
                     [objs addObject:d];
                 }
@@ -112,7 +113,8 @@
         if([policies_dict isKindOfClass:[NSArray class]]) {
             NSMutableArray * objs = [[NSMutableArray alloc] initWithCapacity:[(NSArray*)policies_dict count]];
             if([(NSArray*)policies_dict count] > 0) {
-                for (NSDictionary* dict in (NSArray*)policies_dict) {
+                for (int i=0 ; i<[(NSArray*)policies_dict count] ; i++) {
+                	NSDictionary *dict = [[NSDictionary alloc] initWithDictionary:[policies_dict objectAtIndex:i]];
                     MSPolicy* d = [[MSPolicy alloc] initWithValues:dict];
                     [objs addObject:d];
                 }
@@ -186,7 +188,9 @@
     if(_workflow != nil){
         if([_workflow isKindOfClass:[NSArray class]]){
             NSMutableArray * array = [[NSMutableArray alloc] init];
-            for( MSWorkflow *workflow in (NSArray*)_workflow) {
+            for( int i=0 ; i<[(NSArray*)_workflow count] ; i++ ) {
+				MSWorkflow *workflow = [[MSWorkflow alloc]init];
+				workflow = [(NSArray*)_workflow objectAtIndex:i];            
                 [array addObject:[(SWGObject*)workflow asDictionary]];
             }
             dict[@"workflow"] = array;
@@ -209,7 +213,9 @@
     if(_notification != nil){
         if([_notification isKindOfClass:[NSArray class]]){
             NSMutableArray * array = [[NSMutableArray alloc] init];
-            for( MSNotification *notification in (NSArray*)_notification) {
+            for( int i=0 ; i<[(NSArray*)_notification count] ; i++ ) {
+				MSNotification *notification = [[MSNotification alloc]init];
+				notification = [(NSArray*)_notification objectAtIndex:i];            
                 [array addObject:[(SWGObject*)notification asDictionary]];
             }
             dict[@"notification"] = array;
@@ -232,7 +238,9 @@
     if(_document != nil){
         if([_document isKindOfClass:[NSArray class]]){
             NSMutableArray * array = [[NSMutableArray alloc] init];
-            for( MSDocument *document in (NSArray*)_document) {
+            for( int i=0 ; i<[(NSArray*)_document count] ; i++ ) {
+				MSDocument *document = [[MSDocument alloc]init];
+				document = [(NSArray*)_document objectAtIndex:i];            
                 [array addObject:[(SWGObject*)document asDictionary]];
             }
             dict[@"document"] = array;
@@ -255,7 +263,9 @@
     if(_metadataList != nil){
         if([_metadataList isKindOfClass:[NSArray class]]){
             NSMutableArray * array = [[NSMutableArray alloc] init];
-            for( MSParam *metadataList in (NSArray*)_metadataList) {
+            for( int i=0 ; i<[(NSArray*)_metadataList count] ; i++ ) {
+				MSParam *metadataList = [[MSParam alloc]init];
+				metadataList = [(NSArray*)_metadataList objectAtIndex:i];            
                 [array addObject:[(SWGObject*)metadataList asDictionary]];
             }
             dict[@"metadataList"] = array;
@@ -278,7 +288,9 @@
     if(_policies != nil){
         if([_policies isKindOfClass:[NSArray class]]){
             NSMutableArray * array = [[NSMutableArray alloc] init];
-            for( MSPolicy *policies in (NSArray*)_policies) {
+            for( int i=0 ; i<[(NSArray*)_policies count] ; i++ ) {
+				MSPolicy *policies = [[MSPolicy alloc]init];
+				policies = [(NSArray*)_policies objectAtIndex:i];            
                 [array addObject:[(SWGObject*)policies asDictionary]];
             }
             dict[@"policies"] = array;
@@ -313,7 +325,9 @@
     if(_error != nil){
         if([_error isKindOfClass:[NSArray class]]){
             NSMutableArray * array = [[NSMutableArray alloc] init];
-            for( MSErrorResponse *error in (NSArray*)_error) {
+            for( int i=0 ; i<[(NSArray*)_error count] ; i++ ) {
+				MSErrorResponse *error = [[MSErrorResponse alloc]init];
+				error = [(NSArray*)_error objectAtIndex:i];            
                 [array addObject:[(SWGObject*)error asDictionary]];
             }
             dict[@"error"] = array;
@@ -344,7 +358,9 @@
     if(_processTimeExpired != nil){
         if([_processTimeExpired isKindOfClass:[NSArray class]]){
             NSMutableArray * array = [[NSMutableArray alloc] init];
-            for( SWGDate *processTimeExpired in (NSArray*)_processTimeExpired) {
+            for( int i=0 ; i<[(NSArray*)_processTimeExpired count] ; i++ ) {
+				SWGDate *processTimeExpired = [[SWGDate alloc]init];
+				processTimeExpired = [(NSArray*)_processTimeExpired objectAtIndex:i];            
                 [array addObject:[(SWGObject*)processTimeExpired asDictionary]];
             }
             dict[@"processTimeExpired"] = array;

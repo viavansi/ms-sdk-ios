@@ -64,7 +64,9 @@
     if(_creationDate != nil){
         if([_creationDate isKindOfClass:[NSArray class]]){
             NSMutableArray * array = [[NSMutableArray alloc] init];
-            for( SWGDate *creationDate in (NSArray*)_creationDate) {
+            for( int i=0 ; i<[(NSArray*)_creationDate count] ; i++ ) {
+				SWGDate *creationDate = [[SWGDate alloc]init];
+				creationDate = [(NSArray*)_creationDate objectAtIndex:i];            
                 [array addObject:[(SWGObject*)creationDate asDictionary]];
             }
             dict[@"creationDate"] = array;

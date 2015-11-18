@@ -147,26 +147,30 @@ static bool loggingEnabled = true;
 		reachabilityStatus = status;
 		switch (status) {
 			case AFNetworkReachabilityStatusUnknown:
-				if(loggingEnabled)
+				if(loggingEnabled){
 					NSLog(@"reachability changed to AFNetworkReachabilityStatusUnknown");
+				}
 				[ApiClient setOfflineState:true];
 				break;
 				
 			case AFNetworkReachabilityStatusNotReachable:
-				if(loggingEnabled)
+				if(loggingEnabled){
 					NSLog(@"reachability changed to AFNetworkReachabilityStatusNotReachable");
+				}
 				[ApiClient setOfflineState:true];
 				break;
 				
 			case AFNetworkReachabilityStatusReachableViaWWAN:
-				if(loggingEnabled)
+				if(loggingEnabled){
 					NSLog(@"reachability changed to AFNetworkReachabilityStatusReachableViaWWAN");
+				}
 				[ApiClient setOfflineState:false];
 				break;
 				
 			case AFNetworkReachabilityStatusReachableViaWiFi:
-				if(loggingEnabled)
+				if(loggingEnabled){
 					NSLog(@"reachability changed to AFNetworkReachabilityStatusReachableViaWiFi");
+				}
 				[ApiClient setOfflineState:false];
 				break;
 			default:
@@ -210,11 +214,15 @@ static bool loggingEnabled = true;
 }
 
 - (void)logRequest:(NSURLRequest*)request {
-	NSLog(@"request: %@", [self descriptionForRequest:request]);
+	if(loggingEnabled){
+		NSLog(@"request: %@", [self descriptionForRequest:request]);
+	}
 }
 
 - (void)logResponse:(id)data forRequest:(NSURLRequest*)request error:(NSError*)error {
-	NSLog(@"request: %@  response: %@ ",  [self descriptionForRequest:request], data );
+	if(loggingEnabled){
+		NSLog(@"request: %@  response: %@ ",  [self descriptionForRequest:request], data );
+	}
 }
 
 -(NSNumber*)  dictionary: (NSString*) path
@@ -301,15 +309,21 @@ static bool loggingEnabled = true;
 	if(headerParams != nil && [headerParams count] > 0)
 		hasHeaderParams = true;
 	if(offlineState) {
-		//NSLog(@"%@ cache forced", path);
+		if(loggingEnabled){
+			NSLog(@"%@ cache forced", path);
+		}
 		[request setCachePolicy:NSURLRequestReturnCacheDataDontLoad];
 	}
 	else if(!hasHeaderParams && [method isEqualToString:@"GET"] && cacheEnabled) {
-		//NSLog(@"%@ cache enabled", path);
+		if(loggingEnabled){
+			NSLog(@"%@ cache enabled", path);
+		}
 		[request setCachePolicy:NSURLRequestUseProtocolCachePolicy];
 	}
 	else {
-		//NSLog(@"%@ cache disabled", path);
+		if(loggingEnabled){
+			NSLog(@"%@ cache disabled", path);
+		}
 		[request setCachePolicy:NSURLRequestReloadIgnoringLocalCacheData];
 	}
 	
@@ -370,11 +384,10 @@ static bool loggingEnabled = true;
 									  }
 								  }
 	 ];
-	
-	
+	 
 	AFSecurityPolicy *securityPolicy = [AFSecurityPolicy policyWithPinningMode:AFSSLPinningModeCertificate];
-	securityPolicy.allowInvalidCertificates = YES;
-	op.securityPolicy = securityPolicy;
+    securityPolicy.allowInvalidCertificates = YES;
+    op.securityPolicy = securityPolicy;
 	[self.operationQueue addOperation:op];
 	return requestId;
 }
@@ -451,15 +464,21 @@ static bool loggingEnabled = true;
 	if(headerParams != nil && [headerParams count] > 0)
 		hasHeaderParams = true;
 	if(offlineState) {
-		//NSLog(@"%@ cache forced", path);
+		if(loggingEnabled){
+			NSLog(@"%@ cache forced", path);
+		}
 		[request setCachePolicy:NSURLRequestReturnCacheDataDontLoad];
 	}
 	else if(!hasHeaderParams && [method isEqualToString:@"GET"] && cacheEnabled) {
-		//NSLog(@"%@ cache enabled", path);
+		if(loggingEnabled){
+			NSLog(@"%@ cache enabled", path);
+		}
 		[request setCachePolicy:NSURLRequestUseProtocolCachePolicy];
 	}
 	else {
-		//NSLog(@"%@ cache disabled", path);
+		if(loggingEnabled){
+			NSLog(@"%@ cache disabled", path);
+		}
 		[request setCachePolicy:NSURLRequestReloadIgnoringLocalCacheData];
 	}
 	
@@ -514,8 +533,8 @@ static bool loggingEnabled = true;
 															   }];
 	
 	AFSecurityPolicy *securityPolicy = [AFSecurityPolicy policyWithPinningMode:AFSSLPinningModeCertificate];
-	securityPolicy.allowInvalidCertificates = YES;
-	op.securityPolicy = securityPolicy;
+    securityPolicy.allowInvalidCertificates = YES;
+    op.securityPolicy = securityPolicy;
 	[self.operationQueue addOperation:op];
 	return requestId;
 }

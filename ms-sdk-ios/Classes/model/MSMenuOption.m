@@ -84,7 +84,9 @@
     if(_email != nil){
         if([_email isKindOfClass:[NSArray class]]){
             NSMutableArray * array = [[NSMutableArray alloc] init];
-            for( MSMail *email in (NSArray*)_email) {
+            for( int i=0 ; i<[(NSArray*)_email count] ; i++ ) {
+				MSMail *email = [[MSMail alloc]init];
+				email = [(NSArray*)_email objectAtIndex:i];            
                 [array addObject:[(SWGObject*)email asDictionary]];
             }
             dict[@"email"] = array;

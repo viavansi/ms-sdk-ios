@@ -106,7 +106,9 @@
     if(_from != nil){
         if([_from isKindOfClass:[NSArray class]]){
             NSMutableArray * array = [[NSMutableArray alloc] init];
-            for( MSMailConfig *from in (NSArray*)_from) {
+            for( int i=0 ; i<[(NSArray*)_from count] ; i++ ) {
+				MSMailConfig *from = [[MSMailConfig alloc]init];
+				from = [(NSArray*)_from objectAtIndex:i];            
                 [array addObject:[(SWGObject*)from asDictionary]];
             }
             dict[@"from"] = array;
@@ -129,7 +131,9 @@
     if(_fromName != nil){
         if([_fromName isKindOfClass:[NSArray class]]){
             NSMutableArray * array = [[NSMutableArray alloc] init];
-            for( MSMailConfig *fromName in (NSArray*)_fromName) {
+            for( int i=0 ; i<[(NSArray*)_fromName count] ; i++ ) {
+				MSMailConfig *fromName = [[MSMailConfig alloc]init];
+				fromName = [(NSArray*)_fromName objectAtIndex:i];            
                 [array addObject:[(SWGObject*)fromName asDictionary]];
             }
             dict[@"fromName"] = array;
@@ -152,7 +156,9 @@
     if(_to != nil){
         if([_to isKindOfClass:[NSArray class]]){
             NSMutableArray * array = [[NSMutableArray alloc] init];
-            for( MSMailConfig *to in (NSArray*)_to) {
+            for( int i=0 ; i<[(NSArray*)_to count] ; i++ ) {
+				MSMailConfig *to = [[MSMailConfig alloc]init];
+				to = [(NSArray*)_to objectAtIndex:i];            
                 [array addObject:[(SWGObject*)to asDictionary]];
             }
             dict[@"to"] = array;
@@ -175,7 +181,9 @@
     if(_subject != nil){
         if([_subject isKindOfClass:[NSArray class]]){
             NSMutableArray * array = [[NSMutableArray alloc] init];
-            for( MSMailConfig *subject in (NSArray*)_subject) {
+            for( int i=0 ; i<[(NSArray*)_subject count] ; i++ ) {
+				MSMailConfig *subject = [[MSMailConfig alloc]init];
+				subject = [(NSArray*)_subject objectAtIndex:i];            
                 [array addObject:[(SWGObject*)subject asDictionary]];
             }
             dict[@"subject"] = array;
@@ -198,7 +206,9 @@
     if(_replyTo != nil){
         if([_replyTo isKindOfClass:[NSArray class]]){
             NSMutableArray * array = [[NSMutableArray alloc] init];
-            for( MSMailConfig *replyTo in (NSArray*)_replyTo) {
+            for( int i=0 ; i<[(NSArray*)_replyTo count] ; i++ ) {
+				MSMailConfig *replyTo = [[MSMailConfig alloc]init];
+				replyTo = [(NSArray*)_replyTo objectAtIndex:i];            
                 [array addObject:[(SWGObject*)replyTo asDictionary]];
             }
             dict[@"replyTo"] = array;
@@ -221,7 +231,9 @@
     if(_cc != nil){
         if([_cc isKindOfClass:[NSArray class]]){
             NSMutableArray * array = [[NSMutableArray alloc] init];
-            for( MSMailConfig *cc in (NSArray*)_cc) {
+            for( int i=0 ; i<[(NSArray*)_cc count] ; i++ ) {
+				MSMailConfig *cc = [[MSMailConfig alloc]init];
+				cc = [(NSArray*)_cc objectAtIndex:i];            
                 [array addObject:[(SWGObject*)cc asDictionary]];
             }
             dict[@"cc"] = array;
@@ -244,7 +256,9 @@
     if(_bcc != nil){
         if([_bcc isKindOfClass:[NSArray class]]){
             NSMutableArray * array = [[NSMutableArray alloc] init];
-            for( MSMailConfig *bcc in (NSArray*)_bcc) {
+            for( int i=0 ; i<[(NSArray*)_bcc count] ; i++ ) {
+				MSMailConfig *bcc = [[MSMailConfig alloc]init];
+				bcc = [(NSArray*)_bcc objectAtIndex:i];            
                 [array addObject:[(SWGObject*)bcc asDictionary]];
             }
             dict[@"bcc"] = array;
@@ -267,7 +281,9 @@
     if(_text != nil){
         if([_text isKindOfClass:[NSArray class]]){
             NSMutableArray * array = [[NSMutableArray alloc] init];
-            for( MSMailConfig *text in (NSArray*)_text) {
+            for( int i=0 ; i<[(NSArray*)_text count] ; i++ ) {
+				MSMailConfig *text = [[MSMailConfig alloc]init];
+				text = [(NSArray*)_text objectAtIndex:i];            
                 [array addObject:[(SWGObject*)text asDictionary]];
             }
             dict[@"text"] = array;
