@@ -1,7 +1,8 @@
 #import <Foundation/Foundation.h>
 #import "SWGObject.h"
-#import "MSParam.h"
+#import "MSSignature.h"
 #import "MSEvidence.h"
+#import "MSParam.h"
 #import "MSErrorResponse.h"
 
 
@@ -18,6 +19,7 @@
 @property(nonatomic) NSString* idSign;  
 @property(nonatomic) NSArray* paramList;  
 @property(nonatomic) NSArray* evidences;  
+@property(nonatomic) NSArray* signatures;  
 @property(nonatomic) MSErrorResponse* error;  
 - (id) code: (NSString*) code     
     userCode: (NSString*) userCode     
@@ -30,6 +32,7 @@
     idSign: (NSString*) idSign     
     paramList: (NSArray*) paramList     
     evidences: (NSArray*) evidences     
+    signatures: (NSArray*) signatures     
     error: (MSErrorResponse*) error;
     
 

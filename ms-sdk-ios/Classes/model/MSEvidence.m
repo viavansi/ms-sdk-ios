@@ -19,6 +19,7 @@
     certificateAlias: (NSString*) certificateAlias
     certificatePassword: (NSString*) certificatePassword
     metadataCipherPublicKey: (NSString*) metadataCipherPublicKey
+    encryptionKeyAlias: (NSString*) encryptionKeyAlias
     
 {
     _type = type;
@@ -37,6 +38,7 @@
     _certificateAlias = certificateAlias;
     _certificatePassword = certificatePassword;
     _metadataCipherPublicKey = metadataCipherPublicKey;
+    _encryptionKeyAlias = encryptionKeyAlias;
     
 
     return self;
@@ -97,6 +99,8 @@
         _certificatePassword = dict[@"certificatePassword"];
         
         _metadataCipherPublicKey = dict[@"metadataCipherPublicKey"];
+        
+        _encryptionKeyAlias = dict[@"encryptionKeyAlias"];
         
         
     }
@@ -189,6 +193,10 @@
     
     
             if(_metadataCipherPublicKey != nil) dict[@"metadataCipherPublicKey"] = _metadataCipherPublicKey ;
+        
+    
+    
+            if(_encryptionKeyAlias != nil) dict[@"encryptionKeyAlias"] = _encryptionKeyAlias ;
         
     
 

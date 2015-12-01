@@ -14,6 +14,11 @@
 @property(nonatomic) NSNumber* registerHide;  
 @property(nonatomic) NSNumber* allowsInvalidSSLCertificate;  
 @property(nonatomic) NSNumber* evidenceBase64;  
+@property(nonatomic) NSString* version;  
+@property(nonatomic) NSNumber* showUpdate;  
+@property(nonatomic) NSString* installURL;  
+@property(nonatomic) NSString* installMessage;  
+@property(nonatomic) NSString* backendVersion;  
 @property(nonatomic) NSArray* finalize_menu_options;  
 @property(nonatomic) NSNumber* sSLPinningEnabled;  
 - (id) viafirmaURL: (NSString*) viafirmaURL     
@@ -25,6 +30,11 @@
     registerHide: (NSNumber*) registerHide     
     allowsInvalidSSLCertificate: (NSNumber*) allowsInvalidSSLCertificate     
     evidenceBase64: (NSNumber*) evidenceBase64     
+    version: (NSString*) version     
+    showUpdate: (NSNumber*) showUpdate     
+    installURL: (NSString*) installURL     
+    installMessage: (NSString*) installMessage     
+    backendVersion: (NSString*) backendVersion     
     finalize_menu_options: (NSArray*) finalize_menu_options     
     sSLPinningEnabled: (NSNumber*) sSLPinningEnabled;
     

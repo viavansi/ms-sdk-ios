@@ -12,6 +12,11 @@
     registerHide: (NSNumber*) registerHide
     allowsInvalidSSLCertificate: (NSNumber*) allowsInvalidSSLCertificate
     evidenceBase64: (NSNumber*) evidenceBase64
+    version: (NSString*) version
+    showUpdate: (NSNumber*) showUpdate
+    installURL: (NSString*) installURL
+    installMessage: (NSString*) installMessage
+    backendVersion: (NSString*) backendVersion
     finalize_menu_options: (NSArray*) finalize_menu_options
     sSLPinningEnabled: (NSNumber*) sSLPinningEnabled
     
@@ -25,6 +30,11 @@
     _registerHide = registerHide;
     _allowsInvalidSSLCertificate = allowsInvalidSSLCertificate;
     _evidenceBase64 = evidenceBase64;
+    _version = version;
+    _showUpdate = showUpdate;
+    _installURL = installURL;
+    _installMessage = installMessage;
+    _backendVersion = backendVersion;
     _finalize_menu_options = finalize_menu_options;
     _sSLPinningEnabled = sSLPinningEnabled;
     
@@ -53,6 +63,16 @@
         _allowsInvalidSSLCertificate = dict[@"allowsInvalidSSLCertificate"];
         
         _evidenceBase64 = dict[@"evidenceBase64"];
+        
+        _version = dict[@"version"];
+        
+        _showUpdate = dict[@"showUpdate"];
+        
+        _installURL = dict[@"installURL"];
+        
+        _installMessage = dict[@"installMessage"];
+        
+        _backendVersion = dict[@"backendVersion"];
         
         
         
@@ -120,6 +140,26 @@
     
     
             if(_evidenceBase64 != nil) dict[@"evidenceBase64"] = _evidenceBase64 ;
+        
+    
+    
+            if(_version != nil) dict[@"version"] = _version ;
+        
+    
+    
+            if(_showUpdate != nil) dict[@"showUpdate"] = _showUpdate ;
+        
+    
+    
+            if(_installURL != nil) dict[@"installURL"] = _installURL ;
+        
+    
+    
+            if(_installMessage != nil) dict[@"installMessage"] = _installMessage ;
+        
+    
+    
+            if(_backendVersion != nil) dict[@"backendVersion"] = _backendVersion ;
         
     
     
