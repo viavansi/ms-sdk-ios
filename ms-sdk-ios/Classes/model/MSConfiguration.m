@@ -18,6 +18,7 @@
     installMessage: (NSString*) installMessage
     backendVersion: (NSString*) backendVersion
     finalize_menu_options: (NSArray*) finalize_menu_options
+    autoRegisterDevice: (NSNumber*) autoRegisterDevice
     sSLPinningEnabled: (NSNumber*) sSLPinningEnabled
     
 {
@@ -36,6 +37,7 @@
     _installMessage = installMessage;
     _backendVersion = backendVersion;
     _finalize_menu_options = finalize_menu_options;
+    _autoRegisterDevice = autoRegisterDevice;
     _sSLPinningEnabled = sSLPinningEnabled;
     
 
@@ -95,6 +97,8 @@
             _finalize_menu_options = [[NSArray alloc] init];
         }
         
+        
+        _autoRegisterDevice = dict[@"autoRegisterDevice"];
         
         _sSLPinningEnabled = dict[@"sSLPinningEnabled"];
         
@@ -186,6 +190,10 @@
         }
     }
     
+    
+    
+            if(_autoRegisterDevice != nil) dict[@"autoRegisterDevice"] = _autoRegisterDevice ;
+        
     
     
             if(_sSLPinningEnabled != nil) dict[@"sSLPinningEnabled"] = _sSLPinningEnabled ;
