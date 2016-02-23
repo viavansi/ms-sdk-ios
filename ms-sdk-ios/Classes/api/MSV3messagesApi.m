@@ -30,7 +30,7 @@
 	NSArray * requestContentTypes = @[@"application/json"];
     NSString* requestContentType = requestContentTypes.count > 0 ? requestContentTypes[0] : @"application/json";
     
-    NSArray * responseContentTypes = @[@"application/json",@"text/plain"];
+    NSArray * responseContentTypes = @[];
     NSString* responseContentType = responseContentTypes.count > 0 ? responseContentTypes[0] : @"application/json";
 	
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];

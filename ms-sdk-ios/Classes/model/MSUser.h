@@ -17,6 +17,8 @@
 @property(nonatomic) NSString* viafirmaCertificate;  
 @property(nonatomic) NSString* region;  
 @property(nonatomic) NSString* pos;  
+@property(nonatomic) NSString* confirmToken;  
+@property(nonatomic) NSString* changePassToken;  
 @property(nonatomic) NSString* mobile;  
 @property(nonatomic) NSString* channel;  
 - (id) code: (NSString*) code     
@@ -32,6 +34,8 @@
     viafirmaCertificate: (NSString*) viafirmaCertificate     
     region: (NSString*) region     
     pos: (NSString*) pos     
+    confirmToken: (NSString*) confirmToken     
+    changePassToken: (NSString*) changePassToken     
     mobile: (NSString*) mobile     
     channel: (NSString*) channel;
     

@@ -49,6 +49,44 @@
 
 /**
 
+ Send confirm email to an user by code
+ 
+ Send confirm email
+ 
+
+ 
+ @param userCode User code
+ 
+
+ return type: MSUser*
+ */
++(NSNumber*) sendConfirmEmail :(NSString*) userCode 
+    
+    onSuccess: (void (^)(MSUser* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    
+
+
+/**
+
+ Send reset password email to an user by code
+ 
+ Send reset password email
+ 
+
+ 
+ @param userCode User code
+ 
+
+ return type: MSUser*
+ */
++(NSNumber*) sendResetPasswordEmail :(NSString*) userCode 
+    
+    onSuccess: (void (^)(MSUser* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    
+
+
+/**
+
  Method for get an existing user by code
  
  Get user by code
