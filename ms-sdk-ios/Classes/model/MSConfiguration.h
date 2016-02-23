@@ -1,6 +1,5 @@
 #import <Foundation/Foundation.h>
 #import "SWGObject.h"
-#import "MSFinalizeAction.h"
 #import "MSMenuOption.h"
 
 
@@ -22,7 +21,6 @@
 @property(nonatomic) NSString* backendVersion;  
 @property(nonatomic) NSArray* finalize_menu_options;  
 @property(nonatomic) NSNumber* autoRegisterDevice;  
-@property(nonatomic) MSFinalizeAction* finalizeAction;  
 @property(nonatomic) NSNumber* sSLPinningEnabled;  
 - (id) viafirmaURL: (NSString*) viafirmaURL     
     editableURL: (NSNumber*) editableURL     
@@ -40,7 +38,6 @@
     backendVersion: (NSString*) backendVersion     
     finalize_menu_options: (NSArray*) finalize_menu_options     
     autoRegisterDevice: (NSNumber*) autoRegisterDevice     
-    finalizeAction: (MSFinalizeAction*) finalizeAction     
     sSLPinningEnabled: (NSNumber*) sSLPinningEnabled;
     
 

@@ -19,7 +19,6 @@
     backendVersion: (NSString*) backendVersion
     finalize_menu_options: (NSArray*) finalize_menu_options
     autoRegisterDevice: (NSNumber*) autoRegisterDevice
-    finalizeAction: (MSFinalizeAction*) finalizeAction
     sSLPinningEnabled: (NSNumber*) sSLPinningEnabled
     
 {
@@ -39,7 +38,6 @@
     _backendVersion = backendVersion;
     _finalize_menu_options = finalize_menu_options;
     _autoRegisterDevice = autoRegisterDevice;
-    _finalizeAction = finalizeAction;
     _sSLPinningEnabled = sSLPinningEnabled;
     
 
@@ -101,14 +99,6 @@
         
         
         _autoRegisterDevice = dict[@"autoRegisterDevice"];
-        
-        
-        
-        id finalizeAction_dict = dict[@"finalizeAction"];
-        
-        if(finalizeAction_dict != nil)
-            _finalizeAction = [[MSFinalizeAction  alloc]initWithValues:finalizeAction_dict];
-        
         
         _sSLPinningEnabled = dict[@"sSLPinningEnabled"];
         
@@ -204,31 +194,6 @@
     
             if(_autoRegisterDevice != nil) dict[@"autoRegisterDevice"] = _autoRegisterDevice ;
         
-    
-    
-    if(_finalizeAction != nil){
-        if([_finalizeAction isKindOfClass:[NSArray class]]){
-            NSMutableArray * array = [[NSMutableArray alloc] init];
-            for( int i=0 ; i<[(NSArray*)_finalizeAction count] ; i++ ) {
-				MSFinalizeAction *finalizeAction = [[MSFinalizeAction alloc]init];
-				finalizeAction = [(NSArray*)_finalizeAction objectAtIndex:i];            
-                [array addObject:[(SWGObject*)finalizeAction asDictionary]];
-            }
-            dict[@"finalizeAction"] = array;
-        }
-        else if(_finalizeAction && [_finalizeAction isKindOfClass:[SWGDate class]]) {
-            NSString * dateString = [(SWGDate*)_finalizeAction toString];
-            if(dateString){
-                dict[@"finalizeAction"] = dateString;
-            }
-        }
-        else {
-        
-            if(_finalizeAction != nil) dict[@"finalizeAction"] = [(SWGObject*)_finalizeAction asDictionary];
-        
-        }
-    }
-    
     
     
             if(_sSLPinningEnabled != nil) dict[@"sSLPinningEnabled"] = _sSLPinningEnabled ;
