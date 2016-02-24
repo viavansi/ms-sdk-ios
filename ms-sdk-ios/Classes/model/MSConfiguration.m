@@ -19,6 +19,7 @@
     backendVersion: (NSString*) backendVersion
     finalize_menu_options: (NSArray*) finalize_menu_options
     autoRegisterDevice: (NSNumber*) autoRegisterDevice
+    finalizeActions: (NSArray*) finalizeActions
     sSLPinningEnabled: (NSNumber*) sSLPinningEnabled
     
 {
@@ -38,6 +39,7 @@
     _backendVersion = backendVersion;
     _finalize_menu_options = finalize_menu_options;
     _autoRegisterDevice = autoRegisterDevice;
+    _finalizeActions = finalizeActions;
     _sSLPinningEnabled = sSLPinningEnabled;
     
 
@@ -99,6 +101,28 @@
         
         
         _autoRegisterDevice = dict[@"autoRegisterDevice"];
+        
+        
+        
+        id finalizeActions_dict = dict[@"finalizeActions"];
+        
+        if([finalizeActions_dict isKindOfClass:[NSArray class]]) {
+            NSMutableArray * objs = [[NSMutableArray alloc] initWithCapacity:[(NSArray*)finalizeActions_dict count]];
+            if([(NSArray*)finalizeActions_dict count] > 0) {
+                for (int i=0 ; i<[(NSArray*)finalizeActions_dict count] ; i++) {
+                	NSDictionary *dict = [[NSDictionary alloc] initWithDictionary:[finalizeActions_dict objectAtIndex:i]];
+                    MSFinalizeAction* d = [[MSFinalizeAction alloc] initWithValues:dict];
+                    [objs addObject:d];
+                }
+                _finalizeActions = [[NSArray alloc] initWithArray:objs];
+            }
+            else
+                _finalizeActions = [[NSArray alloc] init];
+        }
+        else {
+            _finalizeActions = [[NSArray alloc] init];
+        }
+        
         
         _sSLPinningEnabled = dict[@"sSLPinningEnabled"];
         
@@ -194,6 +218,31 @@
     
             if(_autoRegisterDevice != nil) dict[@"autoRegisterDevice"] = _autoRegisterDevice ;
         
+    
+    
+    if(_finalizeActions != nil){
+        if([_finalizeActions isKindOfClass:[NSArray class]]){
+            NSMutableArray * array = [[NSMutableArray alloc] init];
+            for( int i=0 ; i<[(NSArray*)_finalizeActions count] ; i++ ) {
+				MSFinalizeAction *finalizeActions = [[MSFinalizeAction alloc]init];
+				finalizeActions = [(NSArray*)_finalizeActions objectAtIndex:i];            
+                [array addObject:[(SWGObject*)finalizeActions asDictionary]];
+            }
+            dict[@"finalizeActions"] = array;
+        }
+        else if(_finalizeActions && [_finalizeActions isKindOfClass:[SWGDate class]]) {
+            NSString * dateString = [(SWGDate*)_finalizeActions toString];
+            if(dateString){
+                dict[@"finalizeActions"] = dateString;
+            }
+        }
+        else {
+        
+            if(_finalizeActions != nil) dict[@"finalizeActions"] = [(SWGObject*)_finalizeActions asDictionary];
+        
+        }
+    }
+    
     
     
             if(_sSLPinningEnabled != nil) dict[@"sSLPinningEnabled"] = _sSLPinningEnabled ;
