@@ -1,6 +1,7 @@
 #import <Foundation/Foundation.h>
 #import "MSPolicy.h"
 #import "SWGObject.h"
+#import "OAuth1Client.h"
 
 
 @interface MSV1signaturesApi: NSObject
@@ -27,7 +28,7 @@
      policyCode:(NSString*) policyCode 
      userCode:(NSString*) userCode 
     
-    onSuccess: (void (^)(MSPolicy* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(MSPolicy* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     
 
 
@@ -52,7 +53,7 @@
      policyCode:(NSString*) policyCode 
      signatureCode:(NSString*) signatureCode 
     
-    onSuccess: (void (^)(MSPolicy* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(MSPolicy* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     
 
 

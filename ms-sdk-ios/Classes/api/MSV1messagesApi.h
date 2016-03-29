@@ -2,6 +2,7 @@
 #import "MSMessage.h"
 #import "MSDocument.h"
 #import "SWGObject.h"
+#import "OAuth1Client.h"
 
 
 @interface MSV1messagesApi: NSObject
@@ -22,7 +23,7 @@
  */
 +(NSNumber*) sendMessage :(MSMessage*) body 
     
-    onSuccess: (void (^)(NSString* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(NSString* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     
 
 
@@ -44,7 +45,7 @@
 +(NSNumber*) rejectMessageByCode :(NSString*) messageCode 
      comment:(NSString*) comment 
     
-    onSuccess: (void (^)(MSMessage* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(MSMessage* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     
 
 
@@ -66,7 +67,7 @@
 +(NSNumber*) updateDocument :(NSString*) messageCode 
      body:(MSDocument*) body 
     
-    onSuccess: (void (^)(MSMessage* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(MSMessage* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     
 
 
@@ -85,7 +86,7 @@
  */
 +(NSNumber*) getMessageByCode :(NSString*) messageCode 
     
-    onSuccess: (void (^)(MSMessage* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(MSMessage* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     
 
 

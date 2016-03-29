@@ -1,6 +1,7 @@
 #import <Foundation/Foundation.h>
 #import "MSToken.h"
 #import "SWGObject.h"
+#import "OAuth1Client.h"
 
 
 @interface MSV1oauthApi: NSObject
@@ -27,7 +28,7 @@
      x_auth_username:(NSString*) x_auth_username 
      x_auth_password:(NSString*) x_auth_password 
     
-    onSuccess: (void (^)(MSToken* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(MSToken* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     
 
 
@@ -42,7 +43,7 @@
 
  return type: MSToken*
  */
-+(NSNumber*) requestToken :
++(NSNumber*) requestToken :(OAuth1Client *) auth onSuccess:
     (void (^)(MSToken* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     
 

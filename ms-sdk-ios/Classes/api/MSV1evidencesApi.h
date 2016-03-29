@@ -1,6 +1,7 @@
 #import <Foundation/Foundation.h>
 #import "MSEvidence.h"
 #import "SWGObject.h"
+#import "OAuth1Client.h"
 
 
 @interface MSV1evidencesApi: NSObject
@@ -39,7 +40,7 @@
      fingerID:(NSString*) fingerID 
      algorithmic:(NSString*) algorithmic 
     
-    onSuccess: (void (^)(MSEvidence* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(MSEvidence* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     
 
 

@@ -2,6 +2,7 @@
 #import "MSTemplateList.h"
 #import "MSTemplate.h"
 #import "SWGObject.h"
+#import "OAuth1Client.h"
 
 
 @interface MSV1templateApi: NSObject
@@ -22,7 +23,7 @@
  */
 +(NSNumber*) findTemplatesByUser :(NSString*) userCode 
     
-    onSuccess: (void (^)(NSArray* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(NSArray* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     
 
 
@@ -41,7 +42,7 @@
  */
 +(NSNumber*) findTemplateByCode :(NSString*) code 
     
-    onSuccess: (void (^)(MSTemplate* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(MSTemplate* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     
 
 

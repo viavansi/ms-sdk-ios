@@ -14,6 +14,7 @@
     templateType: (NSString*) templateType
     formRequired: (NSNumber*) formRequired
     formDisabled: (NSNumber*) formDisabled
+    formUpdated: (NSNumber*) formUpdated
     items: (NSArray*) items
     
 {
@@ -28,6 +29,7 @@
     _templateType = templateType;
     _formRequired = formRequired;
     _formDisabled = formDisabled;
+    _formUpdated = formUpdated;
     _items = items;
     
 
@@ -59,6 +61,8 @@
         _formRequired = dict[@"formRequired"];
         
         _formDisabled = dict[@"formDisabled"];
+        
+        _formUpdated = dict[@"formUpdated"];
         
         
         
@@ -132,6 +136,10 @@
     
     
             if(_formDisabled != nil) dict[@"formDisabled"] = _formDisabled ;
+        
+    
+    
+            if(_formUpdated != nil) dict[@"formUpdated"] = _formUpdated ;
         
     
     

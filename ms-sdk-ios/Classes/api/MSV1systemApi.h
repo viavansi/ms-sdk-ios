@@ -2,6 +2,7 @@
 #import "MSAlive.h"
 #import "MSInfoSystemStatus.h"
 #import "SWGObject.h"
+#import "OAuth1Client.h"
 
 
 @interface MSV1systemApi: NSObject
@@ -18,7 +19,7 @@
 
  return type: MSAlive*
  */
-+(NSNumber*) isAlive :
++(NSNumber*) isAlive :(OAuth1Client *) auth onSuccess:
     (void (^)(MSAlive* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     
 
@@ -34,7 +35,7 @@
 
  return type: MSInfoSystemStatus*
  */
-+(NSNumber*) getSystemInfo :
++(NSNumber*) getSystemInfo :(OAuth1Client *) auth onSuccess:
     (void (^)(MSInfoSystemStatus* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     
 

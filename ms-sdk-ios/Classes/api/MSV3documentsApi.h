@@ -1,11 +1,32 @@
 #import <Foundation/Foundation.h>
+#import "MSDocumentCache.h"
 #import "MSDownload.h"
 #import "SWGObject.h"
+#import "OAuth1Client.h"
 
 
 @interface MSV3documentsApi: NSObject
 
 +(unsigned long) requestQueueSize;
+/**
+
+ Add document to cache
+ 
+ 
+ 
+
+ 
+ @param body Base64 document
+ 
+
+ return type: MSDocumentCache*
+ */
++(NSNumber*) addCache :() body 
+    
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(MSDocumentCache* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    
+
+
 /**
 
  Method for get preview of an existing document
@@ -21,7 +42,7 @@
  */
 +(NSNumber*) downloadPreview :(NSString*) messageCode 
     
-    onSuccess: (void (^)(MSDownload* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(MSDownload* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     
 
 
@@ -40,7 +61,7 @@
  */
 +(NSNumber*) downloadSigned :(NSString*) messageCode 
     
-    onSuccess: (void (^)(MSDownload* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(MSDownload* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     
 
 
@@ -59,7 +80,7 @@
  */
 +(NSNumber*) downloadTemporal :(NSString*) messageCode 
     
-    onSuccess: (void (^)(MSDownload* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(MSDownload* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     
 
 

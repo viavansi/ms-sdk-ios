@@ -3,6 +3,7 @@
 #import "MSEvidenceSignature.h"
 #import "MSSignature.h"
 #import "SWGObject.h"
+#import "OAuth1Client.h"
 
 
 @interface MSV3signaturesApi: NSObject
@@ -23,7 +24,7 @@
  */
 +(NSNumber*) addDigitalizedSignature :(MSEvidenceSignature*) body 
     
-    onSuccess: (void (^)(MSPolicy* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(MSPolicy* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     
 
 
@@ -45,7 +46,7 @@
 +(NSNumber*) addServerSignature :(NSString*) messageCode 
      signatureCode:(NSString*) signatureCode 
     
-    onSuccess: (void (^)(MSSignature* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(MSSignature* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     
 
 

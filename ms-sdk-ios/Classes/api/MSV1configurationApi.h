@@ -1,6 +1,7 @@
 #import <Foundation/Foundation.h>
 #import "MSConfiguration.h"
 #import "SWGObject.h"
+#import "OAuth1Client.h"
 
 
 @interface MSV1configurationApi: NSObject
@@ -21,7 +22,7 @@
  */
 +(NSNumber*) getDeviceConfiguration :(NSString*) appIdentifier 
     
-    onSuccess: (void (^)(MSConfiguration* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(MSConfiguration* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     
 
 

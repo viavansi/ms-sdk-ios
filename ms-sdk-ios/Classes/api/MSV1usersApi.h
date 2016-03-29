@@ -2,6 +2,7 @@
 #import "MSUser.h"
 #import "MSTemplate.h"
 #import "SWGObject.h"
+#import "OAuth1Client.h"
 
 
 @interface MSV1usersApi: NSObject
@@ -22,7 +23,7 @@
  */
 +(NSNumber*) registerUser :(MSUser*) body 
     
-    onSuccess: (void (^)(MSUser* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(MSUser* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     
 
 
@@ -44,7 +45,7 @@
 +(NSNumber*) loginUser :(NSString*) code 
      password:(NSString*) password 
     
-    onSuccess: (void (^)(MSUser* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(MSUser* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     
 
 
@@ -66,7 +67,7 @@
 +(NSNumber*) reactivateUserByCode :(NSString*) userCode 
      email:(NSString*) email 
     
-    onSuccess: (void (^)(MSUser* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(MSUser* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     
 
 
@@ -85,7 +86,7 @@
  */
 +(NSNumber*) findUserByCode :(NSString*) userCode 
     
-    onSuccess: (void (^)(MSUser* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(MSUser* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     
 
 
@@ -107,7 +108,7 @@
 +(NSNumber*) putUserTemplateByCode :(NSString*) userCode 
      templateCode:(NSString*) templateCode 
     
-    onSuccess: (void (^)(MSTemplate* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(MSTemplate* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     
 
 

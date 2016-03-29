@@ -1,6 +1,5 @@
 #import "ApiClient.h"
 #import "SWGFile.h"
-#import "OAuth1Client.h"
 
 @interface ApiClient ()
 
@@ -21,27 +20,27 @@ static bool loggingEnabled = true;
 @implementation ApiClient
 
 +(ApiClient * ) sharedInstance{
-	
+
 	if(singleton==nil){
 		singleton = [[ApiClient alloc] init];
 	}
-	
+
 	if (queuedRequests == nil) {
 		queuedRequests = [[NSMutableSet alloc]init];
 	}
-	
+
 	if(_pool == nil) {
 		// setup static vars
 		// create queue
 		sharedQueue = [[NSOperationQueue alloc] init];
-		
+
 		// create pool
 		_pool = [[NSMutableDictionary alloc] init];
-		
+
 		// initialize URL cache
 		[ApiClient configureCacheWithMemoryAndDiskCapacity:4*1024*1024 diskSize:32*1024*1024];
 	}
-	
+
 	return singleton;
 }
 
@@ -61,13 +60,13 @@ static bool loggingEnabled = true;
 									  diskSize: (unsigned long) diskSize {
 	NSAssert(memorySize > 0, @"invalid in-memory cache size");
 	NSAssert(diskSize >= 0, @"invalid disk cache size");
-	
+
 	NSURLCache *cache =
 	[[NSURLCache alloc]
 	 initWithMemoryCapacity:memorySize
 	 diskCapacity:diskSize
 	 diskPath:@"swagger_url_cache"];
-	
+
 	[NSURLCache setSharedURLCache:cache];
 }
 
@@ -119,7 +118,7 @@ static bool loggingEnabled = true;
 			return TRUE;
 		else return FALSE;
 	}];
-	
+
 	if(matchingItems.count == 1) {
 		if(loggingEnabled)
 			NSLog(@"removing request id %@", requestId);
@@ -152,21 +151,21 @@ static bool loggingEnabled = true;
 				}
 				[ApiClient setOfflineState:true];
 				break;
-				
+
 			case AFNetworkReachabilityStatusNotReachable:
 				if(loggingEnabled){
 					NSLog(@"reachability changed to AFNetworkReachabilityStatusNotReachable");
 				}
 				[ApiClient setOfflineState:true];
 				break;
-				
+
 			case AFNetworkReachabilityStatusReachableViaWWAN:
 				if(loggingEnabled){
 					NSLog(@"reachability changed to AFNetworkReachabilityStatusReachableViaWWAN");
 				}
 				[ApiClient setOfflineState:false];
 				break;
-				
+
 			case AFNetworkReachabilityStatusReachableViaWiFi:
 				if(loggingEnabled){
 					NSLog(@"reachability changed to AFNetworkReachabilityStatusReachableViaWiFi");
@@ -188,7 +187,7 @@ static bool loggingEnabled = true;
 							 queryParams:(NSDictionary*) queryParams {
 	NSString * separator = nil;
 	int counter = 0;
-	
+
 	NSMutableString * requestUrl = [NSMutableString stringWithFormat:@"%@", path];
 	if(queryParams != nil){
 		for(NSString * key in [queryParams keyEnumerator]){
@@ -225,7 +224,8 @@ static bool loggingEnabled = true;
 	}
 }
 
--(NSNumber*)  dictionary: (NSString*) path
+-(NSNumber*)  dictionary: (OAuth1Client *) auth
+                    requestUrl: (NSString*) path
 				  method: (NSString*) method
 			 queryParams: (NSDictionary*) queryParams
 					body: (id) body
@@ -234,21 +234,21 @@ static bool loggingEnabled = true;
 	 responseContentType: (NSString*) responseContentType
 		 successBlock: (void (^)(NSDictionary*))successBlock
 			  errorBlock: (void (^)(NSError *))errorBlock{
-	
+
 	if([requestContentType isEqualToString:@"application/json"]){
 		self.requestSerializer = [AFJSONRequestSerializer serializer];
 	}else{
 		self.requestSerializer = [AFHTTPRequestSerializer serializer];
 	}
-	
+
 	if([responseContentType isEqualToString:@"application/json"]){
 		self.responseSerializer = [AFJSONResponseSerializer serializer];
 	}
-	
+
 	if (self.timeoutInterval) {
 		[self.requestSerializer setTimeoutInterval:self.timeoutInterval];
 	}
-	
+
 	NSMutableURLRequest * request = nil;
 	if (body != nil && [body isKindOfClass:[NSArray class]]){
 		SWGFile * file;
@@ -264,26 +264,26 @@ static bool loggingEnabled = true;
 				}
 			}
 		}
-		
+
 		NSURL *absoluteURL = [NSURL URLWithString:self.url];
 		NSString * urlString = [[NSURL URLWithString:path relativeToURL:absoluteURL] absoluteString];
-		
+
 		if(file != nil) {
 			request = [self.requestSerializer multipartFormRequestWithMethod: @"POST"
 																   URLString: urlString
 																  parameters: nil
 												   constructingBodyWithBlock: ^(id<AFMultipartFormData> formData) {
-													   
+
 													   for(NSString * key in params) {
 														   NSData* data = [params[key] dataUsingEncoding:NSUTF8StringEncoding];
 														   [formData appendPartWithFormData: data name: key];
 													   }
-													   
+
 													   [formData appendPartWithFileData: [file data]
 																				   name: [file paramName]
 																			   fileName: [file name]
 																			   mimeType: [file mimeType]];
-													   
+
 												   }
 																	   error:nil];
 		}else{
@@ -299,7 +299,7 @@ static bool loggingEnabled = true;
 		NSString * pathWithQueryParams = [self pathWithQueryParamsToString:path queryParams:queryParams];
 		NSURL *absoluteURL = [NSURL URLWithString:self.url];
 		NSString * urlString = [[NSURL URLWithString:pathWithQueryParams relativeToURL:absoluteURL] absoluteString];
-		
+
 		request = [self.requestSerializer requestWithMethod:method
 												  URLString:urlString
 												 parameters:body
@@ -326,9 +326,9 @@ static bool loggingEnabled = true;
 		}
 		[request setCachePolicy:NSURLRequestReloadIgnoringLocalCacheData];
 	}
-	
+
 	AFJSONRequestSerializer *requestSerializer = [AFJSONRequestSerializer serializer];
-	
+
 	if(body != nil) {
 		if([body isKindOfClass:[NSDictionary class]] || [body isKindOfClass:[NSArray class]]){
 			[request setValue:requestContentType forHTTPHeaderField:@"Content-Type"];
@@ -344,22 +344,17 @@ static bool loggingEnabled = true;
 		}
 	}
 	[requestSerializer setValue:responseContentType forHTTPHeaderField:@"Accept"];
-	
+
 	// Always disable cookies!
 	[request setHTTPShouldHandleCookies:NO];
-	
-	
+
+
 	if (self.logRequests) {
 		[self logRequest:request];
 	}
-	
-	OAuth1Client *auth = [[OAuth1Client alloc] init];
-	[auth setConsumerKey:[[ApiClient sharedInstance] consumerKey]];
-	[auth setConsumerSecret:[[ApiClient sharedInstance] consumerSecret]];
-	[auth setToken:[[ApiClient sharedInstance] token]];
-	[auth setTokenSecret:[[ApiClient sharedInstance] tokenSecret]];
+
 	[auth authorizeRequest:request];
-	
+
 	NSNumber* requestId = [ApiClient queueRequest];
 	AFHTTPRequestOperation *op =
 	[self HTTPRequestOperationWithRequest:request
@@ -377,14 +372,14 @@ static bool loggingEnabled = true;
 											  userInfo[SWGResponseObjectErrorKey] = operation.responseObject;
 										  }
 										  NSError *augmentedError = [error initWithDomain:error.domain code:error.code userInfo:userInfo];
-										  
+
 										  if(self.logServerResponses)
 											  [self logResponse:nil forRequest:request error:augmentedError];
 										  errorBlock(augmentedError);
 									  }
 								  }
 	 ];
-	 
+
 	AFSecurityPolicy *securityPolicy = [AFSecurityPolicy policyWithPinningMode:AFSSLPinningModeCertificate];
     securityPolicy.allowInvalidCertificates = YES;
     op.securityPolicy = securityPolicy;
@@ -392,7 +387,8 @@ static bool loggingEnabled = true;
 	return requestId;
 }
 
--(NSNumber*)  stringWithCompletionBlock: (NSString*) path
+-(NSNumber*)  stringWithCompletionBlock: (OAuth1Client *) auth
+                                   requestUrl: (NSString*) path
 								 method: (NSString*) method
 							queryParams: (NSDictionary*) queryParams
 								   body: (id) body
@@ -401,19 +397,19 @@ static bool loggingEnabled = true;
 					responseContentType: (NSString*) responseContentType
 						   successBlock: (void (^)(NSString*))successBlock
 							 errorBlock: (void (^)(NSError *))errorBlock{
-	
+
 	if([requestContentType isEqualToString:@"application/json"]){
 		self.requestSerializer = [AFJSONRequestSerializer serializer];
 	}else{
 		self.requestSerializer = [AFHTTPRequestSerializer serializer];
 	}
-	
+
 	self.responseSerializer = [AFHTTPResponseSerializer serializer];
-	
+
 	if (self.timeoutInterval) {
 		[self.requestSerializer setTimeoutInterval:self.timeoutInterval];
 	}
-	
+
 	NSMutableURLRequest * request = nil;
 	if (body != nil && [body isKindOfClass:[NSArray class]]){
 		SWGFile * file;
@@ -431,30 +427,30 @@ static bool loggingEnabled = true;
 		}
 		NSURL *absoluteURL = [NSURL URLWithString:self.url];
 		NSString * urlString = [[NSURL URLWithString:path relativeToURL:absoluteURL] absoluteString];
-		
+
 		if(file != nil) {
 			request = [self.requestSerializer multipartFormRequestWithMethod: @"POST"
 																   URLString: urlString
 																  parameters: nil
 												   constructingBodyWithBlock: ^(id<AFMultipartFormData> formData) {
-													   
+
 													   for(NSString * key in params) {
 														   NSData* data = [params[key] dataUsingEncoding:NSUTF8StringEncoding];
 														   [formData appendPartWithFormData: data name: key];
 													   }
-													   
+
 													   [formData appendPartWithFileData: [file data]
 																				   name: [file paramName]
 																			   fileName: [file name]
 																			   mimeType: [file mimeType]];
-													   
+
 												   }error:nil];
 		}
 	} else {
 		NSString * pathWithQueryParams = [self pathWithQueryParamsToString:path queryParams:queryParams];
 		NSURL *absoluteURL = [NSURL URLWithString:self.url];
 		NSString * urlString = [[NSURL URLWithString:pathWithQueryParams relativeToURL:absoluteURL] absoluteString];
-		
+
 		request = [self.requestSerializer requestWithMethod: method
 												  URLString: urlString
 												 parameters: body
@@ -481,8 +477,8 @@ static bool loggingEnabled = true;
 		}
 		[request setCachePolicy:NSURLRequestReloadIgnoringLocalCacheData];
 	}
-	
-	
+
+
 	if(body != nil) {
 		if([body isKindOfClass:[NSDictionary class]] || [body isKindOfClass:[NSArray class]]){
 			[request setValue:requestContentType forHTTPHeaderField:@"Content-Type"];
@@ -497,17 +493,12 @@ static bool loggingEnabled = true;
 			[request setValue:[headerParams valueForKey:key] forHTTPHeaderField:key];
 		}
 	}
-	
+
 	// Always disable cookies!
 	[request setHTTPShouldHandleCookies:NO];
-	
-	OAuth1Client *auth = [[OAuth1Client alloc] init];
-	[auth setConsumerKey:[[ApiClient sharedInstance] consumerKey]];
-	[auth setConsumerSecret:[[ApiClient sharedInstance] consumerSecret]];
-	[auth setToken:[[ApiClient sharedInstance] token]];
-	[auth setTokenSecret:[[ApiClient sharedInstance] tokenSecret]];
+
 	[auth authorizeRequest:request];
-	
+
 	NSNumber* requestId = [ApiClient queueRequest];
 	AFHTTPRequestOperation *op = [self HTTPRequestOperationWithRequest:request
 															   success:^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -525,13 +516,13 @@ static bool loggingEnabled = true;
 																		   userInfo[SWGResponseObjectErrorKey] = operation.responseObject;
 																	   }
 																	   NSError *augmentedError = [error initWithDomain:error.domain code:error.code userInfo:userInfo];
-																	   
+
 																	   if(self.logServerResponses)
 																		   [self logResponse:nil forRequest:request error:augmentedError];
 																	   errorBlock(augmentedError);
 																   }
 															   }];
-	
+
 	AFSecurityPolicy *securityPolicy = [AFSecurityPolicy policyWithPinningMode:AFSSLPinningModeCertificate];
     securityPolicy.allowInvalidCertificates = YES;
     op.securityPolicy = securityPolicy;

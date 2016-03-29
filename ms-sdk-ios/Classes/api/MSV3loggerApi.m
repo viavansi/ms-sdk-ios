@@ -1,22 +1,23 @@
-#import "MSV1workflowsApi.h"
+#import "MSV3loggerApi.h"
 #import "SWGFile.h"
 #import "ApiClient.h"
-#import "MSTaskManager.h"
+#import "MSLog.h"
 
 
 
-@implementation MSV1workflowsApi
+@implementation MSV3loggerApi
 
 +(unsigned long) requestQueueSize {
     return [ApiClient requestQueueSize];
 }
 
 
-+(NSNumber*) getWorkflowConfiguration:(OAuth1Client *) auth onSuccess: 
-        (void (^)(MSTaskManager* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock
++(NSNumber*) addLog: (MSLog*) body
+        
+        auth:(OAuth1Client *) auth onSuccess: (void (^)(MSLog* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock
          {
 
-    NSMutableString* requestUrl = [NSMutableString stringWithFormat:@"%@/v1/workflows", [[ApiClient sharedInstance] url]];
+    NSMutableString* requestUrl = [NSMutableString stringWithFormat:@"%@/v3/logger", [[ApiClient sharedInstance] url]];
 
     // remove format in URL if needed
     if ([requestUrl rangeOfString:@".{format}"].location != NSNotFound){
@@ -38,13 +39,34 @@
 
     id bodyDictionary = nil;
     
-    
-    bodyDictionary = [[NSMutableArray alloc] init];
+    id __body = body;
 
-    NSMutableDictionary * formParams = [[NSMutableDictionary alloc]init];
-
+    if(__body != nil && [__body isKindOfClass:[NSArray class]]){
+        NSMutableArray * objs = [[NSMutableArray alloc] init];
+        for (id dict in (NSArray*)__body) {
+            if([dict respondsToSelector:@selector(asDictionary)]) {
+                [objs addObject:[(SWGObject*)dict asDictionary]];
+            }
+            else{
+                [objs addObject:dict];
+            }
+        }
+        bodyDictionary = objs;
+    }
+    else if([__body respondsToSelector:@selector(asDictionary)]) {
+        bodyDictionary = [(SWGObject*)__body asDictionary];
+    }
+    else if([__body isKindOfClass:[NSString class]]) {
+        // convert it to a dictionary
+        NSError * error;
+        NSString * str = (NSString*)__body;
+        NSDictionary *JSON =
+            [NSJSONSerialization JSONObjectWithData: [str dataUsingEncoding: NSUTF8StringEncoding]
+                                            options: NSJSONReadingMutableContainers
+                                              error: &error];
+        bodyDictionary = JSON;
+    }
     
-    [bodyDictionary addObject:formParams];
     
 
     
@@ -58,7 +80,7 @@
     // comples response type
     return [client dictionary: auth
 					         requestUrl: requestUrl 
-                       method: @"GET"
+                       method: @"POST"
                   queryParams: queryParams
                          body: bodyDictionary
                  headerParams: headerParams
@@ -66,9 +88,9 @@
           responseContentType: responseContentType
               successBlock: ^(NSDictionary *data) {
                 
-                MSTaskManager *result = nil;
+                MSLog *result = nil;
                 if (data) {
-                    result = [[MSTaskManager    alloc]initWithValues: data];
+                    result = [[MSLog    alloc]initWithValues: data];
                 }
                 onSuccessBlock(result);
                 

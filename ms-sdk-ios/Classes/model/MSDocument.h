@@ -16,6 +16,7 @@
 @property(nonatomic) NSString* templateType;  
 @property(nonatomic) NSNumber* formRequired;  
 @property(nonatomic) NSNumber* formDisabled;  
+@property(nonatomic) NSNumber* formUpdated;  
 @property(nonatomic) NSArray* items;  
 - (id) templateCode: (NSString*) templateCode     
     templateReference: (NSString*) templateReference     
@@ -28,6 +29,7 @@
     templateType: (NSString*) templateType     
     formRequired: (NSNumber*) formRequired     
     formDisabled: (NSNumber*) formDisabled     
+    formUpdated: (NSNumber*) formUpdated     
     items: (NSArray*) items;
     
 

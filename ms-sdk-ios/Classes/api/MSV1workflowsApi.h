@@ -1,6 +1,7 @@
 #import <Foundation/Foundation.h>
 #import "MSTaskManager.h"
 #import "SWGObject.h"
+#import "OAuth1Client.h"
 
 
 @interface MSV1workflowsApi: NSObject
@@ -17,7 +18,7 @@
 
  return type: MSTaskManager*
  */
-+(NSNumber*) getWorkflowConfiguration :
++(NSNumber*) getWorkflowConfiguration :(OAuth1Client *) auth onSuccess:
     (void (^)(MSTaskManager* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     
 

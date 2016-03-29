@@ -1,6 +1,7 @@
 #import <Foundation/Foundation.h>
 #import "MSDownload.h"
 #import "SWGObject.h"
+#import "OAuth1Client.h"
 
 
 @interface MSV1documentsApi: NSObject
@@ -21,7 +22,7 @@
  */
 +(NSNumber*) downloadPreview :(NSString*) messageCode 
     
-    onSuccess: (void (^)(MSDownload* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(MSDownload* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     
 
 
@@ -40,7 +41,7 @@
  */
 +(NSNumber*) downloadSigned :(NSString*) messageCode 
     
-    onSuccess: (void (^)(MSDownload* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(MSDownload* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     
 
 
@@ -59,7 +60,7 @@
  */
 +(NSNumber*) downloadTemporal :(NSString*) messageCode 
     
-    onSuccess: (void (^)(MSDownload* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(MSDownload* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     
 
 

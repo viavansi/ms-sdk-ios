@@ -1,6 +1,7 @@
 #import <Foundation/Foundation.h>
 #import "MSDevice.h"
 #import "SWGObject.h"
+#import "OAuth1Client.h"
 
 
 @interface MSV1devicesApi: NSObject
@@ -21,7 +22,7 @@
  */
 +(NSNumber*) registerDevice :(MSDevice*) body 
     
-    onSuccess: (void (^)(MSDevice* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(MSDevice* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     
 
 
@@ -40,7 +41,7 @@
  */
 +(NSNumber*) findDeviceByUser :(NSString*) userCode 
     
-    onSuccess: (void (^)(NSArray* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(NSArray* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     
 
 
@@ -59,7 +60,7 @@
  */
 +(NSNumber*) findDeviceByIdentifier :(NSString*) identifier 
     
-    onSuccess: (void (^)(MSDevice* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(MSDevice* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     
 
 
