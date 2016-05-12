@@ -15,7 +15,6 @@
     pos: (NSString*) pos
     confirmToken: (NSString*) confirmToken
     changePassToken: (NSString*) changePassToken
-    logDevice: (NSNumber*) logDevice
     mobile: (NSString*) mobile
     channel: (NSString*) channel
     
@@ -32,7 +31,6 @@
     _pos = pos;
     _confirmToken = confirmToken;
     _changePassToken = changePassToken;
-    _logDevice = logDevice;
     _mobile = mobile;
     _channel = channel;
     
@@ -67,8 +65,6 @@
         _confirmToken = dict[@"confirmToken"];
         
         _changePassToken = dict[@"changePassToken"];
-        
-        _logDevice = dict[@"logDevice"];
         
         _mobile = dict[@"mobile"];
         
@@ -128,10 +124,6 @@
     
     
             if(_changePassToken != nil) dict[@"changePassToken"] = _changePassToken ;
-        
-    
-    
-            if(_logDevice != nil) dict[@"logDevice"] = _logDevice ;
         
     
     
