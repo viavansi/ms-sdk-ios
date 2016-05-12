@@ -9,7 +9,26 @@
 +(unsigned long) requestQueueSize;
 /**
 
- Method for register or update users
+ Method for register users
+ 
+ 
+ 
+
+ 
+ @param body User to register
+ 
+
+ return type: MSUser*
+ */
++(NSNumber*) updateUser :(MSUser*) body 
+    
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(MSUser* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    
+
+
+/**
+
+ Method for register users
  
  
  

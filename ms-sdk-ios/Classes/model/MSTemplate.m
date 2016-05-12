@@ -9,6 +9,7 @@
     creationDate: (SWGDate*) creationDate
     form: (MSForm*) form
     version: (NSString*) version
+    type: (NSString*) type
     
 {
     _code = code;
@@ -17,6 +18,7 @@
     _creationDate = creationDate;
     _form = form;
     _version = version;
+    _type = type;
     
 
     return self;
@@ -49,6 +51,8 @@
         
         
         _version = dict[@"version"];
+        
+        _type = dict[@"type"];
         
         
     }
@@ -122,6 +126,10 @@
     
     
             if(_version != nil) dict[@"version"] = _version ;
+        
+    
+    
+            if(_type != nil) dict[@"type"] = _type ;
         
     
 

@@ -2,6 +2,7 @@
 #import "SWGFile.h"
 #import "ApiClient.h"
 #import "MSDocumentCache.h"
+#import "MSBase64.h"
 #import "MSDownload.h"
 
 
@@ -13,7 +14,7 @@
 }
 
 
-+(NSNumber*) addCache: () body
++(NSNumber*) addCache: (MSBase64*) body
         
         auth:(OAuth1Client *) auth onSuccess: (void (^)(MSDocumentCache* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock
          {
@@ -27,7 +28,7 @@
 
     
 
-	NSArray * requestContentTypes = @[@"text/plain"];
+	NSArray * requestContentTypes = @[@"application/json"];
     NSString* requestContentType = requestContentTypes.count > 0 ? requestContentTypes[0] : @"application/json";
 
     NSArray * responseContentTypes = @[@"application/json"];

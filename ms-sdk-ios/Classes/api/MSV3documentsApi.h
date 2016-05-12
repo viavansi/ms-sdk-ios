@@ -1,5 +1,6 @@
 #import <Foundation/Foundation.h>
 #import "MSDocumentCache.h"
+#import "MSBase64.h"
 #import "MSDownload.h"
 #import "SWGObject.h"
 #import "OAuth1Client.h"
@@ -21,7 +22,7 @@
 
  return type: MSDocumentCache*
  */
-+(NSNumber*) addCache :() body 
++(NSNumber*) addCache :(MSBase64*) body 
     
     auth:(OAuth1Client *) auth onSuccess: (void (^)(MSDocumentCache* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     
