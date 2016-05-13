@@ -11,6 +11,9 @@
     surname: (NSString*) surname
     rol: (NSString*) rol
     _description: (NSString*) _description
+    viafirmaKey: (NSString*) viafirmaKey
+    viafirmaPassword: (NSString*) viafirmaPassword
+    viafirmaCertificate: (NSString*) viafirmaCertificate
     region: (NSString*) region
     pos: (NSString*) pos
     confirmToken: (NSString*) confirmToken
@@ -27,6 +30,9 @@
     _surname = surname;
     _rol = rol;
     __description = _description;
+    _viafirmaKey = viafirmaKey;
+    _viafirmaPassword = viafirmaPassword;
+    _viafirmaCertificate = viafirmaCertificate;
     _region = region;
     _pos = pos;
     _confirmToken = confirmToken;
@@ -57,6 +63,12 @@
         _rol = dict[@"rol"];
         
         __description = dict[@"description"];
+        
+        _viafirmaKey = dict[@"viafirmaKey"];
+        
+        _viafirmaPassword = dict[@"viafirmaPassword"];
+        
+        _viafirmaCertificate = dict[@"viafirmaCertificate"];
         
         _region = dict[@"region"];
         
@@ -108,6 +120,18 @@
     
     
             if(__description != nil) dict[@"description"] = __description ;
+        
+    
+    
+            if(_viafirmaKey != nil) dict[@"viafirmaKey"] = _viafirmaKey ;
+        
+    
+    
+            if(_viafirmaPassword != nil) dict[@"viafirmaPassword"] = _viafirmaPassword ;
+        
+    
+    
+            if(_viafirmaCertificate != nil) dict[@"viafirmaCertificate"] = _viafirmaCertificate ;
         
     
     

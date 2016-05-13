@@ -12,6 +12,9 @@
 @property(nonatomic) NSString* surname;  
 @property(nonatomic) NSString* rol;  
 @property(nonatomic) NSString* _description;  
+@property(nonatomic) NSString* viafirmaKey;  
+@property(nonatomic) NSString* viafirmaPassword;  
+@property(nonatomic) NSString* viafirmaCertificate;  
 @property(nonatomic) NSString* region;  
 @property(nonatomic) NSString* pos;  
 @property(nonatomic) NSString* confirmToken;  
@@ -26,6 +29,9 @@
     surname: (NSString*) surname     
     rol: (NSString*) rol     
     _description: (NSString*) _description     
+    viafirmaKey: (NSString*) viafirmaKey     
+    viafirmaPassword: (NSString*) viafirmaPassword     
+    viafirmaCertificate: (NSString*) viafirmaCertificate     
     region: (NSString*) region     
     pos: (NSString*) pos     
     confirmToken: (NSString*) confirmToken     
