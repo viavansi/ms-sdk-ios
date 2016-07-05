@@ -1,6 +1,7 @@
 #import <Foundation/Foundation.h>
 #import "SWGObject.h"
 #import "MSItem.h"
+#import "MSFont.h"
 
 
 @interface MSDocument : SWGObject
@@ -17,6 +18,7 @@
 @property(nonatomic) NSNumber* formRequired;  
 @property(nonatomic) NSNumber* formDisabled;  
 @property(nonatomic) NSArray* items;  
+@property(nonatomic) MSFont* font;  
 - (id) templateCode: (NSString*) templateCode     
     templateReference: (NSString*) templateReference     
     templateVersion: (NSNumber*) templateVersion     
@@ -28,7 +30,8 @@
     templateType: (NSString*) templateType     
     formRequired: (NSNumber*) formRequired     
     formDisabled: (NSNumber*) formDisabled     
-    items: (NSArray*) items;
+    items: (NSArray*) items     
+    font: (MSFont*) font;
     
 
 - (id) initWithValues: (NSDictionary*)dict;

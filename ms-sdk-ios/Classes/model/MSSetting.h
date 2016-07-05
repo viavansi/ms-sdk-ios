@@ -1,6 +1,7 @@
 #import <Foundation/Foundation.h>
 #import "SWGObject.h"
 #import "MSPolicy.h"
+#import "MSFont.h"
 
 
 @interface MSSetting : SWGObject
@@ -15,6 +16,7 @@
 @property(nonatomic) NSArray* callbackMailsFormKeys;  
 @property(nonatomic) NSString* validateCode;  
 @property(nonatomic) NSString* workflow;  
+@property(nonatomic) MSFont* font;  
 - (id) titleKey: (NSString*) titleKey     
     descriptionKey: (NSString*) descriptionKey     
     policy: (MSPolicy*) policy     
@@ -24,7 +26,8 @@
     callbackMails: (NSString*) callbackMails     
     callbackMailsFormKeys: (NSArray*) callbackMailsFormKeys     
     validateCode: (NSString*) validateCode     
-    workflow: (NSString*) workflow;
+    workflow: (NSString*) workflow     
+    font: (MSFont*) font;
     
 
 - (id) initWithValues: (NSDictionary*)dict;
