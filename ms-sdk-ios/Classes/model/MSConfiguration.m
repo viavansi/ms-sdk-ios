@@ -19,6 +19,8 @@
     backendVersion: (NSString*) backendVersion
     finalize_menu_options: (NSArray*) finalize_menu_options
     autoRegisterDevice: (NSNumber*) autoRegisterDevice
+    versions: (NSArray*) versions
+    clientSignature: (NSNumber*) clientSignature
     finalizeActions: (NSArray*) finalizeActions
     sSLPinningEnabled: (NSNumber*) sSLPinningEnabled
     
@@ -39,6 +41,8 @@
     _backendVersion = backendVersion;
     _finalize_menu_options = finalize_menu_options;
     _autoRegisterDevice = autoRegisterDevice;
+    _versions = versions;
+    _clientSignature = clientSignature;
     _finalizeActions = finalizeActions;
     _sSLPinningEnabled = sSLPinningEnabled;
     
@@ -101,6 +105,30 @@
         
         
         _autoRegisterDevice = dict[@"autoRegisterDevice"];
+        
+        
+        
+        id versions_dict = dict[@"versions"];
+        
+        if([versions_dict isKindOfClass:[NSArray class]]) {
+            NSMutableArray * objs = [[NSMutableArray alloc] initWithCapacity:[(NSArray*)versions_dict count]];
+            if([(NSArray*)versions_dict count] > 0) {
+                for (int i=0 ; i<[(NSArray*)versions_dict count] ; i++) {
+                	NSDictionary *dict = [[NSDictionary alloc] initWithDictionary:[versions_dict objectAtIndex:i]];
+                    MSVersion* d = [[MSVersion alloc] initWithValues:dict];
+                    [objs addObject:d];
+                }
+                _versions = [[NSArray alloc] initWithArray:objs];
+            }
+            else
+                _versions = [[NSArray alloc] init];
+        }
+        else {
+            _versions = [[NSArray alloc] init];
+        }
+        
+        
+        _clientSignature = dict[@"clientSignature"];
         
         
         
@@ -217,6 +245,35 @@
     
     
             if(_autoRegisterDevice != nil) dict[@"autoRegisterDevice"] = _autoRegisterDevice ;
+        
+    
+    
+    if(_versions != nil){
+        if([_versions isKindOfClass:[NSArray class]]){
+            NSMutableArray * array = [[NSMutableArray alloc] init];
+            for( int i=0 ; i<[(NSArray*)_versions count] ; i++ ) {
+				MSVersion *versions = [[MSVersion alloc]init];
+				versions = [(NSArray*)_versions objectAtIndex:i];            
+                [array addObject:[(SWGObject*)versions asDictionary]];
+            }
+            dict[@"versions"] = array;
+        }
+        else if(_versions && [_versions isKindOfClass:[SWGDate class]]) {
+            NSString * dateString = [(SWGDate*)_versions toString];
+            if(dateString){
+                dict[@"versions"] = dateString;
+            }
+        }
+        else {
+        
+            if(_versions != nil) dict[@"versions"] = [(SWGObject*)_versions asDictionary];
+        
+        }
+    }
+    
+    
+    
+            if(_clientSignature != nil) dict[@"clientSignature"] = _clientSignature ;
         
     
     

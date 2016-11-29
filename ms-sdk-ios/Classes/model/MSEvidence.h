@@ -22,6 +22,7 @@
 @property(nonatomic) NSString* certificatePassword;  
 @property(nonatomic) NSString* metadataCipherPublicKey;  
 @property(nonatomic) NSString* encryptionKeyAlias;  
+@property(nonatomic) NSNumber* required;  
 - (id) type: (NSString*) type     
     code: (NSString*) code     
     status: (NSString*) status     
@@ -38,7 +39,8 @@
     certificateAlias: (NSString*) certificateAlias     
     certificatePassword: (NSString*) certificatePassword     
     metadataCipherPublicKey: (NSString*) metadataCipherPublicKey     
-    encryptionKeyAlias: (NSString*) encryptionKeyAlias;
+    encryptionKeyAlias: (NSString*) encryptionKeyAlias     
+    required: (NSNumber*) required;
     
 
 - (id) initWithValues: (NSDictionary*)dict;

@@ -2,6 +2,7 @@
 #import "SWGObject.h"
 #import "MSFinalizeAction.h"
 #import "MSMenuOption.h"
+#import "MSVersion.h"
 
 
 @interface MSConfiguration : SWGObject
@@ -22,6 +23,8 @@
 @property(nonatomic) NSString* backendVersion;  
 @property(nonatomic) NSArray* finalize_menu_options;  
 @property(nonatomic) NSNumber* autoRegisterDevice;  
+@property(nonatomic) NSArray* versions;  
+@property(nonatomic) NSNumber* clientSignature;  
 @property(nonatomic) NSArray* finalizeActions;  
 @property(nonatomic) NSNumber* sSLPinningEnabled;  
 - (id) viafirmaURL: (NSString*) viafirmaURL     
@@ -40,6 +43,8 @@
     backendVersion: (NSString*) backendVersion     
     finalize_menu_options: (NSArray*) finalize_menu_options     
     autoRegisterDevice: (NSNumber*) autoRegisterDevice     
+    versions: (NSArray*) versions     
+    clientSignature: (NSNumber*) clientSignature     
     finalizeActions: (NSArray*) finalizeActions     
     sSLPinningEnabled: (NSNumber*) sSLPinningEnabled;
     

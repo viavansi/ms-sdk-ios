@@ -10,6 +10,7 @@
     sound: (NSString*) sound
     status: (NSString*) status
     location: (NSString*) location
+    sharedLink: (MSSharedLink*) sharedLink
     metadata: (NSArray*) metadata
     devices: (NSArray*) devices
     
@@ -21,6 +22,7 @@
     _sound = sound;
     _status = status;
     _location = location;
+    _sharedLink = sharedLink;
     _metadata = metadata;
     _devices = devices;
     
@@ -45,6 +47,14 @@
         _status = dict[@"status"];
         
         _location = dict[@"location"];
+        
+        
+        
+        id sharedLink_dict = dict[@"sharedLink"];
+        
+        if(sharedLink_dict != nil)
+            _sharedLink = [[MSSharedLink  alloc]initWithValues:sharedLink_dict];
+        
         
         
         
@@ -125,6 +135,31 @@
     
             if(_location != nil) dict[@"location"] = _location ;
         
+    
+    
+    if(_sharedLink != nil){
+        if([_sharedLink isKindOfClass:[NSArray class]]){
+            NSMutableArray * array = [[NSMutableArray alloc] init];
+            for( int i=0 ; i<[(NSArray*)_sharedLink count] ; i++ ) {
+				MSSharedLink *sharedLink = [[MSSharedLink alloc]init];
+				sharedLink = [(NSArray*)_sharedLink objectAtIndex:i];            
+                [array addObject:[(SWGObject*)sharedLink asDictionary]];
+            }
+            dict[@"sharedLink"] = array;
+        }
+        else if(_sharedLink && [_sharedLink isKindOfClass:[SWGDate class]]) {
+            NSString * dateString = [(SWGDate*)_sharedLink toString];
+            if(dateString){
+                dict[@"sharedLink"] = dateString;
+            }
+        }
+        else {
+        
+            if(_sharedLink != nil) dict[@"sharedLink"] = [(SWGObject*)_sharedLink asDictionary];
+        
+        }
+    }
+    
     
     
     if(_metadata != nil){

@@ -2,6 +2,7 @@
 #import "SWGObject.h"
 #import "MSParam.h"
 #import "MSDevice.h"
+#import "MSSharedLink.h"
 
 
 @interface MSNotification : SWGObject
@@ -13,6 +14,7 @@
 @property(nonatomic) NSString* sound;  
 @property(nonatomic) NSString* status;  
 @property(nonatomic) NSString* location;  
+@property(nonatomic) MSSharedLink* sharedLink;  
 @property(nonatomic) NSArray* metadata;  
 @property(nonatomic) NSArray* devices;  
 - (id) code: (NSString*) code     
@@ -22,6 +24,7 @@
     sound: (NSString*) sound     
     status: (NSString*) status     
     location: (NSString*) location     
+    sharedLink: (MSSharedLink*) sharedLink     
     metadata: (NSArray*) metadata     
     devices: (NSArray*) devices;
     
