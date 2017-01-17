@@ -13,6 +13,7 @@
 @property(nonatomic) NSString* typeFormatSign;  
 @property(nonatomic) NSString* dataToSign;  
 @property(nonatomic) NSString* idSign;  
+@property(nonatomic) NSNumber* custodyDisabled;  
 - (id) type: (NSString*) type     
     code: (NSString*) code     
     status: (NSString*) status     
@@ -21,7 +22,8 @@
     certificatePassword: (NSString*) certificatePassword     
     typeFormatSign: (NSString*) typeFormatSign     
     dataToSign: (NSString*) dataToSign     
-    idSign: (NSString*) idSign;
+    idSign: (NSString*) idSign     
+    custodyDisabled: (NSNumber*) custodyDisabled;
     
 
 - (id) initWithValues: (NSDictionary*)dict;

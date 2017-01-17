@@ -1,5 +1,6 @@
 #import <Foundation/Foundation.h>
 #import "MSMessage.h"
+#import "MSDownload.h"
 #import "MSDocument.h"
 #import "SWGObject.h"
 #import "OAuth1Client.h"
@@ -24,6 +25,25 @@
 +(NSNumber*) sendMessage :(MSMessage*) body 
     
     auth:(OAuth1Client *) auth onSuccess: (void (^)(NSString* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    
+
+
+/**
+
+ Method for synchronous execution of a message
+ 
+ synchronous execution
+ 
+
+ 
+ @param body Message with synchronous execution
+ 
+
+ return type: MSDownload*
+ */
++(NSNumber*) documentBuild :(MSMessage*) body 
+    
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(MSDownload* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     
 
 

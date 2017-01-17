@@ -21,6 +21,10 @@
     metadataCipherPublicKey: (NSString*) metadataCipherPublicKey
     encryptionKeyAlias: (NSString*) encryptionKeyAlias
     required: (NSNumber*) required
+    signatureData: (MSEvidenceSignature*) signatureData
+    fingerPrintData: (MSEvidenceFingerPrint*) fingerPrintData
+    imageData: (MSEvidenceImage*) imageData
+    positionsKey: (NSString*) positionsKey
     
 {
     _type = type;
@@ -41,6 +45,10 @@
     _metadataCipherPublicKey = metadataCipherPublicKey;
     _encryptionKeyAlias = encryptionKeyAlias;
     _required = required;
+    _signatureData = signatureData;
+    _fingerPrintData = fingerPrintData;
+    _imageData = imageData;
+    _positionsKey = positionsKey;
     
 
     return self;
@@ -105,6 +113,32 @@
         _encryptionKeyAlias = dict[@"encryptionKeyAlias"];
         
         _required = dict[@"required"];
+        
+        
+        
+        id signatureData_dict = dict[@"signatureData"];
+        
+        if(signatureData_dict != nil)
+            _signatureData = [[MSEvidenceSignature  alloc]initWithValues:signatureData_dict];
+        
+        
+        
+        
+        id fingerPrintData_dict = dict[@"fingerPrintData"];
+        
+        if(fingerPrintData_dict != nil)
+            _fingerPrintData = [[MSEvidenceFingerPrint  alloc]initWithValues:fingerPrintData_dict];
+        
+        
+        
+        
+        id imageData_dict = dict[@"imageData"];
+        
+        if(imageData_dict != nil)
+            _imageData = [[MSEvidenceImage  alloc]initWithValues:imageData_dict];
+        
+        
+        _positionsKey = dict[@"positionsKey"];
         
         
     }
@@ -205,6 +239,85 @@
     
     
             if(_required != nil) dict[@"required"] = _required ;
+        
+    
+    
+    if(_signatureData != nil){
+        if([_signatureData isKindOfClass:[NSArray class]]){
+            NSMutableArray * array = [[NSMutableArray alloc] init];
+            for( int i=0 ; i<[(NSArray*)_signatureData count] ; i++ ) {
+				MSEvidenceSignature *signatureData = [[MSEvidenceSignature alloc]init];
+				signatureData = [(NSArray*)_signatureData objectAtIndex:i];            
+                [array addObject:[(SWGObject*)signatureData asDictionary]];
+            }
+            dict[@"signatureData"] = array;
+        }
+        else if(_signatureData && [_signatureData isKindOfClass:[SWGDate class]]) {
+            NSString * dateString = [(SWGDate*)_signatureData toString];
+            if(dateString){
+                dict[@"signatureData"] = dateString;
+            }
+        }
+        else {
+        
+            if(_signatureData != nil) dict[@"signatureData"] = [(SWGObject*)_signatureData asDictionary];
+        
+        }
+    }
+    
+    
+    
+    if(_fingerPrintData != nil){
+        if([_fingerPrintData isKindOfClass:[NSArray class]]){
+            NSMutableArray * array = [[NSMutableArray alloc] init];
+            for( int i=0 ; i<[(NSArray*)_fingerPrintData count] ; i++ ) {
+				MSEvidenceFingerPrint *fingerPrintData = [[MSEvidenceFingerPrint alloc]init];
+				fingerPrintData = [(NSArray*)_fingerPrintData objectAtIndex:i];            
+                [array addObject:[(SWGObject*)fingerPrintData asDictionary]];
+            }
+            dict[@"fingerPrintData"] = array;
+        }
+        else if(_fingerPrintData && [_fingerPrintData isKindOfClass:[SWGDate class]]) {
+            NSString * dateString = [(SWGDate*)_fingerPrintData toString];
+            if(dateString){
+                dict[@"fingerPrintData"] = dateString;
+            }
+        }
+        else {
+        
+            if(_fingerPrintData != nil) dict[@"fingerPrintData"] = [(SWGObject*)_fingerPrintData asDictionary];
+        
+        }
+    }
+    
+    
+    
+    if(_imageData != nil){
+        if([_imageData isKindOfClass:[NSArray class]]){
+            NSMutableArray * array = [[NSMutableArray alloc] init];
+            for( int i=0 ; i<[(NSArray*)_imageData count] ; i++ ) {
+				MSEvidenceImage *imageData = [[MSEvidenceImage alloc]init];
+				imageData = [(NSArray*)_imageData objectAtIndex:i];            
+                [array addObject:[(SWGObject*)imageData asDictionary]];
+            }
+            dict[@"imageData"] = array;
+        }
+        else if(_imageData && [_imageData isKindOfClass:[SWGDate class]]) {
+            NSString * dateString = [(SWGDate*)_imageData toString];
+            if(dateString){
+                dict[@"imageData"] = dateString;
+            }
+        }
+        else {
+        
+            if(_imageData != nil) dict[@"imageData"] = [(SWGObject*)_imageData asDictionary];
+        
+        }
+    }
+    
+    
+    
+            if(_positionsKey != nil) dict[@"positionsKey"] = _positionsKey ;
         
     
 
