@@ -1,6 +1,9 @@
 #import <Foundation/Foundation.h>
 #import "SWGObject.h"
 #import "MSPosition.h"
+#import "MSEvidenceFingerPrint.h"
+#import "MSEvidenceImage.h"
+#import "MSEvidenceSignature.h"
 
 
 @interface MSEvidence : SWGObject
@@ -22,6 +25,12 @@
 @property(nonatomic) NSString* certificatePassword;  
 @property(nonatomic) NSString* metadataCipherPublicKey;  
 @property(nonatomic) NSString* encryptionKeyAlias;  
+@property(nonatomic) MSEvidenceSignature* signatureData;  
+@property(nonatomic) MSEvidenceFingerPrint* fingerPrintData;  
+@property(nonatomic) MSEvidenceImage* imageData;  
+@property(nonatomic) NSString* positionsKey;  
+@property(nonatomic) NSNumber* stampsMin;  
+@property(nonatomic) NSString* stampsPolicy;  
 - (id) type: (NSString*) type     
     code: (NSString*) code     
     status: (NSString*) status     
@@ -38,7 +47,13 @@
     certificateAlias: (NSString*) certificateAlias     
     certificatePassword: (NSString*) certificatePassword     
     metadataCipherPublicKey: (NSString*) metadataCipherPublicKey     
-    encryptionKeyAlias: (NSString*) encryptionKeyAlias;
+    encryptionKeyAlias: (NSString*) encryptionKeyAlias     
+    signatureData: (MSEvidenceSignature*) signatureData     
+    fingerPrintData: (MSEvidenceFingerPrint*) fingerPrintData     
+    imageData: (MSEvidenceImage*) imageData     
+    positionsKey: (NSString*) positionsKey     
+    stampsMin: (NSNumber*) stampsMin     
+    stampsPolicy: (NSString*) stampsPolicy;
     
 
 - (id) initWithValues: (NSDictionary*)dict;

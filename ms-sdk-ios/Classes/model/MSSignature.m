@@ -12,6 +12,7 @@
     typeFormatSign: (NSString*) typeFormatSign
     dataToSign: (NSString*) dataToSign
     idSign: (NSString*) idSign
+    custodyDisabled: (NSNumber*) custodyDisabled
     
 {
     _type = type;
@@ -23,6 +24,7 @@
     _typeFormatSign = typeFormatSign;
     _dataToSign = dataToSign;
     _idSign = idSign;
+    _custodyDisabled = custodyDisabled;
     
 
     return self;
@@ -49,6 +51,8 @@
         _dataToSign = dict[@"dataToSign"];
         
         _idSign = dict[@"idSign"];
+        
+        _custodyDisabled = dict[@"custodyDisabled"];
         
         
     }
@@ -92,6 +96,10 @@
     
     
             if(_idSign != nil) dict[@"idSign"] = _idSign ;
+        
+    
+    
+            if(_custodyDisabled != nil) dict[@"custodyDisabled"] = _custodyDisabled ;
         
     
 
