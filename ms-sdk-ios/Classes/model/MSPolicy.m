@@ -16,6 +16,7 @@
     evidences: (NSArray*) evidences
     signatures: (NSArray*) signatures
     error: (MSErrorResponse*) error
+    checklist: (NSArray*) checklist
     
 {
     _code = code;
@@ -31,6 +32,7 @@
     _evidences = evidences;
     _signatures = signatures;
     _error = error;
+    _checklist = checklist;
     
 
     return self;
@@ -130,6 +132,28 @@
         
         if(error_dict != nil)
             _error = [[MSErrorResponse  alloc]initWithValues:error_dict];
+        
+        
+        
+        
+        id checklist_dict = dict[@"checklist"];
+        
+        if([checklist_dict isKindOfClass:[NSArray class]]) {
+            NSMutableArray * objs = [[NSMutableArray alloc] initWithCapacity:[(NSArray*)checklist_dict count]];
+            if([(NSArray*)checklist_dict count] > 0) {
+                for (int i=0 ; i<[(NSArray*)checklist_dict count] ; i++) {
+                	NSDictionary *dict = [[NSDictionary alloc] initWithDictionary:[checklist_dict objectAtIndex:i]];
+                    MSCheck* d = [[MSCheck alloc] initWithValues:dict];
+                    [objs addObject:d];
+                }
+                _checklist = [[NSArray alloc] initWithArray:objs];
+            }
+            else
+                _checklist = [[NSArray alloc] init];
+        }
+        else {
+            _checklist = [[NSArray alloc] init];
+        }
         
         
         
@@ -271,6 +295,31 @@
         else {
         
             if(_error != nil) dict[@"error"] = [(SWGObject*)_error asDictionary];
+        
+        }
+    }
+    
+    
+    
+    if(_checklist != nil){
+        if([_checklist isKindOfClass:[NSArray class]]){
+            NSMutableArray * array = [[NSMutableArray alloc] init];
+            for( int i=0 ; i<[(NSArray*)_checklist count] ; i++ ) {
+				MSCheck *checklist = [[MSCheck alloc]init];
+				checklist = [(NSArray*)_checklist objectAtIndex:i];            
+                [array addObject:[(SWGObject*)checklist asDictionary]];
+            }
+            dict[@"checklist"] = array;
+        }
+        else if(_checklist && [_checklist isKindOfClass:[SWGDate class]]) {
+            NSString * dateString = [(SWGDate*)_checklist toString];
+            if(dateString){
+                dict[@"checklist"] = dateString;
+            }
+        }
+        else {
+        
+            if(_checklist != nil) dict[@"checklist"] = [(SWGObject*)_checklist asDictionary];
         
         }
     }

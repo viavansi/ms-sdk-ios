@@ -15,6 +15,7 @@
     formRequired: (NSNumber*) formRequired
     formDisabled: (NSNumber*) formDisabled
     items: (NSArray*) items
+    pdfaCompliant: (NSNumber*) pdfaCompliant
     font: (MSFont*) font
     
 {
@@ -30,6 +31,7 @@
     _formRequired = formRequired;
     _formDisabled = formDisabled;
     _items = items;
+    _pdfaCompliant = pdfaCompliant;
     _font = font;
     
 
@@ -83,6 +85,8 @@
             _items = [[NSArray alloc] init];
         }
         
+        
+        _pdfaCompliant = dict[@"pdfaCompliant"];
         
         
         
@@ -168,6 +172,10 @@
         }
     }
     
+    
+    
+            if(_pdfaCompliant != nil) dict[@"pdfaCompliant"] = _pdfaCompliant ;
+        
     
     
     if(_font != nil){

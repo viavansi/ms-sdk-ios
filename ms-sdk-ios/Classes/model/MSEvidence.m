@@ -20,11 +20,13 @@
     certificatePassword: (NSString*) certificatePassword
     metadataCipherPublicKey: (NSString*) metadataCipherPublicKey
     encryptionKeyAlias: (NSString*) encryptionKeyAlias
-    required: (NSNumber*) required
+    optional: (NSNumber*) optional
     signatureData: (MSEvidenceSignature*) signatureData
     fingerPrintData: (MSEvidenceFingerPrint*) fingerPrintData
     imageData: (MSEvidenceImage*) imageData
     positionsKey: (NSString*) positionsKey
+    stampsMin: (NSNumber*) stampsMin
+    stampsPolicy: (NSString*) stampsPolicy
     
 {
     _type = type;
@@ -44,11 +46,13 @@
     _certificatePassword = certificatePassword;
     _metadataCipherPublicKey = metadataCipherPublicKey;
     _encryptionKeyAlias = encryptionKeyAlias;
-    _required = required;
+    _optional = optional;
     _signatureData = signatureData;
     _fingerPrintData = fingerPrintData;
     _imageData = imageData;
     _positionsKey = positionsKey;
+    _stampsMin = stampsMin;
+    _stampsPolicy = stampsPolicy;
     
 
     return self;
@@ -112,7 +116,7 @@
         
         _encryptionKeyAlias = dict[@"encryptionKeyAlias"];
         
-        _required = dict[@"required"];
+        _optional = dict[@"optional"];
         
         
         
@@ -139,6 +143,10 @@
         
         
         _positionsKey = dict[@"positionsKey"];
+        
+        _stampsMin = dict[@"stampsMin"];
+        
+        _stampsPolicy = dict[@"stampsPolicy"];
         
         
     }
@@ -238,7 +246,7 @@
         
     
     
-            if(_required != nil) dict[@"required"] = _required ;
+            if(_optional != nil) dict[@"optional"] = _optional ;
         
     
     
@@ -318,6 +326,14 @@
     
     
             if(_positionsKey != nil) dict[@"positionsKey"] = _positionsKey ;
+        
+    
+    
+            if(_stampsMin != nil) dict[@"stampsMin"] = _stampsMin ;
+        
+    
+    
+            if(_stampsPolicy != nil) dict[@"stampsPolicy"] = _stampsPolicy ;
         
     
 

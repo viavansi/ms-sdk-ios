@@ -25,11 +25,13 @@
 @property(nonatomic) NSString* certificatePassword;  
 @property(nonatomic) NSString* metadataCipherPublicKey;  
 @property(nonatomic) NSString* encryptionKeyAlias;  
-@property(nonatomic) NSNumber* required;  
+@property(nonatomic) NSNumber* optional;  
 @property(nonatomic) MSEvidenceSignature* signatureData;  
 @property(nonatomic) MSEvidenceFingerPrint* fingerPrintData;  
 @property(nonatomic) MSEvidenceImage* imageData;  
 @property(nonatomic) NSString* positionsKey;  
+@property(nonatomic) NSNumber* stampsMin;  
+@property(nonatomic) NSString* stampsPolicy;  
 - (id) type: (NSString*) type     
     code: (NSString*) code     
     status: (NSString*) status     
@@ -47,11 +49,13 @@
     certificatePassword: (NSString*) certificatePassword     
     metadataCipherPublicKey: (NSString*) metadataCipherPublicKey     
     encryptionKeyAlias: (NSString*) encryptionKeyAlias     
-    required: (NSNumber*) required     
+    optional: (NSNumber*) optional     
     signatureData: (MSEvidenceSignature*) signatureData     
     fingerPrintData: (MSEvidenceFingerPrint*) fingerPrintData     
     imageData: (MSEvidenceImage*) imageData     
-    positionsKey: (NSString*) positionsKey;
+    positionsKey: (NSString*) positionsKey     
+    stampsMin: (NSNumber*) stampsMin     
+    stampsPolicy: (NSString*) stampsPolicy;
     
 
 - (id) initWithValues: (NSDictionary*)dict;

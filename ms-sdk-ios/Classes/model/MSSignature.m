@@ -13,6 +13,7 @@
     dataToSign: (NSString*) dataToSign
     idSign: (NSString*) idSign
     custodyDisabled: (NSNumber*) custodyDisabled
+    stamper: (MSStamper*) stamper
     
 {
     _type = type;
@@ -25,6 +26,7 @@
     _dataToSign = dataToSign;
     _idSign = idSign;
     _custodyDisabled = custodyDisabled;
+    _stamper = stamper;
     
 
     return self;
@@ -53,6 +55,14 @@
         _idSign = dict[@"idSign"];
         
         _custodyDisabled = dict[@"custodyDisabled"];
+        
+        
+        
+        id stamper_dict = dict[@"stamper"];
+        
+        if(stamper_dict != nil)
+            _stamper = [[MSStamper  alloc]initWithValues:stamper_dict];
+        
         
         
     }
@@ -101,6 +111,31 @@
     
             if(_custodyDisabled != nil) dict[@"custodyDisabled"] = _custodyDisabled ;
         
+    
+    
+    if(_stamper != nil){
+        if([_stamper isKindOfClass:[NSArray class]]){
+            NSMutableArray * array = [[NSMutableArray alloc] init];
+            for( int i=0 ; i<[(NSArray*)_stamper count] ; i++ ) {
+				MSStamper *stamper = [[MSStamper alloc]init];
+				stamper = [(NSArray*)_stamper objectAtIndex:i];            
+                [array addObject:[(SWGObject*)stamper asDictionary]];
+            }
+            dict[@"stamper"] = array;
+        }
+        else if(_stamper && [_stamper isKindOfClass:[SWGDate class]]) {
+            NSString * dateString = [(SWGDate*)_stamper toString];
+            if(dateString){
+                dict[@"stamper"] = dateString;
+            }
+        }
+        else {
+        
+            if(_stamper != nil) dict[@"stamper"] = [(SWGObject*)_stamper asDictionary];
+        
+        }
+    }
+    
     
 
     NSDictionary* output = [dict copy];

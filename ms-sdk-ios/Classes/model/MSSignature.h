@@ -1,5 +1,6 @@
 #import <Foundation/Foundation.h>
 #import "SWGObject.h"
+#import "MSStamper.h"
 
 
 @interface MSSignature : SWGObject
@@ -14,6 +15,7 @@
 @property(nonatomic) NSString* dataToSign;  
 @property(nonatomic) NSString* idSign;  
 @property(nonatomic) NSNumber* custodyDisabled;  
+@property(nonatomic) MSStamper* stamper;  
 - (id) type: (NSString*) type     
     code: (NSString*) code     
     status: (NSString*) status     
@@ -23,7 +25,8 @@
     typeFormatSign: (NSString*) typeFormatSign     
     dataToSign: (NSString*) dataToSign     
     idSign: (NSString*) idSign     
-    custodyDisabled: (NSNumber*) custodyDisabled;
+    custodyDisabled: (NSNumber*) custodyDisabled     
+    stamper: (MSStamper*) stamper;
     
 
 - (id) initWithValues: (NSDictionary*)dict;
