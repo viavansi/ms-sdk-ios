@@ -25,6 +25,7 @@ extern NSString *const SWGResponseObjectErrorKey;
 @property (strong, nonatomic) NSString *consumerSecret;
 @property (strong, nonatomic) NSString *token;
 @property (strong, nonatomic) NSString *tokenSecret;
+@property (nonatomic) bool sslPinningEnabled;
 
 #define SWGResponseObjectErrorKey @"SWGResponseObject"
 
