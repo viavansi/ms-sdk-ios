@@ -15,7 +15,8 @@
 @property(nonatomic) NSString* dataToSign;  
 @property(nonatomic) NSString* idSign;  
 @property(nonatomic) NSNumber* custodyDisabled;  
-@property(nonatomic) MSStamper* stamper;  
+@property(nonatomic) NSArray* stampers;  
+@property(nonatomic) NSString* certificationLevel;  
 - (id) type: (NSString*) type     
     code: (NSString*) code     
     status: (NSString*) status     
@@ -26,7 +27,8 @@
     dataToSign: (NSString*) dataToSign     
     idSign: (NSString*) idSign     
     custodyDisabled: (NSNumber*) custodyDisabled     
-    stamper: (MSStamper*) stamper;
+    stampers: (NSArray*) stampers     
+    certificationLevel: (NSString*) certificationLevel;
     
 
 - (id) initWithValues: (NSDictionary*)dict;

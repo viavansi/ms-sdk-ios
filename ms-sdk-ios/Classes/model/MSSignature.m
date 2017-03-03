@@ -13,7 +13,8 @@
     dataToSign: (NSString*) dataToSign
     idSign: (NSString*) idSign
     custodyDisabled: (NSNumber*) custodyDisabled
-    stamper: (MSStamper*) stamper
+    stampers: (NSArray*) stampers
+    certificationLevel: (NSString*) certificationLevel
     
 {
     _type = type;
@@ -26,7 +27,8 @@
     _dataToSign = dataToSign;
     _idSign = idSign;
     _custodyDisabled = custodyDisabled;
-    _stamper = stamper;
+    _stampers = stampers;
+    _certificationLevel = certificationLevel;
     
 
     return self;
@@ -58,11 +60,27 @@
         
         
         
-        id stamper_dict = dict[@"stamper"];
+        id stampers_dict = dict[@"stampers"];
         
-        if(stamper_dict != nil)
-            _stamper = [[MSStamper  alloc]initWithValues:stamper_dict];
+        if([stampers_dict isKindOfClass:[NSArray class]]) {
+            NSMutableArray * objs = [[NSMutableArray alloc] initWithCapacity:[(NSArray*)stampers_dict count]];
+            if([(NSArray*)stampers_dict count] > 0) {
+                for (int i=0 ; i<[(NSArray*)stampers_dict count] ; i++) {
+                	NSDictionary *dict = [[NSDictionary alloc] initWithDictionary:[stampers_dict objectAtIndex:i]];
+                    MSStamper* d = [[MSStamper alloc] initWithValues:dict];
+                    [objs addObject:d];
+                }
+                _stampers = [[NSArray alloc] initWithArray:objs];
+            }
+            else
+                _stampers = [[NSArray alloc] init];
+        }
+        else {
+            _stampers = [[NSArray alloc] init];
+        }
         
+        
+        _certificationLevel = dict[@"certificationLevel"];
         
         
     }
@@ -113,29 +131,33 @@
         
     
     
-    if(_stamper != nil){
-        if([_stamper isKindOfClass:[NSArray class]]){
+    if(_stampers != nil){
+        if([_stampers isKindOfClass:[NSArray class]]){
             NSMutableArray * array = [[NSMutableArray alloc] init];
-            for( int i=0 ; i<[(NSArray*)_stamper count] ; i++ ) {
-				MSStamper *stamper = [[MSStamper alloc]init];
-				stamper = [(NSArray*)_stamper objectAtIndex:i];            
-                [array addObject:[(SWGObject*)stamper asDictionary]];
+            for( int i=0 ; i<[(NSArray*)_stampers count] ; i++ ) {
+				MSStamper *stampers = [[MSStamper alloc]init];
+				stampers = [(NSArray*)_stampers objectAtIndex:i];            
+                [array addObject:[(SWGObject*)stampers asDictionary]];
             }
-            dict[@"stamper"] = array;
+            dict[@"stampers"] = array;
         }
-        else if(_stamper && [_stamper isKindOfClass:[SWGDate class]]) {
-            NSString * dateString = [(SWGDate*)_stamper toString];
+        else if(_stampers && [_stampers isKindOfClass:[SWGDate class]]) {
+            NSString * dateString = [(SWGDate*)_stampers toString];
             if(dateString){
-                dict[@"stamper"] = dateString;
+                dict[@"stampers"] = dateString;
             }
         }
         else {
         
-            if(_stamper != nil) dict[@"stamper"] = [(SWGObject*)_stamper asDictionary];
+            if(_stampers != nil) dict[@"stampers"] = [(SWGObject*)_stampers asDictionary];
         
         }
     }
     
+    
+    
+            if(_certificationLevel != nil) dict[@"certificationLevel"] = _certificationLevel ;
+        
     
 
     NSDictionary* output = [dict copy];

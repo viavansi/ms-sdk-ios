@@ -369,7 +369,15 @@ static bool loggingEnabled = true;
 										  NSMutableDictionary *userInfo = [error.userInfo mutableCopy];
 										  if(operation.responseObject) {
 											  // Add in the (parsed) response body.
-											  userInfo[SWGResponseObjectErrorKey] = operation.responseObject;
+                                              NSError *jsonError;
+                                              id jsonDictionaryOrArray = [NSJSONSerialization JSONObjectWithData:operation.responseData options:NULL error:&jsonError];
+                                              if(jsonError) {
+                                                  // check the error description
+                                                  userInfo[SWGResponseObjectErrorKey] = operation.responseObject;
+                                              } else {
+                                                  // use the jsonDictionaryOrArray
+                                                  userInfo[SWGResponseObjectErrorKey] = jsonDictionaryOrArray;
+                                              }
 										  }
 										  NSError *augmentedError = [error initWithDomain:error.domain code:error.code userInfo:userInfo];
 
@@ -513,7 +521,15 @@ static bool loggingEnabled = true;
 																	   NSMutableDictionary *userInfo = [error.userInfo mutableCopy];
 																	   if(operation.responseObject) {
 																		   // Add in the (parsed) response body.
-																		   userInfo[SWGResponseObjectErrorKey] = operation.responseObject;
+                                                                           NSError *jsonError;
+                                                                           id jsonDictionaryOrArray = [NSJSONSerialization JSONObjectWithData:operation.responseData options:NULL error:&jsonError];
+                                                                           if(jsonError) {
+                                                                               // check the error description
+                                                                               userInfo[SWGResponseObjectErrorKey] = operation.responseObject;
+                                                                           } else {
+                                                                               // use the jsonDictionaryOrArray
+                                                                               userInfo[SWGResponseObjectErrorKey] = jsonDictionaryOrArray;
+                                                                           }
 																	   }
 																	   NSError *augmentedError = [error initWithDomain:error.domain code:error.code userInfo:userInfo];
 
