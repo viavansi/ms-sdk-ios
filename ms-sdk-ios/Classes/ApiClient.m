@@ -388,10 +388,13 @@ static bool loggingEnabled = true;
 								  }
 	 ];
 
-	AFSecurityPolicy *securityPolicy = [AFSecurityPolicy policyWithPinningMode:AFSSLPinningModeCertificate];
-    securityPolicy.allowInvalidCertificates = YES;
+	AFSecurityPolicy *securityPolicy = [AFSecurityPolicy policyWithPinningMode:AFSSLPinningModeNone];
+    if (self.sslPinningEnabled) {
+        securityPolicy = [AFSecurityPolicy policyWithPinningMode:AFSSLPinningModeCertificate];
+    }
+    //securityPolicy.allowInvalidCertificates = YES;
     op.securityPolicy = securityPolicy;
-	[self.operationQueue addOperation:op];
+    [self.operationQueue addOperation:op];
 	return requestId;
 }
 
@@ -539,10 +542,13 @@ static bool loggingEnabled = true;
 																   }
 															   }];
 
-	AFSecurityPolicy *securityPolicy = [AFSecurityPolicy policyWithPinningMode:AFSSLPinningModeCertificate];
-    securityPolicy.allowInvalidCertificates = YES;
+	AFSecurityPolicy *securityPolicy = [AFSecurityPolicy policyWithPinningMode:AFSSLPinningModeNone];
+    if (self.sslPinningEnabled) {
+        securityPolicy = [AFSecurityPolicy policyWithPinningMode:AFSSLPinningModeCertificate];
+    }
+    //securityPolicy.allowInvalidCertificates = YES;
     op.securityPolicy = securityPolicy;
-	[self.operationQueue addOperation:op];
+    [self.operationQueue addOperation:op];
 	return requestId;
 }
 

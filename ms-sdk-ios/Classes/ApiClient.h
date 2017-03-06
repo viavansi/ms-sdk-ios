@@ -20,6 +20,7 @@ extern NSString *const SWGResponseObjectErrorKey;
 @property(nonatomic, assign) BOOL logJSON;
 @property(nonatomic, assign) BOOL logHTTP;
 @property(nonatomic, readonly) NSOperationQueue* queue;
+@property (nonatomic) bool sslPinningEnabled;
 
 @property (strong, nonatomic) NSString *url;
 
