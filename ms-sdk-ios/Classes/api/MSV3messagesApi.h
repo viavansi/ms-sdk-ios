@@ -1,6 +1,8 @@
 #import <Foundation/Foundation.h>
 #import "MSMessage.h"
+#import "MSMessageData.h"
 #import "MSDownload.h"
+#import "MSMessageStatus.h"
 #import "MSDocument.h"
 #import "SWGObject.h"
 #import "OAuth1Client.h"
@@ -25,6 +27,25 @@
 +(NSNumber*) sendMessage :(MSMessage*) body 
     
     auth:(OAuth1Client *) auth onSuccess: (void (^)(NSString* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    
+
+
+/**
+
+ Method send user data for a existing message
+ 
+ Send message data
+ 
+
+ 
+ @param body MessageData object that contains all user data
+ 
+
+ return type: MSMessage*
+ */
++(NSNumber*) sendMessageData :(MSMessageData*) body 
+    
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(MSMessage* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     
 
 
@@ -85,6 +106,25 @@
      comment:(NSString*) comment 
     
     auth:(OAuth1Client *) auth onSuccess: (void (^)(MSMessage* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    
+
+
+/**
+
+ Method for get status of a existing message
+ 
+ Get message status
+ 
+
+ 
+ @param messageCode Message&#39;s identifier
+ 
+
+ return type: MSMessageStatus*
+ */
++(NSNumber*) getMessageStatusByCode :(NSString*) messageCode 
+    
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(MSMessageStatus* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     
 
 
