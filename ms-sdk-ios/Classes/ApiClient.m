@@ -2,7 +2,6 @@
 #import "SWGFile.h"
 
 @interface ApiClient ()
-@property(nonatomic, strong) NSMutableSet * queuedRequests;
 @end
 
 static ApiClient * singleton;
@@ -24,10 +23,6 @@ static bool loggingEnabled = true;
         singleton = [[ApiClient alloc] init];
     }
 
-    if (singleton.queuedRequests == nil) {
-        singleton.queuedRequests = [[NSMutableSet alloc]init];
-    }
-    
     if(_pool == nil) {
         // setup static vars
         // create queue
@@ -73,27 +68,11 @@ static bool loggingEnabled = true;
     return sharedQueue;
 }
 
-+(unsigned long)requestQueueSize {
-    return [[ApiClient sharedInstance].queuedRequests count];
-}
-
 +(NSNumber*) nextRequestId {
     long nextId = ++requestId;
     if(loggingEnabled)
         NSLog(@"got id %ld", nextId);
     return [NSNumber numberWithLong:nextId];
-}
-
-+(NSNumber*) queueRequest {
-    NSNumber* requestId = [ApiClient nextRequestId];
-    if(loggingEnabled)
-        NSLog(@"added %@ to request queue", requestId);
-    [[ApiClient sharedInstance].queuedRequests addObject:requestId];
-    return requestId;
-}
-
-+(void) cancelRequest:(NSNumber*)requestId {
-    [[ApiClient sharedInstance].queuedRequests removeObject:requestId];
 }
 
 +(NSString*) escape:(id)unescaped {
@@ -109,23 +88,6 @@ static bool loggingEnabled = true;
     else {
         return [NSString stringWithFormat:@"%@", unescaped];
     }
-}
-
--(Boolean) executeRequestWithId:(NSNumber*) requestId {
-    NSSet* matchingItems = [self.queuedRequests objectsPassingTest:^BOOL(id obj, BOOL *stop) {
-        if([obj intValue]  == [requestId intValue])
-            return TRUE;
-        else return FALSE;
-    }];
-
-    if(matchingItems.count == 1) {
-        if(loggingEnabled)
-            NSLog(@"removing request id %@", requestId);
-        [self.queuedRequests removeObject:requestId];
-        return true;
-    }
-    else
-        return false;
 }
 
 +(AFNetworkReachabilityStatus) getReachabilityStatus {
@@ -354,17 +316,13 @@ static bool loggingEnabled = true;
 
     [auth authorizeRequest:request];
 
-    NSNumber* requestId = [ApiClient queueRequest];
     AFHTTPRequestOperation *op =
     [self HTTPRequestOperationWithRequest:request
                                   success:^(AFHTTPRequestOperation *operation, id JSON) {
-                                      if([self executeRequestWithId:requestId]) {
                                           if(self.logServerResponses)
                                               [self logResponse:JSON forRequest:request error:nil];
                                           successBlock(JSON);
-                                      }
                                   } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                                      if([self executeRequestWithId:requestId]) {
                                           NSMutableDictionary *userInfo = [error.userInfo mutableCopy];
                                           if(operation.responseObject) {
                                               // Add in the (parsed) response body.
@@ -383,7 +341,7 @@ static bool loggingEnabled = true;
                                           if(self.logServerResponses)
                                               [self logResponse:nil forRequest:request error:augmentedError];
                                           errorBlock(augmentedError);
-                                      }
+                                      
                                   }
      ];
 
@@ -397,7 +355,7 @@ static bool loggingEnabled = true;
     [op setCompletionQueue:dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)];
     
     [self.operationQueue addOperation:op];
-    return requestId;
+    return [NSNumber numberWithUnsignedInt:1];
 }
 
 -(NSNumber*)  stringWithCompletionBlock: (OAuth1Client *) auth
@@ -512,17 +470,13 @@ static bool loggingEnabled = true;
 
     [auth authorizeRequest:request];
 
-    NSNumber* requestId = [ApiClient queueRequest];
     AFHTTPRequestOperation *op = [self HTTPRequestOperationWithRequest:request
                                                                success:^(AFHTTPRequestOperation *operation, id responseObject) {
                                                                    NSString *response = [operation responseString];
-                                                                   if([self executeRequestWithId:requestId]) {
                                                                        if(self.logServerResponses)
                                                                            [self logResponse:responseObject forRequest:request error:nil];
                                                                        successBlock(response);
-                                                                   }
                                                                } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                                                                   if([self executeRequestWithId:requestId]) {
                                                                        NSMutableDictionary *userInfo = [error.userInfo mutableCopy];
                                                                        if(operation.responseObject) {
                                                                            // Add in the (parsed) response body.
@@ -541,7 +495,6 @@ static bool loggingEnabled = true;
                                                                        if(self.logServerResponses)
                                                                            [self logResponse:nil forRequest:request error:augmentedError];
                                                                        errorBlock(augmentedError);
-                                                                   }
                                                                }];
 
     AFSecurityPolicy *securityPolicy = [AFSecurityPolicy policyWithPinningMode:AFSSLPinningModeNone];
@@ -554,7 +507,7 @@ static bool loggingEnabled = true;
     [op setCompletionQueue:dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)];
     
     [self.operationQueue addOperation:op];
-    return requestId;
+    return [NSNumber numberWithUnsignedInt:1];
 }
 
 @end
