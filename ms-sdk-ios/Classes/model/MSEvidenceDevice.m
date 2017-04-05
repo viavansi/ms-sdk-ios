@@ -13,6 +13,7 @@
     rotationAllowed: (NSNumber*) rotationAllowed
     screenHeight: (NSNumber*) screenHeight
     screenWidth: (NSNumber*) screenWidth
+    app: (NSString*) app
     
 {
     _manufacturer = manufacturer;
@@ -25,6 +26,7 @@
     _rotationAllowed = rotationAllowed;
     _screenHeight = screenHeight;
     _screenWidth = screenWidth;
+    _app = app;
     
 
     return self;
@@ -53,6 +55,8 @@
         _screenHeight = dict[@"screenHeight"];
         
         _screenWidth = dict[@"screenWidth"];
+        
+        _app = dict[@"app"];
         
         
     }
@@ -100,6 +104,10 @@
     
     
             if(_screenWidth != nil) dict[@"screenWidth"] = _screenWidth ;
+        
+    
+    
+            if(_app != nil) dict[@"app"] = _app ;
         
     
 

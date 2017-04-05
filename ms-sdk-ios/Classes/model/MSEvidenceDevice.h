@@ -14,6 +14,7 @@
 @property(nonatomic) NSNumber* rotationAllowed;  
 @property(nonatomic) NSNumber* screenHeight;  
 @property(nonatomic) NSNumber* screenWidth;  
+@property(nonatomic) NSString* app;  
 - (id) manufacturer: (NSString*) manufacturer     
     model: (NSString*) model     
     osVersion: (NSString*) osVersion     
@@ -23,7 +24,8 @@
     ppi: (NSString*) ppi     
     rotationAllowed: (NSNumber*) rotationAllowed     
     screenHeight: (NSNumber*) screenHeight     
-    screenWidth: (NSNumber*) screenWidth;
+    screenWidth: (NSNumber*) screenWidth     
+    app: (NSString*) app;
     
 
 - (id) initWithValues: (NSDictionary*)dict;
