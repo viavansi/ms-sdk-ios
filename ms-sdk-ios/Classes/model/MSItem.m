@@ -20,6 +20,7 @@
     match: (NSString*) match
     update: (NSString*) update
     disabled: (NSNumber*) disabled
+    hidden: (NSNumber*) hidden
     random: (NSNumber*) random
     values: (NSArray*) values
     height: (NSString*) height
@@ -48,6 +49,7 @@
     _match = match;
     _update = update;
     _disabled = disabled;
+    _hidden = hidden;
     _random = random;
     _values = values;
     _height = height;
@@ -99,6 +101,8 @@
         _update = dict[@"update"];
         
         _disabled = dict[@"disabled"];
+        
+        _hidden = dict[@"hidden"];
         
         _random = dict[@"random"];
         
@@ -192,6 +196,10 @@
     
     
             if(_disabled != nil) dict[@"disabled"] = _disabled ;
+        
+    
+    
+            if(_hidden != nil) dict[@"hidden"] = _hidden ;
         
     
     

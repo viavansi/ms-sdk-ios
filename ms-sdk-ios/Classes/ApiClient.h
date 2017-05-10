@@ -1,5 +1,6 @@
 #import <Foundation/Foundation.h>
 #import "AFHTTPRequestOperationManager.h"
+#import "OAuth1Client.h"
 
 /**
  * A key for `NSError` user info dictionaries.
@@ -19,13 +20,9 @@ extern NSString *const SWGResponseObjectErrorKey;
 @property(nonatomic, assign) BOOL logJSON;
 @property(nonatomic, assign) BOOL logHTTP;
 @property(nonatomic, readonly) NSOperationQueue* queue;
+@property (nonatomic) bool sslPinningEnabled;
 
 @property (strong, nonatomic) NSString *url;
-@property (strong, nonatomic) NSString *consumerKey;
-@property (strong, nonatomic) NSString *consumerSecret;
-@property (strong, nonatomic) NSString *token;
-@property (strong, nonatomic) NSString *tokenSecret;
-@property (nonatomic) bool sslPinningEnabled;
 
 #define SWGResponseObjectErrorKey @"SWGResponseObject"
 
@@ -43,7 +40,8 @@ extern NSString *const SWGResponseObjectErrorKey;
 +(NSString*) escape:(id)unescaped;
 +(void) setReachabilityChangeBlock:(void(^)(int))changeBlock;
 +(void) configureCacheReachibility;
--(NSNumber*)  dictionary:(NSString*) path
+-(NSNumber*)  dictionary:(OAuth1Client *) auth
+					requestUrl:(NSString*) path
                   method:(NSString*) method
              queryParams:(NSDictionary*) queryParams
                     body:(id) body
@@ -52,7 +50,8 @@ extern NSString *const SWGResponseObjectErrorKey;
      responseContentType:(NSString*) responseContentType
          successBlock:(void (^)(NSDictionary*))successBlock
 			errorBlock:(void (^)(NSError *))errorBlock;
--(NSNumber*)  stringWithCompletionBlock:(NSString*) path
+-(NSNumber*)  stringWithCompletionBlock:(OAuth1Client *) auth
+								   requestUrl:(NSString*) path
                                  method:(NSString*) method
                             queryParams:(NSDictionary*) queryParams
                                    body:(id) body
@@ -62,4 +61,3 @@ extern NSString *const SWGResponseObjectErrorKey;
                         successBlock:(void (^)(NSString*))successBlock
 						errorBlock:(void (^)(NSError *))errorBlock;
 @end
-

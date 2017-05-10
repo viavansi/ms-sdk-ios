@@ -1,5 +1,7 @@
 #import <Foundation/Foundation.h>
 #import "SWGObject.h"
+#import "MSSignature.h"
+#import "MSCheck.h"
 #import "MSEvidence.h"
 #import "MSParam.h"
 #import "MSErrorResponse.h"
@@ -18,7 +20,9 @@
 @property(nonatomic) NSString* idSign;  
 @property(nonatomic) NSArray* paramList;  
 @property(nonatomic) NSArray* evidences;  
+@property(nonatomic) NSArray* signatures;  
 @property(nonatomic) MSErrorResponse* error;  
+@property(nonatomic) NSArray* checklist;  /* (since 3.4.0) checklist actions  */
 - (id) code: (NSString*) code     
     userCode: (NSString*) userCode     
     typeFormatSign: (NSString*) typeFormatSign     
@@ -30,7 +34,9 @@
     idSign: (NSString*) idSign     
     paramList: (NSArray*) paramList     
     evidences: (NSArray*) evidences     
-    error: (MSErrorResponse*) error;
+    signatures: (NSArray*) signatures     
+    error: (MSErrorResponse*) error     
+    checklist: (NSArray*) checklist;
     
 
 - (id) initWithValues: (NSDictionary*)dict;

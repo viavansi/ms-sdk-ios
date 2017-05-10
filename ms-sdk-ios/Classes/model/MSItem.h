@@ -21,6 +21,7 @@
 @property(nonatomic) NSString* match;  
 @property(nonatomic) NSString* update;  
 @property(nonatomic) NSNumber* disabled;  
+@property(nonatomic) NSNumber* hidden;  
 @property(nonatomic) NSNumber* random;  
 @property(nonatomic) NSArray* values;  
 @property(nonatomic) NSString* height;  
@@ -47,6 +48,7 @@
     match: (NSString*) match     
     update: (NSString*) update     
     disabled: (NSNumber*) disabled     
+    hidden: (NSNumber*) hidden     
     random: (NSNumber*) random     
     values: (NSArray*) values     
     height: (NSString*) height     

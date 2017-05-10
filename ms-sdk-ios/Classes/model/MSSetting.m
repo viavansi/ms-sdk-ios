@@ -13,6 +13,7 @@
     callbackMailsFormKeys: (NSArray*) callbackMailsFormKeys
     validateCode: (NSString*) validateCode
     workflow: (NSString*) workflow
+    font: (MSFont*) font
     
 {
     _titleKey = titleKey;
@@ -25,6 +26,7 @@
     _callbackMailsFormKeys = callbackMailsFormKeys;
     _validateCode = validateCode;
     _workflow = workflow;
+    _font = font;
     
 
     return self;
@@ -79,6 +81,14 @@
         _validateCode = dict[@"validateCode"];
         
         _workflow = dict[@"workflow"];
+        
+        
+        
+        id font_dict = dict[@"font"];
+        
+        if(font_dict != nil)
+            _font = [[MSFont  alloc]initWithValues:font_dict];
+        
         
         
     }
@@ -169,6 +179,31 @@
     
             if(_workflow != nil) dict[@"workflow"] = _workflow ;
         
+    
+    
+    if(_font != nil){
+        if([_font isKindOfClass:[NSArray class]]){
+            NSMutableArray * array = [[NSMutableArray alloc] init];
+            for( int i=0 ; i<[(NSArray*)_font count] ; i++ ) {
+				MSFont *font = [[MSFont alloc]init];
+				font = [(NSArray*)_font objectAtIndex:i];            
+                [array addObject:[(SWGObject*)font asDictionary]];
+            }
+            dict[@"font"] = array;
+        }
+        else if(_font && [_font isKindOfClass:[SWGDate class]]) {
+            NSString * dateString = [(SWGDate*)_font toString];
+            if(dateString){
+                dict[@"font"] = dateString;
+            }
+        }
+        else {
+        
+            if(_font != nil) dict[@"font"] = [(SWGObject*)_font asDictionary];
+        
+        }
+    }
+    
     
 
     NSDictionary* output = [dict copy];

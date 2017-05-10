@@ -16,6 +16,9 @@
     viafirmaCertificate: (NSString*) viafirmaCertificate
     region: (NSString*) region
     pos: (NSString*) pos
+    confirmToken: (NSString*) confirmToken
+    changePassToken: (NSString*) changePassToken
+    logDevice: (NSNumber*) logDevice
     mobile: (NSString*) mobile
     channel: (NSString*) channel
     
@@ -33,6 +36,9 @@
     _viafirmaCertificate = viafirmaCertificate;
     _region = region;
     _pos = pos;
+    _confirmToken = confirmToken;
+    _changePassToken = changePassToken;
+    _logDevice = logDevice;
     _mobile = mobile;
     _channel = channel;
     
@@ -69,6 +75,12 @@
         _region = dict[@"region"];
         
         _pos = dict[@"pos"];
+        
+        _confirmToken = dict[@"confirmToken"];
+        
+        _changePassToken = dict[@"changePassToken"];
+        
+        _logDevice = dict[@"logDevice"];
         
         _mobile = dict[@"mobile"];
         
@@ -132,6 +144,18 @@
     
     
             if(_pos != nil) dict[@"pos"] = _pos ;
+        
+    
+    
+            if(_confirmToken != nil) dict[@"confirmToken"] = _confirmToken ;
+        
+    
+    
+            if(_changePassToken != nil) dict[@"changePassToken"] = _changePassToken ;
+        
+    
+    
+            if(_logDevice != nil) dict[@"logDevice"] = _logDevice ;
         
     
     

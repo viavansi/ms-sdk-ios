@@ -15,6 +15,8 @@
     formRequired: (NSNumber*) formRequired
     formDisabled: (NSNumber*) formDisabled
     items: (NSArray*) items
+    pdfaCompliant: (NSNumber*) pdfaCompliant
+    font: (MSFont*) font
     
 {
     _templateCode = templateCode;
@@ -29,6 +31,8 @@
     _formRequired = formRequired;
     _formDisabled = formDisabled;
     _items = items;
+    _pdfaCompliant = pdfaCompliant;
+    _font = font;
     
 
     return self;
@@ -80,6 +84,16 @@
         else {
             _items = [[NSArray alloc] init];
         }
+        
+        
+        _pdfaCompliant = dict[@"pdfaCompliant"];
+        
+        
+        
+        id font_dict = dict[@"font"];
+        
+        if(font_dict != nil)
+            _font = [[MSFont  alloc]initWithValues:font_dict];
         
         
         
@@ -154,6 +168,35 @@
         else {
         
             if(_items != nil) dict[@"items"] = [(SWGObject*)_items asDictionary];
+        
+        }
+    }
+    
+    
+    
+            if(_pdfaCompliant != nil) dict[@"pdfaCompliant"] = _pdfaCompliant ;
+        
+    
+    
+    if(_font != nil){
+        if([_font isKindOfClass:[NSArray class]]){
+            NSMutableArray * array = [[NSMutableArray alloc] init];
+            for( int i=0 ; i<[(NSArray*)_font count] ; i++ ) {
+				MSFont *font = [[MSFont alloc]init];
+				font = [(NSArray*)_font objectAtIndex:i];            
+                [array addObject:[(SWGObject*)font asDictionary]];
+            }
+            dict[@"font"] = array;
+        }
+        else if(_font && [_font isKindOfClass:[SWGDate class]]) {
+            NSString * dateString = [(SWGDate*)_font toString];
+            if(dateString){
+                dict[@"font"] = dateString;
+            }
+        }
+        else {
+        
+            if(_font != nil) dict[@"font"] = [(SWGObject*)_font asDictionary];
         
         }
     }

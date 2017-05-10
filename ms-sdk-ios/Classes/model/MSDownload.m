@@ -7,12 +7,14 @@
     md5: (NSString*) md5
     fileName: (NSString*) fileName
     expires: (SWGDate*) expires
+    base64: (NSString*) base64
     
 {
     _link = link;
     _md5 = md5;
     _fileName = fileName;
     _expires = expires;
+    _base64 = base64;
     
 
     return self;
@@ -35,6 +37,8 @@
         if(expires_dict != nil)
             _expires = [[SWGDate  alloc]initWithValues:expires_dict];
         
+        
+        _base64 = dict[@"base64"];
         
         
     }
@@ -80,6 +84,10 @@
         }
     }
     
+    
+    
+            if(_base64 != nil) dict[@"base64"] = _base64 ;
+        
     
 
     NSDictionary* output = [dict copy];
