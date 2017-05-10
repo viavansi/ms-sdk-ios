@@ -1,12 +1,12 @@
-Mobile Services SDK iOS
-==========
+viafirma documents (SDK iOS)
+============================
 
-Cliente iOS para Mobile Services - Viafirma
+Cliente iOS para para hacer uso de la capa de servicios REST de viafirma documents
 
 ###Instalación
 Para instalar la librería será necesario añadir en nuestro Podfile la siguiente línea:
 ```
-pod 'ms-sdk-ios', :git => 'https://github.com/viavansi/ms-sdk-ios.git', :branch => 'ms-sdk-ios-2.3.x'
+pod 'ms-sdk-ios', :git => 'https://github.com/viavansi/ms-sdk-ios.git', :tag => '3.4.7'
 ```
 ####Petición de un token:
 Este método nos servirá de ayuda para solicitar un nuevo token.
@@ -14,10 +14,10 @@ Este método nos servirá de ayuda para solicitar un nuevo token.
 ```objective-c
 - (void) oauthTokenWithUserCode:(NSString *)userName andUserPassword:(NSString*)userPassword onSuccess:(void (^)(MSToken *response))onSuccess onError:(void (^)(NSError *error))onError {
 
-    [MSVoauthApi requestToken:^(MSToken *response) {
+    [MSV3oauthApi requestToken:^(MSToken *response) {
         [[ApiClient sharedInstance] setToken:response.oauth_token];
         [[ApiClient sharedInstance] setTokenSecret:response.oauth_token_secret];
-        [MSVoauthApi accessToken:@"client_auth"
+        [MSV3oauthApi accessToken:@"client_auth"
                  x_auth_username:userName x_auth_password:userPassword
                        onSuccess:^(MSToken *response) {
                            onSuccess(response);
@@ -41,7 +41,7 @@ Token secret: response.oauth_token_secret
 ```objective-c
 -(void) findUser:(NSString *)userCode{
 
-    [MSVusersApi findUserByCode:userCode onSuccess:^(MSUser *response) {
+    [MSV3usersApi findUserByCode:userCode onSuccess:^(MSUser *response) {
 
         NSLog(@"User name: %@", response.name);
         NSLog(@"User surname: %@", response.surname);
@@ -77,7 +77,7 @@ Token secret: response.oauth_token_secret
 ```objective-c
 -(void) findUserDevice:(NSString *) userCode{
 
-    [MSVdevicesApi findDeviceByUser:userCode onSuccess:^(NSArray *response) {
+    [MSV3devicesApi findDeviceByUser:userCode onSuccess:^(NSArray *response) {
         MSDevice *testDevice = [response objectAtIndex:1];
         NSLog(@"Device name: %@", testDevice.code);
         NSLog(@"Device description: %@", [testDevice _description]);
@@ -109,7 +109,7 @@ MSDevice:
 ```objective-c
 -(void) getMessageByCode:(NSString*) messageCode{
 
-    [MSVmessagesApi getMessageByCode:messageCode onSuccess:^(MSMessage *response) {
+    [MSV3messagesApi getMessageByCode:messageCode onSuccess:^(MSMessage *response) {
         NSLog(@"User code: %@", response.userCode);
         MSWorkflow *workflow = response.workflow;
         SWGDate *sDate = workflow.expires;
@@ -144,7 +144,7 @@ MSDevice:
 ```objective-c
 -(void) getDocumentPreview:(NSString*) messageCode{
 
-    [MSVdocumentsApi downloadPreview:messageCode onSuccess:^(MSDownload *response) {
+    [MSV3documentsApi downloadPreview:messageCode onSuccess:^(MSDownload *response) {
         NSLog(@"");
         NSString *fileName = response.fileName;
 
