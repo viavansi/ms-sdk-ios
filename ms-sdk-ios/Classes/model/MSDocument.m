@@ -17,6 +17,7 @@
     items: (NSArray*) items
     pdfaCompliant: (NSNumber*) pdfaCompliant
     font: (MSFont*) font
+    policyCode: (NSString*) policyCode
     
 {
     _templateCode = templateCode;
@@ -33,6 +34,7 @@
     _items = items;
     _pdfaCompliant = pdfaCompliant;
     _font = font;
+    _policyCode = policyCode;
     
 
     return self;
@@ -95,6 +97,8 @@
         if(font_dict != nil)
             _font = [[MSFont  alloc]initWithValues:font_dict];
         
+        
+        _policyCode = dict[@"policyCode"];
         
         
     }
@@ -201,6 +205,10 @@
         }
     }
     
+    
+    
+            if(_policyCode != nil) dict[@"policyCode"] = _policyCode ;
+        
     
 
     NSDictionary* output = [dict copy];

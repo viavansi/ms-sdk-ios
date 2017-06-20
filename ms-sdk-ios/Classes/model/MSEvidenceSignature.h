@@ -18,6 +18,8 @@
 @property(nonatomic) NSNumber* signAreaHeight;  
 @property(nonatomic) NSNumber* signAreaWidth;  
 @property(nonatomic) NSArray* positions;  
+@property(nonatomic) NSNumber* imageQuality;  
+@property(nonatomic) NSNumber* imageScaleFactor;  
 - (id) messageCode: (NSString*) messageCode     
     policyCode: (NSString*) policyCode     
     evidenceCode: (NSString*) evidenceCode     
@@ -27,7 +29,9 @@
     strokes: (NSArray*) strokes     
     signAreaHeight: (NSNumber*) signAreaHeight     
     signAreaWidth: (NSNumber*) signAreaWidth     
-    positions: (NSArray*) positions;
+    positions: (NSArray*) positions     
+    imageQuality: (NSNumber*) imageQuality     
+    imageScaleFactor: (NSNumber*) imageScaleFactor;
     
 
 - (id) initWithValues: (NSDictionary*)dict;

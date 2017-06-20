@@ -4,6 +4,7 @@
 #import "MSDownload.h"
 #import "MSMessageStatus.h"
 #import "MSDocument.h"
+#import "MSMessagePaginatedList.h"
 #import "SWGObject.h"
 #import "OAuth1Client.h"
 
@@ -166,6 +167,62 @@
 +(NSNumber*) getMessageByCode :(NSString*) messageCode 
     
     auth:(OAuth1Client *) auth onSuccess: (void (^)(MSMessage* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    
+
+
+/**
+
+ Method for get a list of messages related to an existing group
+ 
+ Get message by status and group
+ 
+
+ 
+ @param status Message status
+ 
+ @param groupCode Group code
+ 
+ @param index Index
+ 
+ @param page_size Page size
+ 
+
+ return type: NSArray*
+ */
++(NSNumber*) getMessagesByStatusAndGroup :(NSString*) status 
+     groupCode:(NSString*) groupCode 
+     index:(NSString*) index 
+     page_size:(NSString*) page_size 
+    
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(NSArray* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    
+
+
+/**
+
+ Method for get a list of messages related to an existing user
+ 
+ Get message by status and user
+ 
+
+ 
+ @param status Message status
+ 
+ @param userCode User code
+ 
+ @param index Index
+ 
+ @param page_size Page size
+ 
+
+ return type: NSArray*
+ */
++(NSNumber*) getMessagesByStatusAndUser :(NSString*) status 
+     userCode:(NSString*) userCode 
+     index:(NSString*) index 
+     page_size:(NSString*) page_size 
+    
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(NSArray* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     
 
 

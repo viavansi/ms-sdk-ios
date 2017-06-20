@@ -9,6 +9,8 @@
     geolocation: (MSGeolocation*) geolocation
     device: (MSEvidenceDevice*) device
     positions: (NSArray*) positions
+    imageQuality: (NSNumber*) imageQuality
+    imageScaleFactor: (NSNumber*) imageScaleFactor
     
 {
     _messageCode = messageCode;
@@ -17,6 +19,8 @@
     _geolocation = geolocation;
     _device = device;
     _positions = positions;
+    _imageQuality = imageQuality;
+    _imageScaleFactor = imageScaleFactor;
     
 
     return self;
@@ -69,6 +73,10 @@
             _positions = [[NSArray alloc] init];
         }
         
+        
+        _imageQuality = dict[@"imageQuality"];
+        
+        _imageScaleFactor = dict[@"imageScaleFactor"];
         
         
     }
@@ -164,6 +172,14 @@
         }
     }
     
+    
+    
+            if(_imageQuality != nil) dict[@"imageQuality"] = _imageQuality ;
+        
+    
+    
+            if(_imageScaleFactor != nil) dict[@"imageScaleFactor"] = _imageScaleFactor ;
+        
     
 
     NSDictionary* output = [dict copy];

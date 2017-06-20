@@ -1,6 +1,7 @@
 #import <Foundation/Foundation.h>
 #import "SWGObject.h"
 #import "MSPosition.h"
+#import "MSGeolocation.h"
 #import "MSEvidenceFingerPrint.h"
 #import "MSEvidenceImage.h"
 #import "MSEvidenceSignature.h"
@@ -33,6 +34,10 @@
 @property(nonatomic) NSNumber* stampsMin;  
 @property(nonatomic) NSString* stampsPolicy;  
 @property(nonatomic) NSArray* stylus;  
+@property(nonatomic) MSGeolocation* geolocation;  /* (since 3.5.0, internal) geolocation info  */
+@property(nonatomic) NSNumber* imageQuality;  /* (since 3.5.0) calidad de la imagen donde 100 representa el máximo de calidad y 0 el máximo nivel de compresión  */
+@property(nonatomic) NSNumber* imageScaleFactor;  /* (since 3.5.0) factor multiplicador del tamaño de la imagen, para permitir zoom  */
+@property(nonatomic) NSString* wacomURL;  /* (since 3.5.0, internal) url que permite el uso de tabletas wacom  */
 - (id) type: (NSString*) type     
     code: (NSString*) code     
     status: (NSString*) status     
@@ -57,7 +62,11 @@
     positionsKey: (NSString*) positionsKey     
     stampsMin: (NSNumber*) stampsMin     
     stampsPolicy: (NSString*) stampsPolicy     
-    stylus: (NSArray*) stylus;
+    stylus: (NSArray*) stylus     
+    geolocation: (MSGeolocation*) geolocation     
+    imageQuality: (NSNumber*) imageQuality     
+    imageScaleFactor: (NSNumber*) imageScaleFactor     
+    wacomURL: (NSString*) wacomURL;
     
 
 - (id) initWithValues: (NSDictionary*)dict;

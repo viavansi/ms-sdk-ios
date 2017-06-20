@@ -16,6 +16,8 @@
 @property(nonatomic) MSGeolocation* geolocation;  
 @property(nonatomic) MSEvidenceDevice* device;  
 @property(nonatomic) NSArray* positions;  
+@property(nonatomic) NSNumber* imageQuality;  
+@property(nonatomic) NSNumber* imageScaleFactor;  
 - (id) messageCode: (NSString*) messageCode     
     evidenceCode: (NSString*) evidenceCode     
     base64Image: (NSString*) base64Image     
@@ -24,7 +26,9 @@
     fingerID: (NSString*) fingerID     
     geolocation: (MSGeolocation*) geolocation     
     device: (MSEvidenceDevice*) device     
-    positions: (NSArray*) positions;
+    positions: (NSArray*) positions     
+    imageQuality: (NSNumber*) imageQuality     
+    imageScaleFactor: (NSNumber*) imageScaleFactor;
     
 
 - (id) initWithValues: (NSDictionary*)dict;
