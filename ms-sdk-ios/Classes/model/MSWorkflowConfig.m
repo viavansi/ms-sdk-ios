@@ -6,11 +6,13 @@
 -(id)code: (NSString*) code
     _description: (NSString*) _description
     status: (NSArray*) status
+    type: (NSString*) type
     
 {
     _code = code;
     __description = _description;
     _status = status;
+    _type = type;
     
 
     return self;
@@ -45,6 +47,8 @@
             _status = [[NSArray alloc] init];
         }
         
+        
+        _type = dict[@"type"];
         
         
     }
@@ -86,6 +90,10 @@
         }
     }
     
+    
+    
+            if(_type != nil) dict[@"type"] = _type ;
+        
     
 
     NSDictionary* output = [dict copy];

@@ -10,6 +10,7 @@
     initiate: (SWGDate*) initiate
     lastUpdated: (SWGDate*) lastUpdated
     expires: (SWGDate*) expires
+    type: (NSString*) type
     
 {
     _code = code;
@@ -19,6 +20,7 @@
     _initiate = initiate;
     _lastUpdated = lastUpdated;
     _expires = expires;
+    _type = type;
     
 
     return self;
@@ -79,6 +81,8 @@
         if(expires_dict != nil)
             _expires = [[SWGDate  alloc]initWithValues:expires_dict];
         
+        
+        _type = dict[@"type"];
         
         
     }
@@ -199,6 +203,10 @@
         }
     }
     
+    
+    
+            if(_type != nil) dict[@"type"] = _type ;
+        
     
 
     NSDictionary* output = [dict copy];

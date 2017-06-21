@@ -9,6 +9,7 @@
     signature: (MSSignature*) signature
     validateCode: (NSString*) validateCode
     expires: (SWGDate*) expires
+    date: (SWGDate*) date
     commentReject: (NSString*) commentReject
     
 {
@@ -18,6 +19,7 @@
     _signature = signature;
     _validateCode = validateCode;
     _expires = expires;
+    _date = date;
     _commentReject = commentReject;
     
 
@@ -50,6 +52,14 @@
         
         if(expires_dict != nil)
             _expires = [[SWGDate  alloc]initWithValues:expires_dict];
+        
+        
+        
+        
+        id date_dict = dict[@"date"];
+        
+        if(date_dict != nil)
+            _date = [[SWGDate  alloc]initWithValues:date_dict];
         
         
         _commentReject = dict[@"commentReject"];
@@ -123,6 +133,31 @@
         else {
         
             if(_expires != nil) dict[@"expires"] = [(SWGObject*)_expires asDictionary];
+        
+        }
+    }
+    
+    
+    
+    if(_date != nil){
+        if([_date isKindOfClass:[NSArray class]]){
+            NSMutableArray * array = [[NSMutableArray alloc] init];
+            for( int i=0 ; i<[(NSArray*)_date count] ; i++ ) {
+				SWGDate *date = [[SWGDate alloc]init];
+				date = [(NSArray*)_date objectAtIndex:i];            
+                [array addObject:[(SWGObject*)date asDictionary]];
+            }
+            dict[@"date"] = array;
+        }
+        else if(_date && [_date isKindOfClass:[SWGDate class]]) {
+            NSString * dateString = [(SWGDate*)_date toString];
+            if(dateString){
+                dict[@"date"] = dateString;
+            }
+        }
+        else {
+        
+            if(_date != nil) dict[@"date"] = [(SWGObject*)_date asDictionary];
         
         }
     }

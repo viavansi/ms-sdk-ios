@@ -8,6 +8,7 @@
     link: (NSString*) link
     appCode: (NSString*) appCode
     email: (NSString*) email
+    subject: (NSString*) subject
     
 {
     _scheme = scheme;
@@ -15,6 +16,7 @@
     _link = link;
     _appCode = appCode;
     _email = email;
+    _subject = subject;
     
 
     return self;
@@ -33,6 +35,8 @@
         _appCode = dict[@"appCode"];
         
         _email = dict[@"email"];
+        
+        _subject = dict[@"subject"];
         
         
     }
@@ -60,6 +64,10 @@
     
     
             if(_email != nil) dict[@"email"] = _email ;
+        
+    
+    
+            if(_subject != nil) dict[@"subject"] = _subject ;
         
     
 

@@ -13,13 +13,15 @@
 @property(nonatomic) SWGDate* initiate;  
 @property(nonatomic) SWGDate* lastUpdated;  
 @property(nonatomic) SWGDate* expires;  
+@property(nonatomic) NSString* type;  
 - (id) code: (NSString*) code     
     current: (NSString*) current     
     next: (NSString*) next     
     history: (NSArray*) history     
     initiate: (SWGDate*) initiate     
     lastUpdated: (SWGDate*) lastUpdated     
-    expires: (SWGDate*) expires;
+    expires: (SWGDate*) expires     
+    type: (NSString*) type;
     
 
 - (id) initWithValues: (NSDictionary*)dict;

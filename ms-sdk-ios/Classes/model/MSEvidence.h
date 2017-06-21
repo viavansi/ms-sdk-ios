@@ -1,6 +1,7 @@
 #import <Foundation/Foundation.h>
 #import "SWGObject.h"
 #import "MSPosition.h"
+#import "MSGeolocation.h"
 #import "MSEvidenceFingerPrint.h"
 #import "MSEvidenceImage.h"
 #import "MSEvidenceSignature.h"
@@ -32,6 +33,9 @@
 @property(nonatomic) NSString* positionsKey;  
 @property(nonatomic) NSNumber* stampsMin;  
 @property(nonatomic) NSString* stampsPolicy;  
+@property(nonatomic) NSArray* stylus;  
+@property(nonatomic) MSGeolocation* geolocation;  /* (since 3.5.0, internal) geolocation info  */
+@property(nonatomic) NSString* wacomURL;  
 - (id) type: (NSString*) type     
     code: (NSString*) code     
     status: (NSString*) status     
@@ -55,7 +59,10 @@
     imageData: (MSEvidenceImage*) imageData     
     positionsKey: (NSString*) positionsKey     
     stampsMin: (NSNumber*) stampsMin     
-    stampsPolicy: (NSString*) stampsPolicy;
+    stampsPolicy: (NSString*) stampsPolicy     
+    stylus: (NSArray*) stylus     
+    geolocation: (MSGeolocation*) geolocation     
+    wacomURL: (NSString*) wacomURL;
     
 
 - (id) initWithValues: (NSDictionary*)dict;

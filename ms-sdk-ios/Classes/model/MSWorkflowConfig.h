@@ -8,9 +8,11 @@
 @property(nonatomic) NSString* code;  
 @property(nonatomic) NSString* _description;  
 @property(nonatomic) NSArray* status;  
+@property(nonatomic) NSString* type;  
 - (id) code: (NSString*) code     
     _description: (NSString*) _description     
-    status: (NSArray*) status;
+    status: (NSArray*) status     
+    type: (NSString*) type;
     
 
 - (id) initWithValues: (NSDictionary*)dict;

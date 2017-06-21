@@ -20,6 +20,7 @@
 @property(nonatomic) NSArray* items;  
 @property(nonatomic) NSNumber* pdfaCompliant;  /* generate pdf compliant with PDF/A-3A ISO 19005-3  */
 @property(nonatomic) MSFont* font;  
+@property(nonatomic) NSString* policyCode;  /* (since 3.5.0) code of policy to use  */
 - (id) templateCode: (NSString*) templateCode     
     templateReference: (NSString*) templateReference     
     templateVersion: (NSNumber*) templateVersion     
@@ -33,7 +34,8 @@
     formDisabled: (NSNumber*) formDisabled     
     items: (NSArray*) items     
     pdfaCompliant: (NSNumber*) pdfaCompliant     
-    font: (MSFont*) font;
+    font: (MSFont*) font     
+    policyCode: (NSString*) policyCode;
     
 
 - (id) initWithValues: (NSDictionary*)dict;

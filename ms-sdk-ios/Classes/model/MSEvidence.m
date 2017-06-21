@@ -27,6 +27,9 @@
     positionsKey: (NSString*) positionsKey
     stampsMin: (NSNumber*) stampsMin
     stampsPolicy: (NSString*) stampsPolicy
+    stylus: (NSArray*) stylus
+    geolocation: (MSGeolocation*) geolocation
+    wacomURL: (NSString*) wacomURL
     
 {
     _type = type;
@@ -53,6 +56,9 @@
     _positionsKey = positionsKey;
     _stampsMin = stampsMin;
     _stampsPolicy = stampsPolicy;
+    _stylus = stylus;
+    _geolocation = geolocation;
+    _wacomURL = wacomURL;
     
 
     return self;
@@ -147,6 +153,18 @@
         _stampsMin = dict[@"stampsMin"];
         
         _stampsPolicy = dict[@"stampsPolicy"];
+        
+        _stylus = dict[@"stylus"];
+        
+        
+        
+        id geolocation_dict = dict[@"geolocation"];
+        
+        if(geolocation_dict != nil)
+            _geolocation = [[MSGeolocation  alloc]initWithValues:geolocation_dict];
+        
+        
+        _wacomURL = dict[@"wacomURL"];
         
         
     }
@@ -334,6 +352,39 @@
     
     
             if(_stampsPolicy != nil) dict[@"stampsPolicy"] = _stampsPolicy ;
+        
+    
+    
+            if(_stylus != nil) dict[@"stylus"] = _stylus ;
+        
+    
+    
+    if(_geolocation != nil){
+        if([_geolocation isKindOfClass:[NSArray class]]){
+            NSMutableArray * array = [[NSMutableArray alloc] init];
+            for( int i=0 ; i<[(NSArray*)_geolocation count] ; i++ ) {
+				MSGeolocation *geolocation = [[MSGeolocation alloc]init];
+				geolocation = [(NSArray*)_geolocation objectAtIndex:i];            
+                [array addObject:[(SWGObject*)geolocation asDictionary]];
+            }
+            dict[@"geolocation"] = array;
+        }
+        else if(_geolocation && [_geolocation isKindOfClass:[SWGDate class]]) {
+            NSString * dateString = [(SWGDate*)_geolocation toString];
+            if(dateString){
+                dict[@"geolocation"] = dateString;
+            }
+        }
+        else {
+        
+            if(_geolocation != nil) dict[@"geolocation"] = [(SWGObject*)_geolocation asDictionary];
+        
+        }
+    }
+    
+    
+    
+            if(_wacomURL != nil) dict[@"wacomURL"] = _wacomURL ;
         
     
 
