@@ -6,6 +6,8 @@
 -(id)messageCode: (NSString*) messageCode
     evidenceCode: (NSString*) evidenceCode
     base64Image: (NSString*) base64Image
+    ocrTemplate: (NSString*) ocrTemplate
+    ocrFieldExtractionResult: (NSArray*) ocrFieldExtractionResult
     geolocation: (MSGeolocation*) geolocation
     device: (MSEvidenceDevice*) device
     positions: (NSArray*) positions
@@ -16,6 +18,8 @@
     _messageCode = messageCode;
     _evidenceCode = evidenceCode;
     _base64Image = base64Image;
+    _ocrTemplate = ocrTemplate;
+    _ocrFieldExtractionResult = ocrFieldExtractionResult;
     _geolocation = geolocation;
     _device = device;
     _positions = positions;
@@ -35,6 +39,30 @@
         _evidenceCode = dict[@"evidenceCode"];
         
         _base64Image = dict[@"base64Image"];
+        
+        _ocrTemplate = dict[@"ocrTemplate"];
+        
+        
+        
+        id ocrFieldExtractionResult_dict = dict[@"ocrFieldExtractionResult"];
+        
+        if([ocrFieldExtractionResult_dict isKindOfClass:[NSArray class]]) {
+            NSMutableArray * objs = [[NSMutableArray alloc] initWithCapacity:[(NSArray*)ocrFieldExtractionResult_dict count]];
+            if([(NSArray*)ocrFieldExtractionResult_dict count] > 0) {
+                for (int i=0 ; i<[(NSArray*)ocrFieldExtractionResult_dict count] ; i++) {
+                	NSDictionary *dict = [[NSDictionary alloc] initWithDictionary:[ocrFieldExtractionResult_dict objectAtIndex:i]];
+                    MSJSOcrFieldExtractionResult* d = [[MSJSOcrFieldExtractionResult alloc] initWithValues:dict];
+                    [objs addObject:d];
+                }
+                _ocrFieldExtractionResult = [[NSArray alloc] initWithArray:objs];
+            }
+            else
+                _ocrFieldExtractionResult = [[NSArray alloc] init];
+        }
+        else {
+            _ocrFieldExtractionResult = [[NSArray alloc] init];
+        }
+        
         
         
         
@@ -97,6 +125,35 @@
     
             if(_base64Image != nil) dict[@"base64Image"] = _base64Image ;
         
+    
+    
+            if(_ocrTemplate != nil) dict[@"ocrTemplate"] = _ocrTemplate ;
+        
+    
+    
+    if(_ocrFieldExtractionResult != nil){
+        if([_ocrFieldExtractionResult isKindOfClass:[NSArray class]]){
+            NSMutableArray * array = [[NSMutableArray alloc] init];
+            for( int i=0 ; i<[(NSArray*)_ocrFieldExtractionResult count] ; i++ ) {
+				MSJSOcrFieldExtractionResult *ocrFieldExtractionResult = [[MSJSOcrFieldExtractionResult alloc]init];
+				ocrFieldExtractionResult = [(NSArray*)_ocrFieldExtractionResult objectAtIndex:i];            
+                [array addObject:[(SWGObject*)ocrFieldExtractionResult asDictionary]];
+            }
+            dict[@"ocrFieldExtractionResult"] = array;
+        }
+        else if(_ocrFieldExtractionResult && [_ocrFieldExtractionResult isKindOfClass:[SWGDate class]]) {
+            NSString * dateString = [(SWGDate*)_ocrFieldExtractionResult toString];
+            if(dateString){
+                dict[@"ocrFieldExtractionResult"] = dateString;
+            }
+        }
+        else {
+        
+            if(_ocrFieldExtractionResult != nil) dict[@"ocrFieldExtractionResult"] = [(SWGObject*)_ocrFieldExtractionResult asDictionary];
+        
+        }
+    }
+    
     
     
     if(_geolocation != nil){

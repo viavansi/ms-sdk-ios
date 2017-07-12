@@ -1,6 +1,7 @@
 #import <Foundation/Foundation.h>
 #import "SWGObject.h"
 #import "MSPosition.h"
+#import "MSJSOcrFieldExtractionResult.h"
 #import "MSGeolocation.h"
 #import "MSEvidenceDevice.h"
 
@@ -10,6 +11,8 @@
 @property(nonatomic) NSString* messageCode;  
 @property(nonatomic) NSString* evidenceCode;  
 @property(nonatomic) NSString* base64Image;  
+@property(nonatomic) NSString* ocrTemplate;  
+@property(nonatomic) NSArray* ocrFieldExtractionResult;  
 @property(nonatomic) MSGeolocation* geolocation;  
 @property(nonatomic) MSEvidenceDevice* device;  
 @property(nonatomic) NSArray* positions;  
@@ -18,6 +21,8 @@
 - (id) messageCode: (NSString*) messageCode     
     evidenceCode: (NSString*) evidenceCode     
     base64Image: (NSString*) base64Image     
+    ocrTemplate: (NSString*) ocrTemplate     
+    ocrFieldExtractionResult: (NSArray*) ocrFieldExtractionResult     
     geolocation: (MSGeolocation*) geolocation     
     device: (MSEvidenceDevice*) device     
     positions: (NSArray*) positions     

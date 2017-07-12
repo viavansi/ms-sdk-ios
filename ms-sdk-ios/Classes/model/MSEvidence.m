@@ -32,6 +32,9 @@
     imageQuality: (NSNumber*) imageQuality
     imageScaleFactor: (NSNumber*) imageScaleFactor
     wacomURL: (NSString*) wacomURL
+    ocrTemplate: (NSString*) ocrTemplate
+    ocrTemplateVersion: (NSString*) ocrTemplateVersion
+    ocrTemplateOffline: (NSString*) ocrTemplateOffline
     
 {
     _type = type;
@@ -63,6 +66,9 @@
     _imageQuality = imageQuality;
     _imageScaleFactor = imageScaleFactor;
     _wacomURL = wacomURL;
+    _ocrTemplate = ocrTemplate;
+    _ocrTemplateVersion = ocrTemplateVersion;
+    _ocrTemplateOffline = ocrTemplateOffline;
     
 
     return self;
@@ -173,6 +179,12 @@
         _imageScaleFactor = dict[@"imageScaleFactor"];
         
         _wacomURL = dict[@"wacomURL"];
+        
+        _ocrTemplate = dict[@"ocrTemplate"];
+        
+        _ocrTemplateVersion = dict[@"ocrTemplateVersion"];
+        
+        _ocrTemplateOffline = dict[@"ocrTemplateOffline"];
         
         
     }
@@ -401,6 +413,18 @@
     
     
             if(_wacomURL != nil) dict[@"wacomURL"] = _wacomURL ;
+        
+    
+    
+            if(_ocrTemplate != nil) dict[@"ocrTemplate"] = _ocrTemplate ;
+        
+    
+    
+            if(_ocrTemplateVersion != nil) dict[@"ocrTemplateVersion"] = _ocrTemplateVersion ;
+        
+    
+    
+            if(_ocrTemplateOffline != nil) dict[@"ocrTemplateOffline"] = _ocrTemplateOffline ;
         
     
 
