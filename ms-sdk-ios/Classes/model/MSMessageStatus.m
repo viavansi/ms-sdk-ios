@@ -3,6 +3,9 @@
 
 @implementation MSMessageStatus
 
+@synthesize status = _status;
+@synthesize lastUpdated = _lastUpdated;
+
 -(id)status: (NSString*) status
     lastUpdated: (SWGDate*) lastUpdated
     
@@ -46,7 +49,7 @@
             NSMutableArray * array = [[NSMutableArray alloc] init];
             for( int i=0 ; i<[(NSArray*)_lastUpdated count] ; i++ ) {
 				SWGDate *lastUpdated = [[SWGDate alloc]init];
-				lastUpdated = [(NSArray*)_lastUpdated objectAtIndex:i];            
+				lastUpdated = [(NSArray*)_lastUpdated objectAtIndex:i];
                 [array addObject:[(SWGObject*)lastUpdated asDictionary]];
             }
             dict[@"lastUpdated"] = array;

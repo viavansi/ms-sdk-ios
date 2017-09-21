@@ -3,6 +3,12 @@
 
 @implementation MSEventHistory
 
+@synthesize start = _start;
+@synthesize ends = _ends;
+@synthesize taskName = _taskName;
+@synthesize order = _order;
+@synthesize error = _error;
+
 -(id)start: (SWGDate*) start
     ends: (SWGDate*) ends
     taskName: (NSString*) taskName
@@ -66,7 +72,7 @@
             NSMutableArray * array = [[NSMutableArray alloc] init];
             for( int i=0 ; i<[(NSArray*)_start count] ; i++ ) {
 				SWGDate *start = [[SWGDate alloc]init];
-				start = [(NSArray*)_start objectAtIndex:i];            
+				start = [(NSArray*)_start objectAtIndex:i];
                 [array addObject:[(SWGObject*)start asDictionary]];
             }
             dict[@"start"] = array;
@@ -91,7 +97,7 @@
             NSMutableArray * array = [[NSMutableArray alloc] init];
             for( int i=0 ; i<[(NSArray*)_ends count] ; i++ ) {
 				SWGDate *ends = [[SWGDate alloc]init];
-				ends = [(NSArray*)_ends objectAtIndex:i];            
+				ends = [(NSArray*)_ends objectAtIndex:i];
                 [array addObject:[(SWGObject*)ends asDictionary]];
             }
             dict[@"ends"] = array;
@@ -124,7 +130,7 @@
             NSMutableArray * array = [[NSMutableArray alloc] init];
             for( int i=0 ; i<[(NSArray*)_error count] ; i++ ) {
 				MSErrorResponse *error = [[MSErrorResponse alloc]init];
-				error = [(NSArray*)_error objectAtIndex:i];            
+				error = [(NSArray*)_error objectAtIndex:i];
                 [array addObject:[(SWGObject*)error asDictionary]];
             }
             dict[@"error"] = array;

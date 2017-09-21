@@ -3,6 +3,9 @@
 
 @implementation MSOcrScanImageCustom
 
+@synthesize key = _key;
+@synthesize base64Image = _base64Image;
+
 -(id)key: (NSString*) key
     base64Image: (NSString*) base64Image
     

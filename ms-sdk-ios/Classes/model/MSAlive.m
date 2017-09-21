@@ -3,6 +3,9 @@
 
 @implementation MSAlive
 
+@synthesize isAlive = _isAlive;
+@synthesize pid = _pid;
+
 -(id)isAlive: (NSString*) isAlive
     pid: (NSString*) pid
     

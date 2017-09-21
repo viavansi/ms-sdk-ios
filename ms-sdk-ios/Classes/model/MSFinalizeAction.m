@@ -3,6 +3,9 @@
 
 @implementation MSFinalizeAction
 
+@synthesize type = _type;
+@synthesize paramList = _paramList;
+
 -(id)type: (NSString*) type
     paramList: (NSArray*) paramList
     
@@ -60,7 +63,7 @@
             NSMutableArray * array = [[NSMutableArray alloc] init];
             for( int i=0 ; i<[(NSArray*)_paramList count] ; i++ ) {
 				MSParam *paramList = [[MSParam alloc]init];
-				paramList = [(NSArray*)_paramList objectAtIndex:i];            
+				paramList = [(NSArray*)_paramList objectAtIndex:i];
                 [array addObject:[(SWGObject*)paramList asDictionary]];
             }
             dict[@"paramList"] = array;

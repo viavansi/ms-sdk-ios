@@ -3,6 +3,9 @@
 
 @implementation MSOcrPageResult
 
+@synthesize fieldExtractionResults = _fieldExtractionResults;
+@synthesize pageKey = _pageKey;
+
 -(id)fieldExtractionResults: (NSArray*) fieldExtractionResults
     pageKey: (NSString*) pageKey
     
@@ -56,7 +59,7 @@
             NSMutableArray * array = [[NSMutableArray alloc] init];
             for( int i=0 ; i<[(NSArray*)_fieldExtractionResults count] ; i++ ) {
 				MSJSOcrFieldExtractionResult *fieldExtractionResults = [[MSJSOcrFieldExtractionResult alloc]init];
-				fieldExtractionResults = [(NSArray*)_fieldExtractionResults objectAtIndex:i];            
+				fieldExtractionResults = [(NSArray*)_fieldExtractionResults objectAtIndex:i];
                 [array addObject:[(SWGObject*)fieldExtractionResults asDictionary]];
             }
             dict[@"fieldExtractionResults"] = array;

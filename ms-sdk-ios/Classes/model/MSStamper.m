@@ -3,6 +3,15 @@
 
 @implementation MSStamper
 
+@synthesize type = _type;
+@synthesize rotation = _rotation;
+@synthesize width = _width;
+@synthesize height = _height;
+@synthesize xAxis = _xAxis;
+@synthesize yAxis = _yAxis;
+@synthesize page = _page;
+@synthesize imageBase64 = _imageBase64;
+
 -(id)type: (NSString*) type
     rotation: (NSString*) rotation
     width: (NSNumber*) width

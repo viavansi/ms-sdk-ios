@@ -3,6 +3,13 @@
 
 @implementation MSSharedLink
 
+@synthesize scheme = _scheme;
+@synthesize token = _token;
+@synthesize link = _link;
+@synthesize appCode = _appCode;
+@synthesize email = _email;
+@synthesize subject = _subject;
+
 -(id)scheme: (NSString*) scheme
     token: (NSString*) token
     link: (NSString*) link

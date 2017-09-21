@@ -3,6 +3,13 @@
 
 @implementation MSMessageData
 
+@synthesize messageCode = _messageCode;
+@synthesize items = _items;
+@synthesize biometricSignaturesData = _biometricSignaturesData;
+@synthesize fingerPrintsData = _fingerPrintsData;
+@synthesize imagesData = _imagesData;
+@synthesize otpSmsData = _otpSmsData;
+
 -(id)messageCode: (NSString*) messageCode
     items: (NSArray*) items
     biometricSignaturesData: (NSArray*) biometricSignaturesData
@@ -156,7 +163,7 @@
             NSMutableArray * array = [[NSMutableArray alloc] init];
             for( int i=0 ; i<[(NSArray*)_items count] ; i++ ) {
 				MSItem *items = [[MSItem alloc]init];
-				items = [(NSArray*)_items objectAtIndex:i];            
+				items = [(NSArray*)_items objectAtIndex:i];
                 [array addObject:[(SWGObject*)items asDictionary]];
             }
             dict[@"items"] = array;
@@ -181,7 +188,7 @@
             NSMutableArray * array = [[NSMutableArray alloc] init];
             for( int i=0 ; i<[(NSArray*)_biometricSignaturesData count] ; i++ ) {
 				MSEvidenceSignature *biometricSignaturesData = [[MSEvidenceSignature alloc]init];
-				biometricSignaturesData = [(NSArray*)_biometricSignaturesData objectAtIndex:i];            
+				biometricSignaturesData = [(NSArray*)_biometricSignaturesData objectAtIndex:i];
                 [array addObject:[(SWGObject*)biometricSignaturesData asDictionary]];
             }
             dict[@"biometricSignaturesData"] = array;
@@ -206,7 +213,7 @@
             NSMutableArray * array = [[NSMutableArray alloc] init];
             for( int i=0 ; i<[(NSArray*)_fingerPrintsData count] ; i++ ) {
 				MSEvidenceFingerPrint *fingerPrintsData = [[MSEvidenceFingerPrint alloc]init];
-				fingerPrintsData = [(NSArray*)_fingerPrintsData objectAtIndex:i];            
+				fingerPrintsData = [(NSArray*)_fingerPrintsData objectAtIndex:i];
                 [array addObject:[(SWGObject*)fingerPrintsData asDictionary]];
             }
             dict[@"fingerPrintsData"] = array;
@@ -231,7 +238,7 @@
             NSMutableArray * array = [[NSMutableArray alloc] init];
             for( int i=0 ; i<[(NSArray*)_imagesData count] ; i++ ) {
 				MSEvidenceImage *imagesData = [[MSEvidenceImage alloc]init];
-				imagesData = [(NSArray*)_imagesData objectAtIndex:i];            
+				imagesData = [(NSArray*)_imagesData objectAtIndex:i];
                 [array addObject:[(SWGObject*)imagesData asDictionary]];
             }
             dict[@"imagesData"] = array;
@@ -256,7 +263,7 @@
             NSMutableArray * array = [[NSMutableArray alloc] init];
             for( int i=0 ; i<[(NSArray*)_otpSmsData count] ; i++ ) {
 				MSEvidenceOtpSms *otpSmsData = [[MSEvidenceOtpSms alloc]init];
-				otpSmsData = [(NSArray*)_otpSmsData objectAtIndex:i];            
+				otpSmsData = [(NSArray*)_otpSmsData objectAtIndex:i];
                 [array addObject:[(SWGObject*)otpSmsData asDictionary]];
             }
             dict[@"otpSmsData"] = array;

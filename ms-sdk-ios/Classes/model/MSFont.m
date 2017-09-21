@@ -3,6 +3,9 @@
 
 @implementation MSFont
 
+@synthesize name = _name;
+@synthesize size = _size;
+
 -(id)name: (NSString*) name
     size: (NSNumber*) size
     

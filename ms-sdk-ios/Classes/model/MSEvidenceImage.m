@@ -3,6 +3,16 @@
 
 @implementation MSEvidenceImage
 
+@synthesize messageCode = _messageCode;
+@synthesize evidenceCode = _evidenceCode;
+@synthesize base64Image = _base64Image;
+@synthesize geolocation = _geolocation;
+@synthesize device = _device;
+@synthesize positions = _positions;
+@synthesize imageQuality = _imageQuality;
+@synthesize imageScaleFactor = _imageScaleFactor;
+@synthesize ocr = _ocr;
+
 -(id)messageCode: (NSString*) messageCode
     evidenceCode: (NSString*) evidenceCode
     base64Image: (NSString*) base64Image
@@ -114,7 +124,7 @@
             NSMutableArray * array = [[NSMutableArray alloc] init];
             for( int i=0 ; i<[(NSArray*)_geolocation count] ; i++ ) {
 				MSGeolocation *geolocation = [[MSGeolocation alloc]init];
-				geolocation = [(NSArray*)_geolocation objectAtIndex:i];            
+				geolocation = [(NSArray*)_geolocation objectAtIndex:i];
                 [array addObject:[(SWGObject*)geolocation asDictionary]];
             }
             dict[@"geolocation"] = array;
@@ -139,7 +149,7 @@
             NSMutableArray * array = [[NSMutableArray alloc] init];
             for( int i=0 ; i<[(NSArray*)_device count] ; i++ ) {
 				MSEvidenceDevice *device = [[MSEvidenceDevice alloc]init];
-				device = [(NSArray*)_device objectAtIndex:i];            
+				device = [(NSArray*)_device objectAtIndex:i];
                 [array addObject:[(SWGObject*)device asDictionary]];
             }
             dict[@"device"] = array;
@@ -164,7 +174,7 @@
             NSMutableArray * array = [[NSMutableArray alloc] init];
             for( int i=0 ; i<[(NSArray*)_positions count] ; i++ ) {
 				MSPosition *positions = [[MSPosition alloc]init];
-				positions = [(NSArray*)_positions objectAtIndex:i];            
+				positions = [(NSArray*)_positions objectAtIndex:i];
                 [array addObject:[(SWGObject*)positions asDictionary]];
             }
             dict[@"positions"] = array;
@@ -197,7 +207,7 @@
             NSMutableArray * array = [[NSMutableArray alloc] init];
             for( int i=0 ; i<[(NSArray*)_ocr count] ; i++ ) {
 				MSOcrData *ocr = [[MSOcrData alloc]init];
-				ocr = [(NSArray*)_ocr objectAtIndex:i];            
+				ocr = [(NSArray*)_ocr objectAtIndex:i];
                 [array addObject:[(SWGObject*)ocr asDictionary]];
             }
             dict[@"ocr"] = array;

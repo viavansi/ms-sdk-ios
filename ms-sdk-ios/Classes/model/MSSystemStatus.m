@@ -3,6 +3,12 @@
 
 @implementation MSSystemStatus
 
+@synthesize name = _name;
+@synthesize _description = __description;
+@synthesize status = _status;
+@synthesize message = _message;
+@synthesize notification = _notification;
+
 -(id)name: (NSString*) name
     _description: (NSString*) _description
     status: (NSString*) status

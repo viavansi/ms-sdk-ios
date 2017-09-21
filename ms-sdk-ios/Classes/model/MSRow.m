@@ -3,6 +3,8 @@
 
 @implementation MSRow
 
+@synthesize items = _items;
+
 -(id)items: (NSArray*) items
     
 {
@@ -52,7 +54,7 @@
             NSMutableArray * array = [[NSMutableArray alloc] init];
             for( int i=0 ; i<[(NSArray*)_items count] ; i++ ) {
 				MSItem *items = [[MSItem alloc]init];
-				items = [(NSArray*)_items objectAtIndex:i];            
+				items = [(NSArray*)_items objectAtIndex:i];
                 [array addObject:[(SWGObject*)items asDictionary]];
             }
             dict[@"items"] = array;

@@ -3,6 +3,16 @@
 
 @implementation MSEvidenceOtpSms
 
+@synthesize messageCode = _messageCode;
+@synthesize evidenceCode = _evidenceCode;
+@synthesize geolocation = _geolocation;
+@synthesize device = _device;
+@synthesize positions = _positions;
+@synthesize operationId = _operationId;
+@synthesize server = _server;
+@synthesize imageQuality = _imageQuality;
+@synthesize imageScaleFactor = _imageScaleFactor;
+
 -(id)messageCode: (NSString*) messageCode
     evidenceCode: (NSString*) evidenceCode
     geolocation: (MSGeolocation*) geolocation
@@ -104,7 +114,7 @@
             NSMutableArray * array = [[NSMutableArray alloc] init];
             for( int i=0 ; i<[(NSArray*)_geolocation count] ; i++ ) {
 				MSGeolocation *geolocation = [[MSGeolocation alloc]init];
-				geolocation = [(NSArray*)_geolocation objectAtIndex:i];            
+				geolocation = [(NSArray*)_geolocation objectAtIndex:i];
                 [array addObject:[(SWGObject*)geolocation asDictionary]];
             }
             dict[@"geolocation"] = array;
@@ -129,7 +139,7 @@
             NSMutableArray * array = [[NSMutableArray alloc] init];
             for( int i=0 ; i<[(NSArray*)_device count] ; i++ ) {
 				MSEvidenceDevice *device = [[MSEvidenceDevice alloc]init];
-				device = [(NSArray*)_device objectAtIndex:i];            
+				device = [(NSArray*)_device objectAtIndex:i];
                 [array addObject:[(SWGObject*)device asDictionary]];
             }
             dict[@"device"] = array;
@@ -154,7 +164,7 @@
             NSMutableArray * array = [[NSMutableArray alloc] init];
             for( int i=0 ; i<[(NSArray*)_positions count] ; i++ ) {
 				MSPosition *positions = [[MSPosition alloc]init];
-				positions = [(NSArray*)_positions objectAtIndex:i];            
+				positions = [(NSArray*)_positions objectAtIndex:i];
                 [array addObject:[(SWGObject*)positions asDictionary]];
             }
             dict[@"positions"] = array;

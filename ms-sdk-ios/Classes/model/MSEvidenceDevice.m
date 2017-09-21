@@ -3,6 +3,19 @@
 
 @implementation MSEvidenceDevice
 
+@synthesize manufacturer = _manufacturer;
+@synthesize model = _model;
+@synthesize osVersion = _osVersion;
+@synthesize penType = _penType;
+@synthesize maxPressure = _maxPressure;
+@synthesize minPressure = _minPressure;
+@synthesize ppi = _ppi;
+@synthesize rotationAllowed = _rotationAllowed;
+@synthesize screenHeight = _screenHeight;
+@synthesize screenWidth = _screenWidth;
+@synthesize app = _app;
+@synthesize ip = _ip;
+
 -(id)manufacturer: (NSString*) manufacturer
     model: (NSString*) model
     osVersion: (NSString*) osVersion

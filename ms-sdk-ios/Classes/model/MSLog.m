@@ -3,6 +3,11 @@
 
 @implementation MSLog
 
+@synthesize user = _user;
+@synthesize device = _device;
+@synthesize msg = _msg;
+@synthesize level = _level;
+
 -(id)user: (NSString*) user
     device: (NSString*) device
     msg: (NSString*) msg

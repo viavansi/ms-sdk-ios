@@ -3,6 +3,12 @@
 
 @implementation MSTask
 
+@synthesize code = _code;
+@synthesize finalStatus = _finalStatus;
+@synthesize numThreads = _numThreads;
+@synthesize cacheName = _cacheName;
+@synthesize classRef = _classRef;
+
 -(id)code: (NSString*) code
     finalStatus: (NSNumber*) finalStatus
     numThreads: (NSNumber*) numThreads

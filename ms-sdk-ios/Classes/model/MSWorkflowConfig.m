@@ -3,6 +3,11 @@
 
 @implementation MSWorkflowConfig
 
+@synthesize code = _code;
+@synthesize _description = __description;
+@synthesize status = _status;
+@synthesize type = _type;
+
 -(id)code: (NSString*) code
     _description: (NSString*) _description
     status: (NSArray*) status
@@ -72,7 +77,7 @@
             NSMutableArray * array = [[NSMutableArray alloc] init];
             for( int i=0 ; i<[(NSArray*)_status count] ; i++ ) {
 				MSStatus *status = [[MSStatus alloc]init];
-				status = [(NSArray*)_status objectAtIndex:i];            
+				status = [(NSArray*)_status objectAtIndex:i];
                 [array addObject:[(SWGObject*)status asDictionary]];
             }
             dict[@"status"] = array;

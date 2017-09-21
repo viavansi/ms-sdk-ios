@@ -3,6 +3,11 @@
 
 @implementation MSEvidencePoint
 
+@synthesize x = _x;
+@synthesize y = _y;
+@synthesize pressure = _pressure;
+@synthesize milliseconds = _milliseconds;
+
 -(id)x: (NSNumber*) x
     y: (NSNumber*) y
     pressure: (NSNumber*) pressure

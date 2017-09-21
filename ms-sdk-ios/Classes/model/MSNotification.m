@@ -3,6 +3,17 @@
 
 @implementation MSNotification
 
+@synthesize code = _code;
+@synthesize validateCode = _validateCode;
+@synthesize text = _text;
+@synthesize detail = _detail;
+@synthesize sound = _sound;
+@synthesize status = _status;
+@synthesize location = _location;
+@synthesize sharedLink = _sharedLink;
+@synthesize metadata = _metadata;
+@synthesize devices = _devices;
+
 -(id)code: (NSString*) code
     validateCode: (NSString*) validateCode
     text: (NSString*) text
@@ -142,7 +153,7 @@
             NSMutableArray * array = [[NSMutableArray alloc] init];
             for( int i=0 ; i<[(NSArray*)_sharedLink count] ; i++ ) {
 				MSSharedLink *sharedLink = [[MSSharedLink alloc]init];
-				sharedLink = [(NSArray*)_sharedLink objectAtIndex:i];            
+				sharedLink = [(NSArray*)_sharedLink objectAtIndex:i];
                 [array addObject:[(SWGObject*)sharedLink asDictionary]];
             }
             dict[@"sharedLink"] = array;
@@ -167,7 +178,7 @@
             NSMutableArray * array = [[NSMutableArray alloc] init];
             for( int i=0 ; i<[(NSArray*)_metadata count] ; i++ ) {
 				MSParam *metadata = [[MSParam alloc]init];
-				metadata = [(NSArray*)_metadata objectAtIndex:i];            
+				metadata = [(NSArray*)_metadata objectAtIndex:i];
                 [array addObject:[(SWGObject*)metadata asDictionary]];
             }
             dict[@"metadata"] = array;
@@ -192,7 +203,7 @@
             NSMutableArray * array = [[NSMutableArray alloc] init];
             for( int i=0 ; i<[(NSArray*)_devices count] ; i++ ) {
 				MSDevice *devices = [[MSDevice alloc]init];
-				devices = [(NSArray*)_devices objectAtIndex:i];            
+				devices = [(NSArray*)_devices objectAtIndex:i];
                 [array addObject:[(SWGObject*)devices asDictionary]];
             }
             dict[@"devices"] = array;

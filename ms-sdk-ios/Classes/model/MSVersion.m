@@ -3,6 +3,12 @@
 
 @implementation MSVersion
 
+@synthesize type = _type;
+@synthesize version = _version;
+@synthesize showUpdate = _showUpdate;
+@synthesize installURL = _installURL;
+@synthesize installMessage = _installMessage;
+
 -(id)type: (NSString*) type
     version: (NSString*) version
     showUpdate: (NSNumber*) showUpdate

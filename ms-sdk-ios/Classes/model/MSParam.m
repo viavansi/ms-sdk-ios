@@ -3,6 +3,9 @@
 
 @implementation MSParam
 
+@synthesize key = _key;
+@synthesize value = _value;
+
 -(id)key: (NSString*) key
     value: (NSString*) value
     

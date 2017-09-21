@@ -3,6 +3,12 @@
 
 @implementation MSJSOcrFieldExtractionResult
 
+@synthesize confidence = _confidence;
+@synthesize key = _key;
+@synthesize valid = _valid;
+@synthesize value = _value;
+@synthesize title = _title;
+
 -(id)confidence: (NSNumber*) confidence
     key: (NSString*) key
     valid: (NSNumber*) valid
