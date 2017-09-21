@@ -5,9 +5,9 @@
 @interface MSOcrMaskImage : SWGObject
 
 @property(nonatomic) NSString* mask;  
-@property(nonatomic) NSString* version;  
+@property(nonatomic) NSNumber* version;  
 - (id) mask: (NSString*) mask     
-    version: (NSString*) version;
+    version: (NSNumber*) version;
     
 
 - (id) initWithValues: (NSDictionary*)dict;

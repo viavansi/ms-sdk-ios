@@ -8,10 +8,12 @@
 @property(nonatomic) NSString* key;  
 @property(nonatomic) NSNumber* valid;  
 @property(nonatomic) NSString* value;  
+@property(nonatomic) NSString* title;  
 - (id) confidence: (NSNumber*) confidence     
     key: (NSString*) key     
     valid: (NSNumber*) valid     
-    value: (NSString*) value;
+    value: (NSString*) value     
+    title: (NSString*) title;
     
 
 - (id) initWithValues: (NSDictionary*)dict;

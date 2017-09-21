@@ -20,6 +20,7 @@
 @property(nonatomic) NSString* confirmToken;  
 @property(nonatomic) NSString* changePassToken;  
 @property(nonatomic) NSNumber* logDevice;  
+@property(nonatomic) NSString* status;  
 @property(nonatomic) NSString* mobile;  
 @property(nonatomic) NSString* channel;  
 - (id) code: (NSString*) code     
@@ -38,6 +39,7 @@
     confirmToken: (NSString*) confirmToken     
     changePassToken: (NSString*) changePassToken     
     logDevice: (NSNumber*) logDevice     
+    status: (NSString*) status     
     mobile: (NSString*) mobile     
     channel: (NSString*) channel;
     

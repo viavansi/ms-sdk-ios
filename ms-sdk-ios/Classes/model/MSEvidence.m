@@ -32,9 +32,9 @@
     imageQuality: (NSNumber*) imageQuality
     imageScaleFactor: (NSNumber*) imageScaleFactor
     wacomURL: (NSString*) wacomURL
-    ocrTemplate: (NSString*) ocrTemplate
-    ocrTemplateVersion: (NSString*) ocrTemplateVersion
-    ocrTemplateOffline: (NSString*) ocrTemplateOffline
+    ocr: (MSOcrData*) ocr
+    otpSmsData: (MSEvidenceOtpSms*) otpSmsData
+    phone: (NSString*) phone
     
 {
     _type = type;
@@ -66,9 +66,9 @@
     _imageQuality = imageQuality;
     _imageScaleFactor = imageScaleFactor;
     _wacomURL = wacomURL;
-    _ocrTemplate = ocrTemplate;
-    _ocrTemplateVersion = ocrTemplateVersion;
-    _ocrTemplateOffline = ocrTemplateOffline;
+    _ocr = ocr;
+    _otpSmsData = otpSmsData;
+    _phone = phone;
     
 
     return self;
@@ -180,11 +180,23 @@
         
         _wacomURL = dict[@"wacomURL"];
         
-        _ocrTemplate = dict[@"ocrTemplate"];
         
-        _ocrTemplateVersion = dict[@"ocrTemplateVersion"];
         
-        _ocrTemplateOffline = dict[@"ocrTemplateOffline"];
+        id ocr_dict = dict[@"ocr"];
+        
+        if(ocr_dict != nil)
+            _ocr = [[MSOcrData  alloc]initWithValues:ocr_dict];
+        
+        
+        
+        
+        id otpSmsData_dict = dict[@"otpSmsData"];
+        
+        if(otpSmsData_dict != nil)
+            _otpSmsData = [[MSEvidenceOtpSms  alloc]initWithValues:otpSmsData_dict];
+        
+        
+        _phone = dict[@"phone"];
         
         
     }
@@ -416,15 +428,57 @@
         
     
     
-            if(_ocrTemplate != nil) dict[@"ocrTemplate"] = _ocrTemplate ;
+    if(_ocr != nil){
+        if([_ocr isKindOfClass:[NSArray class]]){
+            NSMutableArray * array = [[NSMutableArray alloc] init];
+            for( int i=0 ; i<[(NSArray*)_ocr count] ; i++ ) {
+				MSOcrData *ocr = [[MSOcrData alloc]init];
+				ocr = [(NSArray*)_ocr objectAtIndex:i];            
+                [array addObject:[(SWGObject*)ocr asDictionary]];
+            }
+            dict[@"ocr"] = array;
+        }
+        else if(_ocr && [_ocr isKindOfClass:[SWGDate class]]) {
+            NSString * dateString = [(SWGDate*)_ocr toString];
+            if(dateString){
+                dict[@"ocr"] = dateString;
+            }
+        }
+        else {
         
-    
-    
-            if(_ocrTemplateVersion != nil) dict[@"ocrTemplateVersion"] = _ocrTemplateVersion ;
+            if(_ocr != nil) dict[@"ocr"] = [(SWGObject*)_ocr asDictionary];
         
+        }
+    }
     
     
-            if(_ocrTemplateOffline != nil) dict[@"ocrTemplateOffline"] = _ocrTemplateOffline ;
+    
+    if(_otpSmsData != nil){
+        if([_otpSmsData isKindOfClass:[NSArray class]]){
+            NSMutableArray * array = [[NSMutableArray alloc] init];
+            for( int i=0 ; i<[(NSArray*)_otpSmsData count] ; i++ ) {
+				MSEvidenceOtpSms *otpSmsData = [[MSEvidenceOtpSms alloc]init];
+				otpSmsData = [(NSArray*)_otpSmsData objectAtIndex:i];            
+                [array addObject:[(SWGObject*)otpSmsData asDictionary]];
+            }
+            dict[@"otpSmsData"] = array;
+        }
+        else if(_otpSmsData && [_otpSmsData isKindOfClass:[SWGDate class]]) {
+            NSString * dateString = [(SWGDate*)_otpSmsData toString];
+            if(dateString){
+                dict[@"otpSmsData"] = dateString;
+            }
+        }
+        else {
+        
+            if(_otpSmsData != nil) dict[@"otpSmsData"] = [(SWGObject*)_otpSmsData asDictionary];
+        
+        }
+    }
+    
+    
+    
+            if(_phone != nil) dict[@"phone"] = _phone ;
         
     
 

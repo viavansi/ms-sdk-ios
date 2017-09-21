@@ -8,6 +8,7 @@
     biometricSignaturesData: (NSArray*) biometricSignaturesData
     fingerPrintsData: (NSArray*) fingerPrintsData
     imagesData: (NSArray*) imagesData
+    otpSmsData: (NSArray*) otpSmsData
     
 {
     _messageCode = messageCode;
@@ -15,6 +16,7 @@
     _biometricSignaturesData = biometricSignaturesData;
     _fingerPrintsData = fingerPrintsData;
     _imagesData = imagesData;
+    _otpSmsData = otpSmsData;
     
 
     return self;
@@ -111,6 +113,28 @@
         }
         else {
             _imagesData = [[NSArray alloc] init];
+        }
+        
+        
+        
+        
+        id otpSmsData_dict = dict[@"otpSmsData"];
+        
+        if([otpSmsData_dict isKindOfClass:[NSArray class]]) {
+            NSMutableArray * objs = [[NSMutableArray alloc] initWithCapacity:[(NSArray*)otpSmsData_dict count]];
+            if([(NSArray*)otpSmsData_dict count] > 0) {
+                for (int i=0 ; i<[(NSArray*)otpSmsData_dict count] ; i++) {
+                	NSDictionary *dict = [[NSDictionary alloc] initWithDictionary:[otpSmsData_dict objectAtIndex:i]];
+                    MSEvidenceOtpSms* d = [[MSEvidenceOtpSms alloc] initWithValues:dict];
+                    [objs addObject:d];
+                }
+                _otpSmsData = [[NSArray alloc] initWithArray:objs];
+            }
+            else
+                _otpSmsData = [[NSArray alloc] init];
+        }
+        else {
+            _otpSmsData = [[NSArray alloc] init];
         }
         
         
@@ -221,6 +245,31 @@
         else {
         
             if(_imagesData != nil) dict[@"imagesData"] = [(SWGObject*)_imagesData asDictionary];
+        
+        }
+    }
+    
+    
+    
+    if(_otpSmsData != nil){
+        if([_otpSmsData isKindOfClass:[NSArray class]]){
+            NSMutableArray * array = [[NSMutableArray alloc] init];
+            for( int i=0 ; i<[(NSArray*)_otpSmsData count] ; i++ ) {
+				MSEvidenceOtpSms *otpSmsData = [[MSEvidenceOtpSms alloc]init];
+				otpSmsData = [(NSArray*)_otpSmsData objectAtIndex:i];            
+                [array addObject:[(SWGObject*)otpSmsData asDictionary]];
+            }
+            dict[@"otpSmsData"] = array;
+        }
+        else if(_otpSmsData && [_otpSmsData isKindOfClass:[SWGDate class]]) {
+            NSString * dateString = [(SWGDate*)_otpSmsData toString];
+            if(dateString){
+                dict[@"otpSmsData"] = dateString;
+            }
+        }
+        else {
+        
+            if(_otpSmsData != nil) dict[@"otpSmsData"] = [(SWGObject*)_otpSmsData asDictionary];
         
         }
     }

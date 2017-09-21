@@ -21,6 +21,7 @@
     server: (NSString*) server
     processTimeExpired: (SWGDate*) processTimeExpired
     commentReject: (NSString*) commentReject
+    callbackResponse: (NSString*) callbackResponse
     
 {
     _code = code;
@@ -41,6 +42,7 @@
     _server = server;
     _processTimeExpired = processTimeExpired;
     _commentReject = commentReject;
+    _callbackResponse = callbackResponse;
     
 
     return self;
@@ -155,6 +157,8 @@
         
         
         _commentReject = dict[@"commentReject"];
+        
+        _callbackResponse = dict[@"callbackResponse"];
         
         
     }
@@ -381,6 +385,10 @@
     
     
             if(_commentReject != nil) dict[@"commentReject"] = _commentReject ;
+        
+    
+    
+            if(_callbackResponse != nil) dict[@"callbackResponse"] = _callbackResponse ;
         
     
 

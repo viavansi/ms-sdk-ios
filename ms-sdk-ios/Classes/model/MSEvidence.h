@@ -1,9 +1,11 @@
 #import <Foundation/Foundation.h>
 #import "SWGObject.h"
 #import "MSPosition.h"
+#import "MSOcrData.h"
 #import "MSGeolocation.h"
 #import "MSEvidenceFingerPrint.h"
 #import "MSEvidenceImage.h"
+#import "MSEvidenceOtpSms.h"
 #import "MSEvidenceSignature.h"
 
 
@@ -38,9 +40,9 @@
 @property(nonatomic) NSNumber* imageQuality;  /* (since 3.5.0) calidad de la imagen donde 100 representa el máximo de calidad y 0 el máximo nivel de compresión  */
 @property(nonatomic) NSNumber* imageScaleFactor;  /* (since 3.5.0) factor multiplicador del tamaño de la imagen, para permitir zoom  */
 @property(nonatomic) NSString* wacomURL;  /* (since 3.5.0, internal) url que permite el uso de tabletas wacom  */
-@property(nonatomic) NSString* ocrTemplate;  /* (since 3.5.0, internal)  Indentificador único de la plantilla con la definición del documento a escanear (OCR)  */
-@property(nonatomic) NSString* ocrTemplateVersion;  /* (since 3.5.0, internal) Versión de la plantilla con la definición del documento a escanear (OCR)  */
-@property(nonatomic) NSString* ocrTemplateOffline;  /* (since 3.5.0, internal)  Identifica si la petición al servidor de OCR se procesará offline  */
+@property(nonatomic) MSOcrData* ocr;  
+@property(nonatomic) MSEvidenceOtpSms* otpSmsData;  
+@property(nonatomic) NSString* phone;  
 - (id) type: (NSString*) type     
     code: (NSString*) code     
     status: (NSString*) status     
@@ -70,9 +72,9 @@
     imageQuality: (NSNumber*) imageQuality     
     imageScaleFactor: (NSNumber*) imageScaleFactor     
     wacomURL: (NSString*) wacomURL     
-    ocrTemplate: (NSString*) ocrTemplate     
-    ocrTemplateVersion: (NSString*) ocrTemplateVersion     
-    ocrTemplateOffline: (NSString*) ocrTemplateOffline;
+    ocr: (MSOcrData*) ocr     
+    otpSmsData: (MSEvidenceOtpSms*) otpSmsData     
+    phone: (NSString*) phone;
     
 
 - (id) initWithValues: (NSDictionary*)dict;

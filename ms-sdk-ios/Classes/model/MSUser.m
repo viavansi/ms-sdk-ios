@@ -19,6 +19,7 @@
     confirmToken: (NSString*) confirmToken
     changePassToken: (NSString*) changePassToken
     logDevice: (NSNumber*) logDevice
+    status: (NSString*) status
     mobile: (NSString*) mobile
     channel: (NSString*) channel
     
@@ -39,6 +40,7 @@
     _confirmToken = confirmToken;
     _changePassToken = changePassToken;
     _logDevice = logDevice;
+    _status = status;
     _mobile = mobile;
     _channel = channel;
     
@@ -81,6 +83,8 @@
         _changePassToken = dict[@"changePassToken"];
         
         _logDevice = dict[@"logDevice"];
+        
+        _status = dict[@"status"];
         
         _mobile = dict[@"mobile"];
         
@@ -156,6 +160,10 @@
     
     
             if(_logDevice != nil) dict[@"logDevice"] = _logDevice ;
+        
+    
+    
+            if(_status != nil) dict[@"status"] = _status ;
         
     
     

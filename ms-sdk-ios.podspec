@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.platform = :ios, '7.0'
   s.name         = 'ms-sdk-ios'
-  s.version      = '3.5.1'
+  s.version      = '3.5.3'
   s.summary      = 'ms-sdk-ios SDK for native iOS Apps'
   s.homepage     = 'https://github.com/viavansi/ms-sdk-ios.git'
   s.author = {
@@ -9,7 +9,7 @@ Pod::Spec.new do |s|
   }
   s.source = {
     :git => 'https://github.com/viavansi/ms-sdk-ios.git',
-    :tag => '3.5.1'
+    :tag => '3.5.3'
   }
   s.requires_arc = true
   s.source_files = 'ms-sdk-ios/Classes/**/*.{h,m}'

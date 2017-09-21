@@ -15,6 +15,7 @@
 @property(nonatomic) NSNumber* screenHeight;  
 @property(nonatomic) NSNumber* screenWidth;  
 @property(nonatomic) NSString* app;  
+@property(nonatomic) NSString* ip;  
 - (id) manufacturer: (NSString*) manufacturer     
     model: (NSString*) model     
     osVersion: (NSString*) osVersion     
@@ -25,7 +26,8 @@
     rotationAllowed: (NSNumber*) rotationAllowed     
     screenHeight: (NSNumber*) screenHeight     
     screenWidth: (NSNumber*) screenWidth     
-    app: (NSString*) app;
+    app: (NSString*) app     
+    ip: (NSString*) ip;
     
 
 - (id) initWithValues: (NSDictionary*)dict;

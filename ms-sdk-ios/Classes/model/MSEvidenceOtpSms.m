@@ -1,28 +1,28 @@
 #import "SWGDate.h"
-#import "MSEvidenceImage.h"
+#import "MSEvidenceOtpSms.h"
 
-@implementation MSEvidenceImage
+@implementation MSEvidenceOtpSms
 
 -(id)messageCode: (NSString*) messageCode
     evidenceCode: (NSString*) evidenceCode
-    base64Image: (NSString*) base64Image
     geolocation: (MSGeolocation*) geolocation
     device: (MSEvidenceDevice*) device
     positions: (NSArray*) positions
+    operationId: (NSString*) operationId
+    server: (NSString*) server
     imageQuality: (NSNumber*) imageQuality
     imageScaleFactor: (NSNumber*) imageScaleFactor
-    ocr: (MSOcrData*) ocr
     
 {
     _messageCode = messageCode;
     _evidenceCode = evidenceCode;
-    _base64Image = base64Image;
     _geolocation = geolocation;
     _device = device;
     _positions = positions;
+    _operationId = operationId;
+    _server = server;
     _imageQuality = imageQuality;
     _imageScaleFactor = imageScaleFactor;
-    _ocr = ocr;
     
 
     return self;
@@ -35,8 +35,6 @@
         _messageCode = dict[@"messageCode"];
         
         _evidenceCode = dict[@"evidenceCode"];
-        
-        _base64Image = dict[@"base64Image"];
         
         
         
@@ -76,17 +74,13 @@
         }
         
         
+        _operationId = dict[@"operationId"];
+        
+        _server = dict[@"server"];
+        
         _imageQuality = dict[@"imageQuality"];
         
         _imageScaleFactor = dict[@"imageScaleFactor"];
-        
-        
-        
-        id ocr_dict = dict[@"ocr"];
-        
-        if(ocr_dict != nil)
-            _ocr = [[MSOcrData  alloc]initWithValues:ocr_dict];
-        
         
         
     }
@@ -102,10 +96,6 @@
     
     
             if(_evidenceCode != nil) dict[@"evidenceCode"] = _evidenceCode ;
-        
-    
-    
-            if(_base64Image != nil) dict[@"base64Image"] = _base64Image ;
         
     
     
@@ -184,37 +174,20 @@
     
     
     
+            if(_operationId != nil) dict[@"operationId"] = _operationId ;
+        
+    
+    
+            if(_server != nil) dict[@"server"] = _server ;
+        
+    
+    
             if(_imageQuality != nil) dict[@"imageQuality"] = _imageQuality ;
         
     
     
             if(_imageScaleFactor != nil) dict[@"imageScaleFactor"] = _imageScaleFactor ;
         
-    
-    
-    if(_ocr != nil){
-        if([_ocr isKindOfClass:[NSArray class]]){
-            NSMutableArray * array = [[NSMutableArray alloc] init];
-            for( int i=0 ; i<[(NSArray*)_ocr count] ; i++ ) {
-				MSOcrData *ocr = [[MSOcrData alloc]init];
-				ocr = [(NSArray*)_ocr objectAtIndex:i];            
-                [array addObject:[(SWGObject*)ocr asDictionary]];
-            }
-            dict[@"ocr"] = array;
-        }
-        else if(_ocr && [_ocr isKindOfClass:[SWGDate class]]) {
-            NSString * dateString = [(SWGDate*)_ocr toString];
-            if(dateString){
-                dict[@"ocr"] = dateString;
-            }
-        }
-        else {
-        
-            if(_ocr != nil) dict[@"ocr"] = [(SWGObject*)_ocr asDictionary];
-        
-        }
-    }
-    
     
 
     NSDictionary* output = [dict copy];

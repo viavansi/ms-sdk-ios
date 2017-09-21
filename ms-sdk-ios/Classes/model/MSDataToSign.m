@@ -1,14 +1,14 @@
 #import "SWGDate.h"
-#import "MSOcrMaskImage.h"
+#import "MSDataToSign.h"
 
-@implementation MSOcrMaskImage
+@implementation MSDataToSign
 
--(id)mask: (NSString*) mask
-    version: (NSNumber*) version
+-(id)algorithm: (NSString*) algorithm
+    hash: (NSString*) hash
     
 {
-    _mask = mask;
-    _version = version;
+    _algorithm = algorithm;
+    _hash = hash;
     
 
     return self;
@@ -18,9 +18,9 @@
 {
     self = [super init];
     if(self) {
-        _mask = dict[@"mask"];
+        _algorithm = dict[@"algorithm"];
         
-        _version = dict[@"version"];
+        _hash = dict[@"hash"];
         
         
     }
@@ -31,11 +31,11 @@
     NSMutableDictionary* dict = [[NSMutableDictionary alloc] init];
     
     
-            if(_mask != nil) dict[@"mask"] = _mask ;
+            if(_algorithm != nil) dict[@"algorithm"] = _algorithm ;
         
     
     
-            if(_version != nil) dict[@"version"] = _version ;
+            if(_hash != nil) dict[@"hash"] = _hash ;
         
     
 

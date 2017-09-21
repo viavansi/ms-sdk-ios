@@ -14,6 +14,7 @@
     screenHeight: (NSNumber*) screenHeight
     screenWidth: (NSNumber*) screenWidth
     app: (NSString*) app
+    ip: (NSString*) ip
     
 {
     _manufacturer = manufacturer;
@@ -27,6 +28,7 @@
     _screenHeight = screenHeight;
     _screenWidth = screenWidth;
     _app = app;
+    _ip = ip;
     
 
     return self;
@@ -57,6 +59,8 @@
         _screenWidth = dict[@"screenWidth"];
         
         _app = dict[@"app"];
+        
+        _ip = dict[@"ip"];
         
         
     }
@@ -108,6 +112,10 @@
     
     
             if(_app != nil) dict[@"app"] = _app ;
+        
+    
+    
+            if(_ip != nil) dict[@"ip"] = _ip ;
         
     
 

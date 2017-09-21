@@ -29,6 +29,7 @@
 @property(nonatomic) NSString* server;  
 @property(nonatomic) SWGDate* processTimeExpired;  
 @property(nonatomic) NSString* commentReject;  
+@property(nonatomic) NSString* callbackResponse;  
 - (id) code: (NSString*) code     
     userCode: (NSString*) userCode     
     groupCode: (NSString*) groupCode     
@@ -46,7 +47,8 @@
     pid: (NSString*) pid     
     server: (NSString*) server     
     processTimeExpired: (SWGDate*) processTimeExpired     
-    commentReject: (NSString*) commentReject;
+    commentReject: (NSString*) commentReject     
+    callbackResponse: (NSString*) callbackResponse;
     
 
 - (id) initWithValues: (NSDictionary*)dict;

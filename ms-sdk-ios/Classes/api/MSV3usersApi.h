@@ -47,6 +47,25 @@
 
 /**
 
+ Method for get an existing user by email
+ 
+ Get user by email
+ 
+
+ 
+ @param email User email
+ 
+
+ return type: MSUser*
+ */
++(NSNumber*) findUserByEmail :(NSString*) email 
+    
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(MSUser* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    
+
+
+/**
+
  Method to request account reactivation by code
  
  Request account reactivation by code

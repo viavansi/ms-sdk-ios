@@ -7,12 +7,14 @@
     key: (NSString*) key
     valid: (NSNumber*) valid
     value: (NSString*) value
+    title: (NSString*) title
     
 {
     _confidence = confidence;
     _key = key;
     _valid = valid;
     _value = value;
+    _title = title;
     
 
     return self;
@@ -29,6 +31,8 @@
         _valid = dict[@"valid"];
         
         _value = dict[@"value"];
+        
+        _title = dict[@"title"];
         
         
     }
@@ -52,6 +56,10 @@
     
     
             if(_value != nil) dict[@"value"] = _value ;
+        
+    
+    
+            if(_title != nil) dict[@"title"] = _title ;
         
     
 

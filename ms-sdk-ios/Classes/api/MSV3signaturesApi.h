@@ -1,7 +1,10 @@
 #import <Foundation/Foundation.h>
+#import "MSWrapSignature.h"
+#import "MSSignature.h"
+#import "MSDataToSign.h"
+#import "MSPrepareSignature.h"
 #import "MSPolicy.h"
 #import "MSEvidenceSignature.h"
-#import "MSSignature.h"
 #import "SWGObject.h"
 #import "OAuth1Client.h"
 
@@ -9,6 +12,44 @@
 @interface MSV3signaturesApi: NSObject
 
 +(unsigned long) requestQueueSize;
+/**
+
+ Method for get signed message
+ 
+ 
+ 
+
+ 
+ @param body Data for wrap sign
+ 
+
+ return type: MSSignature*
+ */
++(NSNumber*) finalizeClientSignature :(MSWrapSignature*) body 
+    
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(MSSignature* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    
+
+
+/**
+
+ Method for prepare a client signature
+ 
+ 
+ 
+
+ 
+ @param body Data for prepare sign
+ 
+
+ return type: MSDataToSign*
+ */
++(NSNumber*) prepareClientSignature :(MSPrepareSignature*) body 
+    
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(MSDataToSign* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    
+
+
 /**
 
  Method for process a server signature
