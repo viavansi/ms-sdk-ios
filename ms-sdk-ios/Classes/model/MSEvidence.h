@@ -1,11 +1,12 @@
 #import <Foundation/Foundation.h>
 #import "SWGObject.h"
+#import "MSEvidenceGeneric.h"
 #import "MSPosition.h"
 #import "MSOcrData.h"
 #import "MSGeolocation.h"
 #import "MSEvidenceFingerPrint.h"
+#import "MSParam.h"
 #import "MSEvidenceImage.h"
-#import "MSEvidenceOtpSms.h"
 #import "MSEvidenceSignature.h"
 
 
@@ -17,6 +18,7 @@
 @property(nonatomic) NSString* helpText;  
 @property(nonatomic) NSString* temporalReference;  
 @property(nonatomic) NSArray* positions;  
+@property(nonatomic) NSArray* metadataList;  
 @property(nonatomic) NSString* metadata;  
 @property(nonatomic) NSString* deviceType;  
 @property(nonatomic) NSArray* hashPdf;  
@@ -41,14 +43,14 @@
 @property(nonatomic) NSNumber* imageScaleFactor;  /* (since 3.5.0) factor multiplicador del tamaño de la imagen, para permitir zoom  */
 @property(nonatomic) NSString* wacomURL;  /* (since 3.5.0, internal) url que permite el uso de tabletas wacom  */
 @property(nonatomic) MSOcrData* ocr;  
-@property(nonatomic) MSEvidenceOtpSms* otpSmsData;  
-@property(nonatomic) NSString* phone;  
+@property(nonatomic) MSEvidenceGeneric* genericData;  
 - (id) type: (NSString*) type     
     code: (NSString*) code     
     status: (NSString*) status     
     helpText: (NSString*) helpText     
     temporalReference: (NSString*) temporalReference     
     positions: (NSArray*) positions     
+    metadataList: (NSArray*) metadataList     
     metadata: (NSString*) metadata     
     deviceType: (NSString*) deviceType     
     hashPdf: (NSArray*) hashPdf     
@@ -73,8 +75,7 @@
     imageScaleFactor: (NSNumber*) imageScaleFactor     
     wacomURL: (NSString*) wacomURL     
     ocr: (MSOcrData*) ocr     
-    otpSmsData: (MSEvidenceOtpSms*) otpSmsData     
-    phone: (NSString*) phone;
+    genericData: (MSEvidenceGeneric*) genericData;
     
 
 - (id) initWithValues: (NSDictionary*)dict;

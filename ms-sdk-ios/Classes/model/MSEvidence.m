@@ -9,6 +9,7 @@
 @synthesize helpText = _helpText;
 @synthesize temporalReference = _temporalReference;
 @synthesize positions = _positions;
+@synthesize metadataList = _metadataList;
 @synthesize metadata = _metadata;
 @synthesize deviceType = _deviceType;
 @synthesize hashPdf = _hashPdf;
@@ -33,8 +34,7 @@
 @synthesize imageScaleFactor = _imageScaleFactor;
 @synthesize wacomURL = _wacomURL;
 @synthesize ocr = _ocr;
-@synthesize otpSmsData = _otpSmsData;
-@synthesize phone = _phone;
+@synthesize genericData = _genericData;
 
 -(id)type: (NSString*) type
     code: (NSString*) code
@@ -42,6 +42,7 @@
     helpText: (NSString*) helpText
     temporalReference: (NSString*) temporalReference
     positions: (NSArray*) positions
+    metadataList: (NSArray*) metadataList
     metadata: (NSString*) metadata
     deviceType: (NSString*) deviceType
     hashPdf: (NSArray*) hashPdf
@@ -66,8 +67,7 @@
     imageScaleFactor: (NSNumber*) imageScaleFactor
     wacomURL: (NSString*) wacomURL
     ocr: (MSOcrData*) ocr
-    otpSmsData: (MSEvidenceOtpSms*) otpSmsData
-    phone: (NSString*) phone
+    genericData: (MSEvidenceGeneric*) genericData
     
 {
     _type = type;
@@ -76,6 +76,7 @@
     _helpText = helpText;
     _temporalReference = temporalReference;
     _positions = positions;
+    _metadataList = metadataList;
     _metadata = metadata;
     _deviceType = deviceType;
     _hashPdf = hashPdf;
@@ -100,8 +101,7 @@
     _imageScaleFactor = imageScaleFactor;
     _wacomURL = wacomURL;
     _ocr = ocr;
-    _otpSmsData = otpSmsData;
-    _phone = phone;
+    _genericData = genericData;
     
 
     return self;
@@ -140,6 +140,28 @@
         }
         else {
             _positions = [[NSArray alloc] init];
+        }
+        
+        
+        
+        
+        id metadataList_dict = dict[@"metadataList"];
+        
+        if([metadataList_dict isKindOfClass:[NSArray class]]) {
+            NSMutableArray * objs = [[NSMutableArray alloc] initWithCapacity:[(NSArray*)metadataList_dict count]];
+            if([(NSArray*)metadataList_dict count] > 0) {
+                for (int i=0 ; i<[(NSArray*)metadataList_dict count] ; i++) {
+                	NSDictionary *dict = [[NSDictionary alloc] initWithDictionary:[metadataList_dict objectAtIndex:i]];
+                    MSParam* d = [[MSParam alloc] initWithValues:dict];
+                    [objs addObject:d];
+                }
+                _metadataList = [[NSArray alloc] initWithArray:objs];
+            }
+            else
+                _metadataList = [[NSArray alloc] init];
+        }
+        else {
+            _metadataList = [[NSArray alloc] init];
         }
         
         
@@ -223,13 +245,11 @@
         
         
         
-        id otpSmsData_dict = dict[@"otpSmsData"];
+        id genericData_dict = dict[@"genericData"];
         
-        if(otpSmsData_dict != nil)
-            _otpSmsData = [[MSEvidenceOtpSms  alloc]initWithValues:otpSmsData_dict];
+        if(genericData_dict != nil)
+            _genericData = [[MSEvidenceGeneric  alloc]initWithValues:genericData_dict];
         
-        
-        _phone = dict[@"phone"];
         
         
     }
@@ -279,6 +299,31 @@
         else {
         
             if(_positions != nil) dict[@"positions"] = [(SWGObject*)_positions asDictionary];
+        
+        }
+    }
+    
+    
+    
+    if(_metadataList != nil){
+        if([_metadataList isKindOfClass:[NSArray class]]){
+            NSMutableArray * array = [[NSMutableArray alloc] init];
+            for( int i=0 ; i<[(NSArray*)_metadataList count] ; i++ ) {
+				MSParam *metadataList = [[MSParam alloc]init];
+				metadataList = [(NSArray*)_metadataList objectAtIndex:i];
+                [array addObject:[(SWGObject*)metadataList asDictionary]];
+            }
+            dict[@"metadataList"] = array;
+        }
+        else if(_metadataList && [_metadataList isKindOfClass:[SWGDate class]]) {
+            NSString * dateString = [(SWGDate*)_metadataList toString];
+            if(dateString){
+                dict[@"metadataList"] = dateString;
+            }
+        }
+        else {
+        
+            if(_metadataList != nil) dict[@"metadataList"] = [(SWGObject*)_metadataList asDictionary];
         
         }
     }
@@ -486,33 +531,29 @@
     
     
     
-    if(_otpSmsData != nil){
-        if([_otpSmsData isKindOfClass:[NSArray class]]){
+    if(_genericData != nil){
+        if([_genericData isKindOfClass:[NSArray class]]){
             NSMutableArray * array = [[NSMutableArray alloc] init];
-            for( int i=0 ; i<[(NSArray*)_otpSmsData count] ; i++ ) {
-				MSEvidenceOtpSms *otpSmsData = [[MSEvidenceOtpSms alloc]init];
-				otpSmsData = [(NSArray*)_otpSmsData objectAtIndex:i];
-                [array addObject:[(SWGObject*)otpSmsData asDictionary]];
+            for( int i=0 ; i<[(NSArray*)_genericData count] ; i++ ) {
+				MSEvidenceGeneric *genericData = [[MSEvidenceGeneric alloc]init];
+				genericData = [(NSArray*)_genericData objectAtIndex:i];
+                [array addObject:[(SWGObject*)genericData asDictionary]];
             }
-            dict[@"otpSmsData"] = array;
+            dict[@"genericData"] = array;
         }
-        else if(_otpSmsData && [_otpSmsData isKindOfClass:[SWGDate class]]) {
-            NSString * dateString = [(SWGDate*)_otpSmsData toString];
+        else if(_genericData && [_genericData isKindOfClass:[SWGDate class]]) {
+            NSString * dateString = [(SWGDate*)_genericData toString];
             if(dateString){
-                dict[@"otpSmsData"] = dateString;
+                dict[@"genericData"] = dateString;
             }
         }
         else {
         
-            if(_otpSmsData != nil) dict[@"otpSmsData"] = [(SWGObject*)_otpSmsData asDictionary];
+            if(_genericData != nil) dict[@"genericData"] = [(SWGObject*)_genericData asDictionary];
         
         }
     }
     
-    
-    
-            if(_phone != nil) dict[@"phone"] = _phone ;
-        
     
 
     NSDictionary* output = [dict copy];

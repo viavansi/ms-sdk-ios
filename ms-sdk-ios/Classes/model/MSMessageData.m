@@ -8,14 +8,14 @@
 @synthesize biometricSignaturesData = _biometricSignaturesData;
 @synthesize fingerPrintsData = _fingerPrintsData;
 @synthesize imagesData = _imagesData;
-@synthesize otpSmsData = _otpSmsData;
+@synthesize genericData = _genericData;
 
 -(id)messageCode: (NSString*) messageCode
     items: (NSArray*) items
     biometricSignaturesData: (NSArray*) biometricSignaturesData
     fingerPrintsData: (NSArray*) fingerPrintsData
     imagesData: (NSArray*) imagesData
-    otpSmsData: (NSArray*) otpSmsData
+    genericData: (NSArray*) genericData
     
 {
     _messageCode = messageCode;
@@ -23,7 +23,7 @@
     _biometricSignaturesData = biometricSignaturesData;
     _fingerPrintsData = fingerPrintsData;
     _imagesData = imagesData;
-    _otpSmsData = otpSmsData;
+    _genericData = genericData;
     
 
     return self;
@@ -125,23 +125,23 @@
         
         
         
-        id otpSmsData_dict = dict[@"otpSmsData"];
+        id genericData_dict = dict[@"genericData"];
         
-        if([otpSmsData_dict isKindOfClass:[NSArray class]]) {
-            NSMutableArray * objs = [[NSMutableArray alloc] initWithCapacity:[(NSArray*)otpSmsData_dict count]];
-            if([(NSArray*)otpSmsData_dict count] > 0) {
-                for (int i=0 ; i<[(NSArray*)otpSmsData_dict count] ; i++) {
-                	NSDictionary *dict = [[NSDictionary alloc] initWithDictionary:[otpSmsData_dict objectAtIndex:i]];
-                    MSEvidenceOtpSms* d = [[MSEvidenceOtpSms alloc] initWithValues:dict];
+        if([genericData_dict isKindOfClass:[NSArray class]]) {
+            NSMutableArray * objs = [[NSMutableArray alloc] initWithCapacity:[(NSArray*)genericData_dict count]];
+            if([(NSArray*)genericData_dict count] > 0) {
+                for (int i=0 ; i<[(NSArray*)genericData_dict count] ; i++) {
+                	NSDictionary *dict = [[NSDictionary alloc] initWithDictionary:[genericData_dict objectAtIndex:i]];
+                    MSEvidenceGeneric* d = [[MSEvidenceGeneric alloc] initWithValues:dict];
                     [objs addObject:d];
                 }
-                _otpSmsData = [[NSArray alloc] initWithArray:objs];
+                _genericData = [[NSArray alloc] initWithArray:objs];
             }
             else
-                _otpSmsData = [[NSArray alloc] init];
+                _genericData = [[NSArray alloc] init];
         }
         else {
-            _otpSmsData = [[NSArray alloc] init];
+            _genericData = [[NSArray alloc] init];
         }
         
         
@@ -258,25 +258,25 @@
     
     
     
-    if(_otpSmsData != nil){
-        if([_otpSmsData isKindOfClass:[NSArray class]]){
+    if(_genericData != nil){
+        if([_genericData isKindOfClass:[NSArray class]]){
             NSMutableArray * array = [[NSMutableArray alloc] init];
-            for( int i=0 ; i<[(NSArray*)_otpSmsData count] ; i++ ) {
-				MSEvidenceOtpSms *otpSmsData = [[MSEvidenceOtpSms alloc]init];
-				otpSmsData = [(NSArray*)_otpSmsData objectAtIndex:i];
-                [array addObject:[(SWGObject*)otpSmsData asDictionary]];
+            for( int i=0 ; i<[(NSArray*)_genericData count] ; i++ ) {
+				MSEvidenceGeneric *genericData = [[MSEvidenceGeneric alloc]init];
+				genericData = [(NSArray*)_genericData objectAtIndex:i];
+                [array addObject:[(SWGObject*)genericData asDictionary]];
             }
-            dict[@"otpSmsData"] = array;
+            dict[@"genericData"] = array;
         }
-        else if(_otpSmsData && [_otpSmsData isKindOfClass:[SWGDate class]]) {
-            NSString * dateString = [(SWGDate*)_otpSmsData toString];
+        else if(_genericData && [_genericData isKindOfClass:[SWGDate class]]) {
+            NSString * dateString = [(SWGDate*)_genericData toString];
             if(dateString){
-                dict[@"otpSmsData"] = dateString;
+                dict[@"genericData"] = dateString;
             }
         }
         else {
         
-            if(_otpSmsData != nil) dict[@"otpSmsData"] = [(SWGObject*)_otpSmsData asDictionary];
+            if(_genericData != nil) dict[@"genericData"] = [(SWGObject*)_genericData asDictionary];
         
         }
     }

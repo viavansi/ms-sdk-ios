@@ -1,6 +1,7 @@
 #import <Foundation/Foundation.h>
 #import "MSEvidence.h"
 #import "MSEvidenceFingerPrint.h"
+#import "MSEvidenceGeneric.h"
 #import "MSEvidenceImage.h"
 #import "MSEvidenceSignature.h"
 #import "SWGObject.h"
@@ -24,6 +25,25 @@
  return type: MSEvidence*
  */
 +(NSNumber*) addFingerPrintAsEvidence :(MSEvidenceFingerPrint*) body 
+    
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(MSEvidence* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    
+
+
+/**
+
+ Method for add images as evidence
+ 
+ Add new evidence (image)
+ 
+
+ 
+ @param body Data for update selected evidence
+ 
+
+ return type: MSEvidence*
+ */
++(NSNumber*) addGenericAsEvidence :(MSEvidenceGeneric*) body 
     
     auth:(OAuth1Client *) auth onSuccess: (void (^)(MSEvidence* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     
