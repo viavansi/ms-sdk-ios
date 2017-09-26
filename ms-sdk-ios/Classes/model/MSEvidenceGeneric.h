@@ -14,6 +14,7 @@
 @property(nonatomic) MSEvidenceDevice* device;  
 @property(nonatomic) NSArray* positions;  
 @property(nonatomic) NSArray* properties;  
+@property(nonatomic) NSString* base64Image;  
 @property(nonatomic) NSString* providerId;  
 @property(nonatomic) NSString* evidenceDescription;  
 @property(nonatomic) NSNumber* imageQuality;  
@@ -24,6 +25,7 @@
     device: (MSEvidenceDevice*) device     
     positions: (NSArray*) positions     
     properties: (NSArray*) properties     
+    base64Image: (NSString*) base64Image     
     providerId: (NSString*) providerId     
     evidenceDescription: (NSString*) evidenceDescription     
     imageQuality: (NSNumber*) imageQuality     

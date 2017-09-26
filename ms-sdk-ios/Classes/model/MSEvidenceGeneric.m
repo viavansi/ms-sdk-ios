@@ -9,6 +9,7 @@
 @synthesize device = _device;
 @synthesize positions = _positions;
 @synthesize properties = _properties;
+@synthesize base64Image = _base64Image;
 @synthesize providerId = _providerId;
 @synthesize evidenceDescription = _evidenceDescription;
 @synthesize imageQuality = _imageQuality;
@@ -20,6 +21,7 @@
     device: (MSEvidenceDevice*) device
     positions: (NSArray*) positions
     properties: (NSArray*) properties
+    base64Image: (NSString*) base64Image
     providerId: (NSString*) providerId
     evidenceDescription: (NSString*) evidenceDescription
     imageQuality: (NSNumber*) imageQuality
@@ -32,6 +34,7 @@
     _device = device;
     _positions = positions;
     _properties = properties;
+    _base64Image = base64Image;
     _providerId = providerId;
     _evidenceDescription = evidenceDescription;
     _imageQuality = imageQuality;
@@ -108,6 +111,8 @@
             _properties = [[NSArray alloc] init];
         }
         
+        
+        _base64Image = dict[@"base64Image"];
         
         _providerId = dict[@"providerId"];
         
@@ -232,6 +237,10 @@
         }
     }
     
+    
+    
+            if(_base64Image != nil) dict[@"base64Image"] = _base64Image ;
+        
     
     
             if(_providerId != nil) dict[@"providerId"] = _providerId ;
