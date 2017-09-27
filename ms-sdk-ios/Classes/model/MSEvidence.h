@@ -41,7 +41,6 @@
 @property(nonatomic) MSGeolocation* geolocation;  /* (since 3.5.0, internal) geolocation info  */
 @property(nonatomic) NSNumber* imageQuality;  /* (since 3.5.0) calidad de la imagen donde 100 representa el máximo de calidad y 0 el máximo nivel de compresión  */
 @property(nonatomic) NSNumber* imageScaleFactor;  /* (since 3.5.0) factor multiplicador del tamaño de la imagen, para permitir zoom  */
-@property(nonatomic) NSString* wacomURL;  /* (since 3.5.0, internal) url que permite el uso de tabletas wacom  */
 @property(nonatomic) MSOcrData* ocr;  
 @property(nonatomic) MSEvidenceGeneric* genericData;  
 - (id) type: (NSString*) type     
@@ -73,7 +72,6 @@
     geolocation: (MSGeolocation*) geolocation     
     imageQuality: (NSNumber*) imageQuality     
     imageScaleFactor: (NSNumber*) imageScaleFactor     
-    wacomURL: (NSString*) wacomURL     
     ocr: (MSOcrData*) ocr     
     genericData: (MSEvidenceGeneric*) genericData;
     

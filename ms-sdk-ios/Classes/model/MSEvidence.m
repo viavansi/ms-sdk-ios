@@ -32,7 +32,6 @@
 @synthesize geolocation = _geolocation;
 @synthesize imageQuality = _imageQuality;
 @synthesize imageScaleFactor = _imageScaleFactor;
-@synthesize wacomURL = _wacomURL;
 @synthesize ocr = _ocr;
 @synthesize genericData = _genericData;
 
@@ -65,7 +64,6 @@
     geolocation: (MSGeolocation*) geolocation
     imageQuality: (NSNumber*) imageQuality
     imageScaleFactor: (NSNumber*) imageScaleFactor
-    wacomURL: (NSString*) wacomURL
     ocr: (MSOcrData*) ocr
     genericData: (MSEvidenceGeneric*) genericData
     
@@ -99,7 +97,6 @@
     _geolocation = geolocation;
     _imageQuality = imageQuality;
     _imageScaleFactor = imageScaleFactor;
-    _wacomURL = wacomURL;
     _ocr = ocr;
     _genericData = genericData;
     
@@ -232,8 +229,6 @@
         _imageQuality = dict[@"imageQuality"];
         
         _imageScaleFactor = dict[@"imageScaleFactor"];
-        
-        _wacomURL = dict[@"wacomURL"];
         
         
         
@@ -499,10 +494,6 @@
     
     
             if(_imageScaleFactor != nil) dict[@"imageScaleFactor"] = _imageScaleFactor ;
-        
-    
-    
-            if(_wacomURL != nil) dict[@"wacomURL"] = _wacomURL ;
         
     
     

@@ -293,7 +293,6 @@
 }
 
 +(NSNumber*) prepareOtpSmsEvidence: (NSString*) messageCode
-         policyCode: (NSString*) policyCode
          evidenceCode: (NSString*) evidenceCode
         
         auth:(OAuth1Client *) auth onSuccess: (void (^)(MSEvidence* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock
@@ -307,7 +306,6 @@
     }
 
     [requestUrl replaceCharactersInRange: [requestUrl rangeOfString:[NSString stringWithFormat:@"%@%@%@", @"{", @"messageCode", @"}"]] withString: [ApiClient escape:messageCode]];
-    [requestUrl replaceCharactersInRange: [requestUrl rangeOfString:[NSString stringWithFormat:@"%@%@%@", @"{", @"policyCode", @"}"]] withString: [ApiClient escape:policyCode]];
     [requestUrl replaceCharactersInRange: [requestUrl rangeOfString:[NSString stringWithFormat:@"%@%@%@", @"{", @"evidenceCode", @"}"]] withString: [ApiClient escape:evidenceCode]];
     
 
@@ -369,9 +367,7 @@
 }
 
 +(NSNumber*) validateOtpSmsEvidence: (NSString*) messageCode
-         policyCode: (NSString*) policyCode
          evidenceCode: (NSString*) evidenceCode
-         operatioId: (NSString*) operatioId
          token: (NSString*) token
         
         auth:(OAuth1Client *) auth onSuccess: (void (^)(MSEvidence* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock
@@ -409,16 +405,8 @@
     formParams[@"messageCode"] = messageCode;
     }
     
-    if(policyCode){
-    formParams[@"policyCode"] = policyCode;
-    }
-    
     if(evidenceCode){
     formParams[@"evidenceCode"] = evidenceCode;
-    }
-    
-    if(operatioId){
-    formParams[@"operatioId"] = operatioId;
     }
     
     if(token){

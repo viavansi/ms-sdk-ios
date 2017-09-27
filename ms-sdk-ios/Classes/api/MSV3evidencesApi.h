@@ -78,15 +78,12 @@
  
  @param messageCode Message&#39;s unique code
  
- @param policyCode Policy&#39;s unique code
- 
  @param evidenceCode Evidence&#39;s unique code
  
 
  return type: MSEvidence*
  */
 +(NSNumber*) prepareOtpSmsEvidence :(NSString*) messageCode 
-     policyCode:(NSString*) policyCode 
      evidenceCode:(NSString*) evidenceCode 
     
     auth:(OAuth1Client *) auth onSuccess: (void (^)(MSEvidence* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
@@ -103,11 +100,7 @@
  
  @param messageCode messageCode
  
- @param policyCode policyCode
- 
  @param evidenceCode evidenceCode
- 
- @param operatioId operatioId
  
  @param token token
  
@@ -115,9 +108,7 @@
  return type: MSEvidence*
  */
 +(NSNumber*) validateOtpSmsEvidence :(NSString*) messageCode 
-     policyCode:(NSString*) policyCode 
      evidenceCode:(NSString*) evidenceCode 
-     operatioId:(NSString*) operatioId 
      token:(NSString*) token 
     
     auth:(OAuth1Client *) auth onSuccess: (void (^)(MSEvidence* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
