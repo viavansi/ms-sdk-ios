@@ -11,6 +11,7 @@
 @synthesize yAxis = _yAxis;
 @synthesize page = _page;
 @synthesize imageBase64 = _imageBase64;
+@synthesize positionsKey = _positionsKey;
 
 -(id)type: (NSString*) type
     rotation: (NSString*) rotation
@@ -20,6 +21,7 @@
     yAxis: (NSNumber*) yAxis
     page: (NSNumber*) page
     imageBase64: (NSString*) imageBase64
+    positionsKey: (NSString*) positionsKey
     
 {
     _type = type;
@@ -30,6 +32,7 @@
     _yAxis = yAxis;
     _page = page;
     _imageBase64 = imageBase64;
+    _positionsKey = positionsKey;
     
 
     return self;
@@ -54,6 +57,8 @@
         _page = dict[@"page"];
         
         _imageBase64 = dict[@"imageBase64"];
+        
+        _positionsKey = dict[@"positionsKey"];
         
         
     }
@@ -93,6 +98,10 @@
     
     
             if(_imageBase64 != nil) dict[@"imageBase64"] = _imageBase64 ;
+        
+    
+    
+            if(_positionsKey != nil) dict[@"positionsKey"] = _positionsKey ;
         
     
 
