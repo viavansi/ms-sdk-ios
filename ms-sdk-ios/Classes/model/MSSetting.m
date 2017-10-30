@@ -14,6 +14,7 @@
 @synthesize validateCode = _validateCode;
 @synthesize workflow = _workflow;
 @synthesize font = _font;
+@synthesize acrofieldsPositions = _acrofieldsPositions;
 
 -(id)titleKey: (NSString*) titleKey
     descriptionKey: (NSString*) descriptionKey
@@ -26,6 +27,7 @@
     validateCode: (NSString*) validateCode
     workflow: (NSString*) workflow
     font: (MSFont*) font
+    acrofieldsPositions: (NSArray*) acrofieldsPositions
     
 {
     _titleKey = titleKey;
@@ -39,6 +41,7 @@
     _validateCode = validateCode;
     _workflow = workflow;
     _font = font;
+    _acrofieldsPositions = acrofieldsPositions;
     
 
     return self;
@@ -100,6 +103,28 @@
         
         if(font_dict != nil)
             _font = [[MSFont  alloc]initWithValues:font_dict];
+        
+        
+        
+        
+        id acrofieldsPositions_dict = dict[@"acrofieldsPositions"];
+        
+        if([acrofieldsPositions_dict isKindOfClass:[NSArray class]]) {
+            NSMutableArray * objs = [[NSMutableArray alloc] initWithCapacity:[(NSArray*)acrofieldsPositions_dict count]];
+            if([(NSArray*)acrofieldsPositions_dict count] > 0) {
+                for (int i=0 ; i<[(NSArray*)acrofieldsPositions_dict count] ; i++) {
+                	NSDictionary *dict = [[NSDictionary alloc] initWithDictionary:[acrofieldsPositions_dict objectAtIndex:i]];
+                    MSAcrofieldPosition* d = [[MSAcrofieldPosition alloc] initWithValues:dict];
+                    [objs addObject:d];
+                }
+                _acrofieldsPositions = [[NSArray alloc] initWithArray:objs];
+            }
+            else
+                _acrofieldsPositions = [[NSArray alloc] init];
+        }
+        else {
+            _acrofieldsPositions = [[NSArray alloc] init];
+        }
         
         
         
@@ -212,6 +237,31 @@
         else {
         
             if(_font != nil) dict[@"font"] = [(SWGObject*)_font asDictionary];
+        
+        }
+    }
+    
+    
+    
+    if(_acrofieldsPositions != nil){
+        if([_acrofieldsPositions isKindOfClass:[NSArray class]]){
+            NSMutableArray * array = [[NSMutableArray alloc] init];
+            for( int i=0 ; i<[(NSArray*)_acrofieldsPositions count] ; i++ ) {
+				MSAcrofieldPosition *acrofieldsPositions = [[MSAcrofieldPosition alloc]init];
+				acrofieldsPositions = [(NSArray*)_acrofieldsPositions objectAtIndex:i];
+                [array addObject:[(SWGObject*)acrofieldsPositions asDictionary]];
+            }
+            dict[@"acrofieldsPositions"] = array;
+        }
+        else if(_acrofieldsPositions && [_acrofieldsPositions isKindOfClass:[SWGDate class]]) {
+            NSString * dateString = [(SWGDate*)_acrofieldsPositions toString];
+            if(dateString){
+                dict[@"acrofieldsPositions"] = dateString;
+            }
+        }
+        else {
+        
+            if(_acrofieldsPositions != nil) dict[@"acrofieldsPositions"] = [(SWGObject*)_acrofieldsPositions asDictionary];
         
         }
     }

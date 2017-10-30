@@ -17,8 +17,8 @@
 @property(nonatomic) NSString* base64Image;  
 @property(nonatomic) NSString* providerId;  
 @property(nonatomic) NSString* evidenceDescription;  
-@property(nonatomic) NSNumber* imageQuality;  
 @property(nonatomic) NSNumber* imageScaleFactor;  
+@property(nonatomic) NSNumber* imageQuality;  
 - (id) messageCode: (NSString*) messageCode     
     evidenceCode: (NSString*) evidenceCode     
     geolocation: (MSGeolocation*) geolocation     
@@ -28,8 +28,8 @@
     base64Image: (NSString*) base64Image     
     providerId: (NSString*) providerId     
     evidenceDescription: (NSString*) evidenceDescription     
-    imageQuality: (NSNumber*) imageQuality     
-    imageScaleFactor: (NSNumber*) imageScaleFactor;
+    imageScaleFactor: (NSNumber*) imageScaleFactor     
+    imageQuality: (NSNumber*) imageQuality;
     
 
 - (id) initWithValues: (NSDictionary*)dict;

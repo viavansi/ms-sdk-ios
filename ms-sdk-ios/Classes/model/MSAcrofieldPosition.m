@@ -1,0 +1,85 @@
+#import "SWGDate.h"
+#import "MSAcrofieldPosition.h"
+
+@implementation MSAcrofieldPosition
+
+@synthesize _id = __id;
+@synthesize rectangle = _rectangle;
+@synthesize page = _page;
+
+-(id)_id: (NSString*) _id
+    rectangle: (MSRectangle*) rectangle
+    page: (NSNumber*) page
+    
+{
+    __id = _id;
+    _rectangle = rectangle;
+    _page = page;
+    
+
+    return self;
+}
+
+-(id) initWithValues:(NSDictionary*)dict
+{
+    self = [super init];
+    if(self) {
+        __id = dict[@"id"];
+        
+        
+        
+        id rectangle_dict = dict[@"rectangle"];
+        
+        if(rectangle_dict != nil)
+            _rectangle = [[MSRectangle  alloc]initWithValues:rectangle_dict];
+        
+        
+        _page = dict[@"page"];
+        
+        
+    }
+    return self;
+}
+
+-(NSDictionary*) asDictionary {
+    NSMutableDictionary* dict = [[NSMutableDictionary alloc] init];
+    
+    
+            if(__id != nil) dict[@"id"] = __id ;
+        
+    
+    
+    if(_rectangle != nil){
+        if([_rectangle isKindOfClass:[NSArray class]]){
+            NSMutableArray * array = [[NSMutableArray alloc] init];
+            for( int i=0 ; i<[(NSArray*)_rectangle count] ; i++ ) {
+				MSRectangle *rectangle = [[MSRectangle alloc]init];
+				rectangle = [(NSArray*)_rectangle objectAtIndex:i];
+                [array addObject:[(SWGObject*)rectangle asDictionary]];
+            }
+            dict[@"rectangle"] = array;
+        }
+        else if(_rectangle && [_rectangle isKindOfClass:[SWGDate class]]) {
+            NSString * dateString = [(SWGDate*)_rectangle toString];
+            if(dateString){
+                dict[@"rectangle"] = dateString;
+            }
+        }
+        else {
+        
+            if(_rectangle != nil) dict[@"rectangle"] = [(SWGObject*)_rectangle asDictionary];
+        
+        }
+    }
+    
+    
+    
+            if(_page != nil) dict[@"page"] = _page ;
+        
+    
+
+    NSDictionary* output = [dict copy];
+    return output;
+}
+
+@end

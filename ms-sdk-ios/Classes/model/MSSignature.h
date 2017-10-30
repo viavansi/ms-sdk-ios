@@ -16,6 +16,7 @@
 @property(nonatomic) NSString* idSign;  
 @property(nonatomic) NSNumber* custodyDisabled;  
 @property(nonatomic) NSArray* stampers;  
+@property(nonatomic) NSNumber* lastUpdated;  
 @property(nonatomic) NSString* certificationLevel;  
 - (id) type: (NSString*) type     
     code: (NSString*) code     
@@ -28,6 +29,7 @@
     idSign: (NSString*) idSign     
     custodyDisabled: (NSNumber*) custodyDisabled     
     stampers: (NSArray*) stampers     
+    lastUpdated: (NSNumber*) lastUpdated     
     certificationLevel: (NSString*) certificationLevel;
     
 

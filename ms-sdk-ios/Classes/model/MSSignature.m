@@ -14,6 +14,7 @@
 @synthesize idSign = _idSign;
 @synthesize custodyDisabled = _custodyDisabled;
 @synthesize stampers = _stampers;
+@synthesize lastUpdated = _lastUpdated;
 @synthesize certificationLevel = _certificationLevel;
 
 -(id)type: (NSString*) type
@@ -27,6 +28,7 @@
     idSign: (NSString*) idSign
     custodyDisabled: (NSNumber*) custodyDisabled
     stampers: (NSArray*) stampers
+    lastUpdated: (NSNumber*) lastUpdated
     certificationLevel: (NSString*) certificationLevel
     
 {
@@ -41,6 +43,7 @@
     _idSign = idSign;
     _custodyDisabled = custodyDisabled;
     _stampers = stampers;
+    _lastUpdated = lastUpdated;
     _certificationLevel = certificationLevel;
     
 
@@ -92,6 +95,8 @@
             _stampers = [[NSArray alloc] init];
         }
         
+        
+        _lastUpdated = dict[@"lastUpdated"];
         
         _certificationLevel = dict[@"certificationLevel"];
         
@@ -167,6 +172,10 @@
         }
     }
     
+    
+    
+            if(_lastUpdated != nil) dict[@"lastUpdated"] = _lastUpdated ;
+        
     
     
             if(_certificationLevel != nil) dict[@"certificationLevel"] = _certificationLevel ;

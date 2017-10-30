@@ -18,6 +18,7 @@
 @synthesize pdfaCompliant = _pdfaCompliant;
 @synthesize font = _font;
 @synthesize policyCode = _policyCode;
+@synthesize password = _password;
 
 -(id)templateCode: (NSString*) templateCode
     templateReference: (NSString*) templateReference
@@ -34,6 +35,7 @@
     pdfaCompliant: (NSNumber*) pdfaCompliant
     font: (MSFont*) font
     policyCode: (NSString*) policyCode
+    password: (NSString*) password
     
 {
     _templateCode = templateCode;
@@ -51,6 +53,7 @@
     _pdfaCompliant = pdfaCompliant;
     _font = font;
     _policyCode = policyCode;
+    _password = password;
     
 
     return self;
@@ -115,6 +118,8 @@
         
         
         _policyCode = dict[@"policyCode"];
+        
+        _password = dict[@"password"];
         
         
     }
@@ -224,6 +229,10 @@
     
     
             if(_policyCode != nil) dict[@"policyCode"] = _policyCode ;
+        
+    
+    
+            if(_password != nil) dict[@"password"] = _password ;
         
     
 

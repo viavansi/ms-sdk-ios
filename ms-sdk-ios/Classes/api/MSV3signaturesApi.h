@@ -5,6 +5,7 @@
 #import "MSPrepareSignature.h"
 #import "MSPolicy.h"
 #import "MSEvidenceSignature.h"
+#import "MSMessage.h"
 #import "SWGObject.h"
 #import "OAuth1Client.h"
 
@@ -88,6 +89,31 @@
      signatureCode:(NSString*) signatureCode 
     
     auth:(OAuth1Client *) auth onSuccess: (void (^)(MSSignature* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    
+
+
+/**
+
+ Method to update the status of a signature
+ 
+ 
+ 
+
+ 
+ @param messageCode messageCode
+ 
+ @param signatureCode signatureCode
+ 
+ @param status status
+ 
+
+ return type: MSMessage*
+ */
++(NSNumber*) updateSignatureStatus :(NSString*) messageCode 
+     signatureCode:(NSString*) signatureCode 
+     status:(NSString*) status 
+    
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(MSMessage* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     
 
 

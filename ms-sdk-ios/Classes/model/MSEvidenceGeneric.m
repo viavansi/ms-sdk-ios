@@ -12,8 +12,8 @@
 @synthesize base64Image = _base64Image;
 @synthesize providerId = _providerId;
 @synthesize evidenceDescription = _evidenceDescription;
-@synthesize imageQuality = _imageQuality;
 @synthesize imageScaleFactor = _imageScaleFactor;
+@synthesize imageQuality = _imageQuality;
 
 -(id)messageCode: (NSString*) messageCode
     evidenceCode: (NSString*) evidenceCode
@@ -24,8 +24,8 @@
     base64Image: (NSString*) base64Image
     providerId: (NSString*) providerId
     evidenceDescription: (NSString*) evidenceDescription
-    imageQuality: (NSNumber*) imageQuality
     imageScaleFactor: (NSNumber*) imageScaleFactor
+    imageQuality: (NSNumber*) imageQuality
     
 {
     _messageCode = messageCode;
@@ -37,8 +37,8 @@
     _base64Image = base64Image;
     _providerId = providerId;
     _evidenceDescription = evidenceDescription;
-    _imageQuality = imageQuality;
     _imageScaleFactor = imageScaleFactor;
+    _imageQuality = imageQuality;
     
 
     return self;
@@ -118,9 +118,9 @@
         
         _evidenceDescription = dict[@"evidenceDescription"];
         
-        _imageQuality = dict[@"imageQuality"];
-        
         _imageScaleFactor = dict[@"imageScaleFactor"];
+        
+        _imageQuality = dict[@"imageQuality"];
         
         
     }
@@ -251,11 +251,11 @@
         
     
     
-            if(_imageQuality != nil) dict[@"imageQuality"] = _imageQuality ;
+            if(_imageScaleFactor != nil) dict[@"imageScaleFactor"] = _imageScaleFactor ;
         
     
     
-            if(_imageScaleFactor != nil) dict[@"imageScaleFactor"] = _imageScaleFactor ;
+            if(_imageQuality != nil) dict[@"imageQuality"] = _imageQuality ;
         
     
 
