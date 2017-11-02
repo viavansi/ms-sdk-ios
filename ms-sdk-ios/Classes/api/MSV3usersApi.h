@@ -1,6 +1,7 @@
 #import <Foundation/Foundation.h>
 #import "MSUser.h"
 #import "SWGObject.h"
+#import "OAuth1Client.h"
 
 
 @interface MSV3usersApi: NSObject
@@ -21,7 +22,7 @@
  */
 +(NSNumber*) updateUser :(MSUser*) body 
     
-    onSuccess: (void (^)(MSUser* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(MSUser* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     
 
 
@@ -40,7 +41,7 @@
  */
 +(NSNumber*) registerUser :(MSUser*) body 
     
-    onSuccess: (void (^)(MSUser* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(MSUser* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     
 
 
@@ -59,7 +60,7 @@
  */
 +(NSNumber*) findUserByEmail :(NSString*) email 
     
-    onSuccess: (void (^)(MSUser* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(MSUser* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     
 
 
@@ -81,7 +82,7 @@
 +(NSNumber*) reactivateUserByCode :(NSString*) userCode 
      email:(NSString*) email 
     
-    onSuccess: (void (^)(MSUser* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(MSUser* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     
 
 
@@ -100,7 +101,7 @@
  */
 +(NSNumber*) sendConfirmEmail :(NSString*) userCode 
     
-    onSuccess: (void (^)(MSUser* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(MSUser* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     
 
 
@@ -119,7 +120,7 @@
  */
 +(NSNumber*) sendResetPasswordEmail :(NSString*) userCode 
     
-    onSuccess: (void (^)(MSUser* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(MSUser* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     
 
 
@@ -138,7 +139,7 @@
  */
 +(NSNumber*) findUserByCode :(NSString*) userCode 
     
-    onSuccess: (void (^)(MSUser* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(MSUser* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     
 
 

@@ -7,6 +7,7 @@
 #import "MSPolicy.h"
 #import "MSMessage.h"
 #import "SWGObject.h"
+#import "OAuth1Client.h"
 
 
 @interface MSV3signaturesApi: NSObject
@@ -27,7 +28,7 @@
  */
 +(NSNumber*) finalizeClientSignature :(MSWrapSignature*) body 
     
-    onSuccess: (void (^)(MSSignature* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(MSSignature* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     
 
 
@@ -46,7 +47,7 @@
  */
 +(NSNumber*) prepareClientSignature :(MSPrepareSignature*) body 
     
-    onSuccess: (void (^)(MSDataToSign* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(MSDataToSign* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     
 
 
@@ -65,7 +66,7 @@
  */
 +(NSNumber*) addDigitalizedSignature :(MSEvidenceSignature*) body 
     
-    onSuccess: (void (^)(MSPolicy* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(MSPolicy* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     
 
 
@@ -87,7 +88,7 @@
 +(NSNumber*) addServerSignature :(NSString*) messageCode 
      signatureCode:(NSString*) signatureCode 
     
-    onSuccess: (void (^)(MSSignature* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(MSSignature* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     
 
 
@@ -112,7 +113,7 @@
      signatureCode:(NSString*) signatureCode 
      status:(NSString*) status 
     
-    onSuccess: (void (^)(MSMessage* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(MSMessage* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     
 
 

@@ -2,6 +2,7 @@
 #import "MSIdenticaRequestResult.h"
 #import "MSIdenticaStatusResult.h"
 #import "SWGObject.h"
+#import "OAuth1Client.h"
 
 
 @interface MSV3identicaApi: NSObject
@@ -31,7 +32,7 @@
      serialId:(NSString*) serialId 
      userId:(NSString*) userId 
     
-    onSuccess: (void (^)(MSIdenticaRequestResult* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(MSIdenticaRequestResult* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     
 
 
@@ -53,7 +54,7 @@
 +(NSNumber*) requestFingerprintStatus :(NSString*) identicaServer 
      requestId:(NSString*) requestId 
     
-    onSuccess: (void (^)(MSIdenticaStatusResult* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(MSIdenticaStatusResult* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     
 
 

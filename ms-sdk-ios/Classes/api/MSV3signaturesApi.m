@@ -20,7 +20,7 @@
 
 +(NSNumber*) finalizeClientSignature: (MSWrapSignature*) body
         
-        onSuccess: (void (^)(MSSignature* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock
+        auth:(OAuth1Client *) auth onSuccess: (void (^)(MSSignature* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock
          {
 
     NSMutableString* requestUrl = [NSMutableString stringWithFormat:@"%@/v3/signatures/client/finalize", [[ApiClient sharedInstance] url]];
@@ -34,10 +34,10 @@
 
 	NSArray * requestContentTypes = @[@"application/json"];
     NSString* requestContentType = requestContentTypes.count > 0 ? requestContentTypes[0] : @"application/json";
-    
+
     NSArray * responseContentTypes = @[@"application/json"];
     NSString* responseContentType = responseContentTypes.count > 0 ? responseContentTypes[0] : @"application/json";
-	
+
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     
     NSMutableDictionary* headerParams = [[NSMutableDictionary alloc] init];
@@ -84,10 +84,11 @@
     
         
     // comples response type
-    return [client dictionary: requestUrl 
-                       method: @"POST" 
-                  queryParams: queryParams 
-                         body: bodyDictionary 
+    return [client dictionary: auth
+					         requestUrl: requestUrl 
+                       method: @"POST"
+                  queryParams: queryParams
+                         body: bodyDictionary
                  headerParams: headerParams
            requestContentType: requestContentType
           responseContentType: responseContentType
@@ -105,12 +106,13 @@
                     
               }];
     
+
     
 }
 
 +(NSNumber*) prepareClientSignature: (MSPrepareSignature*) body
         
-        onSuccess: (void (^)(MSDataToSign* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock
+        auth:(OAuth1Client *) auth onSuccess: (void (^)(MSDataToSign* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock
          {
 
     NSMutableString* requestUrl = [NSMutableString stringWithFormat:@"%@/v3/signatures/client/prepare", [[ApiClient sharedInstance] url]];
@@ -124,10 +126,10 @@
 
 	NSArray * requestContentTypes = @[@"application/json"];
     NSString* requestContentType = requestContentTypes.count > 0 ? requestContentTypes[0] : @"application/json";
-    
+
     NSArray * responseContentTypes = @[@"application/json"];
     NSString* responseContentType = responseContentTypes.count > 0 ? responseContentTypes[0] : @"application/json";
-	
+
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     
     NSMutableDictionary* headerParams = [[NSMutableDictionary alloc] init];
@@ -174,10 +176,11 @@
     
         
     // comples response type
-    return [client dictionary: requestUrl 
-                       method: @"POST" 
-                  queryParams: queryParams 
-                         body: bodyDictionary 
+    return [client dictionary: auth
+					         requestUrl: requestUrl 
+                       method: @"POST"
+                  queryParams: queryParams
+                         body: bodyDictionary
                  headerParams: headerParams
            requestContentType: requestContentType
           responseContentType: responseContentType
@@ -195,12 +198,13 @@
                     
               }];
     
+
     
 }
 
 +(NSNumber*) addDigitalizedSignature: (MSEvidenceSignature*) body
         
-        onSuccess: (void (^)(MSPolicy* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock
+        auth:(OAuth1Client *) auth onSuccess: (void (^)(MSPolicy* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock
          {
 
     NSMutableString* requestUrl = [NSMutableString stringWithFormat:@"%@/v3/signatures/digitalized", [[ApiClient sharedInstance] url]];
@@ -214,10 +218,10 @@
 
 	NSArray * requestContentTypes = @[@"application/json"];
     NSString* requestContentType = requestContentTypes.count > 0 ? requestContentTypes[0] : @"application/json";
-    
+
     NSArray * responseContentTypes = @[@"application/json"];
     NSString* responseContentType = responseContentTypes.count > 0 ? responseContentTypes[0] : @"application/json";
-	
+
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     
     NSMutableDictionary* headerParams = [[NSMutableDictionary alloc] init];
@@ -264,10 +268,11 @@
     
         
     // comples response type
-    return [client dictionary: requestUrl 
-                       method: @"POST" 
-                  queryParams: queryParams 
-                         body: bodyDictionary 
+    return [client dictionary: auth
+					         requestUrl: requestUrl 
+                       method: @"POST"
+                  queryParams: queryParams
+                         body: bodyDictionary
                  headerParams: headerParams
            requestContentType: requestContentType
           responseContentType: responseContentType
@@ -285,13 +290,14 @@
                     
               }];
     
+
     
 }
 
 +(NSNumber*) addServerSignature: (NSString*) messageCode
          signatureCode: (NSString*) signatureCode
         
-        onSuccess: (void (^)(MSSignature* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock
+        auth:(OAuth1Client *) auth onSuccess: (void (^)(MSSignature* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock
          {
 
     NSMutableString* requestUrl = [NSMutableString stringWithFormat:@"%@/v3/signatures/server", [[ApiClient sharedInstance] url]];
@@ -305,10 +311,10 @@
 
 	NSArray * requestContentTypes = @[@"application/x-www-form-urlencoded"];
     NSString* requestContentType = requestContentTypes.count > 0 ? requestContentTypes[0] : @"application/json";
-    
+
     NSArray * responseContentTypes = @[@"application/json"];
     NSString* responseContentType = responseContentTypes.count > 0 ? responseContentTypes[0] : @"application/json";
-	
+
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     
     NSMutableDictionary* headerParams = [[NSMutableDictionary alloc] init];
@@ -319,7 +325,7 @@
     
     bodyDictionary = [[NSMutableArray alloc] init];
 
-    NSMutableDictionary * formParams = [[NSMutableDictionary alloc]init]; 
+    NSMutableDictionary * formParams = [[NSMutableDictionary alloc]init];
 
     
     if(messageCode){
@@ -342,10 +348,11 @@
     
         
     // comples response type
-    return [client dictionary: requestUrl 
-                       method: @"POST" 
-                  queryParams: queryParams 
-                         body: bodyDictionary 
+    return [client dictionary: auth
+					         requestUrl: requestUrl 
+                       method: @"POST"
+                  queryParams: queryParams
+                         body: bodyDictionary
                  headerParams: headerParams
            requestContentType: requestContentType
           responseContentType: responseContentType
@@ -363,6 +370,7 @@
                     
               }];
     
+
     
 }
 
@@ -370,7 +378,7 @@
          signatureCode: (NSString*) signatureCode
          status: (NSString*) status
         
-        onSuccess: (void (^)(MSMessage* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock
+        auth:(OAuth1Client *) auth onSuccess: (void (^)(MSMessage* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock
          {
 
     NSMutableString* requestUrl = [NSMutableString stringWithFormat:@"%@/v3/signatures/update/status", [[ApiClient sharedInstance] url]];
@@ -384,10 +392,10 @@
 
 	NSArray * requestContentTypes = @[@"application/x-www-form-urlencoded"];
     NSString* requestContentType = requestContentTypes.count > 0 ? requestContentTypes[0] : @"application/json";
-    
+
     NSArray * responseContentTypes = @[@"application/json"];
     NSString* responseContentType = responseContentTypes.count > 0 ? responseContentTypes[0] : @"application/json";
-	
+
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     
     NSMutableDictionary* headerParams = [[NSMutableDictionary alloc] init];
@@ -398,7 +406,7 @@
     
     bodyDictionary = [[NSMutableArray alloc] init];
 
-    NSMutableDictionary * formParams = [[NSMutableDictionary alloc]init]; 
+    NSMutableDictionary * formParams = [[NSMutableDictionary alloc]init];
 
     
     if(messageCode){
@@ -425,10 +433,11 @@
     
         
     // comples response type
-    return [client dictionary: requestUrl 
-                       method: @"POST" 
-                  queryParams: queryParams 
-                         body: bodyDictionary 
+    return [client dictionary: auth
+					         requestUrl: requestUrl 
+                       method: @"POST"
+                  queryParams: queryParams
+                         body: bodyDictionary
                  headerParams: headerParams
            requestContentType: requestContentType
           responseContentType: responseContentType
@@ -446,6 +455,7 @@
                     
               }];
     
+
     
 }
 

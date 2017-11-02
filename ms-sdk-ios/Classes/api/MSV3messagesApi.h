@@ -6,6 +6,7 @@
 #import "MSDocument.h"
 #import "MSMessagePaginatedList.h"
 #import "SWGObject.h"
+#import "OAuth1Client.h"
 
 
 @interface MSV3messagesApi: NSObject
@@ -26,7 +27,7 @@
  */
 +(NSNumber*) sendMessage :(MSMessage*) body 
     
-    onSuccess: (void (^)(NSString* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(NSString* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     
 
 
@@ -45,7 +46,7 @@
  */
 +(NSNumber*) sendMessageData :(MSMessageData*) body 
     
-    onSuccess: (void (^)(MSMessage* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(MSMessage* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     
 
 
@@ -64,7 +65,7 @@
  */
 +(NSNumber*) documentBuild :(MSMessage*) body 
     
-    onSuccess: (void (^)(MSDownload* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(MSDownload* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     
 
 
@@ -83,7 +84,7 @@
  */
 +(NSNumber*) finalizeMessage :(NSString*) messageCode 
     
-    onSuccess: (void (^)(MSMessage* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(MSMessage* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     
 
 
@@ -105,7 +106,7 @@
 +(NSNumber*) rejectMessageByCode :(NSString*) messageCode 
      comment:(NSString*) comment 
     
-    onSuccess: (void (^)(MSMessage* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(MSMessage* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     
 
 
@@ -124,7 +125,7 @@
  */
 +(NSNumber*) getMessageStatusByCode :(NSString*) messageCode 
     
-    onSuccess: (void (^)(MSMessageStatus* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(MSMessageStatus* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     
 
 
@@ -146,7 +147,7 @@
 +(NSNumber*) updateDocument :(NSString*) messageCode 
      body:(MSDocument*) body 
     
-    onSuccess: (void (^)(MSMessage* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(MSMessage* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     
 
 
@@ -165,7 +166,7 @@
  */
 +(NSNumber*) getMessageByCode :(NSString*) messageCode 
     
-    onSuccess: (void (^)(MSMessage* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(MSMessage* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     
 
 
@@ -193,7 +194,7 @@
      index:(NSString*) index 
      page_size:(NSString*) page_size 
     
-    onSuccess: (void (^)(NSArray* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(NSArray* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     
 
 
@@ -221,7 +222,7 @@
      index:(NSString*) index 
      page_size:(NSString*) page_size 
     
-    onSuccess: (void (^)(NSArray* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(NSArray* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     
 
 

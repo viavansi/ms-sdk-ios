@@ -17,7 +17,7 @@
 
 +(NSNumber*) downloadFontByName: (NSString*) fontName
         
-        onSuccess: (void (^)(MSDownload* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock
+        auth:(OAuth1Client *) auth onSuccess: (void (^)(MSDownload* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock
          {
 
     NSMutableString* requestUrl = [NSMutableString stringWithFormat:@"%@/v3/template/font/{fontName}", [[ApiClient sharedInstance] url]];
@@ -32,10 +32,10 @@
 
 	NSArray * requestContentTypes = @[];
     NSString* requestContentType = requestContentTypes.count > 0 ? requestContentTypes[0] : @"application/json";
-    
+
     NSArray * responseContentTypes = @[@"application/json"];
     NSString* responseContentType = responseContentTypes.count > 0 ? responseContentTypes[0] : @"application/json";
-	
+
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     
     NSMutableDictionary* headerParams = [[NSMutableDictionary alloc] init];
@@ -46,7 +46,7 @@
     
     bodyDictionary = [[NSMutableArray alloc] init];
 
-    NSMutableDictionary * formParams = [[NSMutableDictionary alloc]init]; 
+    NSMutableDictionary * formParams = [[NSMutableDictionary alloc]init];
 
     
     [bodyDictionary addObject:formParams];
@@ -61,10 +61,11 @@
     
         
     // comples response type
-    return [client dictionary: requestUrl 
-                       method: @"GET" 
-                  queryParams: queryParams 
-                         body: bodyDictionary 
+    return [client dictionary: auth
+					         requestUrl: requestUrl 
+                       method: @"GET"
+                  queryParams: queryParams
+                         body: bodyDictionary
                  headerParams: headerParams
            requestContentType: requestContentType
           responseContentType: responseContentType
@@ -82,12 +83,13 @@
                     
               }];
     
+
     
 }
 
 +(NSNumber*) findTemplatesByUser: (NSString*) userCode
         
-        onSuccess: (void (^)(NSArray* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock
+        auth:(OAuth1Client *) auth onSuccess: (void (^)(NSArray* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock
          {
 
     NSMutableString* requestUrl = [NSMutableString stringWithFormat:@"%@/v3/template/list/{userCode}", [[ApiClient sharedInstance] url]];
@@ -102,10 +104,10 @@
 
 	NSArray * requestContentTypes = @[];
     NSString* requestContentType = requestContentTypes.count > 0 ? requestContentTypes[0] : @"application/json";
-    
+
     NSArray * responseContentTypes = @[];
     NSString* responseContentType = responseContentTypes.count > 0 ? responseContentTypes[0] : @"application/json";
-	
+
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     
     NSMutableDictionary* headerParams = [[NSMutableDictionary alloc] init];
@@ -116,7 +118,7 @@
     
     bodyDictionary = [[NSMutableArray alloc] init];
 
-    NSMutableDictionary * formParams = [[NSMutableDictionary alloc]init]; 
+    NSMutableDictionary * formParams = [[NSMutableDictionary alloc]init];
 
     
     [bodyDictionary addObject:formParams];
@@ -127,7 +129,8 @@
     ApiClient* client = [ApiClient sharedInstance];
 
         // array container response type
-    return [client dictionary: requestUrl 
+    return [client dictionary: auth
+                   requestUrl: requestUrl 
                        method: @"GET" 
                   queryParams: queryParams 
                          body: bodyDictionary 
@@ -157,7 +160,7 @@
 
 +(NSNumber*) generatePdf: (MSDocument*) body
         
-        onSuccess: (void (^)(MSDownload* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock
+        auth:(OAuth1Client *) auth onSuccess: (void (^)(MSDownload* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock
          {
 
     NSMutableString* requestUrl = [NSMutableString stringWithFormat:@"%@/v3/template/pdf", [[ApiClient sharedInstance] url]];
@@ -171,10 +174,10 @@
 
 	NSArray * requestContentTypes = @[@"application/json"];
     NSString* requestContentType = requestContentTypes.count > 0 ? requestContentTypes[0] : @"application/json";
-    
+
     NSArray * responseContentTypes = @[@"application/json"];
     NSString* responseContentType = responseContentTypes.count > 0 ? responseContentTypes[0] : @"application/json";
-	
+
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     
     NSMutableDictionary* headerParams = [[NSMutableDictionary alloc] init];
@@ -221,10 +224,11 @@
     
         
     // comples response type
-    return [client dictionary: requestUrl 
-                       method: @"POST" 
-                  queryParams: queryParams 
-                         body: bodyDictionary 
+    return [client dictionary: auth
+					         requestUrl: requestUrl 
+                       method: @"POST"
+                  queryParams: queryParams
+                         body: bodyDictionary
                  headerParams: headerParams
            requestContentType: requestContentType
           responseContentType: responseContentType
@@ -242,12 +246,13 @@
                     
               }];
     
+
     
 }
 
 +(NSNumber*) downloadTemplatePdfByCode: (NSString*) code
         
-        onSuccess: (void (^)(MSDownload* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock
+        auth:(OAuth1Client *) auth onSuccess: (void (^)(MSDownload* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock
          {
 
     NSMutableString* requestUrl = [NSMutableString stringWithFormat:@"%@/v3/template/pdf/{code}", [[ApiClient sharedInstance] url]];
@@ -262,10 +267,10 @@
 
 	NSArray * requestContentTypes = @[];
     NSString* requestContentType = requestContentTypes.count > 0 ? requestContentTypes[0] : @"application/json";
-    
+
     NSArray * responseContentTypes = @[];
     NSString* responseContentType = responseContentTypes.count > 0 ? responseContentTypes[0] : @"application/json";
-	
+
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     
     NSMutableDictionary* headerParams = [[NSMutableDictionary alloc] init];
@@ -276,7 +281,7 @@
     
     bodyDictionary = [[NSMutableArray alloc] init];
 
-    NSMutableDictionary * formParams = [[NSMutableDictionary alloc]init]; 
+    NSMutableDictionary * formParams = [[NSMutableDictionary alloc]init];
 
     
     [bodyDictionary addObject:formParams];
@@ -291,10 +296,11 @@
     
         
     // comples response type
-    return [client dictionary: requestUrl 
-                       method: @"GET" 
-                  queryParams: queryParams 
-                         body: bodyDictionary 
+    return [client dictionary: auth
+					         requestUrl: requestUrl 
+                       method: @"GET"
+                  queryParams: queryParams
+                         body: bodyDictionary
                  headerParams: headerParams
            requestContentType: requestContentType
           responseContentType: responseContentType
@@ -312,12 +318,13 @@
                     
               }];
     
+
     
 }
 
 +(NSNumber*) findTemplateByCode: (NSString*) code
         
-        onSuccess: (void (^)(MSTemplate* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock
+        auth:(OAuth1Client *) auth onSuccess: (void (^)(MSTemplate* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock
          {
 
     NSMutableString* requestUrl = [NSMutableString stringWithFormat:@"%@/v3/template/{code}", [[ApiClient sharedInstance] url]];
@@ -332,10 +339,10 @@
 
 	NSArray * requestContentTypes = @[];
     NSString* requestContentType = requestContentTypes.count > 0 ? requestContentTypes[0] : @"application/json";
-    
+
     NSArray * responseContentTypes = @[];
     NSString* responseContentType = responseContentTypes.count > 0 ? responseContentTypes[0] : @"application/json";
-	
+
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     
     NSMutableDictionary* headerParams = [[NSMutableDictionary alloc] init];
@@ -346,7 +353,7 @@
     
     bodyDictionary = [[NSMutableArray alloc] init];
 
-    NSMutableDictionary * formParams = [[NSMutableDictionary alloc]init]; 
+    NSMutableDictionary * formParams = [[NSMutableDictionary alloc]init];
 
     
     [bodyDictionary addObject:formParams];
@@ -361,10 +368,11 @@
     
         
     // comples response type
-    return [client dictionary: requestUrl 
-                       method: @"GET" 
-                  queryParams: queryParams 
-                         body: bodyDictionary 
+    return [client dictionary: auth
+					         requestUrl: requestUrl 
+                       method: @"GET"
+                  queryParams: queryParams
+                         body: bodyDictionary
                  headerParams: headerParams
            requestContentType: requestContentType
           responseContentType: responseContentType
@@ -382,6 +390,7 @@
                     
               }];
     
+
     
 }
 

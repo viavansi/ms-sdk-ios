@@ -16,7 +16,7 @@
          x_auth_username: (NSString*) x_auth_username
          x_auth_password: (NSString*) x_auth_password
         
-        onSuccess: (void (^)(MSToken* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock
+        auth:(OAuth1Client *) auth onSuccess: (void (^)(MSToken* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock
          {
 
     NSMutableString* requestUrl = [NSMutableString stringWithFormat:@"%@/v3/oauth/accessToken", [[ApiClient sharedInstance] url]];
@@ -30,10 +30,10 @@
 
 	NSArray * requestContentTypes = @[@"application/x-www-form-urlencoded"];
     NSString* requestContentType = requestContentTypes.count > 0 ? requestContentTypes[0] : @"application/json";
-    
+
     NSArray * responseContentTypes = @[@"application/json"];
     NSString* responseContentType = responseContentTypes.count > 0 ? responseContentTypes[0] : @"application/json";
-	
+
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     
     NSMutableDictionary* headerParams = [[NSMutableDictionary alloc] init];
@@ -44,7 +44,7 @@
     
     bodyDictionary = [[NSMutableArray alloc] init];
 
-    NSMutableDictionary * formParams = [[NSMutableDictionary alloc]init]; 
+    NSMutableDictionary * formParams = [[NSMutableDictionary alloc]init];
 
     
     if(x_auth_mode){
@@ -71,10 +71,11 @@
     
         
     // comples response type
-    return [client dictionary: requestUrl 
-                       method: @"POST" 
-                  queryParams: queryParams 
-                         body: bodyDictionary 
+    return [client dictionary: auth
+					         requestUrl: requestUrl 
+                       method: @"POST"
+                  queryParams: queryParams
+                         body: bodyDictionary
                  headerParams: headerParams
            requestContentType: requestContentType
           responseContentType: responseContentType
@@ -92,10 +93,11 @@
                     
               }];
     
+
     
 }
 
-+(NSNumber*) requestToken: 
++(NSNumber*) requestToken:(OAuth1Client *) auth onSuccess: 
         (void (^)(MSToken* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock
          {
 
@@ -110,10 +112,10 @@
 
 	NSArray * requestContentTypes = @[];
     NSString* requestContentType = requestContentTypes.count > 0 ? requestContentTypes[0] : @"application/json";
-    
+
     NSArray * responseContentTypes = @[@"application/json"];
     NSString* responseContentType = responseContentTypes.count > 0 ? responseContentTypes[0] : @"application/json";
-	
+
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     
     NSMutableDictionary* headerParams = [[NSMutableDictionary alloc] init];
@@ -124,7 +126,7 @@
     
     bodyDictionary = [[NSMutableArray alloc] init];
 
-    NSMutableDictionary * formParams = [[NSMutableDictionary alloc]init]; 
+    NSMutableDictionary * formParams = [[NSMutableDictionary alloc]init];
 
     
     [bodyDictionary addObject:formParams];
@@ -139,10 +141,11 @@
     
         
     // comples response type
-    return [client dictionary: requestUrl 
-                       method: @"GET" 
-                  queryParams: queryParams 
-                         body: bodyDictionary 
+    return [client dictionary: auth
+					         requestUrl: requestUrl 
+                       method: @"GET"
+                  queryParams: queryParams
+                         body: bodyDictionary
                  headerParams: headerParams
            requestContentType: requestContentType
           responseContentType: responseContentType
@@ -160,6 +163,7 @@
                     
               }];
     
+
     
 }
 

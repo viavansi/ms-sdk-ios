@@ -18,7 +18,7 @@
          serialId: (NSString*) serialId
          userId: (NSString*) userId
         
-        onSuccess: (void (^)(MSIdenticaRequestResult* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock
+        auth:(OAuth1Client *) auth onSuccess: (void (^)(MSIdenticaRequestResult* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock
          {
 
     NSMutableString* requestUrl = [NSMutableString stringWithFormat:@"%@/v3/identica/request", [[ApiClient sharedInstance] url]];
@@ -32,10 +32,10 @@
 
 	NSArray * requestContentTypes = @[@"application/x-www-form-urlencoded"];
     NSString* requestContentType = requestContentTypes.count > 0 ? requestContentTypes[0] : @"application/json";
-    
+
     NSArray * responseContentTypes = @[@"application/json"];
     NSString* responseContentType = responseContentTypes.count > 0 ? responseContentTypes[0] : @"application/json";
-	
+
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     
     NSMutableDictionary* headerParams = [[NSMutableDictionary alloc] init];
@@ -46,7 +46,7 @@
     
     bodyDictionary = [[NSMutableArray alloc] init];
 
-    NSMutableDictionary * formParams = [[NSMutableDictionary alloc]init]; 
+    NSMutableDictionary * formParams = [[NSMutableDictionary alloc]init];
 
     
     if(identicaServer){
@@ -77,10 +77,11 @@
     
         
     // comples response type
-    return [client dictionary: requestUrl 
-                       method: @"POST" 
-                  queryParams: queryParams 
-                         body: bodyDictionary 
+    return [client dictionary: auth
+					         requestUrl: requestUrl 
+                       method: @"POST"
+                  queryParams: queryParams
+                         body: bodyDictionary
                  headerParams: headerParams
            requestContentType: requestContentType
           responseContentType: responseContentType
@@ -98,13 +99,14 @@
                     
               }];
     
+
     
 }
 
 +(NSNumber*) requestFingerprintStatus: (NSString*) identicaServer
          requestId: (NSString*) requestId
         
-        onSuccess: (void (^)(MSIdenticaStatusResult* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock
+        auth:(OAuth1Client *) auth onSuccess: (void (^)(MSIdenticaStatusResult* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock
          {
 
     NSMutableString* requestUrl = [NSMutableString stringWithFormat:@"%@/v3/identica/status", [[ApiClient sharedInstance] url]];
@@ -118,10 +120,10 @@
 
 	NSArray * requestContentTypes = @[@"application/x-www-form-urlencoded"];
     NSString* requestContentType = requestContentTypes.count > 0 ? requestContentTypes[0] : @"application/json";
-    
+
     NSArray * responseContentTypes = @[@"application/json"];
     NSString* responseContentType = responseContentTypes.count > 0 ? responseContentTypes[0] : @"application/json";
-	
+
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     
     NSMutableDictionary* headerParams = [[NSMutableDictionary alloc] init];
@@ -132,7 +134,7 @@
     
     bodyDictionary = [[NSMutableArray alloc] init];
 
-    NSMutableDictionary * formParams = [[NSMutableDictionary alloc]init]; 
+    NSMutableDictionary * formParams = [[NSMutableDictionary alloc]init];
 
     
     if(identicaServer){
@@ -155,10 +157,11 @@
     
         
     // comples response type
-    return [client dictionary: requestUrl 
-                       method: @"POST" 
-                  queryParams: queryParams 
-                         body: bodyDictionary 
+    return [client dictionary: auth
+					         requestUrl: requestUrl 
+                       method: @"POST"
+                  queryParams: queryParams
+                         body: bodyDictionary
                  headerParams: headerParams
            requestContentType: requestContentType
           responseContentType: responseContentType
@@ -176,6 +179,7 @@
                     
               }];
     
+
     
 }
 

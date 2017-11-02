@@ -17,7 +17,7 @@
 +(NSNumber*) mask: (NSString*) template
          width: (NSString*) width
         
-        onSuccess: (void (^)(MSOcrMaskImage* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock
+        auth:(OAuth1Client *) auth onSuccess: (void (^)(MSOcrMaskImage* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock
          {
 
     NSMutableString* requestUrl = [NSMutableString stringWithFormat:@"%@/v3/ocr/mask/{template}/{width}", [[ApiClient sharedInstance] url]];
@@ -33,10 +33,10 @@
 
 	NSArray * requestContentTypes = @[];
     NSString* requestContentType = requestContentTypes.count > 0 ? requestContentTypes[0] : @"application/json";
-    
+
     NSArray * responseContentTypes = @[];
     NSString* responseContentType = responseContentTypes.count > 0 ? responseContentTypes[0] : @"application/json";
-	
+
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     
     NSMutableDictionary* headerParams = [[NSMutableDictionary alloc] init];
@@ -47,7 +47,7 @@
     
     bodyDictionary = [[NSMutableArray alloc] init];
 
-    NSMutableDictionary * formParams = [[NSMutableDictionary alloc]init]; 
+    NSMutableDictionary * formParams = [[NSMutableDictionary alloc]init];
 
     
     [bodyDictionary addObject:formParams];
@@ -62,10 +62,11 @@
     
         
     // comples response type
-    return [client dictionary: requestUrl 
-                       method: @"GET" 
-                  queryParams: queryParams 
-                         body: bodyDictionary 
+    return [client dictionary: auth
+					         requestUrl: requestUrl 
+                       method: @"GET"
+                  queryParams: queryParams
+                         body: bodyDictionary
                  headerParams: headerParams
            requestContentType: requestContentType
           responseContentType: responseContentType
@@ -83,12 +84,13 @@
                     
               }];
     
+
     
 }
 
 +(NSNumber*) parse: (MSOcrScanImageCustom*) body
         
-        onSuccess: (void (^)(MSOcrPageResult* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock
+        auth:(OAuth1Client *) auth onSuccess: (void (^)(MSOcrPageResult* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock
          {
 
     NSMutableString* requestUrl = [NSMutableString stringWithFormat:@"%@/v3/ocr/parse", [[ApiClient sharedInstance] url]];
@@ -102,10 +104,10 @@
 
 	NSArray * requestContentTypes = @[@"application/json"];
     NSString* requestContentType = requestContentTypes.count > 0 ? requestContentTypes[0] : @"application/json";
-    
+
     NSArray * responseContentTypes = @[];
     NSString* responseContentType = responseContentTypes.count > 0 ? responseContentTypes[0] : @"application/json";
-	
+
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     
     NSMutableDictionary* headerParams = [[NSMutableDictionary alloc] init];
@@ -152,10 +154,11 @@
     
         
     // comples response type
-    return [client dictionary: requestUrl 
-                       method: @"POST" 
-                  queryParams: queryParams 
-                         body: bodyDictionary 
+    return [client dictionary: auth
+					         requestUrl: requestUrl 
+                       method: @"POST"
+                  queryParams: queryParams
+                         body: bodyDictionary
                  headerParams: headerParams
            requestContentType: requestContentType
           responseContentType: responseContentType
@@ -173,6 +176,7 @@
                     
               }];
     
+
     
 }
 

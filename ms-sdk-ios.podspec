@@ -3,7 +3,7 @@ Pod::Spec.new do |s|
   s.name         = 'ms-sdk-ios'
   s.version      = '3.5.12'
   s.summary      = 'ms-sdk-ios SDK for native iOS Apps'
-  s.homepage     = 'http://viavansi.com'
+  s.homepage     = 'https://github.com/viavansi/ms-sdk-ios.git'
   s.author = {
     'Jesus Lopez' => 'inyenia@gmail.com'
   }

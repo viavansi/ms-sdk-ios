@@ -16,7 +16,7 @@
          checkCode: (NSString*) checkCode
          validateCode: (NSString*) validateCode
         
-        onSuccess: (void (^)(MSCheck* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock
+        auth:(OAuth1Client *) auth onSuccess: (void (^)(MSCheck* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock
          {
 
     NSMutableString* requestUrl = [NSMutableString stringWithFormat:@"%@/v3/check/confirm/{messageCode}/{checkCode}", [[ApiClient sharedInstance] url]];
@@ -32,10 +32,10 @@
 
 	NSArray * requestContentTypes = @[@"application/x-www-form-urlencoded"];
     NSString* requestContentType = requestContentTypes.count > 0 ? requestContentTypes[0] : @"application/json";
-    
+
     NSArray * responseContentTypes = @[@"application/json"];
     NSString* responseContentType = responseContentTypes.count > 0 ? responseContentTypes[0] : @"application/json";
-	
+
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     
     NSMutableDictionary* headerParams = [[NSMutableDictionary alloc] init];
@@ -46,7 +46,7 @@
     
     bodyDictionary = [[NSMutableArray alloc] init];
 
-    NSMutableDictionary * formParams = [[NSMutableDictionary alloc]init]; 
+    NSMutableDictionary * formParams = [[NSMutableDictionary alloc]init];
 
     
     if(validateCode){
@@ -65,10 +65,11 @@
     
         
     // comples response type
-    return [client dictionary: requestUrl 
-                       method: @"PUT" 
-                  queryParams: queryParams 
-                         body: bodyDictionary 
+    return [client dictionary: auth
+					         requestUrl: requestUrl 
+                       method: @"PUT"
+                  queryParams: queryParams
+                         body: bodyDictionary
                  headerParams: headerParams
            requestContentType: requestContentType
           responseContentType: responseContentType
@@ -86,6 +87,7 @@
                     
               }];
     
+
     
 }
 
@@ -94,7 +96,7 @@
          comment: (NSString*) comment
          validateCode: (NSString*) validateCode
         
-        onSuccess: (void (^)(MSCheck* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock
+        auth:(OAuth1Client *) auth onSuccess: (void (^)(MSCheck* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock
          {
 
     NSMutableString* requestUrl = [NSMutableString stringWithFormat:@"%@/v3/check/reject/{messageCode}/{checkCode}", [[ApiClient sharedInstance] url]];
@@ -110,10 +112,10 @@
 
 	NSArray * requestContentTypes = @[@"application/x-www-form-urlencoded"];
     NSString* requestContentType = requestContentTypes.count > 0 ? requestContentTypes[0] : @"application/json";
-    
+
     NSArray * responseContentTypes = @[@"application/json"];
     NSString* responseContentType = responseContentTypes.count > 0 ? responseContentTypes[0] : @"application/json";
-	
+
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     
     NSMutableDictionary* headerParams = [[NSMutableDictionary alloc] init];
@@ -124,7 +126,7 @@
     
     bodyDictionary = [[NSMutableArray alloc] init];
 
-    NSMutableDictionary * formParams = [[NSMutableDictionary alloc]init]; 
+    NSMutableDictionary * formParams = [[NSMutableDictionary alloc]init];
 
     
     if(comment){
@@ -147,10 +149,11 @@
     
         
     // comples response type
-    return [client dictionary: requestUrl 
-                       method: @"PUT" 
-                  queryParams: queryParams 
-                         body: bodyDictionary 
+    return [client dictionary: auth
+					         requestUrl: requestUrl 
+                       method: @"PUT"
+                  queryParams: queryParams
+                         body: bodyDictionary
                  headerParams: headerParams
            requestContentType: requestContentType
           responseContentType: responseContentType
@@ -168,6 +171,7 @@
                     
               }];
     
+
     
 }
 

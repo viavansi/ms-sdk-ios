@@ -3,6 +3,7 @@
 #import "MSBase64.h"
 #import "MSDownload.h"
 #import "SWGObject.h"
+#import "OAuth1Client.h"
 
 
 @interface MSV3documentsApi: NSObject
@@ -23,7 +24,7 @@
  */
 +(NSNumber*) addCache :(MSBase64*) body 
     
-    onSuccess: (void (^)(MSDocumentCache* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(MSDocumentCache* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     
 
 
@@ -42,7 +43,7 @@
  */
 +(NSNumber*) downloadPreview :(NSString*) messageCode 
     
-    onSuccess: (void (^)(MSDownload* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(MSDownload* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     
 
 
@@ -61,7 +62,7 @@
  */
 +(NSNumber*) downloadSigned :(NSString*) messageCode 
     
-    onSuccess: (void (^)(MSDownload* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(MSDownload* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     
 
 
@@ -80,7 +81,7 @@
  */
 +(NSNumber*) downloadTemporal :(NSString*) messageCode 
     
-    onSuccess: (void (^)(MSDownload* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(MSDownload* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     
 
 
