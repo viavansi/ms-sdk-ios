@@ -3,9 +3,6 @@
 
 @implementation MSPosition
 
-@synthesize rectangle = _rectangle;
-@synthesize page = _page;
-
 -(id)rectangle: (MSRectangle*) rectangle
     page: (NSNumber*) page
     
@@ -45,7 +42,7 @@
             NSMutableArray * array = [[NSMutableArray alloc] init];
             for( int i=0 ; i<[(NSArray*)_rectangle count] ; i++ ) {
 				MSRectangle *rectangle = [[MSRectangle alloc]init];
-				rectangle = [(NSArray*)_rectangle objectAtIndex:i];
+				rectangle = [(NSArray*)_rectangle objectAtIndex:i];            
                 [array addObject:[(SWGObject*)rectangle asDictionary]];
             }
             dict[@"rectangle"] = array;

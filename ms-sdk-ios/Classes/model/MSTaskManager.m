@@ -3,9 +3,6 @@
 
 @implementation MSTaskManager
 
-@synthesize tasks = _tasks;
-@synthesize workflows = _workflows;
-
 -(id)tasks: (NSArray*) tasks
     workflows: (NSArray*) workflows
     
@@ -79,7 +76,7 @@
             NSMutableArray * array = [[NSMutableArray alloc] init];
             for( int i=0 ; i<[(NSArray*)_tasks count] ; i++ ) {
 				MSTask *tasks = [[MSTask alloc]init];
-				tasks = [(NSArray*)_tasks objectAtIndex:i];
+				tasks = [(NSArray*)_tasks objectAtIndex:i];            
                 [array addObject:[(SWGObject*)tasks asDictionary]];
             }
             dict[@"tasks"] = array;
@@ -104,7 +101,7 @@
             NSMutableArray * array = [[NSMutableArray alloc] init];
             for( int i=0 ; i<[(NSArray*)_workflows count] ; i++ ) {
 				MSWorkflowConfig *workflows = [[MSWorkflowConfig alloc]init];
-				workflows = [(NSArray*)_workflows objectAtIndex:i];
+				workflows = [(NSArray*)_workflows objectAtIndex:i];            
                 [array addObject:[(SWGObject*)workflows asDictionary]];
             }
             dict[@"workflows"] = array;

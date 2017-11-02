@@ -3,18 +3,6 @@
 
 @implementation MSDevice
 
-@synthesize appCode = _appCode;
-@synthesize code = _code;
-@synthesize _description = __description;
-@synthesize locale = _locale;
-@synthesize status = _status;
-@synthesize token = _token;
-@synthesize uniqueIdentifier = _uniqueIdentifier;
-@synthesize type = _type;
-@synthesize userEmail = _userEmail;
-@synthesize userCode = _userCode;
-@synthesize userNationalId = _userNationalId;
-
 -(id)appCode: (NSString*) appCode
     code: (NSString*) code
     _description: (NSString*) _description

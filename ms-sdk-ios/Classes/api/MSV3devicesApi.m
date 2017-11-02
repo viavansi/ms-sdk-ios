@@ -14,7 +14,7 @@
 
 +(NSNumber*) registerDevice: (MSDevice*) body
         
-        auth:(OAuth1Client *) auth onSuccess: (void (^)(MSDevice* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock
+        onSuccess: (void (^)(MSDevice* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock
          {
 
     NSMutableString* requestUrl = [NSMutableString stringWithFormat:@"%@/v3/devices", [[ApiClient sharedInstance] url]];
@@ -28,10 +28,10 @@
 
 	NSArray * requestContentTypes = @[@"application/json"];
     NSString* requestContentType = requestContentTypes.count > 0 ? requestContentTypes[0] : @"application/json";
-
+    
     NSArray * responseContentTypes = @[];
     NSString* responseContentType = responseContentTypes.count > 0 ? responseContentTypes[0] : @"application/json";
-
+	
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     
     NSMutableDictionary* headerParams = [[NSMutableDictionary alloc] init];
@@ -78,11 +78,10 @@
     
         
     // comples response type
-    return [client dictionary: auth
-					         requestUrl: requestUrl 
-                       method: @"POST"
-                  queryParams: queryParams
-                         body: bodyDictionary
+    return [client dictionary: requestUrl 
+                       method: @"POST" 
+                  queryParams: queryParams 
+                         body: bodyDictionary 
                  headerParams: headerParams
            requestContentType: requestContentType
           responseContentType: responseContentType
@@ -100,13 +99,12 @@
                     
               }];
     
-
     
 }
 
 +(NSNumber*) findDeviceByUser: (NSString*) userCode
         
-        auth:(OAuth1Client *) auth onSuccess: (void (^)(NSArray* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock
+        onSuccess: (void (^)(NSArray* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock
          {
 
     NSMutableString* requestUrl = [NSMutableString stringWithFormat:@"%@/v3/devices/user/{userCode}", [[ApiClient sharedInstance] url]];
@@ -121,10 +119,10 @@
 
 	NSArray * requestContentTypes = @[];
     NSString* requestContentType = requestContentTypes.count > 0 ? requestContentTypes[0] : @"application/json";
-
+    
     NSArray * responseContentTypes = @[];
     NSString* responseContentType = responseContentTypes.count > 0 ? responseContentTypes[0] : @"application/json";
-
+	
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     
     NSMutableDictionary* headerParams = [[NSMutableDictionary alloc] init];
@@ -135,7 +133,7 @@
     
     bodyDictionary = [[NSMutableArray alloc] init];
 
-    NSMutableDictionary * formParams = [[NSMutableDictionary alloc]init];
+    NSMutableDictionary * formParams = [[NSMutableDictionary alloc]init]; 
 
     
     [bodyDictionary addObject:formParams];
@@ -146,8 +144,7 @@
     ApiClient* client = [ApiClient sharedInstance];
 
         // array container response type
-    return [client dictionary: auth
-                   requestUrl: requestUrl 
+    return [client dictionary: requestUrl 
                        method: @"GET" 
                   queryParams: queryParams 
                          body: bodyDictionary 
@@ -177,7 +174,7 @@
 
 +(NSNumber*) findDeviceByIdentifier: (NSString*) identifier
         
-        auth:(OAuth1Client *) auth onSuccess: (void (^)(MSDevice* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock
+        onSuccess: (void (^)(MSDevice* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock
          {
 
     NSMutableString* requestUrl = [NSMutableString stringWithFormat:@"%@/v3/devices/{identifier}", [[ApiClient sharedInstance] url]];
@@ -192,10 +189,10 @@
 
 	NSArray * requestContentTypes = @[];
     NSString* requestContentType = requestContentTypes.count > 0 ? requestContentTypes[0] : @"application/json";
-
+    
     NSArray * responseContentTypes = @[];
     NSString* responseContentType = responseContentTypes.count > 0 ? responseContentTypes[0] : @"application/json";
-
+	
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     
     NSMutableDictionary* headerParams = [[NSMutableDictionary alloc] init];
@@ -206,7 +203,7 @@
     
     bodyDictionary = [[NSMutableArray alloc] init];
 
-    NSMutableDictionary * formParams = [[NSMutableDictionary alloc]init];
+    NSMutableDictionary * formParams = [[NSMutableDictionary alloc]init]; 
 
     
     [bodyDictionary addObject:formParams];
@@ -221,11 +218,10 @@
     
         
     // comples response type
-    return [client dictionary: auth
-					         requestUrl: requestUrl 
-                       method: @"GET"
-                  queryParams: queryParams
-                         body: bodyDictionary
+    return [client dictionary: requestUrl 
+                       method: @"GET" 
+                  queryParams: queryParams 
+                         body: bodyDictionary 
                  headerParams: headerParams
            requestContentType: requestContentType
           responseContentType: responseContentType
@@ -243,7 +239,6 @@
                     
               }];
     
-
     
 }
 

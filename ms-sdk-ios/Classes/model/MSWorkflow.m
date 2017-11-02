@@ -3,15 +3,6 @@
 
 @implementation MSWorkflow
 
-@synthesize code = _code;
-@synthesize current = _current;
-@synthesize next = _next;
-@synthesize history = _history;
-@synthesize initiate = _initiate;
-@synthesize lastUpdated = _lastUpdated;
-@synthesize expires = _expires;
-@synthesize type = _type;
-
 -(id)code: (NSString*) code
     current: (NSString*) current
     next: (NSString*) next
@@ -119,7 +110,7 @@
             NSMutableArray * array = [[NSMutableArray alloc] init];
             for( int i=0 ; i<[(NSArray*)_history count] ; i++ ) {
 				MSEventHistory *history = [[MSEventHistory alloc]init];
-				history = [(NSArray*)_history objectAtIndex:i];
+				history = [(NSArray*)_history objectAtIndex:i];            
                 [array addObject:[(SWGObject*)history asDictionary]];
             }
             dict[@"history"] = array;
@@ -144,7 +135,7 @@
             NSMutableArray * array = [[NSMutableArray alloc] init];
             for( int i=0 ; i<[(NSArray*)_initiate count] ; i++ ) {
 				SWGDate *initiate = [[SWGDate alloc]init];
-				initiate = [(NSArray*)_initiate objectAtIndex:i];
+				initiate = [(NSArray*)_initiate objectAtIndex:i];            
                 [array addObject:[(SWGObject*)initiate asDictionary]];
             }
             dict[@"initiate"] = array;
@@ -169,7 +160,7 @@
             NSMutableArray * array = [[NSMutableArray alloc] init];
             for( int i=0 ; i<[(NSArray*)_lastUpdated count] ; i++ ) {
 				SWGDate *lastUpdated = [[SWGDate alloc]init];
-				lastUpdated = [(NSArray*)_lastUpdated objectAtIndex:i];
+				lastUpdated = [(NSArray*)_lastUpdated objectAtIndex:i];            
                 [array addObject:[(SWGObject*)lastUpdated asDictionary]];
             }
             dict[@"lastUpdated"] = array;
@@ -194,7 +185,7 @@
             NSMutableArray * array = [[NSMutableArray alloc] init];
             for( int i=0 ; i<[(NSArray*)_expires count] ; i++ ) {
 				SWGDate *expires = [[SWGDate alloc]init];
-				expires = [(NSArray*)_expires objectAtIndex:i];
+				expires = [(NSArray*)_expires objectAtIndex:i];            
                 [array addObject:[(SWGObject*)expires asDictionary]];
             }
             dict[@"expires"] = array;

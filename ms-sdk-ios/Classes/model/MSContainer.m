@@ -3,10 +3,6 @@
 
 @implementation MSContainer
 
-@synthesize name = _name;
-@synthesize title = _title;
-@synthesize rows = _rows;
-
 -(id)name: (NSString*) name
     title: (NSString*) title
     rows: (NSArray*) rows
@@ -72,7 +68,7 @@
             NSMutableArray * array = [[NSMutableArray alloc] init];
             for( int i=0 ; i<[(NSArray*)_rows count] ; i++ ) {
 				MSRow *rows = [[MSRow alloc]init];
-				rows = [(NSArray*)_rows objectAtIndex:i];
+				rows = [(NSArray*)_rows objectAtIndex:i];            
                 [array addObject:[(SWGObject*)rows asDictionary]];
             }
             dict[@"rows"] = array;

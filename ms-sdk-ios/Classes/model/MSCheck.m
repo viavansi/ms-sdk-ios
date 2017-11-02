@@ -3,15 +3,6 @@
 
 @implementation MSCheck
 
-@synthesize status = _status;
-@synthesize code = _code;
-@synthesize helpText = _helpText;
-@synthesize signature = _signature;
-@synthesize validateCode = _validateCode;
-@synthesize expires = _expires;
-@synthesize date = _date;
-@synthesize commentReject = _commentReject;
-
 -(id)status: (NSString*) status
     code: (NSString*) code
     helpText: (NSString*) helpText
@@ -99,7 +90,7 @@
             NSMutableArray * array = [[NSMutableArray alloc] init];
             for( int i=0 ; i<[(NSArray*)_signature count] ; i++ ) {
 				MSSignature *signature = [[MSSignature alloc]init];
-				signature = [(NSArray*)_signature objectAtIndex:i];
+				signature = [(NSArray*)_signature objectAtIndex:i];            
                 [array addObject:[(SWGObject*)signature asDictionary]];
             }
             dict[@"signature"] = array;
@@ -128,7 +119,7 @@
             NSMutableArray * array = [[NSMutableArray alloc] init];
             for( int i=0 ; i<[(NSArray*)_expires count] ; i++ ) {
 				SWGDate *expires = [[SWGDate alloc]init];
-				expires = [(NSArray*)_expires objectAtIndex:i];
+				expires = [(NSArray*)_expires objectAtIndex:i];            
                 [array addObject:[(SWGObject*)expires asDictionary]];
             }
             dict[@"expires"] = array;
@@ -153,7 +144,7 @@
             NSMutableArray * array = [[NSMutableArray alloc] init];
             for( int i=0 ; i<[(NSArray*)_date count] ; i++ ) {
 				SWGDate *date = [[SWGDate alloc]init];
-				date = [(NSArray*)_date objectAtIndex:i];
+				date = [(NSArray*)_date objectAtIndex:i];            
                 [array addObject:[(SWGObject*)date asDictionary]];
             }
             dict[@"date"] = array;

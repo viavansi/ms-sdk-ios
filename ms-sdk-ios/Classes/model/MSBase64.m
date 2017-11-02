@@ -3,8 +3,6 @@
 
 @implementation MSBase64
 
-@synthesize base64 = _base64;
-
 -(id)base64: (NSString*) base64
     
 {

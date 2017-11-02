@@ -3,12 +3,6 @@
 
 @implementation MSGeolocation
 
-@synthesize accuracy = _accuracy;
-@synthesize latitude = _latitude;
-@synthesize longitude = _longitude;
-@synthesize locationData = _locationData;
-@synthesize locationInfo = _locationInfo;
-
 -(id)accuracy: (NSNumber*) accuracy
     latitude: (NSNumber*) latitude
     longitude: (NSNumber*) longitude

@@ -3,9 +3,6 @@
 
 @implementation MSMessagePaginatedList
 
-@synthesize total = _total;
-@synthesize elements = _elements;
-
 -(id)total: (NSNumber*) total
     elements: (NSArray*) elements
     
@@ -63,7 +60,7 @@
             NSMutableArray * array = [[NSMutableArray alloc] init];
             for( int i=0 ; i<[(NSArray*)_elements count] ; i++ ) {
 				MSMessageList *elements = [[MSMessageList alloc]init];
-				elements = [(NSArray*)_elements objectAtIndex:i];
+				elements = [(NSArray*)_elements objectAtIndex:i];            
                 [array addObject:[(SWGObject*)elements asDictionary]];
             }
             dict[@"elements"] = array;

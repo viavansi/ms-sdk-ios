@@ -3,27 +3,6 @@
 
 @implementation MSConfiguration
 
-@synthesize viafirmaURL = _viafirmaURL;
-@synthesize editableURL = _editableURL;
-@synthesize frontCamera = _frontCamera;
-@synthesize autoLogout = _autoLogout;
-@synthesize showCSV = _showCSV;
-@synthesize personMask = _personMask;
-@synthesize registerHide = _registerHide;
-@synthesize allowsInvalidSSLCertificate = _allowsInvalidSSLCertificate;
-@synthesize evidenceBase64 = _evidenceBase64;
-@synthesize version = _version;
-@synthesize showUpdate = _showUpdate;
-@synthesize installURL = _installURL;
-@synthesize installMessage = _installMessage;
-@synthesize backendVersion = _backendVersion;
-@synthesize finalize_menu_options = _finalize_menu_options;
-@synthesize autoRegisterDevice = _autoRegisterDevice;
-@synthesize versions = _versions;
-@synthesize clientSignature = _clientSignature;
-@synthesize finalizeActions = _finalizeActions;
-@synthesize sSLPinningEnabled = _sSLPinningEnabled;
-
 -(id)viafirmaURL: (NSString*) viafirmaURL
     editableURL: (NSNumber*) editableURL
     frontCamera: (NSNumber*) frontCamera
@@ -245,7 +224,7 @@
             NSMutableArray * array = [[NSMutableArray alloc] init];
             for( int i=0 ; i<[(NSArray*)_finalize_menu_options count] ; i++ ) {
 				MSMenuOption *finalize_menu_options = [[MSMenuOption alloc]init];
-				finalize_menu_options = [(NSArray*)_finalize_menu_options objectAtIndex:i];
+				finalize_menu_options = [(NSArray*)_finalize_menu_options objectAtIndex:i];            
                 [array addObject:[(SWGObject*)finalize_menu_options asDictionary]];
             }
             dict[@"finalize_menu_options"] = array;
@@ -274,7 +253,7 @@
             NSMutableArray * array = [[NSMutableArray alloc] init];
             for( int i=0 ; i<[(NSArray*)_versions count] ; i++ ) {
 				MSVersion *versions = [[MSVersion alloc]init];
-				versions = [(NSArray*)_versions objectAtIndex:i];
+				versions = [(NSArray*)_versions objectAtIndex:i];            
                 [array addObject:[(SWGObject*)versions asDictionary]];
             }
             dict[@"versions"] = array;
@@ -303,7 +282,7 @@
             NSMutableArray * array = [[NSMutableArray alloc] init];
             for( int i=0 ; i<[(NSArray*)_finalizeActions count] ; i++ ) {
 				MSFinalizeAction *finalizeActions = [[MSFinalizeAction alloc]init];
-				finalizeActions = [(NSArray*)_finalizeActions objectAtIndex:i];
+				finalizeActions = [(NSArray*)_finalizeActions objectAtIndex:i];            
                 [array addObject:[(SWGObject*)finalizeActions asDictionary]];
             }
             dict[@"finalizeActions"] = array;

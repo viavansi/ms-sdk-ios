@@ -3,26 +3,6 @@
 
 @implementation MSMessage
 
-@synthesize code = _code;
-@synthesize userCode = _userCode;
-@synthesize groupCode = _groupCode;
-@synthesize appCode = _appCode;
-@synthesize version = _version;
-@synthesize workflow = _workflow;
-@synthesize notification = _notification;
-@synthesize document = _document;
-@synthesize metadataList = _metadataList;
-@synthesize policies = _policies;
-@synthesize callbackURL = _callbackURL;
-@synthesize callbackMails = _callbackMails;
-@synthesize callbackMailsFormKeys = _callbackMailsFormKeys;
-@synthesize error = _error;
-@synthesize pid = _pid;
-@synthesize server = _server;
-@synthesize processTimeExpired = _processTimeExpired;
-@synthesize commentReject = _commentReject;
-@synthesize callbackResponse = _callbackResponse;
-
 -(id)code: (NSString*) code
     userCode: (NSString*) userCode
     groupCode: (NSString*) groupCode
@@ -214,7 +194,7 @@
             NSMutableArray * array = [[NSMutableArray alloc] init];
             for( int i=0 ; i<[(NSArray*)_workflow count] ; i++ ) {
 				MSWorkflow *workflow = [[MSWorkflow alloc]init];
-				workflow = [(NSArray*)_workflow objectAtIndex:i];
+				workflow = [(NSArray*)_workflow objectAtIndex:i];            
                 [array addObject:[(SWGObject*)workflow asDictionary]];
             }
             dict[@"workflow"] = array;
@@ -239,7 +219,7 @@
             NSMutableArray * array = [[NSMutableArray alloc] init];
             for( int i=0 ; i<[(NSArray*)_notification count] ; i++ ) {
 				MSNotification *notification = [[MSNotification alloc]init];
-				notification = [(NSArray*)_notification objectAtIndex:i];
+				notification = [(NSArray*)_notification objectAtIndex:i];            
                 [array addObject:[(SWGObject*)notification asDictionary]];
             }
             dict[@"notification"] = array;
@@ -264,7 +244,7 @@
             NSMutableArray * array = [[NSMutableArray alloc] init];
             for( int i=0 ; i<[(NSArray*)_document count] ; i++ ) {
 				MSDocument *document = [[MSDocument alloc]init];
-				document = [(NSArray*)_document objectAtIndex:i];
+				document = [(NSArray*)_document objectAtIndex:i];            
                 [array addObject:[(SWGObject*)document asDictionary]];
             }
             dict[@"document"] = array;
@@ -289,7 +269,7 @@
             NSMutableArray * array = [[NSMutableArray alloc] init];
             for( int i=0 ; i<[(NSArray*)_metadataList count] ; i++ ) {
 				MSParam *metadataList = [[MSParam alloc]init];
-				metadataList = [(NSArray*)_metadataList objectAtIndex:i];
+				metadataList = [(NSArray*)_metadataList objectAtIndex:i];            
                 [array addObject:[(SWGObject*)metadataList asDictionary]];
             }
             dict[@"metadataList"] = array;
@@ -314,7 +294,7 @@
             NSMutableArray * array = [[NSMutableArray alloc] init];
             for( int i=0 ; i<[(NSArray*)_policies count] ; i++ ) {
 				MSPolicy *policies = [[MSPolicy alloc]init];
-				policies = [(NSArray*)_policies objectAtIndex:i];
+				policies = [(NSArray*)_policies objectAtIndex:i];            
                 [array addObject:[(SWGObject*)policies asDictionary]];
             }
             dict[@"policies"] = array;
@@ -351,7 +331,7 @@
             NSMutableArray * array = [[NSMutableArray alloc] init];
             for( int i=0 ; i<[(NSArray*)_error count] ; i++ ) {
 				MSErrorResponse *error = [[MSErrorResponse alloc]init];
-				error = [(NSArray*)_error objectAtIndex:i];
+				error = [(NSArray*)_error objectAtIndex:i];            
                 [array addObject:[(SWGObject*)error asDictionary]];
             }
             dict[@"error"] = array;
@@ -384,7 +364,7 @@
             NSMutableArray * array = [[NSMutableArray alloc] init];
             for( int i=0 ; i<[(NSArray*)_processTimeExpired count] ; i++ ) {
 				SWGDate *processTimeExpired = [[SWGDate alloc]init];
-				processTimeExpired = [(NSArray*)_processTimeExpired objectAtIndex:i];
+				processTimeExpired = [(NSArray*)_processTimeExpired objectAtIndex:i];            
                 [array addObject:[(SWGObject*)processTimeExpired asDictionary]];
             }
             dict[@"processTimeExpired"] = array;

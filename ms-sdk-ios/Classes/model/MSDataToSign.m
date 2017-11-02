@@ -3,9 +3,6 @@
 
 @implementation MSDataToSign
 
-@synthesize algorithm = _algorithm;
-@synthesize hash = _hash;
-
 -(id)algorithm: (NSString*) algorithm
     hash: (NSString*) hash
     

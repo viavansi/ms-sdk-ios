@@ -1,7 +1,6 @@
 #import <Foundation/Foundation.h>
 #import "MSNotification.h"
 #import "SWGObject.h"
-#import "OAuth1Client.h"
 
 
 @interface MSV3notificationsApi: NSObject
@@ -22,7 +21,7 @@
  */
 +(NSNumber*) sendNotification :(MSNotification*) body 
     
-    auth:(OAuth1Client *) auth onSuccess: (void (^)(MSNotification* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    onSuccess: (void (^)(MSNotification* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     
 
 
@@ -41,7 +40,7 @@
  */
 +(NSNumber*) findNotificationsByCode :(NSString*) code 
     
-    auth:(OAuth1Client *) auth onSuccess: (void (^)(MSNotification* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    onSuccess: (void (^)(MSNotification* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     
 
 
@@ -63,7 +62,7 @@
 +(NSNumber*) changeNotificationStatus :(NSString*) code 
      status:(NSString*) status 
     
-    auth:(OAuth1Client *) auth onSuccess: (void (^)(MSNotification* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    onSuccess: (void (^)(MSNotification* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     
 
 
@@ -94,7 +93,7 @@
      index:(NSString*) index 
      page_size:(NSString*) page_size 
     
-    auth:(OAuth1Client *) auth onSuccess: (void (^)(NSArray* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    onSuccess: (void (^)(NSArray* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     
 
 
@@ -122,7 +121,7 @@
      index:(NSString*) index 
      page_size:(NSString*) page_size 
     
-    auth:(OAuth1Client *) auth onSuccess: (void (^)(NSArray* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    onSuccess: (void (^)(NSArray* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     
 
 
@@ -153,7 +152,7 @@
      index:(NSString*) index 
      page_size:(NSString*) page_size 
     
-    auth:(OAuth1Client *) auth onSuccess: (void (^)(NSArray* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    onSuccess: (void (^)(NSArray* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     
 
 
@@ -181,7 +180,7 @@
      index:(NSString*) index 
      page_size:(NSString*) page_size 
     
-    auth:(OAuth1Client *) auth onSuccess: (void (^)(NSArray* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    onSuccess: (void (^)(NSArray* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     
 
 
@@ -215,7 +214,7 @@
      index:(NSString*) index 
      page_size:(NSString*) page_size 
     
-    auth:(OAuth1Client *) auth onSuccess: (void (^)(NSArray* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    onSuccess: (void (^)(NSArray* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     
 
 
@@ -246,7 +245,7 @@
      index:(NSString*) index 
      page_size:(NSString*) page_size 
     
-    auth:(OAuth1Client *) auth onSuccess: (void (^)(NSArray* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    onSuccess: (void (^)(NSArray* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     
 
 

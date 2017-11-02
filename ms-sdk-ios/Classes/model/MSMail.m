@@ -3,15 +3,6 @@
 
 @implementation MSMail
 
-@synthesize from = _from;
-@synthesize fromName = _fromName;
-@synthesize to = _to;
-@synthesize subject = _subject;
-@synthesize replyTo = _replyTo;
-@synthesize cc = _cc;
-@synthesize bcc = _bcc;
-@synthesize text = _text;
-
 -(id)from: (MSMailConfig*) from
     fromName: (MSMailConfig*) fromName
     to: (MSMailConfig*) to
@@ -117,7 +108,7 @@
             NSMutableArray * array = [[NSMutableArray alloc] init];
             for( int i=0 ; i<[(NSArray*)_from count] ; i++ ) {
 				MSMailConfig *from = [[MSMailConfig alloc]init];
-				from = [(NSArray*)_from objectAtIndex:i];
+				from = [(NSArray*)_from objectAtIndex:i];            
                 [array addObject:[(SWGObject*)from asDictionary]];
             }
             dict[@"from"] = array;
@@ -142,7 +133,7 @@
             NSMutableArray * array = [[NSMutableArray alloc] init];
             for( int i=0 ; i<[(NSArray*)_fromName count] ; i++ ) {
 				MSMailConfig *fromName = [[MSMailConfig alloc]init];
-				fromName = [(NSArray*)_fromName objectAtIndex:i];
+				fromName = [(NSArray*)_fromName objectAtIndex:i];            
                 [array addObject:[(SWGObject*)fromName asDictionary]];
             }
             dict[@"fromName"] = array;
@@ -167,7 +158,7 @@
             NSMutableArray * array = [[NSMutableArray alloc] init];
             for( int i=0 ; i<[(NSArray*)_to count] ; i++ ) {
 				MSMailConfig *to = [[MSMailConfig alloc]init];
-				to = [(NSArray*)_to objectAtIndex:i];
+				to = [(NSArray*)_to objectAtIndex:i];            
                 [array addObject:[(SWGObject*)to asDictionary]];
             }
             dict[@"to"] = array;
@@ -192,7 +183,7 @@
             NSMutableArray * array = [[NSMutableArray alloc] init];
             for( int i=0 ; i<[(NSArray*)_subject count] ; i++ ) {
 				MSMailConfig *subject = [[MSMailConfig alloc]init];
-				subject = [(NSArray*)_subject objectAtIndex:i];
+				subject = [(NSArray*)_subject objectAtIndex:i];            
                 [array addObject:[(SWGObject*)subject asDictionary]];
             }
             dict[@"subject"] = array;
@@ -217,7 +208,7 @@
             NSMutableArray * array = [[NSMutableArray alloc] init];
             for( int i=0 ; i<[(NSArray*)_replyTo count] ; i++ ) {
 				MSMailConfig *replyTo = [[MSMailConfig alloc]init];
-				replyTo = [(NSArray*)_replyTo objectAtIndex:i];
+				replyTo = [(NSArray*)_replyTo objectAtIndex:i];            
                 [array addObject:[(SWGObject*)replyTo asDictionary]];
             }
             dict[@"replyTo"] = array;
@@ -242,7 +233,7 @@
             NSMutableArray * array = [[NSMutableArray alloc] init];
             for( int i=0 ; i<[(NSArray*)_cc count] ; i++ ) {
 				MSMailConfig *cc = [[MSMailConfig alloc]init];
-				cc = [(NSArray*)_cc objectAtIndex:i];
+				cc = [(NSArray*)_cc objectAtIndex:i];            
                 [array addObject:[(SWGObject*)cc asDictionary]];
             }
             dict[@"cc"] = array;
@@ -267,7 +258,7 @@
             NSMutableArray * array = [[NSMutableArray alloc] init];
             for( int i=0 ; i<[(NSArray*)_bcc count] ; i++ ) {
 				MSMailConfig *bcc = [[MSMailConfig alloc]init];
-				bcc = [(NSArray*)_bcc objectAtIndex:i];
+				bcc = [(NSArray*)_bcc objectAtIndex:i];            
                 [array addObject:[(SWGObject*)bcc asDictionary]];
             }
             dict[@"bcc"] = array;
@@ -292,7 +283,7 @@
             NSMutableArray * array = [[NSMutableArray alloc] init];
             for( int i=0 ; i<[(NSArray*)_text count] ; i++ ) {
 				MSMailConfig *text = [[MSMailConfig alloc]init];
-				text = [(NSArray*)_text objectAtIndex:i];
+				text = [(NSArray*)_text objectAtIndex:i];            
                 [array addObject:[(SWGObject*)text asDictionary]];
             }
             dict[@"text"] = array;

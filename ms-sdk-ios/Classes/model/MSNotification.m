@@ -3,37 +3,32 @@
 
 @implementation MSNotification
 
-@synthesize code = _code;
-@synthesize validateCode = _validateCode;
-@synthesize text = _text;
-@synthesize detail = _detail;
-@synthesize sound = _sound;
-@synthesize status = _status;
-@synthesize location = _location;
-@synthesize sharedLink = _sharedLink;
-@synthesize metadata = _metadata;
-@synthesize devices = _devices;
-
 -(id)code: (NSString*) code
+    messageCode: (NSString*) messageCode
     validateCode: (NSString*) validateCode
     text: (NSString*) text
     detail: (NSString*) detail
     sound: (NSString*) sound
     status: (NSString*) status
+    notificationType: (NSString*) notificationType
     location: (NSString*) location
     sharedLink: (MSSharedLink*) sharedLink
+    updateDate: (SWGDate*) updateDate
     metadata: (NSArray*) metadata
     devices: (NSArray*) devices
     
 {
     _code = code;
+    _messageCode = messageCode;
     _validateCode = validateCode;
     _text = text;
     _detail = detail;
     _sound = sound;
     _status = status;
+    _notificationType = notificationType;
     _location = location;
     _sharedLink = sharedLink;
+    _updateDate = updateDate;
     _metadata = metadata;
     _devices = devices;
     
@@ -47,6 +42,8 @@
     if(self) {
         _code = dict[@"code"];
         
+        _messageCode = dict[@"messageCode"];
+        
         _validateCode = dict[@"validateCode"];
         
         _text = dict[@"text"];
@@ -57,6 +54,8 @@
         
         _status = dict[@"status"];
         
+        _notificationType = dict[@"notificationType"];
+        
         _location = dict[@"location"];
         
         
@@ -65,6 +64,14 @@
         
         if(sharedLink_dict != nil)
             _sharedLink = [[MSSharedLink  alloc]initWithValues:sharedLink_dict];
+        
+        
+        
+        
+        id updateDate_dict = dict[@"updateDate"];
+        
+        if(updateDate_dict != nil)
+            _updateDate = [[SWGDate  alloc]initWithValues:updateDate_dict];
         
         
         
@@ -124,6 +131,10 @@
         
     
     
+            if(_messageCode != nil) dict[@"messageCode"] = _messageCode ;
+        
+    
+    
             if(_validateCode != nil) dict[@"validateCode"] = _validateCode ;
         
     
@@ -144,6 +155,10 @@
         
     
     
+            if(_notificationType != nil) dict[@"notificationType"] = _notificationType ;
+        
+    
+    
             if(_location != nil) dict[@"location"] = _location ;
         
     
@@ -153,7 +168,7 @@
             NSMutableArray * array = [[NSMutableArray alloc] init];
             for( int i=0 ; i<[(NSArray*)_sharedLink count] ; i++ ) {
 				MSSharedLink *sharedLink = [[MSSharedLink alloc]init];
-				sharedLink = [(NSArray*)_sharedLink objectAtIndex:i];
+				sharedLink = [(NSArray*)_sharedLink objectAtIndex:i];            
                 [array addObject:[(SWGObject*)sharedLink asDictionary]];
             }
             dict[@"sharedLink"] = array;
@@ -173,12 +188,37 @@
     
     
     
+    if(_updateDate != nil){
+        if([_updateDate isKindOfClass:[NSArray class]]){
+            NSMutableArray * array = [[NSMutableArray alloc] init];
+            for( int i=0 ; i<[(NSArray*)_updateDate count] ; i++ ) {
+				SWGDate *updateDate = [[SWGDate alloc]init];
+				updateDate = [(NSArray*)_updateDate objectAtIndex:i];            
+                [array addObject:[(SWGObject*)updateDate asDictionary]];
+            }
+            dict[@"updateDate"] = array;
+        }
+        else if(_updateDate && [_updateDate isKindOfClass:[SWGDate class]]) {
+            NSString * dateString = [(SWGDate*)_updateDate toString];
+            if(dateString){
+                dict[@"updateDate"] = dateString;
+            }
+        }
+        else {
+        
+            if(_updateDate != nil) dict[@"updateDate"] = [(SWGObject*)_updateDate asDictionary];
+        
+        }
+    }
+    
+    
+    
     if(_metadata != nil){
         if([_metadata isKindOfClass:[NSArray class]]){
             NSMutableArray * array = [[NSMutableArray alloc] init];
             for( int i=0 ; i<[(NSArray*)_metadata count] ; i++ ) {
 				MSParam *metadata = [[MSParam alloc]init];
-				metadata = [(NSArray*)_metadata objectAtIndex:i];
+				metadata = [(NSArray*)_metadata objectAtIndex:i];            
                 [array addObject:[(SWGObject*)metadata asDictionary]];
             }
             dict[@"metadata"] = array;
@@ -203,7 +243,7 @@
             NSMutableArray * array = [[NSMutableArray alloc] init];
             for( int i=0 ; i<[(NSArray*)_devices count] ; i++ ) {
 				MSDevice *devices = [[MSDevice alloc]init];
-				devices = [(NSArray*)_devices objectAtIndex:i];
+				devices = [(NSArray*)_devices objectAtIndex:i];            
                 [array addObject:[(SWGObject*)devices asDictionary]];
             }
             dict[@"devices"] = array;

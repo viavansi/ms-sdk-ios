@@ -3,11 +3,6 @@
 
 @implementation MSRectangle
 
-@synthesize x = _x;
-@synthesize y = _y;
-@synthesize width = _width;
-@synthesize height = _height;
-
 -(id)x: (NSNumber*) x
     y: (NSNumber*) y
     width: (NSNumber*) width

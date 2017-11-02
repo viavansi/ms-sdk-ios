@@ -18,7 +18,7 @@
 
 +(NSNumber*) addFingerPrintAsEvidence: (MSEvidenceFingerPrint*) body
         
-        auth:(OAuth1Client *) auth onSuccess: (void (^)(MSEvidence* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock
+        onSuccess: (void (^)(MSEvidence* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock
          {
 
     NSMutableString* requestUrl = [NSMutableString stringWithFormat:@"%@/v3/evidences/fingerprint", [[ApiClient sharedInstance] url]];
@@ -32,10 +32,10 @@
 
 	NSArray * requestContentTypes = @[@"application/json"];
     NSString* requestContentType = requestContentTypes.count > 0 ? requestContentTypes[0] : @"application/json";
-
+    
     NSArray * responseContentTypes = @[@"application/json"];
     NSString* responseContentType = responseContentTypes.count > 0 ? responseContentTypes[0] : @"application/json";
-
+	
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     
     NSMutableDictionary* headerParams = [[NSMutableDictionary alloc] init];
@@ -82,11 +82,10 @@
     
         
     // comples response type
-    return [client dictionary: auth
-					         requestUrl: requestUrl 
-                       method: @"POST"
-                  queryParams: queryParams
-                         body: bodyDictionary
+    return [client dictionary: requestUrl 
+                       method: @"POST" 
+                  queryParams: queryParams 
+                         body: bodyDictionary 
                  headerParams: headerParams
            requestContentType: requestContentType
           responseContentType: responseContentType
@@ -104,13 +103,12 @@
                     
               }];
     
-
     
 }
 
 +(NSNumber*) addGenericAsEvidence: (MSEvidenceGeneric*) body
         
-        auth:(OAuth1Client *) auth onSuccess: (void (^)(MSEvidence* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock
+        onSuccess: (void (^)(MSEvidence* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock
          {
 
     NSMutableString* requestUrl = [NSMutableString stringWithFormat:@"%@/v3/evidences/generic", [[ApiClient sharedInstance] url]];
@@ -124,10 +122,10 @@
 
 	NSArray * requestContentTypes = @[@"application/json"];
     NSString* requestContentType = requestContentTypes.count > 0 ? requestContentTypes[0] : @"application/json";
-
+    
     NSArray * responseContentTypes = @[@"application/json"];
     NSString* responseContentType = responseContentTypes.count > 0 ? responseContentTypes[0] : @"application/json";
-
+	
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     
     NSMutableDictionary* headerParams = [[NSMutableDictionary alloc] init];
@@ -174,11 +172,10 @@
     
         
     // comples response type
-    return [client dictionary: auth
-					         requestUrl: requestUrl 
-                       method: @"POST"
-                  queryParams: queryParams
-                         body: bodyDictionary
+    return [client dictionary: requestUrl 
+                       method: @"POST" 
+                  queryParams: queryParams 
+                         body: bodyDictionary 
                  headerParams: headerParams
            requestContentType: requestContentType
           responseContentType: responseContentType
@@ -196,13 +193,12 @@
                     
               }];
     
-
     
 }
 
 +(NSNumber*) addImageAsEvidence: (MSEvidenceImage*) body
         
-        auth:(OAuth1Client *) auth onSuccess: (void (^)(MSEvidence* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock
+        onSuccess: (void (^)(MSEvidence* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock
          {
 
     NSMutableString* requestUrl = [NSMutableString stringWithFormat:@"%@/v3/evidences/image", [[ApiClient sharedInstance] url]];
@@ -216,10 +212,10 @@
 
 	NSArray * requestContentTypes = @[@"application/json"];
     NSString* requestContentType = requestContentTypes.count > 0 ? requestContentTypes[0] : @"application/json";
-
+    
     NSArray * responseContentTypes = @[@"application/json"];
     NSString* responseContentType = responseContentTypes.count > 0 ? responseContentTypes[0] : @"application/json";
-
+	
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     
     NSMutableDictionary* headerParams = [[NSMutableDictionary alloc] init];
@@ -266,11 +262,10 @@
     
         
     // comples response type
-    return [client dictionary: auth
-					         requestUrl: requestUrl 
-                       method: @"POST"
-                  queryParams: queryParams
-                         body: bodyDictionary
+    return [client dictionary: requestUrl 
+                       method: @"POST" 
+                  queryParams: queryParams 
+                         body: bodyDictionary 
                  headerParams: headerParams
            requestContentType: requestContentType
           responseContentType: responseContentType
@@ -288,14 +283,13 @@
                     
               }];
     
-
     
 }
 
 +(NSNumber*) prepareOtpSmsEvidence: (NSString*) messageCode
          evidenceCode: (NSString*) evidenceCode
         
-        auth:(OAuth1Client *) auth onSuccess: (void (^)(MSEvidence* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock
+        onSuccess: (void (^)(MSEvidence* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock
          {
 
     NSMutableString* requestUrl = [NSMutableString stringWithFormat:@"%@/v3/evidences/otp/sms/prepare/{messageCode}/{evidenceCode}", [[ApiClient sharedInstance] url]];
@@ -311,10 +305,10 @@
 
 	NSArray * requestContentTypes = @[];
     NSString* requestContentType = requestContentTypes.count > 0 ? requestContentTypes[0] : @"application/json";
-
+    
     NSArray * responseContentTypes = @[@"application/json"];
     NSString* responseContentType = responseContentTypes.count > 0 ? responseContentTypes[0] : @"application/json";
-
+	
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     
     NSMutableDictionary* headerParams = [[NSMutableDictionary alloc] init];
@@ -325,7 +319,7 @@
     
     bodyDictionary = [[NSMutableArray alloc] init];
 
-    NSMutableDictionary * formParams = [[NSMutableDictionary alloc]init];
+    NSMutableDictionary * formParams = [[NSMutableDictionary alloc]init]; 
 
     
     [bodyDictionary addObject:formParams];
@@ -340,11 +334,10 @@
     
         
     // comples response type
-    return [client dictionary: auth
-					         requestUrl: requestUrl 
-                       method: @"GET"
-                  queryParams: queryParams
-                         body: bodyDictionary
+    return [client dictionary: requestUrl 
+                       method: @"GET" 
+                  queryParams: queryParams 
+                         body: bodyDictionary 
                  headerParams: headerParams
            requestContentType: requestContentType
           responseContentType: responseContentType
@@ -362,7 +355,6 @@
                     
               }];
     
-
     
 }
 
@@ -370,7 +362,7 @@
          evidenceCode: (NSString*) evidenceCode
          token: (NSString*) token
         
-        auth:(OAuth1Client *) auth onSuccess: (void (^)(MSEvidence* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock
+        onSuccess: (void (^)(MSEvidence* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock
          {
 
     NSMutableString* requestUrl = [NSMutableString stringWithFormat:@"%@/v3/evidences/otp/sms/validate", [[ApiClient sharedInstance] url]];
@@ -384,10 +376,10 @@
 
 	NSArray * requestContentTypes = @[@"application/x-www-form-urlencoded"];
     NSString* requestContentType = requestContentTypes.count > 0 ? requestContentTypes[0] : @"application/json";
-
+    
     NSArray * responseContentTypes = @[@"application/json"];
     NSString* responseContentType = responseContentTypes.count > 0 ? responseContentTypes[0] : @"application/json";
-
+	
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     
     NSMutableDictionary* headerParams = [[NSMutableDictionary alloc] init];
@@ -398,7 +390,7 @@
     
     bodyDictionary = [[NSMutableArray alloc] init];
 
-    NSMutableDictionary * formParams = [[NSMutableDictionary alloc]init];
+    NSMutableDictionary * formParams = [[NSMutableDictionary alloc]init]; 
 
     
     if(messageCode){
@@ -425,11 +417,10 @@
     
         
     // comples response type
-    return [client dictionary: auth
-					         requestUrl: requestUrl 
-                       method: @"POST"
-                  queryParams: queryParams
-                         body: bodyDictionary
+    return [client dictionary: requestUrl 
+                       method: @"POST" 
+                  queryParams: queryParams 
+                         body: bodyDictionary 
                  headerParams: headerParams
            requestContentType: requestContentType
           responseContentType: responseContentType
@@ -447,13 +438,12 @@
                     
               }];
     
-
     
 }
 
 +(NSNumber*) addSignatureAsEvidence: (MSEvidenceSignature*) body
         
-        auth:(OAuth1Client *) auth onSuccess: (void (^)(MSEvidence* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock
+        onSuccess: (void (^)(MSEvidence* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock
          {
 
     NSMutableString* requestUrl = [NSMutableString stringWithFormat:@"%@/v3/evidences/signature", [[ApiClient sharedInstance] url]];
@@ -467,10 +457,10 @@
 
 	NSArray * requestContentTypes = @[@"application/json"];
     NSString* requestContentType = requestContentTypes.count > 0 ? requestContentTypes[0] : @"application/json";
-
+    
     NSArray * responseContentTypes = @[@"application/json"];
     NSString* responseContentType = responseContentTypes.count > 0 ? responseContentTypes[0] : @"application/json";
-
+	
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     
     NSMutableDictionary* headerParams = [[NSMutableDictionary alloc] init];
@@ -517,11 +507,10 @@
     
         
     // comples response type
-    return [client dictionary: auth
-					         requestUrl: requestUrl 
-                       method: @"POST"
-                  queryParams: queryParams
-                         body: bodyDictionary
+    return [client dictionary: requestUrl 
+                       method: @"POST" 
+                  queryParams: queryParams 
+                         body: bodyDictionary 
                  headerParams: headerParams
            requestContentType: requestContentType
           responseContentType: responseContentType
@@ -539,7 +528,6 @@
                     
               }];
     
-
     
 }
 

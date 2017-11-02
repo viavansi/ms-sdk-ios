@@ -3,20 +3,6 @@
 
 @implementation MSSignature
 
-@synthesize type = _type;
-@synthesize code = _code;
-@synthesize status = _status;
-@synthesize helpText = _helpText;
-@synthesize certificateAlias = _certificateAlias;
-@synthesize certificatePassword = _certificatePassword;
-@synthesize typeFormatSign = _typeFormatSign;
-@synthesize dataToSign = _dataToSign;
-@synthesize idSign = _idSign;
-@synthesize custodyDisabled = _custodyDisabled;
-@synthesize stampers = _stampers;
-@synthesize lastUpdated = _lastUpdated;
-@synthesize certificationLevel = _certificationLevel;
-
 -(id)type: (NSString*) type
     code: (NSString*) code
     status: (NSString*) status
@@ -154,7 +140,7 @@
             NSMutableArray * array = [[NSMutableArray alloc] init];
             for( int i=0 ; i<[(NSArray*)_stampers count] ; i++ ) {
 				MSStamper *stampers = [[MSStamper alloc]init];
-				stampers = [(NSArray*)_stampers objectAtIndex:i];
+				stampers = [(NSArray*)_stampers objectAtIndex:i];            
                 [array addObject:[(SWGObject*)stampers asDictionary]];
             }
             dict[@"stampers"] = array;

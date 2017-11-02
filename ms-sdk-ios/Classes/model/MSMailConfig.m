@@ -3,10 +3,6 @@
 
 @implementation MSMailConfig
 
-@synthesize required = _required;
-@synthesize visible = _visible;
-@synthesize default_value = _default_value;
-
 -(id)required: (NSNumber*) required
     visible: (NSNumber*) visible
     default_value: (NSString*) default_value

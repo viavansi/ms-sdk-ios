@@ -3,34 +3,6 @@
 
 @implementation MSItem
 
-@synthesize key = _key;
-@synthesize value = _value;
-@synthesize type = _type;
-@synthesize label = _label;
-@synthesize placeHolder = _placeHolder;
-@synthesize size = _size;
-@synthesize required = _required;
-@synthesize validation = _validation;
-@synthesize validationRegex = _validationRegex;
-@synthesize refValues = _refValues;
-@synthesize list = _list;
-@synthesize nestedList = _nestedList;
-@synthesize text = _text;
-@synthesize href = _href;
-@synthesize match = _match;
-@synthesize update = _update;
-@synthesize disabled = _disabled;
-@synthesize hidden = _hidden;
-@synthesize random = _random;
-@synthesize values = _values;
-@synthesize height = _height;
-@synthesize format = _format;
-@synthesize maxLength = _maxLength;
-@synthesize minLength = _minLength;
-@synthesize monthNames = _monthNames;
-@synthesize dayNames = _dayNames;
-@synthesize increment = _increment;
-
 -(id)key: (NSString*) key
     value: (NSString*) value
     type: (NSString*) type

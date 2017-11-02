@@ -3,13 +3,6 @@
 
 @implementation MSMessageList
 
-@synthesize messageCode = _messageCode;
-@synthesize status = _status;
-@synthesize userCode = _userCode;
-@synthesize groupCode = _groupCode;
-@synthesize templateCode = _templateCode;
-@synthesize creationDate = _creationDate;
-
 -(id)messageCode: (NSString*) messageCode
     status: (NSString*) status
     userCode: (NSString*) userCode
@@ -85,7 +78,7 @@
             NSMutableArray * array = [[NSMutableArray alloc] init];
             for( int i=0 ; i<[(NSArray*)_creationDate count] ; i++ ) {
 				SWGDate *creationDate = [[SWGDate alloc]init];
-				creationDate = [(NSArray*)_creationDate objectAtIndex:i];
+				creationDate = [(NSArray*)_creationDate objectAtIndex:i];            
                 [array addObject:[(SWGObject*)creationDate asDictionary]];
             }
             dict[@"creationDate"] = array;

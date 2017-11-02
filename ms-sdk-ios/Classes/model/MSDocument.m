@@ -3,23 +3,6 @@
 
 @implementation MSDocument
 
-@synthesize templateCode = _templateCode;
-@synthesize templateReference = _templateReference;
-@synthesize templateVersion = _templateVersion;
-@synthesize draftedCode = _draftedCode;
-@synthesize draftedReference = _draftedReference;
-@synthesize signedCode = _signedCode;
-@synthesize signedID = _signedID;
-@synthesize signedReference = _signedReference;
-@synthesize templateType = _templateType;
-@synthesize formRequired = _formRequired;
-@synthesize formDisabled = _formDisabled;
-@synthesize items = _items;
-@synthesize pdfaCompliant = _pdfaCompliant;
-@synthesize font = _font;
-@synthesize policyCode = _policyCode;
-@synthesize password = _password;
-
 -(id)templateCode: (NSString*) templateCode
     templateReference: (NSString*) templateReference
     templateVersion: (NSNumber*) templateVersion
@@ -179,7 +162,7 @@
             NSMutableArray * array = [[NSMutableArray alloc] init];
             for( int i=0 ; i<[(NSArray*)_items count] ; i++ ) {
 				MSItem *items = [[MSItem alloc]init];
-				items = [(NSArray*)_items objectAtIndex:i];
+				items = [(NSArray*)_items objectAtIndex:i];            
                 [array addObject:[(SWGObject*)items asDictionary]];
             }
             dict[@"items"] = array;
@@ -208,7 +191,7 @@
             NSMutableArray * array = [[NSMutableArray alloc] init];
             for( int i=0 ; i<[(NSArray*)_font count] ; i++ ) {
 				MSFont *font = [[MSFont alloc]init];
-				font = [(NSArray*)_font objectAtIndex:i];
+				font = [(NSArray*)_font objectAtIndex:i];            
                 [array addObject:[(SWGObject*)font asDictionary]];
             }
             dict[@"font"] = array;

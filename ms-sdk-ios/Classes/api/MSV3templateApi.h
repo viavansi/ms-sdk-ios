@@ -4,7 +4,6 @@
 #import "MSDocument.h"
 #import "MSTemplate.h"
 #import "SWGObject.h"
-#import "OAuth1Client.h"
 
 
 @interface MSV3templateApi: NSObject
@@ -25,7 +24,7 @@
  */
 +(NSNumber*) downloadFontByName :(NSString*) fontName 
     
-    auth:(OAuth1Client *) auth onSuccess: (void (^)(MSDownload* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    onSuccess: (void (^)(MSDownload* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     
 
 
@@ -44,7 +43,7 @@
  */
 +(NSNumber*) findTemplatesByUser :(NSString*) userCode 
     
-    auth:(OAuth1Client *) auth onSuccess: (void (^)(NSArray* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    onSuccess: (void (^)(NSArray* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     
 
 
@@ -63,7 +62,7 @@
  */
 +(NSNumber*) generatePdf :(MSDocument*) body 
     
-    auth:(OAuth1Client *) auth onSuccess: (void (^)(MSDownload* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    onSuccess: (void (^)(MSDownload* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     
 
 
@@ -82,7 +81,7 @@
  */
 +(NSNumber*) downloadTemplatePdfByCode :(NSString*) code 
     
-    auth:(OAuth1Client *) auth onSuccess: (void (^)(MSDownload* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    onSuccess: (void (^)(MSDownload* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     
 
 
@@ -101,7 +100,7 @@
  */
 +(NSNumber*) findTemplateByCode :(NSString*) code 
     
-    auth:(OAuth1Client *) auth onSuccess: (void (^)(MSTemplate* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    onSuccess: (void (^)(MSTemplate* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     
 
 

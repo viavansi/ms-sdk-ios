@@ -3,12 +3,6 @@
 
 @implementation MSTemplateList
 
-@synthesize code = _code;
-@synthesize title = _title;
-@synthesize _description = __description;
-@synthesize creationDate = _creationDate;
-@synthesize version = _version;
-
 -(id)code: (NSString*) code
     title: (NSString*) title
     _description: (NSString*) _description
@@ -72,7 +66,7 @@
             NSMutableArray * array = [[NSMutableArray alloc] init];
             for( int i=0 ; i<[(NSArray*)_creationDate count] ; i++ ) {
 				SWGDate *creationDate = [[SWGDate alloc]init];
-				creationDate = [(NSArray*)_creationDate objectAtIndex:i];
+				creationDate = [(NSArray*)_creationDate objectAtIndex:i];            
                 [array addObject:[(SWGObject*)creationDate asDictionary]];
             }
             dict[@"creationDate"] = array;

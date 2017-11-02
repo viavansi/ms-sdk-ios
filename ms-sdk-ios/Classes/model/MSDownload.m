@@ -3,12 +3,6 @@
 
 @implementation MSDownload
 
-@synthesize link = _link;
-@synthesize md5 = _md5;
-@synthesize fileName = _fileName;
-@synthesize expires = _expires;
-@synthesize base64 = _base64;
-
 -(id)link: (NSString*) link
     md5: (NSString*) md5
     fileName: (NSString*) fileName
@@ -72,7 +66,7 @@
             NSMutableArray * array = [[NSMutableArray alloc] init];
             for( int i=0 ; i<[(NSArray*)_expires count] ; i++ ) {
 				SWGDate *expires = [[SWGDate alloc]init];
-				expires = [(NSArray*)_expires objectAtIndex:i];
+				expires = [(NSArray*)_expires objectAtIndex:i];            
                 [array addObject:[(SWGObject*)expires asDictionary]];
             }
             dict[@"expires"] = array;

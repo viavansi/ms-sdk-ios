@@ -3,7 +3,6 @@
 #import "MSOcrPageResult.h"
 #import "MSOcrScanImageCustom.h"
 #import "SWGObject.h"
-#import "OAuth1Client.h"
 
 
 @interface MSV3ocrApi: NSObject
@@ -27,7 +26,7 @@
 +(NSNumber*) mask :(NSString*) template 
      width:(NSString*) width 
     
-    auth:(OAuth1Client *) auth onSuccess: (void (^)(MSOcrMaskImage* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    onSuccess: (void (^)(MSOcrMaskImage* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     
 
 
@@ -46,7 +45,7 @@
  */
 +(NSNumber*) parse :(MSOcrScanImageCustom*) body 
     
-    auth:(OAuth1Client *) auth onSuccess: (void (^)(MSOcrPageResult* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    onSuccess: (void (^)(MSOcrPageResult* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     
 
 

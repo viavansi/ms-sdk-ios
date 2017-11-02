@@ -1,7 +1,6 @@
 #import <Foundation/Foundation.h>
 #import "MSLog.h"
 #import "SWGObject.h"
-#import "OAuth1Client.h"
 
 
 @interface MSV3loggerApi: NSObject
@@ -22,7 +21,7 @@
  */
 +(NSNumber*) addLog :(MSLog*) body 
     
-    auth:(OAuth1Client *) auth onSuccess: (void (^)(MSLog* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    onSuccess: (void (^)(MSLog* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     
 
 

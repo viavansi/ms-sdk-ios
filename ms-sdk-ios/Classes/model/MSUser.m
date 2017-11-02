@@ -3,26 +3,6 @@
 
 @implementation MSUser
 
-@synthesize code = _code;
-@synthesize nationalId = _nationalId;
-@synthesize email = _email;
-@synthesize password = _password;
-@synthesize name = _name;
-@synthesize surname = _surname;
-@synthesize rol = _rol;
-@synthesize _description = __description;
-@synthesize viafirmaKey = _viafirmaKey;
-@synthesize viafirmaPassword = _viafirmaPassword;
-@synthesize viafirmaCertificate = _viafirmaCertificate;
-@synthesize region = _region;
-@synthesize pos = _pos;
-@synthesize confirmToken = _confirmToken;
-@synthesize changePassToken = _changePassToken;
-@synthesize logDevice = _logDevice;
-@synthesize status = _status;
-@synthesize mobile = _mobile;
-@synthesize channel = _channel;
-
 -(id)code: (NSString*) code
     nationalId: (NSString*) nationalId
     email: (NSString*) email

@@ -5,7 +5,6 @@
 #import "MSEvidenceImage.h"
 #import "MSEvidenceSignature.h"
 #import "SWGObject.h"
-#import "OAuth1Client.h"
 
 
 @interface MSV3evidencesApi: NSObject
@@ -26,7 +25,7 @@
  */
 +(NSNumber*) addFingerPrintAsEvidence :(MSEvidenceFingerPrint*) body 
     
-    auth:(OAuth1Client *) auth onSuccess: (void (^)(MSEvidence* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    onSuccess: (void (^)(MSEvidence* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     
 
 
@@ -45,7 +44,7 @@
  */
 +(NSNumber*) addGenericAsEvidence :(MSEvidenceGeneric*) body 
     
-    auth:(OAuth1Client *) auth onSuccess: (void (^)(MSEvidence* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    onSuccess: (void (^)(MSEvidence* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     
 
 
@@ -64,7 +63,7 @@
  */
 +(NSNumber*) addImageAsEvidence :(MSEvidenceImage*) body 
     
-    auth:(OAuth1Client *) auth onSuccess: (void (^)(MSEvidence* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    onSuccess: (void (^)(MSEvidence* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     
 
 
@@ -86,7 +85,7 @@
 +(NSNumber*) prepareOtpSmsEvidence :(NSString*) messageCode 
      evidenceCode:(NSString*) evidenceCode 
     
-    auth:(OAuth1Client *) auth onSuccess: (void (^)(MSEvidence* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    onSuccess: (void (^)(MSEvidence* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     
 
 
@@ -111,7 +110,7 @@
      evidenceCode:(NSString*) evidenceCode 
      token:(NSString*) token 
     
-    auth:(OAuth1Client *) auth onSuccess: (void (^)(MSEvidence* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    onSuccess: (void (^)(MSEvidence* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     
 
 
@@ -130,7 +129,7 @@
  */
 +(NSNumber*) addSignatureAsEvidence :(MSEvidenceSignature*) body 
     
-    auth:(OAuth1Client *) auth onSuccess: (void (^)(MSEvidence* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    onSuccess: (void (^)(MSEvidence* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     
 
 

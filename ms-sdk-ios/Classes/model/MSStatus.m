@@ -3,9 +3,6 @@
 
 @implementation MSStatus
 
-@synthesize current = _current;
-@synthesize next = _next;
-
 -(id)current: (NSString*) current
     next: (NSString*) next
     

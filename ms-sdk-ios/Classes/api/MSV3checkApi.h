@@ -1,7 +1,6 @@
 #import <Foundation/Foundation.h>
 #import "MSCheck.h"
 #import "SWGObject.h"
-#import "OAuth1Client.h"
 
 
 @interface MSV3checkApi: NSObject
@@ -28,7 +27,7 @@
      checkCode:(NSString*) checkCode 
      validateCode:(NSString*) validateCode 
     
-    auth:(OAuth1Client *) auth onSuccess: (void (^)(MSCheck* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    onSuccess: (void (^)(MSCheck* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     
 
 
@@ -56,7 +55,7 @@
      comment:(NSString*) comment 
      validateCode:(NSString*) validateCode 
     
-    auth:(OAuth1Client *) auth onSuccess: (void (^)(MSCheck* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    onSuccess: (void (^)(MSCheck* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     
 
 

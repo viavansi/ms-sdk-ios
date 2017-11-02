@@ -3,9 +3,6 @@
 
 @implementation MSToken
 
-@synthesize oauth_token = _oauth_token;
-@synthesize oauth_token_secret = _oauth_token_secret;
-
 -(id)oauth_token: (NSString*) oauth_token
     oauth_token_secret: (NSString*) oauth_token_secret
     

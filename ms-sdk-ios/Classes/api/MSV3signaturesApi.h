@@ -1,13 +1,12 @@
 #import <Foundation/Foundation.h>
-#import "MSWrapSignature.h"
 #import "MSSignature.h"
-#import "MSDataToSign.h"
+#import "MSWrapSignature.h"
 #import "MSPrepareSignature.h"
-#import "MSPolicy.h"
+#import "MSDataToSign.h"
 #import "MSEvidenceSignature.h"
+#import "MSPolicy.h"
 #import "MSMessage.h"
 #import "SWGObject.h"
-#import "OAuth1Client.h"
 
 
 @interface MSV3signaturesApi: NSObject
@@ -28,7 +27,7 @@
  */
 +(NSNumber*) finalizeClientSignature :(MSWrapSignature*) body 
     
-    auth:(OAuth1Client *) auth onSuccess: (void (^)(MSSignature* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    onSuccess: (void (^)(MSSignature* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     
 
 
@@ -47,7 +46,7 @@
  */
 +(NSNumber*) prepareClientSignature :(MSPrepareSignature*) body 
     
-    auth:(OAuth1Client *) auth onSuccess: (void (^)(MSDataToSign* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    onSuccess: (void (^)(MSDataToSign* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     
 
 
@@ -66,7 +65,7 @@
  */
 +(NSNumber*) addDigitalizedSignature :(MSEvidenceSignature*) body 
     
-    auth:(OAuth1Client *) auth onSuccess: (void (^)(MSPolicy* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    onSuccess: (void (^)(MSPolicy* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     
 
 
@@ -88,7 +87,7 @@
 +(NSNumber*) addServerSignature :(NSString*) messageCode 
      signatureCode:(NSString*) signatureCode 
     
-    auth:(OAuth1Client *) auth onSuccess: (void (^)(MSSignature* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    onSuccess: (void (^)(MSSignature* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     
 
 
@@ -113,7 +112,7 @@
      signatureCode:(NSString*) signatureCode 
      status:(NSString*) status 
     
-    auth:(OAuth1Client *) auth onSuccess: (void (^)(MSMessage* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    onSuccess: (void (^)(MSMessage* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     
 
 

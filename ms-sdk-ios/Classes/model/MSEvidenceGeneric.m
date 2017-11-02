@@ -3,18 +3,6 @@
 
 @implementation MSEvidenceGeneric
 
-@synthesize messageCode = _messageCode;
-@synthesize evidenceCode = _evidenceCode;
-@synthesize geolocation = _geolocation;
-@synthesize device = _device;
-@synthesize positions = _positions;
-@synthesize properties = _properties;
-@synthesize base64Image = _base64Image;
-@synthesize providerId = _providerId;
-@synthesize evidenceDescription = _evidenceDescription;
-@synthesize imageScaleFactor = _imageScaleFactor;
-@synthesize imageQuality = _imageQuality;
-
 -(id)messageCode: (NSString*) messageCode
     evidenceCode: (NSString*) evidenceCode
     geolocation: (MSGeolocation*) geolocation
@@ -24,8 +12,8 @@
     base64Image: (NSString*) base64Image
     providerId: (NSString*) providerId
     evidenceDescription: (NSString*) evidenceDescription
-    imageScaleFactor: (NSNumber*) imageScaleFactor
     imageQuality: (NSNumber*) imageQuality
+    imageScaleFactor: (NSNumber*) imageScaleFactor
     
 {
     _messageCode = messageCode;
@@ -37,8 +25,8 @@
     _base64Image = base64Image;
     _providerId = providerId;
     _evidenceDescription = evidenceDescription;
-    _imageScaleFactor = imageScaleFactor;
     _imageQuality = imageQuality;
+    _imageScaleFactor = imageScaleFactor;
     
 
     return self;
@@ -118,9 +106,9 @@
         
         _evidenceDescription = dict[@"evidenceDescription"];
         
-        _imageScaleFactor = dict[@"imageScaleFactor"];
-        
         _imageQuality = dict[@"imageQuality"];
+        
+        _imageScaleFactor = dict[@"imageScaleFactor"];
         
         
     }
@@ -144,7 +132,7 @@
             NSMutableArray * array = [[NSMutableArray alloc] init];
             for( int i=0 ; i<[(NSArray*)_geolocation count] ; i++ ) {
 				MSGeolocation *geolocation = [[MSGeolocation alloc]init];
-				geolocation = [(NSArray*)_geolocation objectAtIndex:i];
+				geolocation = [(NSArray*)_geolocation objectAtIndex:i];            
                 [array addObject:[(SWGObject*)geolocation asDictionary]];
             }
             dict[@"geolocation"] = array;
@@ -169,7 +157,7 @@
             NSMutableArray * array = [[NSMutableArray alloc] init];
             for( int i=0 ; i<[(NSArray*)_device count] ; i++ ) {
 				MSEvidenceDevice *device = [[MSEvidenceDevice alloc]init];
-				device = [(NSArray*)_device objectAtIndex:i];
+				device = [(NSArray*)_device objectAtIndex:i];            
                 [array addObject:[(SWGObject*)device asDictionary]];
             }
             dict[@"device"] = array;
@@ -194,7 +182,7 @@
             NSMutableArray * array = [[NSMutableArray alloc] init];
             for( int i=0 ; i<[(NSArray*)_positions count] ; i++ ) {
 				MSPosition *positions = [[MSPosition alloc]init];
-				positions = [(NSArray*)_positions objectAtIndex:i];
+				positions = [(NSArray*)_positions objectAtIndex:i];            
                 [array addObject:[(SWGObject*)positions asDictionary]];
             }
             dict[@"positions"] = array;
@@ -219,7 +207,7 @@
             NSMutableArray * array = [[NSMutableArray alloc] init];
             for( int i=0 ; i<[(NSArray*)_properties count] ; i++ ) {
 				MSParam *properties = [[MSParam alloc]init];
-				properties = [(NSArray*)_properties objectAtIndex:i];
+				properties = [(NSArray*)_properties objectAtIndex:i];            
                 [array addObject:[(SWGObject*)properties asDictionary]];
             }
             dict[@"properties"] = array;
@@ -251,11 +239,11 @@
         
     
     
-            if(_imageScaleFactor != nil) dict[@"imageScaleFactor"] = _imageScaleFactor ;
+            if(_imageQuality != nil) dict[@"imageQuality"] = _imageQuality ;
         
     
     
-            if(_imageQuality != nil) dict[@"imageQuality"] = _imageQuality ;
+            if(_imageScaleFactor != nil) dict[@"imageScaleFactor"] = _imageScaleFactor ;
         
     
 

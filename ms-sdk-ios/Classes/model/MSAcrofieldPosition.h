@@ -6,11 +6,11 @@
 @interface MSAcrofieldPosition : SWGObject
 
 @property(nonatomic) NSString* _id;  
-@property(nonatomic) MSRectangle* rectangle;  
 @property(nonatomic) NSNumber* page;  
+@property(nonatomic) MSRectangle* rectangle;  
 - (id) _id: (NSString*) _id     
-    rectangle: (MSRectangle*) rectangle     
-    page: (NSNumber*) page;
+    page: (NSNumber*) page     
+    rectangle: (MSRectangle*) rectangle;
     
 
 - (id) initWithValues: (NSDictionary*)dict;

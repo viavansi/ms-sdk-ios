@@ -1,33 +1,33 @@
-#import "MSV3checkApi.h"
+#import "MSV3identicaApi.h"
 #import "SWGFile.h"
 #import "ApiClient.h"
-#import "MSCheck.h"
+#import "MSIdenticaRequestResult.h"
+#import "MSIdenticaStatusResult.h"
 
 
 
-@implementation MSV3checkApi
+@implementation MSV3identicaApi
 
 +(unsigned long) requestQueueSize {
     return [ApiClient requestQueueSize];
 }
 
 
-+(NSNumber*) confirmCheck: (NSString*) messageCode
-         checkCode: (NSString*) checkCode
-         validateCode: (NSString*) validateCode
++(NSNumber*) requestFingerprint: (NSString*) identicaServer
+         clientId: (NSString*) clientId
+         serialId: (NSString*) serialId
+         userId: (NSString*) userId
         
-        onSuccess: (void (^)(MSCheck* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock
+        onSuccess: (void (^)(MSIdenticaRequestResult* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock
          {
 
-    NSMutableString* requestUrl = [NSMutableString stringWithFormat:@"%@/v3/check/confirm/{messageCode}/{checkCode}", [[ApiClient sharedInstance] url]];
+    NSMutableString* requestUrl = [NSMutableString stringWithFormat:@"%@/v3/identica/request", [[ApiClient sharedInstance] url]];
 
     // remove format in URL if needed
     if ([requestUrl rangeOfString:@".{format}"].location != NSNotFound){
         [requestUrl replaceCharactersInRange: [requestUrl rangeOfString:@".{format}"] withString:@".json"];
     }
 
-    [requestUrl replaceCharactersInRange: [requestUrl rangeOfString:[NSString stringWithFormat:@"%@%@%@", @"{", @"messageCode", @"}"]] withString: [ApiClient escape:messageCode]];
-    [requestUrl replaceCharactersInRange: [requestUrl rangeOfString:[NSString stringWithFormat:@"%@%@%@", @"{", @"checkCode", @"}"]] withString: [ApiClient escape:checkCode]];
     
 
 	NSArray * requestContentTypes = @[@"application/x-www-form-urlencoded"];
@@ -49,8 +49,20 @@
     NSMutableDictionary * formParams = [[NSMutableDictionary alloc]init]; 
 
     
-    if(validateCode){
-    formParams[@"validateCode"] = validateCode;
+    if(identicaServer){
+    formParams[@"identicaServer"] = identicaServer;
+    }
+    
+    if(clientId){
+    formParams[@"clientId"] = clientId;
+    }
+    
+    if(serialId){
+    formParams[@"serialId"] = serialId;
+    }
+    
+    if(userId){
+    formParams[@"userId"] = userId;
     }
     
     [bodyDictionary addObject:formParams];
@@ -66,7 +78,7 @@
         
     // comples response type
     return [client dictionary: requestUrl 
-                       method: @"PUT" 
+                       method: @"POST" 
                   queryParams: queryParams 
                          body: bodyDictionary 
                  headerParams: headerParams
@@ -74,9 +86,9 @@
           responseContentType: responseContentType
               successBlock: ^(NSDictionary *data) {
                 
-                MSCheck *result = nil;
+                MSIdenticaRequestResult *result = nil;
                 if (data) {
-                    result = [[MSCheck    alloc]initWithValues: data];
+                    result = [[MSIdenticaRequestResult    alloc]initWithValues: data];
                 }
                 onSuccessBlock(result);
                 
@@ -89,23 +101,19 @@
     
 }
 
-+(NSNumber*) rejectCheck: (NSString*) messageCode
-         checkCode: (NSString*) checkCode
-         comment: (NSString*) comment
-         validateCode: (NSString*) validateCode
++(NSNumber*) requestFingerprintStatus: (NSString*) identicaServer
+         requestId: (NSString*) requestId
         
-        onSuccess: (void (^)(MSCheck* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock
+        onSuccess: (void (^)(MSIdenticaStatusResult* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock
          {
 
-    NSMutableString* requestUrl = [NSMutableString stringWithFormat:@"%@/v3/check/reject/{messageCode}/{checkCode}", [[ApiClient sharedInstance] url]];
+    NSMutableString* requestUrl = [NSMutableString stringWithFormat:@"%@/v3/identica/status", [[ApiClient sharedInstance] url]];
 
     // remove format in URL if needed
     if ([requestUrl rangeOfString:@".{format}"].location != NSNotFound){
         [requestUrl replaceCharactersInRange: [requestUrl rangeOfString:@".{format}"] withString:@".json"];
     }
 
-    [requestUrl replaceCharactersInRange: [requestUrl rangeOfString:[NSString stringWithFormat:@"%@%@%@", @"{", @"messageCode", @"}"]] withString: [ApiClient escape:messageCode]];
-    [requestUrl replaceCharactersInRange: [requestUrl rangeOfString:[NSString stringWithFormat:@"%@%@%@", @"{", @"checkCode", @"}"]] withString: [ApiClient escape:checkCode]];
     
 
 	NSArray * requestContentTypes = @[@"application/x-www-form-urlencoded"];
@@ -127,12 +135,12 @@
     NSMutableDictionary * formParams = [[NSMutableDictionary alloc]init]; 
 
     
-    if(comment){
-    formParams[@"comment"] = comment;
+    if(identicaServer){
+    formParams[@"identicaServer"] = identicaServer;
     }
     
-    if(validateCode){
-    formParams[@"validateCode"] = validateCode;
+    if(requestId){
+    formParams[@"requestId"] = requestId;
     }
     
     [bodyDictionary addObject:formParams];
@@ -148,7 +156,7 @@
         
     // comples response type
     return [client dictionary: requestUrl 
-                       method: @"PUT" 
+                       method: @"POST" 
                   queryParams: queryParams 
                          body: bodyDictionary 
                  headerParams: headerParams
@@ -156,9 +164,9 @@
           responseContentType: responseContentType
               successBlock: ^(NSDictionary *data) {
                 
-                MSCheck *result = nil;
+                MSIdenticaStatusResult *result = nil;
                 if (data) {
-                    result = [[MSCheck    alloc]initWithValues: data];
+                    result = [[MSIdenticaStatusResult    alloc]initWithValues: data];
                 }
                 onSuccessBlock(result);
                 

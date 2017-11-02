@@ -3,9 +3,6 @@
 
 @implementation MSFormNestedValue
 
-@synthesize key = _key;
-@synthesize values = _values;
-
 -(id)key: (NSString*) key
     values: (NSArray*) values
     
@@ -63,7 +60,7 @@
             NSMutableArray * array = [[NSMutableArray alloc] init];
             for( int i=0 ; i<[(NSArray*)_values count] ; i++ ) {
 				MSFormValue *values = [[MSFormValue alloc]init];
-				values = [(NSArray*)_values objectAtIndex:i];
+				values = [(NSArray*)_values objectAtIndex:i];            
                 [array addObject:[(SWGObject*)values asDictionary]];
             }
             dict[@"values"] = array;

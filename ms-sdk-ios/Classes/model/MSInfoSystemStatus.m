@@ -3,9 +3,6 @@
 
 @implementation MSInfoSystemStatus
 
-@synthesize date = _date;
-@synthesize info = _info;
-
 -(id)date: (NSString*) date
     info: (NSArray*) info
     
@@ -63,7 +60,7 @@
             NSMutableArray * array = [[NSMutableArray alloc] init];
             for( int i=0 ; i<[(NSArray*)_info count] ; i++ ) {
 				MSSystemStatus *info = [[MSSystemStatus alloc]init];
-				info = [(NSArray*)_info objectAtIndex:i];
+				info = [(NSArray*)_info objectAtIndex:i];            
                 [array addObject:[(SWGObject*)info asDictionary]];
             }
             dict[@"info"] = array;

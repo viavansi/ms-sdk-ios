@@ -4,7 +4,6 @@
 #import "MSInfoSystemStatus.h"
 #import "MSTaskManager.h"
 #import "SWGObject.h"
-#import "OAuth1Client.h"
 
 
 @interface MSV3systemApi: NSObject
@@ -21,7 +20,7 @@
 
  return type: MSAlive*
  */
-+(NSNumber*) isAlive :(OAuth1Client *) auth onSuccess:
++(NSNumber*) isAlive :
     (void (^)(MSAlive* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     
 
@@ -41,7 +40,7 @@
  */
 +(NSNumber*) getDeviceConfiguration :(NSString*) appIdentifier 
     
-    auth:(OAuth1Client *) auth onSuccess: (void (^)(MSConfiguration* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    onSuccess: (void (^)(MSConfiguration* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     
 
 
@@ -56,7 +55,7 @@
 
  return type: MSInfoSystemStatus*
  */
-+(NSNumber*) getSystemInfo :(OAuth1Client *) auth onSuccess:
++(NSNumber*) getSystemInfo :
     (void (^)(MSInfoSystemStatus* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     
 
@@ -72,7 +71,7 @@
 
  return type: MSTaskManager*
  */
-+(NSNumber*) getWorkflowConfiguration :(OAuth1Client *) auth onSuccess:
++(NSNumber*) getWorkflowConfiguration :
     (void (^)(MSTaskManager* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     
 

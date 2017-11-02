@@ -3,10 +3,6 @@
 
 @implementation MSPrepareSignature
 
-@synthesize messageCode = _messageCode;
-@synthesize signatureCode = _signatureCode;
-@synthesize publicKey = _publicKey;
-
 -(id)messageCode: (NSString*) messageCode
     signatureCode: (NSString*) signatureCode
     publicKey: (NSString*) publicKey

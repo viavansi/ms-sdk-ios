@@ -3,11 +3,6 @@
 
 @implementation MSWrapSignature
 
-@synthesize signatureCode = _signatureCode;
-@synthesize publicKey = _publicKey;
-@synthesize messageCode = _messageCode;
-@synthesize signedDataBase64 = _signedDataBase64;
-
 -(id)signatureCode: (NSString*) signatureCode
     publicKey: (NSString*) publicKey
     messageCode: (NSString*) messageCode

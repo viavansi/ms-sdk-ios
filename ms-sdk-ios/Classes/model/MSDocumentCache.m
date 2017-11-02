@@ -3,10 +3,6 @@
 
 @implementation MSDocumentCache
 
-@synthesize templateReference = _templateReference;
-@synthesize md5 = _md5;
-@synthesize expires = _expires;
-
 -(id)templateReference: (NSString*) templateReference
     md5: (NSString*) md5
     expires: (SWGDate*) expires
@@ -58,7 +54,7 @@
             NSMutableArray * array = [[NSMutableArray alloc] init];
             for( int i=0 ; i<[(NSArray*)_expires count] ; i++ ) {
 				SWGDate *expires = [[SWGDate alloc]init];
-				expires = [(NSArray*)_expires objectAtIndex:i];
+				expires = [(NSArray*)_expires objectAtIndex:i];            
                 [array addObject:[(SWGObject*)expires asDictionary]];
             }
             dict[@"expires"] = array;

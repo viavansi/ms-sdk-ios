@@ -3,9 +3,6 @@
 
 @implementation MSFormValue
 
-@synthesize key = _key;
-@synthesize values = _values;
-
 -(id)key: (NSString*) key
     values: (NSArray*) values
     
