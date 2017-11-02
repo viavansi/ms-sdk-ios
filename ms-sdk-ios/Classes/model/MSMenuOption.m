@@ -3,6 +3,14 @@
 
 @implementation MSMenuOption
 
+@synthesize className = _className;
+@synthesize automatic = _automatic;
+@synthesize name = _name;
+@synthesize icon = _icon;
+@synthesize username = _username;
+@synthesize password = _password;
+@synthesize email = _email;
+
 -(id)className: (NSString*) className
     automatic: (NSNumber*) automatic
     name: (NSString*) name
@@ -86,7 +94,7 @@
             NSMutableArray * array = [[NSMutableArray alloc] init];
             for( int i=0 ; i<[(NSArray*)_email count] ; i++ ) {
 				MSMail *email = [[MSMail alloc]init];
-				email = [(NSArray*)_email objectAtIndex:i];            
+				email = [(NSArray*)_email objectAtIndex:i];
                 [array addObject:[(SWGObject*)email asDictionary]];
             }
             dict[@"email"] = array;

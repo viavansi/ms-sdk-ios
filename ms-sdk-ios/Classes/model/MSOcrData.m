@@ -3,6 +3,11 @@
 
 @implementation MSOcrData
 
+@synthesize key = _key;
+@synthesize version = _version;
+@synthesize offline = _offline;
+@synthesize result = _result;
+
 -(id)key: (NSString*) key
     version: (NSNumber*) version
     offline: (NSNumber*) offline
@@ -76,7 +81,7 @@
             NSMutableArray * array = [[NSMutableArray alloc] init];
             for( int i=0 ; i<[(NSArray*)_result count] ; i++ ) {
 				MSJSOcrFieldExtractionResult *result = [[MSJSOcrFieldExtractionResult alloc]init];
-				result = [(NSArray*)_result objectAtIndex:i];            
+				result = [(NSArray*)_result objectAtIndex:i];
                 [array addObject:[(SWGObject*)result asDictionary]];
             }
             dict[@"result"] = array;

@@ -3,6 +3,28 @@
 
 @implementation MSIdenticaOperationStatus
 
+@synthesize responseCode = _responseCode;
+@synthesize clientId = _clientId;
+@synthesize serviceId = _serviceId;
+@synthesize captureFormat = _captureFormat;
+@synthesize error = _error;
+@synthesize serviceResponseCode = _serviceResponseCode;
+@synthesize endDate = _endDate;
+@synthesize version = _version;
+@synthesize fingerprintReferenceCount = _fingerprintReferenceCount;
+@synthesize fingerprintReferenceFormat = _fingerprintReferenceFormat;
+@synthesize serviceResponse = _serviceResponse;
+@synthesize authenticationResponse = _authenticationResponse;
+@synthesize pin = _pin;
+@synthesize name1 = _name1;
+@synthesize name2 = _name2;
+@synthesize surname1 = _surname1;
+@synthesize surname2 = _surname2;
+@synthesize generationDate = _generationDate;
+@synthesize generationLocation = _generationLocation;
+@synthesize operationCode = _operationCode;
+@synthesize fullName = _fullName;
+
 -(id)responseCode: (NSString*) responseCode
     clientId: (NSString*) clientId
     serviceId: (NSString*) serviceId

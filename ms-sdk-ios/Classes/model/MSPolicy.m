@@ -3,6 +3,21 @@
 
 @implementation MSPolicy
 
+@synthesize code = _code;
+@synthesize userCode = _userCode;
+@synthesize typeFormatSign = _typeFormatSign;
+@synthesize typeSign = _typeSign;
+@synthesize signByServer = _signByServer;
+@synthesize certificateAlias = _certificateAlias;
+@synthesize certificatePassword = _certificatePassword;
+@synthesize idTemporal = _idTemporal;
+@synthesize idSign = _idSign;
+@synthesize paramList = _paramList;
+@synthesize evidences = _evidences;
+@synthesize signatures = _signatures;
+@synthesize error = _error;
+@synthesize checklist = _checklist;
+
 -(id)code: (NSString*) code
     userCode: (NSString*) userCode
     typeFormatSign: (NSString*) typeFormatSign
@@ -206,7 +221,7 @@
             NSMutableArray * array = [[NSMutableArray alloc] init];
             for( int i=0 ; i<[(NSArray*)_paramList count] ; i++ ) {
 				MSParam *paramList = [[MSParam alloc]init];
-				paramList = [(NSArray*)_paramList objectAtIndex:i];            
+				paramList = [(NSArray*)_paramList objectAtIndex:i];
                 [array addObject:[(SWGObject*)paramList asDictionary]];
             }
             dict[@"paramList"] = array;
@@ -231,7 +246,7 @@
             NSMutableArray * array = [[NSMutableArray alloc] init];
             for( int i=0 ; i<[(NSArray*)_evidences count] ; i++ ) {
 				MSEvidence *evidences = [[MSEvidence alloc]init];
-				evidences = [(NSArray*)_evidences objectAtIndex:i];            
+				evidences = [(NSArray*)_evidences objectAtIndex:i];
                 [array addObject:[(SWGObject*)evidences asDictionary]];
             }
             dict[@"evidences"] = array;
@@ -256,7 +271,7 @@
             NSMutableArray * array = [[NSMutableArray alloc] init];
             for( int i=0 ; i<[(NSArray*)_signatures count] ; i++ ) {
 				MSSignature *signatures = [[MSSignature alloc]init];
-				signatures = [(NSArray*)_signatures objectAtIndex:i];            
+				signatures = [(NSArray*)_signatures objectAtIndex:i];
                 [array addObject:[(SWGObject*)signatures asDictionary]];
             }
             dict[@"signatures"] = array;
@@ -281,7 +296,7 @@
             NSMutableArray * array = [[NSMutableArray alloc] init];
             for( int i=0 ; i<[(NSArray*)_error count] ; i++ ) {
 				MSErrorResponse *error = [[MSErrorResponse alloc]init];
-				error = [(NSArray*)_error objectAtIndex:i];            
+				error = [(NSArray*)_error objectAtIndex:i];
                 [array addObject:[(SWGObject*)error asDictionary]];
             }
             dict[@"error"] = array;
@@ -306,7 +321,7 @@
             NSMutableArray * array = [[NSMutableArray alloc] init];
             for( int i=0 ; i<[(NSArray*)_checklist count] ; i++ ) {
 				MSCheck *checklist = [[MSCheck alloc]init];
-				checklist = [(NSArray*)_checklist objectAtIndex:i];            
+				checklist = [(NSArray*)_checklist objectAtIndex:i];
                 [array addObject:[(SWGObject*)checklist asDictionary]];
             }
             dict[@"checklist"] = array;

@@ -3,6 +3,14 @@
 
 @implementation MSTemplate
 
+@synthesize code = _code;
+@synthesize title = _title;
+@synthesize _description = __description;
+@synthesize creationDate = _creationDate;
+@synthesize form = _form;
+@synthesize version = _version;
+@synthesize type = _type;
+
 -(id)code: (NSString*) code
     title: (NSString*) title
     _description: (NSString*) _description
@@ -80,7 +88,7 @@
             NSMutableArray * array = [[NSMutableArray alloc] init];
             for( int i=0 ; i<[(NSArray*)_creationDate count] ; i++ ) {
 				SWGDate *creationDate = [[SWGDate alloc]init];
-				creationDate = [(NSArray*)_creationDate objectAtIndex:i];            
+				creationDate = [(NSArray*)_creationDate objectAtIndex:i];
                 [array addObject:[(SWGObject*)creationDate asDictionary]];
             }
             dict[@"creationDate"] = array;
@@ -105,7 +113,7 @@
             NSMutableArray * array = [[NSMutableArray alloc] init];
             for( int i=0 ; i<[(NSArray*)_form count] ; i++ ) {
 				MSForm *form = [[MSForm alloc]init];
-				form = [(NSArray*)_form objectAtIndex:i];            
+				form = [(NSArray*)_form objectAtIndex:i];
                 [array addObject:[(SWGObject*)form asDictionary]];
             }
             dict[@"form"] = array;

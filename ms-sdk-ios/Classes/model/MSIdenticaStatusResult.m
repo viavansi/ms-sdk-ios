@@ -3,6 +3,10 @@
 
 @implementation MSIdenticaStatusResult
 
+@synthesize operationStatus = _operationStatus;
+@synthesize responseCode = _responseCode;
+@synthesize responseMessage = _responseMessage;
+
 -(id)operationStatus: (MSIdenticaOperationStatus*) operationStatus
     responseCode: (NSString*) responseCode
     responseMessage: (NSString*) responseMessage
@@ -46,7 +50,7 @@
             NSMutableArray * array = [[NSMutableArray alloc] init];
             for( int i=0 ; i<[(NSArray*)_operationStatus count] ; i++ ) {
 				MSIdenticaOperationStatus *operationStatus = [[MSIdenticaOperationStatus alloc]init];
-				operationStatus = [(NSArray*)_operationStatus objectAtIndex:i];            
+				operationStatus = [(NSArray*)_operationStatus objectAtIndex:i];
                 [array addObject:[(SWGObject*)operationStatus asDictionary]];
             }
             dict[@"operationStatus"] = array;

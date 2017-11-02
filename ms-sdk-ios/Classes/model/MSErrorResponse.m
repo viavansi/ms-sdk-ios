@@ -3,6 +3,11 @@
 
 @implementation MSErrorResponse
 
+@synthesize code = _code;
+@synthesize type = _type;
+@synthesize message = _message;
+@synthesize trace = _trace;
+
 -(id)code: (NSNumber*) code
     type: (NSString*) type
     message: (NSString*) message

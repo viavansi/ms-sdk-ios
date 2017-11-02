@@ -3,6 +3,16 @@
 
 @implementation MSForm
 
+@synthesize code = _code;
+@synthesize title = _title;
+@synthesize _description = __description;
+@synthesize version = _version;
+@synthesize templateCode = _templateCode;
+@synthesize containers = _containers;
+@synthesize settings = _settings;
+@synthesize values = _values;
+@synthesize nestedValues = _nestedValues;
+
 -(id)code: (NSString*) code
     title: (NSString*) title
     _description: (NSString*) _description
@@ -150,7 +160,7 @@
             NSMutableArray * array = [[NSMutableArray alloc] init];
             for( int i=0 ; i<[(NSArray*)_containers count] ; i++ ) {
 				MSContainer *containers = [[MSContainer alloc]init];
-				containers = [(NSArray*)_containers objectAtIndex:i];            
+				containers = [(NSArray*)_containers objectAtIndex:i];
                 [array addObject:[(SWGObject*)containers asDictionary]];
             }
             dict[@"containers"] = array;
@@ -175,7 +185,7 @@
             NSMutableArray * array = [[NSMutableArray alloc] init];
             for( int i=0 ; i<[(NSArray*)_settings count] ; i++ ) {
 				MSSetting *settings = [[MSSetting alloc]init];
-				settings = [(NSArray*)_settings objectAtIndex:i];            
+				settings = [(NSArray*)_settings objectAtIndex:i];
                 [array addObject:[(SWGObject*)settings asDictionary]];
             }
             dict[@"settings"] = array;
@@ -200,7 +210,7 @@
             NSMutableArray * array = [[NSMutableArray alloc] init];
             for( int i=0 ; i<[(NSArray*)_values count] ; i++ ) {
 				MSFormValue *values = [[MSFormValue alloc]init];
-				values = [(NSArray*)_values objectAtIndex:i];            
+				values = [(NSArray*)_values objectAtIndex:i];
                 [array addObject:[(SWGObject*)values asDictionary]];
             }
             dict[@"values"] = array;
@@ -225,7 +235,7 @@
             NSMutableArray * array = [[NSMutableArray alloc] init];
             for( int i=0 ; i<[(NSArray*)_nestedValues count] ; i++ ) {
 				MSFormNestedValue *nestedValues = [[MSFormNestedValue alloc]init];
-				nestedValues = [(NSArray*)_nestedValues objectAtIndex:i];            
+				nestedValues = [(NSArray*)_nestedValues objectAtIndex:i];
                 [array addObject:[(SWGObject*)nestedValues asDictionary]];
             }
             dict[@"nestedValues"] = array;

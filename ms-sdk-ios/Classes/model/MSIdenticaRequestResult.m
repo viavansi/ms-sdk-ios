@@ -3,6 +3,9 @@
 
 @implementation MSIdenticaRequestResult
 
+@synthesize responseMessage = _responseMessage;
+@synthesize responseCode = _responseCode;
+
 -(id)responseMessage: (NSString*) responseMessage
     responseCode: (NSString*) responseCode
     

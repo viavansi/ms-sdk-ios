@@ -3,6 +3,19 @@
 
 @implementation MSSetting
 
+@synthesize titleKey = _titleKey;
+@synthesize descriptionKey = _descriptionKey;
+@synthesize policy = _policy;
+@synthesize computec_key = _computec_key;
+@synthesize policies = _policies;
+@synthesize callbackURL = _callbackURL;
+@synthesize callbackMails = _callbackMails;
+@synthesize callbackMailsFormKeys = _callbackMailsFormKeys;
+@synthesize validateCode = _validateCode;
+@synthesize workflow = _workflow;
+@synthesize font = _font;
+@synthesize acrofieldsPositions = _acrofieldsPositions;
+
 -(id)titleKey: (NSString*) titleKey
     descriptionKey: (NSString*) descriptionKey
     policy: (MSPolicy*) policy
@@ -136,7 +149,7 @@
             NSMutableArray * array = [[NSMutableArray alloc] init];
             for( int i=0 ; i<[(NSArray*)_policy count] ; i++ ) {
 				MSPolicy *policy = [[MSPolicy alloc]init];
-				policy = [(NSArray*)_policy objectAtIndex:i];            
+				policy = [(NSArray*)_policy objectAtIndex:i];
                 [array addObject:[(SWGObject*)policy asDictionary]];
             }
             dict[@"policy"] = array;
@@ -165,7 +178,7 @@
             NSMutableArray * array = [[NSMutableArray alloc] init];
             for( int i=0 ; i<[(NSArray*)_policies count] ; i++ ) {
 				MSPolicy *policies = [[MSPolicy alloc]init];
-				policies = [(NSArray*)_policies objectAtIndex:i];            
+				policies = [(NSArray*)_policies objectAtIndex:i];
                 [array addObject:[(SWGObject*)policies asDictionary]];
             }
             dict[@"policies"] = array;
@@ -210,7 +223,7 @@
             NSMutableArray * array = [[NSMutableArray alloc] init];
             for( int i=0 ; i<[(NSArray*)_font count] ; i++ ) {
 				MSFont *font = [[MSFont alloc]init];
-				font = [(NSArray*)_font objectAtIndex:i];            
+				font = [(NSArray*)_font objectAtIndex:i];
                 [array addObject:[(SWGObject*)font asDictionary]];
             }
             dict[@"font"] = array;
@@ -235,7 +248,7 @@
             NSMutableArray * array = [[NSMutableArray alloc] init];
             for( int i=0 ; i<[(NSArray*)_acrofieldsPositions count] ; i++ ) {
 				MSAcrofieldPosition *acrofieldsPositions = [[MSAcrofieldPosition alloc]init];
-				acrofieldsPositions = [(NSArray*)_acrofieldsPositions objectAtIndex:i];            
+				acrofieldsPositions = [(NSArray*)_acrofieldsPositions objectAtIndex:i];
                 [array addObject:[(SWGObject*)acrofieldsPositions asDictionary]];
             }
             dict[@"acrofieldsPositions"] = array;

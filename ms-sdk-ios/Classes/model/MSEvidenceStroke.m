@@ -3,6 +3,8 @@
 
 @implementation MSEvidenceStroke
 
+@synthesize points = _points;
+
 -(id)points: (NSArray*) points
     
 {
@@ -52,7 +54,7 @@
             NSMutableArray * array = [[NSMutableArray alloc] init];
             for( int i=0 ; i<[(NSArray*)_points count] ; i++ ) {
 				MSEvidencePoint *points = [[MSEvidencePoint alloc]init];
-				points = [(NSArray*)_points objectAtIndex:i];            
+				points = [(NSArray*)_points objectAtIndex:i];
                 [array addObject:[(SWGObject*)points asDictionary]];
             }
             dict[@"points"] = array;

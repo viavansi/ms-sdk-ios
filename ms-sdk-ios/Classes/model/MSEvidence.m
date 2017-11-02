@@ -3,6 +3,38 @@
 
 @implementation MSEvidence
 
+@synthesize type = _type;
+@synthesize code = _code;
+@synthesize status = _status;
+@synthesize helpText = _helpText;
+@synthesize temporalReference = _temporalReference;
+@synthesize positions = _positions;
+@synthesize metadataList = _metadataList;
+@synthesize metadata = _metadata;
+@synthesize deviceType = _deviceType;
+@synthesize hashPdf = _hashPdf;
+@synthesize hashImage = _hashImage;
+@synthesize algorithmic = _algorithmic;
+@synthesize fingerID = _fingerID;
+@synthesize typeFormatSign = _typeFormatSign;
+@synthesize certificateAlias = _certificateAlias;
+@synthesize certificatePassword = _certificatePassword;
+@synthesize metadataCipherPublicKey = _metadataCipherPublicKey;
+@synthesize encryptionKeyAlias = _encryptionKeyAlias;
+@synthesize optional = _optional;
+@synthesize signatureData = _signatureData;
+@synthesize fingerPrintData = _fingerPrintData;
+@synthesize imageData = _imageData;
+@synthesize positionsKey = _positionsKey;
+@synthesize stampsMin = _stampsMin;
+@synthesize stampsPolicy = _stampsPolicy;
+@synthesize stylus = _stylus;
+@synthesize geolocation = _geolocation;
+@synthesize imageQuality = _imageQuality;
+@synthesize imageScaleFactor = _imageScaleFactor;
+@synthesize ocr = _ocr;
+@synthesize genericData = _genericData;
+
 -(id)type: (NSString*) type
     code: (NSString*) code
     status: (NSString*) status
@@ -248,7 +280,7 @@
             NSMutableArray * array = [[NSMutableArray alloc] init];
             for( int i=0 ; i<[(NSArray*)_positions count] ; i++ ) {
 				MSPosition *positions = [[MSPosition alloc]init];
-				positions = [(NSArray*)_positions objectAtIndex:i];            
+				positions = [(NSArray*)_positions objectAtIndex:i];
                 [array addObject:[(SWGObject*)positions asDictionary]];
             }
             dict[@"positions"] = array;
@@ -273,7 +305,7 @@
             NSMutableArray * array = [[NSMutableArray alloc] init];
             for( int i=0 ; i<[(NSArray*)_metadataList count] ; i++ ) {
 				MSParam *metadataList = [[MSParam alloc]init];
-				metadataList = [(NSArray*)_metadataList objectAtIndex:i];            
+				metadataList = [(NSArray*)_metadataList objectAtIndex:i];
                 [array addObject:[(SWGObject*)metadataList asDictionary]];
             }
             dict[@"metadataList"] = array;
@@ -346,7 +378,7 @@
             NSMutableArray * array = [[NSMutableArray alloc] init];
             for( int i=0 ; i<[(NSArray*)_signatureData count] ; i++ ) {
 				MSEvidenceSignature *signatureData = [[MSEvidenceSignature alloc]init];
-				signatureData = [(NSArray*)_signatureData objectAtIndex:i];            
+				signatureData = [(NSArray*)_signatureData objectAtIndex:i];
                 [array addObject:[(SWGObject*)signatureData asDictionary]];
             }
             dict[@"signatureData"] = array;
@@ -371,7 +403,7 @@
             NSMutableArray * array = [[NSMutableArray alloc] init];
             for( int i=0 ; i<[(NSArray*)_fingerPrintData count] ; i++ ) {
 				MSEvidenceFingerPrint *fingerPrintData = [[MSEvidenceFingerPrint alloc]init];
-				fingerPrintData = [(NSArray*)_fingerPrintData objectAtIndex:i];            
+				fingerPrintData = [(NSArray*)_fingerPrintData objectAtIndex:i];
                 [array addObject:[(SWGObject*)fingerPrintData asDictionary]];
             }
             dict[@"fingerPrintData"] = array;
@@ -396,7 +428,7 @@
             NSMutableArray * array = [[NSMutableArray alloc] init];
             for( int i=0 ; i<[(NSArray*)_imageData count] ; i++ ) {
 				MSEvidenceImage *imageData = [[MSEvidenceImage alloc]init];
-				imageData = [(NSArray*)_imageData objectAtIndex:i];            
+				imageData = [(NSArray*)_imageData objectAtIndex:i];
                 [array addObject:[(SWGObject*)imageData asDictionary]];
             }
             dict[@"imageData"] = array;
@@ -437,7 +469,7 @@
             NSMutableArray * array = [[NSMutableArray alloc] init];
             for( int i=0 ; i<[(NSArray*)_geolocation count] ; i++ ) {
 				MSGeolocation *geolocation = [[MSGeolocation alloc]init];
-				geolocation = [(NSArray*)_geolocation objectAtIndex:i];            
+				geolocation = [(NSArray*)_geolocation objectAtIndex:i];
                 [array addObject:[(SWGObject*)geolocation asDictionary]];
             }
             dict[@"geolocation"] = array;
@@ -470,7 +502,7 @@
             NSMutableArray * array = [[NSMutableArray alloc] init];
             for( int i=0 ; i<[(NSArray*)_ocr count] ; i++ ) {
 				MSOcrData *ocr = [[MSOcrData alloc]init];
-				ocr = [(NSArray*)_ocr objectAtIndex:i];            
+				ocr = [(NSArray*)_ocr objectAtIndex:i];
                 [array addObject:[(SWGObject*)ocr asDictionary]];
             }
             dict[@"ocr"] = array;
@@ -495,7 +527,7 @@
             NSMutableArray * array = [[NSMutableArray alloc] init];
             for( int i=0 ; i<[(NSArray*)_genericData count] ; i++ ) {
 				MSEvidenceGeneric *genericData = [[MSEvidenceGeneric alloc]init];
-				genericData = [(NSArray*)_genericData objectAtIndex:i];            
+				genericData = [(NSArray*)_genericData objectAtIndex:i];
                 [array addObject:[(SWGObject*)genericData asDictionary]];
             }
             dict[@"genericData"] = array;

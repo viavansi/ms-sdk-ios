@@ -3,6 +3,10 @@
 
 @implementation MSAcrofieldPosition
 
+@synthesize _id = __id;
+@synthesize page = _page;
+@synthesize rectangle = _rectangle;
+
 -(id)_id: (NSString*) _id
     page: (NSNumber*) page
     rectangle: (MSRectangle*) rectangle
@@ -54,7 +58,7 @@
             NSMutableArray * array = [[NSMutableArray alloc] init];
             for( int i=0 ; i<[(NSArray*)_rectangle count] ; i++ ) {
 				MSRectangle *rectangle = [[MSRectangle alloc]init];
-				rectangle = [(NSArray*)_rectangle objectAtIndex:i];            
+				rectangle = [(NSArray*)_rectangle objectAtIndex:i];
                 [array addObject:[(SWGObject*)rectangle asDictionary]];
             }
             dict[@"rectangle"] = array;

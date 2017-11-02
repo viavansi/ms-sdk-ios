@@ -3,6 +3,9 @@
 
 @implementation MSOcrMaskImage
 
+@synthesize mask = _mask;
+@synthesize version = _version;
+
 -(id)mask: (NSString*) mask
     version: (NSNumber*) version
     
