@@ -1,5 +1,6 @@
 #import <Foundation/Foundation.h>
 #import "MSIdenticaRequestResult.h"
+#import "MSJSIdenticaStatusRequest.h"
 #import "MSIdenticaStatusResult.h"
 #import "SWGObject.h"
 #import "OAuth1Client.h"
@@ -16,21 +17,12 @@
  
 
  
- @param identicaServer Identica URL
- 
- @param clientId clientId
- 
- @param serialId serialId
- 
- @param userId userId
+ @param body Identica Request
  
 
  return type: MSIdenticaRequestResult*
  */
-+(NSNumber*) requestFingerprint :(NSString*) identicaServer 
-     clientId:(NSString*) clientId 
-     serialId:(NSString*) serialId 
-     userId:(NSString*) userId 
++(NSNumber*) requestFingerprint :(MSIdenticaRequestResult*) body 
     
     auth:(OAuth1Client *) auth onSuccess: (void (^)(MSIdenticaRequestResult* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     
@@ -44,15 +36,12 @@
  
 
  
- @param identicaServer Identica URL
- 
- @param requestId requestId
+ @param body Identica status request
  
 
  return type: MSIdenticaStatusResult*
  */
-+(NSNumber*) requestFingerprintStatus :(NSString*) identicaServer 
-     requestId:(NSString*) requestId 
++(NSNumber*) requestFingerprintStatus :(MSJSIdenticaStatusRequest*) body 
     
     auth:(OAuth1Client *) auth onSuccess: (void (^)(MSIdenticaStatusResult* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     

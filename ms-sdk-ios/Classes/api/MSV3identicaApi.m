@@ -2,6 +2,7 @@
 #import "SWGFile.h"
 #import "ApiClient.h"
 #import "MSIdenticaRequestResult.h"
+#import "MSJSIdenticaStatusRequest.h"
 #import "MSIdenticaStatusResult.h"
 
 
@@ -13,10 +14,7 @@
 }
 
 
-+(NSNumber*) requestFingerprint: (NSString*) identicaServer
-         clientId: (NSString*) clientId
-         serialId: (NSString*) serialId
-         userId: (NSString*) userId
++(NSNumber*) requestFingerprint: (MSIdenticaRequestResult*) body
         
         auth:(OAuth1Client *) auth onSuccess: (void (^)(MSIdenticaRequestResult* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock
          {
@@ -30,7 +28,7 @@
 
     
 
-	NSArray * requestContentTypes = @[@"application/x-www-form-urlencoded"];
+	NSArray * requestContentTypes = @[@"application/json"];
     NSString* requestContentType = requestContentTypes.count > 0 ? requestContentTypes[0] : @"application/json";
 
     NSArray * responseContentTypes = @[@"application/json"];
@@ -43,29 +41,34 @@
 
     id bodyDictionary = nil;
     
-    
-    bodyDictionary = [[NSMutableArray alloc] init];
+    id __body = body;
 
-    NSMutableDictionary * formParams = [[NSMutableDictionary alloc]init];
-
-    
-    if(identicaServer){
-    formParams[@"identicaServer"] = identicaServer;
+    if(__body != nil && [__body isKindOfClass:[NSArray class]]){
+        NSMutableArray * objs = [[NSMutableArray alloc] init];
+        for (id dict in (NSArray*)__body) {
+            if([dict respondsToSelector:@selector(asDictionary)]) {
+                [objs addObject:[(SWGObject*)dict asDictionary]];
+            }
+            else{
+                [objs addObject:dict];
+            }
+        }
+        bodyDictionary = objs;
+    }
+    else if([__body respondsToSelector:@selector(asDictionary)]) {
+        bodyDictionary = [(SWGObject*)__body asDictionary];
+    }
+    else if([__body isKindOfClass:[NSString class]]) {
+        // convert it to a dictionary
+        NSError * error;
+        NSString * str = (NSString*)__body;
+        NSDictionary *JSON =
+            [NSJSONSerialization JSONObjectWithData: [str dataUsingEncoding: NSUTF8StringEncoding]
+                                            options: NSJSONReadingMutableContainers
+                                              error: &error];
+        bodyDictionary = JSON;
     }
     
-    if(clientId){
-    formParams[@"clientId"] = clientId;
-    }
-    
-    if(serialId){
-    formParams[@"serialId"] = serialId;
-    }
-    
-    if(userId){
-    formParams[@"userId"] = userId;
-    }
-    
-    [bodyDictionary addObject:formParams];
     
 
     
@@ -103,8 +106,7 @@
     
 }
 
-+(NSNumber*) requestFingerprintStatus: (NSString*) identicaServer
-         requestId: (NSString*) requestId
++(NSNumber*) requestFingerprintStatus: (MSJSIdenticaStatusRequest*) body
         
         auth:(OAuth1Client *) auth onSuccess: (void (^)(MSIdenticaStatusResult* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock
          {
@@ -118,7 +120,7 @@
 
     
 
-	NSArray * requestContentTypes = @[@"application/x-www-form-urlencoded"];
+	NSArray * requestContentTypes = @[@"application/json"];
     NSString* requestContentType = requestContentTypes.count > 0 ? requestContentTypes[0] : @"application/json";
 
     NSArray * responseContentTypes = @[@"application/json"];
@@ -131,21 +133,34 @@
 
     id bodyDictionary = nil;
     
-    
-    bodyDictionary = [[NSMutableArray alloc] init];
+    id __body = body;
 
-    NSMutableDictionary * formParams = [[NSMutableDictionary alloc]init];
-
-    
-    if(identicaServer){
-    formParams[@"identicaServer"] = identicaServer;
+    if(__body != nil && [__body isKindOfClass:[NSArray class]]){
+        NSMutableArray * objs = [[NSMutableArray alloc] init];
+        for (id dict in (NSArray*)__body) {
+            if([dict respondsToSelector:@selector(asDictionary)]) {
+                [objs addObject:[(SWGObject*)dict asDictionary]];
+            }
+            else{
+                [objs addObject:dict];
+            }
+        }
+        bodyDictionary = objs;
+    }
+    else if([__body respondsToSelector:@selector(asDictionary)]) {
+        bodyDictionary = [(SWGObject*)__body asDictionary];
+    }
+    else if([__body isKindOfClass:[NSString class]]) {
+        // convert it to a dictionary
+        NSError * error;
+        NSString * str = (NSString*)__body;
+        NSDictionary *JSON =
+            [NSJSONSerialization JSONObjectWithData: [str dataUsingEncoding: NSUTF8StringEncoding]
+                                            options: NSJSONReadingMutableContainers
+                                              error: &error];
+        bodyDictionary = JSON;
     }
     
-    if(requestId){
-    formParams[@"requestId"] = requestId;
-    }
-    
-    [bodyDictionary addObject:formParams];
     
 
     

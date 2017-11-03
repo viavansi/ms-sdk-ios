@@ -4,10 +4,14 @@
 
 @interface MSIdenticaRequestResult : SWGObject
 
-@property(nonatomic) NSString* responseMessage;  
-@property(nonatomic) NSString* responseCode;  
-- (id) responseMessage: (NSString*) responseMessage     
-    responseCode: (NSString*) responseCode;
+@property(nonatomic) NSString* identicaServer;  
+@property(nonatomic) NSString* clientId;  
+@property(nonatomic) NSString* userId;  
+@property(nonatomic) NSString* serialId;  
+- (id) identicaServer: (NSString*) identicaServer     
+    clientId: (NSString*) clientId     
+    userId: (NSString*) userId     
+    serialId: (NSString*) serialId;
     
 
 - (id) initWithValues: (NSDictionary*)dict;
