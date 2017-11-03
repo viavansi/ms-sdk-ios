@@ -3,21 +3,15 @@
 
 @implementation MSIdenticaRequestResult
 
-@synthesize identicaServer = _identicaServer;
-@synthesize clientId = _clientId;
-@synthesize userId = _userId;
-@synthesize serialId = _serialId;
+@synthesize responseMessage = _responseMessage;
+@synthesize responseCode = _responseCode;
 
--(id)identicaServer: (NSString*) identicaServer
-    clientId: (NSString*) clientId
-    userId: (NSString*) userId
-    serialId: (NSString*) serialId
+-(id)responseMessage: (NSString*) responseMessage
+    responseCode: (NSString*) responseCode
     
 {
-    _identicaServer = identicaServer;
-    _clientId = clientId;
-    _userId = userId;
-    _serialId = serialId;
+    _responseMessage = responseMessage;
+    _responseCode = responseCode;
     
 
     return self;
@@ -27,13 +21,9 @@
 {
     self = [super init];
     if(self) {
-        _identicaServer = dict[@"identicaServer"];
+        _responseMessage = dict[@"responseMessage"];
         
-        _clientId = dict[@"clientId"];
-        
-        _userId = dict[@"userId"];
-        
-        _serialId = dict[@"serialId"];
+        _responseCode = dict[@"responseCode"];
         
         
     }
@@ -44,19 +34,11 @@
     NSMutableDictionary* dict = [[NSMutableDictionary alloc] init];
     
     
-            if(_identicaServer != nil) dict[@"identicaServer"] = _identicaServer ;
+            if(_responseMessage != nil) dict[@"responseMessage"] = _responseMessage ;
         
     
     
-            if(_clientId != nil) dict[@"clientId"] = _clientId ;
-        
-    
-    
-            if(_userId != nil) dict[@"userId"] = _userId ;
-        
-    
-    
-            if(_serialId != nil) dict[@"serialId"] = _serialId ;
+            if(_responseCode != nil) dict[@"responseCode"] = _responseCode ;
         
     
 
