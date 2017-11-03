@@ -1,7 +1,7 @@
 #import <Foundation/Foundation.h>
-#import "MSJSIdenticaRequest.h"
+#import "MSIdenticaRequest.h"
 #import "MSIdenticaRequestResult.h"
-#import "MSJSIdenticaStatusRequest.h"
+#import "MSIdenticaStatusRequest.h"
 #import "MSIdenticaStatusResult.h"
 #import "SWGObject.h"
 #import "OAuth1Client.h"
@@ -23,7 +23,7 @@
 
  return type: MSIdenticaRequestResult*
  */
-+(NSNumber*) requestFingerprint :(MSJSIdenticaRequest*) body 
++(NSNumber*) requestFingerprint :(MSIdenticaRequest*) body 
     
     auth:(OAuth1Client *) auth onSuccess: (void (^)(MSIdenticaRequestResult* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     
@@ -42,7 +42,7 @@
 
  return type: MSIdenticaStatusResult*
  */
-+(NSNumber*) requestFingerprintStatus :(MSJSIdenticaStatusRequest*) body 
++(NSNumber*) requestFingerprintStatus :(MSIdenticaStatusRequest*) body 
     
     auth:(OAuth1Client *) auth onSuccess: (void (^)(MSIdenticaStatusResult* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     

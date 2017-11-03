@@ -1,9 +1,9 @@
 #import "MSV3identicaApi.h"
 #import "SWGFile.h"
 #import "ApiClient.h"
-#import "MSJSIdenticaRequest.h"
+#import "MSIdenticaRequest.h"
 #import "MSIdenticaRequestResult.h"
-#import "MSJSIdenticaStatusRequest.h"
+#import "MSIdenticaStatusRequest.h"
 #import "MSIdenticaStatusResult.h"
 
 
@@ -15,7 +15,7 @@
 }
 
 
-+(NSNumber*) requestFingerprint: (MSJSIdenticaRequest*) body
++(NSNumber*) requestFingerprint: (MSIdenticaRequest*) body
         
         auth:(OAuth1Client *) auth onSuccess: (void (^)(MSIdenticaRequestResult* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock
          {
@@ -107,7 +107,7 @@
     
 }
 
-+(NSNumber*) requestFingerprintStatus: (MSJSIdenticaStatusRequest*) body
++(NSNumber*) requestFingerprintStatus: (MSIdenticaStatusRequest*) body
         
         auth:(OAuth1Client *) auth onSuccess: (void (^)(MSIdenticaStatusResult* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock
          {
