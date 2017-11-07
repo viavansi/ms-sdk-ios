@@ -1,7 +1,7 @@
 #import <Foundation/Foundation.h>
 #import "SWGObject.h"
-#import "MSPolicy.h"
 #import "MSAcrofieldPosition.h"
+#import "MSPolicy.h"
 #import "MSFont.h"
 
 
@@ -19,6 +19,7 @@
 @property(nonatomic) NSString* workflow;  
 @property(nonatomic) MSFont* font;  
 @property(nonatomic) NSArray* acrofieldsPositions;  
+@property(nonatomic) NSNumber* readDocumentRequired;  
 - (id) titleKey: (NSString*) titleKey     
     descriptionKey: (NSString*) descriptionKey     
     policy: (MSPolicy*) policy     
@@ -30,7 +31,8 @@
     validateCode: (NSString*) validateCode     
     workflow: (NSString*) workflow     
     font: (MSFont*) font     
-    acrofieldsPositions: (NSArray*) acrofieldsPositions;
+    acrofieldsPositions: (NSArray*) acrofieldsPositions     
+    readDocumentRequired: (NSNumber*) readDocumentRequired;
     
 
 - (id) initWithValues: (NSDictionary*)dict;

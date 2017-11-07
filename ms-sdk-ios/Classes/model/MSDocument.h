@@ -22,6 +22,7 @@
 @property(nonatomic) MSFont* font;  
 @property(nonatomic) NSString* policyCode;  /* (since 3.5.0) code of policy to use  */
 @property(nonatomic) NSString* password;  /* (since 3.5.0) document password  */
+@property(nonatomic) NSNumber* readRequired;  
 - (id) templateCode: (NSString*) templateCode     
     templateReference: (NSString*) templateReference     
     templateVersion: (NSNumber*) templateVersion     
@@ -37,7 +38,8 @@
     pdfaCompliant: (NSNumber*) pdfaCompliant     
     font: (MSFont*) font     
     policyCode: (NSString*) policyCode     
-    password: (NSString*) password;
+    password: (NSString*) password     
+    readRequired: (NSNumber*) readRequired;
     
 
 - (id) initWithValues: (NSDictionary*)dict;

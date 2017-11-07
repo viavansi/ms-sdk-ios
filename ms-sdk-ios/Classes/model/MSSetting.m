@@ -15,6 +15,7 @@
 @synthesize workflow = _workflow;
 @synthesize font = _font;
 @synthesize acrofieldsPositions = _acrofieldsPositions;
+@synthesize readDocumentRequired = _readDocumentRequired;
 
 -(id)titleKey: (NSString*) titleKey
     descriptionKey: (NSString*) descriptionKey
@@ -28,6 +29,7 @@
     workflow: (NSString*) workflow
     font: (MSFont*) font
     acrofieldsPositions: (NSArray*) acrofieldsPositions
+    readDocumentRequired: (NSNumber*) readDocumentRequired
     
 {
     _titleKey = titleKey;
@@ -42,6 +44,7 @@
     _workflow = workflow;
     _font = font;
     _acrofieldsPositions = acrofieldsPositions;
+    _readDocumentRequired = readDocumentRequired;
     
 
     return self;
@@ -126,6 +129,8 @@
             _acrofieldsPositions = [[NSArray alloc] init];
         }
         
+        
+        _readDocumentRequired = dict[@"readDocumentRequired"];
         
         
     }
@@ -266,6 +271,10 @@
         }
     }
     
+    
+    
+            if(_readDocumentRequired != nil) dict[@"readDocumentRequired"] = _readDocumentRequired ;
+        
     
 
     NSDictionary* output = [dict copy];

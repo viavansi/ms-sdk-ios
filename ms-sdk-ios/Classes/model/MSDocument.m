@@ -19,6 +19,7 @@
 @synthesize font = _font;
 @synthesize policyCode = _policyCode;
 @synthesize password = _password;
+@synthesize readRequired = _readRequired;
 
 -(id)templateCode: (NSString*) templateCode
     templateReference: (NSString*) templateReference
@@ -36,6 +37,7 @@
     font: (MSFont*) font
     policyCode: (NSString*) policyCode
     password: (NSString*) password
+    readRequired: (NSNumber*) readRequired
     
 {
     _templateCode = templateCode;
@@ -54,6 +56,7 @@
     _font = font;
     _policyCode = policyCode;
     _password = password;
+    _readRequired = readRequired;
     
 
     return self;
@@ -120,6 +123,8 @@
         _policyCode = dict[@"policyCode"];
         
         _password = dict[@"password"];
+        
+        _readRequired = dict[@"readRequired"];
         
         
     }
@@ -233,6 +238,10 @@
     
     
             if(_password != nil) dict[@"password"] = _password ;
+        
+    
+    
+            if(_readRequired != nil) dict[@"readRequired"] = _readRequired ;
         
     
 

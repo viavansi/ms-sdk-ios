@@ -1,8 +1,8 @@
 #import <Foundation/Foundation.h>
 #import "SWGObject.h"
-#import "MSGeolocation.h"
 #import "MSPosition.h"
 #import "MSOcrData.h"
+#import "MSGeolocation.h"
 #import "MSEvidenceDevice.h"
 
 

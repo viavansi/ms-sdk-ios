@@ -1,13 +1,13 @@
 #import <Foundation/Foundation.h>
 #import "SWGObject.h"
-#import "MSParam.h"
 #import "MSEvidenceGeneric.h"
-#import "MSGeolocation.h"
-#import "MSEvidenceSignature.h"
-#import "MSEvidenceFingerPrint.h"
 #import "MSPosition.h"
 #import "MSOcrData.h"
+#import "MSGeolocation.h"
+#import "MSEvidenceFingerPrint.h"
+#import "MSParam.h"
 #import "MSEvidenceImage.h"
+#import "MSEvidenceSignature.h"
 
 
 @interface MSEvidence : SWGObject
@@ -43,6 +43,8 @@
 @property(nonatomic) NSNumber* imageScaleFactor;  /* (since 3.5.0) factor multiplicador del tamaño de la imagen, para permitir zoom  */
 @property(nonatomic) MSOcrData* ocr;  
 @property(nonatomic) MSEvidenceGeneric* genericData;  
+@property(nonatomic) NSString* base64Image;  
+@property(nonatomic) NSString* imageType;  
 - (id) type: (NSString*) type     
     code: (NSString*) code     
     status: (NSString*) status     
@@ -73,7 +75,9 @@
     imageQuality: (NSNumber*) imageQuality     
     imageScaleFactor: (NSNumber*) imageScaleFactor     
     ocr: (MSOcrData*) ocr     
-    genericData: (MSEvidenceGeneric*) genericData;
+    genericData: (MSEvidenceGeneric*) genericData     
+    base64Image: (NSString*) base64Image     
+    imageType: (NSString*) imageType;
     
 
 - (id) initWithValues: (NSDictionary*)dict;

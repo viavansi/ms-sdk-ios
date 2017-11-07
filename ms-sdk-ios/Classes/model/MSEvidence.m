@@ -34,6 +34,8 @@
 @synthesize imageScaleFactor = _imageScaleFactor;
 @synthesize ocr = _ocr;
 @synthesize genericData = _genericData;
+@synthesize base64Image = _base64Image;
+@synthesize imageType = _imageType;
 
 -(id)type: (NSString*) type
     code: (NSString*) code
@@ -66,6 +68,8 @@
     imageScaleFactor: (NSNumber*) imageScaleFactor
     ocr: (MSOcrData*) ocr
     genericData: (MSEvidenceGeneric*) genericData
+    base64Image: (NSString*) base64Image
+    imageType: (NSString*) imageType
     
 {
     _type = type;
@@ -99,6 +103,8 @@
     _imageScaleFactor = imageScaleFactor;
     _ocr = ocr;
     _genericData = genericData;
+    _base64Image = base64Image;
+    _imageType = imageType;
     
 
     return self;
@@ -245,6 +251,10 @@
         if(genericData_dict != nil)
             _genericData = [[MSEvidenceGeneric  alloc]initWithValues:genericData_dict];
         
+        
+        _base64Image = dict[@"base64Image"];
+        
+        _imageType = dict[@"imageType"];
         
         
     }
@@ -545,6 +555,14 @@
         }
     }
     
+    
+    
+            if(_base64Image != nil) dict[@"base64Image"] = _base64Image ;
+        
+    
+    
+            if(_imageType != nil) dict[@"imageType"] = _imageType ;
+        
     
 
     NSDictionary* output = [dict copy];
