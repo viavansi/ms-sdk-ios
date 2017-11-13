@@ -1,13 +1,13 @@
 #import <Foundation/Foundation.h>
 #import "SWGObject.h"
+#import "MSParam.h"
 #import "MSEvidenceGeneric.h"
+#import "MSGeolocation.h"
+#import "MSEvidenceSignature.h"
+#import "MSEvidenceFingerPrint.h"
 #import "MSPosition.h"
 #import "MSOcrData.h"
-#import "MSGeolocation.h"
-#import "MSEvidenceFingerPrint.h"
-#import "MSParam.h"
 #import "MSEvidenceImage.h"
-#import "MSEvidenceSignature.h"
 
 
 @interface MSEvidence : SWGObject
@@ -16,6 +16,7 @@
 @property(nonatomic) NSString* code;  
 @property(nonatomic) NSString* status;  
 @property(nonatomic) NSString* helpText;  
+@property(nonatomic) NSString* helpDetail;  
 @property(nonatomic) NSString* temporalReference;  
 @property(nonatomic) NSArray* positions;  
 @property(nonatomic) NSArray* metadataList;  
@@ -40,7 +41,7 @@
 @property(nonatomic) NSArray* stylus;  
 @property(nonatomic) MSGeolocation* geolocation;  /* (since 3.5.0, internal) geolocation info  */
 @property(nonatomic) NSNumber* imageQuality;  /* (since 3.5.0) calidad de la imagen donde 100 representa el máximo de calidad y 0 el máximo nivel de compresión  */
-@property(nonatomic) NSNumber* imageScaleFactor;  /* (since 3.5.0) factor multiplicador del tamaño de la imagen, para permitir zoom  */
+@property(nonatomic) NSNumber* imageScaleFactor;  /* (since 3.5.0) factor multiplicador del tamaño de la imagen, para permitir zoom, 1, 2, 3  */
 @property(nonatomic) MSOcrData* ocr;  
 @property(nonatomic) MSEvidenceGeneric* genericData;  
 @property(nonatomic) NSString* base64Image;  
@@ -49,6 +50,7 @@
     code: (NSString*) code     
     status: (NSString*) status     
     helpText: (NSString*) helpText     
+    helpDetail: (NSString*) helpDetail     
     temporalReference: (NSString*) temporalReference     
     positions: (NSArray*) positions     
     metadataList: (NSArray*) metadataList     

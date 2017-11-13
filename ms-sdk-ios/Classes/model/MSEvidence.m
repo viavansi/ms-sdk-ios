@@ -7,6 +7,7 @@
 @synthesize code = _code;
 @synthesize status = _status;
 @synthesize helpText = _helpText;
+@synthesize helpDetail = _helpDetail;
 @synthesize temporalReference = _temporalReference;
 @synthesize positions = _positions;
 @synthesize metadataList = _metadataList;
@@ -41,6 +42,7 @@
     code: (NSString*) code
     status: (NSString*) status
     helpText: (NSString*) helpText
+    helpDetail: (NSString*) helpDetail
     temporalReference: (NSString*) temporalReference
     positions: (NSArray*) positions
     metadataList: (NSArray*) metadataList
@@ -76,6 +78,7 @@
     _code = code;
     _status = status;
     _helpText = helpText;
+    _helpDetail = helpDetail;
     _temporalReference = temporalReference;
     _positions = positions;
     _metadataList = metadataList;
@@ -121,6 +124,8 @@
         _status = dict[@"status"];
         
         _helpText = dict[@"helpText"];
+        
+        _helpDetail = dict[@"helpDetail"];
         
         _temporalReference = dict[@"temporalReference"];
         
@@ -278,6 +283,10 @@
     
     
             if(_helpText != nil) dict[@"helpText"] = _helpText ;
+        
+    
+    
+            if(_helpDetail != nil) dict[@"helpDetail"] = _helpDetail ;
         
     
     

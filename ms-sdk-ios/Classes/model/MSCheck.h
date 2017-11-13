@@ -1,7 +1,7 @@
 #import <Foundation/Foundation.h>
 #import "SWGObject.h"
-#import "MSSignature.h"
 #import "SWGDate.h"
+#import "MSSignature.h"
 
 
 @interface MSCheck : SWGObject
