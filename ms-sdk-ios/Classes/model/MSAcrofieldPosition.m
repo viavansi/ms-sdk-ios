@@ -4,17 +4,17 @@
 @implementation MSAcrofieldPosition
 
 @synthesize _id = __id;
-@synthesize rectangle = _rectangle;
 @synthesize page = _page;
+@synthesize rectangle = _rectangle;
 
 -(id)_id: (NSString*) _id
-    rectangle: (MSRectangle*) rectangle
     page: (NSNumber*) page
+    rectangle: (MSRectangle*) rectangle
     
 {
     __id = _id;
-    _rectangle = rectangle;
     _page = page;
+    _rectangle = rectangle;
     
 
     return self;
@@ -26,6 +26,8 @@
     if(self) {
         __id = dict[@"id"];
         
+        _page = dict[@"page"];
+        
         
         
         id rectangle_dict = dict[@"rectangle"];
@@ -33,8 +35,6 @@
         if(rectangle_dict != nil)
             _rectangle = [[MSRectangle  alloc]initWithValues:rectangle_dict];
         
-        
-        _page = dict[@"page"];
         
         
     }
@@ -46,6 +46,10 @@
     
     
             if(__id != nil) dict[@"id"] = __id ;
+        
+    
+    
+            if(_page != nil) dict[@"page"] = _page ;
         
     
     
@@ -72,10 +76,6 @@
         }
     }
     
-    
-    
-            if(_page != nil) dict[@"page"] = _page ;
-        
     
 
     NSDictionary* output = [dict copy];
