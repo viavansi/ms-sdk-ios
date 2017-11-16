@@ -1,7 +1,7 @@
 #import "MSV3genericApi.h"
 #import "SWGFile.h"
 #import "ApiClient.h"
-#import "MSVoid.h"
+#import "MSDownload.h"
 #import "MSEvidence.h"
 
 
@@ -15,7 +15,7 @@
 
 +(NSNumber*) genericImageForEvidence: (MSEvidence*) body
         
-        auth:(OAuth1Client *) auth onSuccess: (void (^)(MSVoid* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock
+        auth:(OAuth1Client *) auth onSuccess: (void (^)(MSDownload* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock
          {
 
     NSMutableString* requestUrl = [NSMutableString stringWithFormat:@"%@/v3/generic/image", [[ApiClient sharedInstance] url]];
@@ -30,7 +30,7 @@
 	NSArray * requestContentTypes = @[@"application/json"];
     NSString* requestContentType = requestContentTypes.count > 0 ? requestContentTypes[0] : @"application/json";
 
-    NSArray * responseContentTypes = @[@"image/png"];
+    NSArray * responseContentTypes = @[@"application/json"];
     NSString* responseContentType = responseContentTypes.count > 0 ? responseContentTypes[0] : @"application/json";
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
@@ -89,9 +89,9 @@
           responseContentType: responseContentType
               successBlock: ^(NSDictionary *data) {
                 
-                MSVoid *result = nil;
+                MSDownload *result = nil;
                 if (data) {
-                    result = [[MSVoid    alloc]initWithValues: data];
+                    result = [[MSDownload    alloc]initWithValues: data];
                 }
                 onSuccessBlock(result);
                 

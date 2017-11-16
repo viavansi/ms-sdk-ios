@@ -1,5 +1,5 @@
 #import <Foundation/Foundation.h>
-#import "MSVoid.h"
+#import "MSDownload.h"
 #import "MSEvidence.h"
 #import "SWGObject.h"
 #import "OAuth1Client.h"
@@ -19,11 +19,11 @@
  @param body evidence
  
 
- return type: MSVoid*
+ return type: MSDownload*
  */
 +(NSNumber*) genericImageForEvidence :(MSEvidence*) body 
     
-    auth:(OAuth1Client *) auth onSuccess: (void (^)(MSVoid* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(MSDownload* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     
 
 
