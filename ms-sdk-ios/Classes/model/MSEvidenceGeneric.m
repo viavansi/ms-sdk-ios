@@ -12,6 +12,7 @@
 @synthesize base64Image = _base64Image;
 @synthesize providerId = _providerId;
 @synthesize evidenceDescription = _evidenceDescription;
+@synthesize expirationTime = _expirationTime;
 @synthesize imageQuality = _imageQuality;
 @synthesize imageScaleFactor = _imageScaleFactor;
 
@@ -24,6 +25,7 @@
     base64Image: (NSString*) base64Image
     providerId: (NSString*) providerId
     evidenceDescription: (NSString*) evidenceDescription
+    expirationTime: (NSNumber*) expirationTime
     imageQuality: (NSNumber*) imageQuality
     imageScaleFactor: (NSNumber*) imageScaleFactor
     
@@ -37,6 +39,7 @@
     _base64Image = base64Image;
     _providerId = providerId;
     _evidenceDescription = evidenceDescription;
+    _expirationTime = expirationTime;
     _imageQuality = imageQuality;
     _imageScaleFactor = imageScaleFactor;
     
@@ -117,6 +120,8 @@
         _providerId = dict[@"providerId"];
         
         _evidenceDescription = dict[@"evidenceDescription"];
+        
+        _expirationTime = dict[@"expirationTime"];
         
         _imageQuality = dict[@"imageQuality"];
         
@@ -248,6 +253,10 @@
     
     
             if(_evidenceDescription != nil) dict[@"evidenceDescription"] = _evidenceDescription ;
+        
+    
+    
+            if(_expirationTime != nil) dict[@"expirationTime"] = _expirationTime ;
         
     
     

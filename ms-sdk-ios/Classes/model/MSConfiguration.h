@@ -1,8 +1,8 @@
 #import <Foundation/Foundation.h>
 #import "SWGObject.h"
 #import "MSFinalizeAction.h"
-#import "MSVersion.h"
 #import "MSMenuOption.h"
+#import "MSVersion.h"
 
 
 @interface MSConfiguration : SWGObject

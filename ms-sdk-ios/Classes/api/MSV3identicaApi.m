@@ -1,8 +1,8 @@
 #import "MSV3identicaApi.h"
 #import "SWGFile.h"
 #import "ApiClient.h"
-#import "MSIdenticaRequest.h"
 #import "MSIdenticaRequestResult.h"
+#import "MSIdenticaRequest.h"
 #import "MSIdenticaStatusRequest.h"
 #import "MSIdenticaStatusResult.h"
 

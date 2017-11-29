@@ -9,6 +9,7 @@
 @synthesize appCode = _appCode;
 @synthesize email = _email;
 @synthesize subject = _subject;
+@synthesize phone = _phone;
 
 -(id)scheme: (NSString*) scheme
     token: (NSString*) token
@@ -16,6 +17,7 @@
     appCode: (NSString*) appCode
     email: (NSString*) email
     subject: (NSString*) subject
+    phone: (NSString*) phone
     
 {
     _scheme = scheme;
@@ -24,6 +26,7 @@
     _appCode = appCode;
     _email = email;
     _subject = subject;
+    _phone = phone;
     
 
     return self;
@@ -44,6 +47,8 @@
         _email = dict[@"email"];
         
         _subject = dict[@"subject"];
+        
+        _phone = dict[@"phone"];
         
         
     }
@@ -75,6 +80,10 @@
     
     
             if(_subject != nil) dict[@"subject"] = _subject ;
+        
+    
+    
+            if(_phone != nil) dict[@"phone"] = _phone ;
         
     
 

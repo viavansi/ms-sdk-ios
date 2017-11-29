@@ -1,6 +1,6 @@
 #import <Foundation/Foundation.h>
-#import "MSIdenticaRequest.h"
 #import "MSIdenticaRequestResult.h"
+#import "MSIdenticaRequest.h"
 #import "MSIdenticaStatusRequest.h"
 #import "MSIdenticaStatusResult.h"
 #import "SWGObject.h"

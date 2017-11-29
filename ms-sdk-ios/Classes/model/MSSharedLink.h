@@ -10,12 +10,14 @@
 @property(nonatomic) NSString* appCode;  
 @property(nonatomic) NSString* email;  
 @property(nonatomic) NSString* subject;  
+@property(nonatomic) NSString* phone;  
 - (id) scheme: (NSString*) scheme     
     token: (NSString*) token     
     link: (NSString*) link     
     appCode: (NSString*) appCode     
     email: (NSString*) email     
-    subject: (NSString*) subject;
+    subject: (NSString*) subject     
+    phone: (NSString*) phone;
     
 
 - (id) initWithValues: (NSDictionary*)dict;
