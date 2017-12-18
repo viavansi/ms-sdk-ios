@@ -9,7 +9,7 @@ Pod::Spec.new do |s|
   }
   s.source = {
     :git => 'https://github.com/viavansi/ms-sdk-ios.git',
-    :tag => '3.5.2'
+    :tag => '3.5.15'
   }
   s.requires_arc = true
   s.source_files = 'ms-sdk-ios/Classes/**/*.{h,m}'

@@ -10,6 +10,7 @@
 @synthesize penElevation = _penElevation;
 @synthesize penRotation = _penRotation;
 @synthesize penAzimuth = _penAzimuth;
+@synthesize s = _s;
 
 -(id)x: (NSNumber*) x
     y: (NSNumber*) y
@@ -18,6 +19,7 @@
     penElevation: (NSNumber*) penElevation
     penRotation: (NSNumber*) penRotation
     penAzimuth: (NSNumber*) penAzimuth
+    s: (NSNumber*) s
     
 {
     _x = x;
@@ -27,6 +29,7 @@
     _penElevation = penElevation;
     _penRotation = penRotation;
     _penAzimuth = penAzimuth;
+    _s = s;
     
 
     return self;
@@ -49,6 +52,8 @@
         _penRotation = dict[@"penRotation"];
         
         _penAzimuth = dict[@"penAzimuth"];
+        
+        _s = dict[@"s"];
         
         
     }
@@ -84,6 +89,10 @@
     
     
             if(_penAzimuth != nil) dict[@"penAzimuth"] = _penAzimuth ;
+        
+    
+    
+            if(_s != nil) dict[@"s"] = _s ;
         
     
 
