@@ -9,11 +9,13 @@
 @property(nonatomic) NSNumber* longitude;  
 @property(nonatomic) NSString* locationData;  
 @property(nonatomic) NSString* locationInfo;  
+@property(nonatomic) NSString* type;  
 - (id) accuracy: (NSNumber*) accuracy     
     latitude: (NSNumber*) latitude     
     longitude: (NSNumber*) longitude     
     locationData: (NSString*) locationData     
-    locationInfo: (NSString*) locationInfo;
+    locationInfo: (NSString*) locationInfo     
+    type: (NSString*) type;
     
 
 - (id) initWithValues: (NSDictionary*)dict;

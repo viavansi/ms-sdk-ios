@@ -32,6 +32,8 @@
 @property(nonatomic) NSString* metadataCipherPublicKey;  
 @property(nonatomic) NSString* encryptionKeyAlias;  
 @property(nonatomic) NSNumber* optional;  
+@property(nonatomic) NSString* ratioH;  
+@property(nonatomic) NSString* ratioW;  
 @property(nonatomic) MSEvidenceSignature* signatureData;  
 @property(nonatomic) MSEvidenceFingerPrint* fingerPrintData;  
 @property(nonatomic) MSEvidenceImage* imageData;  
@@ -66,6 +68,8 @@
     metadataCipherPublicKey: (NSString*) metadataCipherPublicKey     
     encryptionKeyAlias: (NSString*) encryptionKeyAlias     
     optional: (NSNumber*) optional     
+    ratioH: (NSString*) ratioH     
+    ratioW: (NSString*) ratioW     
     signatureData: (MSEvidenceSignature*) signatureData     
     fingerPrintData: (MSEvidenceFingerPrint*) fingerPrintData     
     imageData: (MSEvidenceImage*) imageData     

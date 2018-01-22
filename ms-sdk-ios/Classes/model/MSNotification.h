@@ -1,5 +1,6 @@
 #import <Foundation/Foundation.h>
 #import "SWGObject.h"
+#import "MSCustomization.h"
 #import "SWGDate.h"
 #import "MSParam.h"
 #import "MSDevice.h"
@@ -19,6 +20,8 @@
 @property(nonatomic) NSString* location;  
 @property(nonatomic) MSSharedLink* sharedLink;  
 @property(nonatomic) SWGDate* updateDate;  
+@property(nonatomic) NSNumber* retryTime;  
+@property(nonatomic) MSCustomization* customization;  
 @property(nonatomic) NSArray* metadata;  
 @property(nonatomic) NSArray* devices;  
 - (id) code: (NSString*) code     
@@ -32,6 +35,8 @@
     location: (NSString*) location     
     sharedLink: (MSSharedLink*) sharedLink     
     updateDate: (SWGDate*) updateDate     
+    retryTime: (NSNumber*) retryTime     
+    customization: (MSCustomization*) customization     
     metadata: (NSArray*) metadata     
     devices: (NSArray*) devices;
     

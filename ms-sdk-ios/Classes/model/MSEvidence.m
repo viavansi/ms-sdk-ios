@@ -23,6 +23,8 @@
 @synthesize metadataCipherPublicKey = _metadataCipherPublicKey;
 @synthesize encryptionKeyAlias = _encryptionKeyAlias;
 @synthesize optional = _optional;
+@synthesize ratioH = _ratioH;
+@synthesize ratioW = _ratioW;
 @synthesize signatureData = _signatureData;
 @synthesize fingerPrintData = _fingerPrintData;
 @synthesize imageData = _imageData;
@@ -58,6 +60,8 @@
     metadataCipherPublicKey: (NSString*) metadataCipherPublicKey
     encryptionKeyAlias: (NSString*) encryptionKeyAlias
     optional: (NSNumber*) optional
+    ratioH: (NSString*) ratioH
+    ratioW: (NSString*) ratioW
     signatureData: (MSEvidenceSignature*) signatureData
     fingerPrintData: (MSEvidenceFingerPrint*) fingerPrintData
     imageData: (MSEvidenceImage*) imageData
@@ -94,6 +98,8 @@
     _metadataCipherPublicKey = metadataCipherPublicKey;
     _encryptionKeyAlias = encryptionKeyAlias;
     _optional = optional;
+    _ratioH = ratioH;
+    _ratioW = ratioW;
     _signatureData = signatureData;
     _fingerPrintData = fingerPrintData;
     _imageData = imageData;
@@ -196,6 +202,10 @@
         _encryptionKeyAlias = dict[@"encryptionKeyAlias"];
         
         _optional = dict[@"optional"];
+        
+        _ratioH = dict[@"ratioH"];
+        
+        _ratioW = dict[@"ratioW"];
         
         
         
@@ -389,6 +399,14 @@
     
     
             if(_optional != nil) dict[@"optional"] = _optional ;
+        
+    
+    
+            if(_ratioH != nil) dict[@"ratioH"] = _ratioH ;
+        
+    
+    
+            if(_ratioW != nil) dict[@"ratioW"] = _ratioW ;
         
     
     

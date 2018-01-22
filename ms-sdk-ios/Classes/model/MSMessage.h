@@ -1,5 +1,6 @@
 #import <Foundation/Foundation.h>
 #import "SWGObject.h"
+#import "MSAuditory.h"
 #import "MSDocument.h"
 #import "SWGDate.h"
 #import "MSNotification.h"
@@ -30,6 +31,7 @@
 @property(nonatomic) SWGDate* processTimeExpired;  
 @property(nonatomic) NSString* commentReject;  
 @property(nonatomic) NSString* callbackResponse;  
+@property(nonatomic) NSArray* auditory;  
 - (id) code: (NSString*) code     
     userCode: (NSString*) userCode     
     groupCode: (NSString*) groupCode     
@@ -48,7 +50,8 @@
     server: (NSString*) server     
     processTimeExpired: (SWGDate*) processTimeExpired     
     commentReject: (NSString*) commentReject     
-    callbackResponse: (NSString*) callbackResponse;
+    callbackResponse: (NSString*) callbackResponse     
+    auditory: (NSArray*) auditory;
     
 
 - (id) initWithValues: (NSDictionary*)dict;

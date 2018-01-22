@@ -8,12 +8,14 @@
 @synthesize longitude = _longitude;
 @synthesize locationData = _locationData;
 @synthesize locationInfo = _locationInfo;
+@synthesize type = _type;
 
 -(id)accuracy: (NSNumber*) accuracy
     latitude: (NSNumber*) latitude
     longitude: (NSNumber*) longitude
     locationData: (NSString*) locationData
     locationInfo: (NSString*) locationInfo
+    type: (NSString*) type
     
 {
     _accuracy = accuracy;
@@ -21,6 +23,7 @@
     _longitude = longitude;
     _locationData = locationData;
     _locationInfo = locationInfo;
+    _type = type;
     
 
     return self;
@@ -39,6 +42,8 @@
         _locationData = dict[@"locationData"];
         
         _locationInfo = dict[@"locationInfo"];
+        
+        _type = dict[@"type"];
         
         
     }
@@ -66,6 +71,10 @@
     
     
             if(_locationInfo != nil) dict[@"locationInfo"] = _locationInfo ;
+        
+    
+    
+            if(_type != nil) dict[@"type"] = _type ;
         
     
 

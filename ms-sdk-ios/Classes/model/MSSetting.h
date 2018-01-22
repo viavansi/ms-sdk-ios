@@ -1,5 +1,6 @@
 #import <Foundation/Foundation.h>
 #import "SWGObject.h"
+#import "MSCustomization.h"
 #import "MSAcrofieldPosition.h"
 #import "MSPolicy.h"
 #import "MSFont.h"
@@ -20,6 +21,7 @@
 @property(nonatomic) MSFont* font;  
 @property(nonatomic) NSArray* acrofieldsPositions;  
 @property(nonatomic) NSNumber* readDocumentRequired;  
+@property(nonatomic) MSCustomization* customization;  
 - (id) titleKey: (NSString*) titleKey     
     descriptionKey: (NSString*) descriptionKey     
     policy: (MSPolicy*) policy     
@@ -32,7 +34,8 @@
     workflow: (NSString*) workflow     
     font: (MSFont*) font     
     acrofieldsPositions: (NSArray*) acrofieldsPositions     
-    readDocumentRequired: (NSNumber*) readDocumentRequired;
+    readDocumentRequired: (NSNumber*) readDocumentRequired     
+    customization: (MSCustomization*) customization;
     
 
 - (id) initWithValues: (NSDictionary*)dict;

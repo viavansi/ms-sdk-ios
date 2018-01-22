@@ -52,6 +52,25 @@
 
 /**
 
+ Method for dispatch new message
+ 
+ Dispatch new message
+ 
+
+ 
+ @param body Message object that needs to be delivery
+ 
+
+ return type: MSMessage*
+ */
++(NSNumber*) dispatchMessage :(MSMessage*) body 
+    
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(MSMessage* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    
+
+
+/**
+
  Method for synchronous execution of a message
  
  synchronous execution

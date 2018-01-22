@@ -22,6 +22,7 @@
 @synthesize processTimeExpired = _processTimeExpired;
 @synthesize commentReject = _commentReject;
 @synthesize callbackResponse = _callbackResponse;
+@synthesize auditory = _auditory;
 
 -(id)code: (NSString*) code
     userCode: (NSString*) userCode
@@ -42,6 +43,7 @@
     processTimeExpired: (SWGDate*) processTimeExpired
     commentReject: (NSString*) commentReject
     callbackResponse: (NSString*) callbackResponse
+    auditory: (NSArray*) auditory
     
 {
     _code = code;
@@ -63,6 +65,7 @@
     _processTimeExpired = processTimeExpired;
     _commentReject = commentReject;
     _callbackResponse = callbackResponse;
+    _auditory = auditory;
     
 
     return self;
@@ -179,6 +182,28 @@
         _commentReject = dict[@"commentReject"];
         
         _callbackResponse = dict[@"callbackResponse"];
+        
+        
+        
+        id auditory_dict = dict[@"auditory"];
+        
+        if([auditory_dict isKindOfClass:[NSArray class]]) {
+            NSMutableArray * objs = [[NSMutableArray alloc] initWithCapacity:[(NSArray*)auditory_dict count]];
+            if([(NSArray*)auditory_dict count] > 0) {
+                for (int i=0 ; i<[(NSArray*)auditory_dict count] ; i++) {
+                	NSDictionary *dict = [[NSDictionary alloc] initWithDictionary:[auditory_dict objectAtIndex:i]];
+                    MSAuditory* d = [[MSAuditory alloc] initWithValues:dict];
+                    [objs addObject:d];
+                }
+                _auditory = [[NSArray alloc] initWithArray:objs];
+            }
+            else
+                _auditory = [[NSArray alloc] init];
+        }
+        else {
+            _auditory = [[NSArray alloc] init];
+        }
+        
         
         
     }
@@ -410,6 +435,31 @@
     
             if(_callbackResponse != nil) dict[@"callbackResponse"] = _callbackResponse ;
         
+    
+    
+    if(_auditory != nil){
+        if([_auditory isKindOfClass:[NSArray class]]){
+            NSMutableArray * array = [[NSMutableArray alloc] init];
+            for( int i=0 ; i<[(NSArray*)_auditory count] ; i++ ) {
+				MSAuditory *auditory = [[MSAuditory alloc]init];
+				auditory = [(NSArray*)_auditory objectAtIndex:i];
+                [array addObject:[(SWGObject*)auditory asDictionary]];
+            }
+            dict[@"auditory"] = array;
+        }
+        else if(_auditory && [_auditory isKindOfClass:[SWGDate class]]) {
+            NSString * dateString = [(SWGDate*)_auditory toString];
+            if(dateString){
+                dict[@"auditory"] = dateString;
+            }
+        }
+        else {
+        
+            if(_auditory != nil) dict[@"auditory"] = [(SWGObject*)_auditory asDictionary];
+        
+        }
+    }
+    
     
 
     NSDictionary* output = [dict copy];

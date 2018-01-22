@@ -14,6 +14,8 @@
 @synthesize location = _location;
 @synthesize sharedLink = _sharedLink;
 @synthesize updateDate = _updateDate;
+@synthesize retryTime = _retryTime;
+@synthesize customization = _customization;
 @synthesize metadata = _metadata;
 @synthesize devices = _devices;
 
@@ -28,6 +30,8 @@
     location: (NSString*) location
     sharedLink: (MSSharedLink*) sharedLink
     updateDate: (SWGDate*) updateDate
+    retryTime: (NSNumber*) retryTime
+    customization: (MSCustomization*) customization
     metadata: (NSArray*) metadata
     devices: (NSArray*) devices
     
@@ -43,6 +47,8 @@
     _location = location;
     _sharedLink = sharedLink;
     _updateDate = updateDate;
+    _retryTime = retryTime;
+    _customization = customization;
     _metadata = metadata;
     _devices = devices;
     
@@ -86,6 +92,16 @@
         
         if(updateDate_dict != nil)
             _updateDate = [[SWGDate  alloc]initWithValues:updateDate_dict];
+        
+        
+        _retryTime = dict[@"retryTime"];
+        
+        
+        
+        id customization_dict = dict[@"customization"];
+        
+        if(customization_dict != nil)
+            _customization = [[MSCustomization  alloc]initWithValues:customization_dict];
         
         
         
@@ -221,6 +237,35 @@
         else {
         
             if(_updateDate != nil) dict[@"updateDate"] = [(SWGObject*)_updateDate asDictionary];
+        
+        }
+    }
+    
+    
+    
+            if(_retryTime != nil) dict[@"retryTime"] = _retryTime ;
+        
+    
+    
+    if(_customization != nil){
+        if([_customization isKindOfClass:[NSArray class]]){
+            NSMutableArray * array = [[NSMutableArray alloc] init];
+            for( int i=0 ; i<[(NSArray*)_customization count] ; i++ ) {
+				MSCustomization *customization = [[MSCustomization alloc]init];
+				customization = [(NSArray*)_customization objectAtIndex:i];
+                [array addObject:[(SWGObject*)customization asDictionary]];
+            }
+            dict[@"customization"] = array;
+        }
+        else if(_customization && [_customization isKindOfClass:[SWGDate class]]) {
+            NSString * dateString = [(SWGDate*)_customization toString];
+            if(dateString){
+                dict[@"customization"] = dateString;
+            }
+        }
+        else {
+        
+            if(_customization != nil) dict[@"customization"] = [(SWGObject*)_customization asDictionary];
         
         }
     }

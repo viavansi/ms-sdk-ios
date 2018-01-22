@@ -16,6 +16,7 @@
 @synthesize font = _font;
 @synthesize acrofieldsPositions = _acrofieldsPositions;
 @synthesize readDocumentRequired = _readDocumentRequired;
+@synthesize customization = _customization;
 
 -(id)titleKey: (NSString*) titleKey
     descriptionKey: (NSString*) descriptionKey
@@ -30,6 +31,7 @@
     font: (MSFont*) font
     acrofieldsPositions: (NSArray*) acrofieldsPositions
     readDocumentRequired: (NSNumber*) readDocumentRequired
+    customization: (MSCustomization*) customization
     
 {
     _titleKey = titleKey;
@@ -45,6 +47,7 @@
     _font = font;
     _acrofieldsPositions = acrofieldsPositions;
     _readDocumentRequired = readDocumentRequired;
+    _customization = customization;
     
 
     return self;
@@ -131,6 +134,14 @@
         
         
         _readDocumentRequired = dict[@"readDocumentRequired"];
+        
+        
+        
+        id customization_dict = dict[@"customization"];
+        
+        if(customization_dict != nil)
+            _customization = [[MSCustomization  alloc]initWithValues:customization_dict];
+        
         
         
     }
@@ -275,6 +286,31 @@
     
             if(_readDocumentRequired != nil) dict[@"readDocumentRequired"] = _readDocumentRequired ;
         
+    
+    
+    if(_customization != nil){
+        if([_customization isKindOfClass:[NSArray class]]){
+            NSMutableArray * array = [[NSMutableArray alloc] init];
+            for( int i=0 ; i<[(NSArray*)_customization count] ; i++ ) {
+				MSCustomization *customization = [[MSCustomization alloc]init];
+				customization = [(NSArray*)_customization objectAtIndex:i];
+                [array addObject:[(SWGObject*)customization asDictionary]];
+            }
+            dict[@"customization"] = array;
+        }
+        else if(_customization && [_customization isKindOfClass:[SWGDate class]]) {
+            NSString * dateString = [(SWGDate*)_customization toString];
+            if(dateString){
+                dict[@"customization"] = dateString;
+            }
+        }
+        else {
+        
+            if(_customization != nil) dict[@"customization"] = [(SWGObject*)_customization asDictionary];
+        
+        }
+    }
+    
     
 
     NSDictionary* output = [dict copy];

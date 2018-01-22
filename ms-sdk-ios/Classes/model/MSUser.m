@@ -20,6 +20,7 @@
 @synthesize changePassToken = _changePassToken;
 @synthesize logDevice = _logDevice;
 @synthesize status = _status;
+@synthesize groups = _groups;
 @synthesize mobile = _mobile;
 @synthesize channel = _channel;
 
@@ -40,6 +41,7 @@
     changePassToken: (NSString*) changePassToken
     logDevice: (NSNumber*) logDevice
     status: (NSString*) status
+    groups: (NSArray*) groups
     mobile: (NSString*) mobile
     channel: (NSString*) channel
     
@@ -61,6 +63,7 @@
     _changePassToken = changePassToken;
     _logDevice = logDevice;
     _status = status;
+    _groups = groups;
     _mobile = mobile;
     _channel = channel;
     
@@ -105,6 +108,8 @@
         _logDevice = dict[@"logDevice"];
         
         _status = dict[@"status"];
+        
+        _groups = dict[@"groups"];
         
         _mobile = dict[@"mobile"];
         
@@ -184,6 +189,10 @@
     
     
             if(_status != nil) dict[@"status"] = _status ;
+        
+    
+    
+            if(_groups != nil) dict[@"groups"] = _groups ;
         
     
     
