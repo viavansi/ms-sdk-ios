@@ -1,10 +1,10 @@
 #import <Foundation/Foundation.h>
-#import "MSWrapSignature.h"
 #import "MSSignature.h"
-#import "MSDataToSign.h"
+#import "MSWrapSignature.h"
 #import "MSPrepareSignature.h"
-#import "MSPolicy.h"
+#import "MSDataToSign.h"
 #import "MSEvidenceSignature.h"
+#import "MSPolicy.h"
 #import "MSMessage.h"
 #import "SWGObject.h"
 #import "OAuth1Client.h"

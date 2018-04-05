@@ -1,8 +1,8 @@
 #import <Foundation/Foundation.h>
 #import "SWGObject.h"
 #import "MSCustomization.h"
-#import "MSAcrofieldPosition.h"
 #import "MSPolicy.h"
+#import "MSAcrofieldPosition.h"
 #import "MSFont.h"
 
 

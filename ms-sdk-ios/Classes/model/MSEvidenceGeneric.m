@@ -13,8 +13,8 @@
 @synthesize providerId = _providerId;
 @synthesize evidenceDescription = _evidenceDescription;
 @synthesize expirationTime = _expirationTime;
-@synthesize imageQuality = _imageQuality;
 @synthesize imageScaleFactor = _imageScaleFactor;
+@synthesize imageQuality = _imageQuality;
 
 -(id)messageCode: (NSString*) messageCode
     evidenceCode: (NSString*) evidenceCode
@@ -26,8 +26,8 @@
     providerId: (NSString*) providerId
     evidenceDescription: (NSString*) evidenceDescription
     expirationTime: (NSNumber*) expirationTime
-    imageQuality: (NSNumber*) imageQuality
     imageScaleFactor: (NSNumber*) imageScaleFactor
+    imageQuality: (NSNumber*) imageQuality
     
 {
     _messageCode = messageCode;
@@ -40,8 +40,8 @@
     _providerId = providerId;
     _evidenceDescription = evidenceDescription;
     _expirationTime = expirationTime;
-    _imageQuality = imageQuality;
     _imageScaleFactor = imageScaleFactor;
+    _imageQuality = imageQuality;
     
 
     return self;
@@ -123,9 +123,9 @@
         
         _expirationTime = dict[@"expirationTime"];
         
-        _imageQuality = dict[@"imageQuality"];
-        
         _imageScaleFactor = dict[@"imageScaleFactor"];
+        
+        _imageQuality = dict[@"imageQuality"];
         
         
     }
@@ -260,11 +260,11 @@
         
     
     
-            if(_imageQuality != nil) dict[@"imageQuality"] = _imageQuality ;
+            if(_imageScaleFactor != nil) dict[@"imageScaleFactor"] = _imageScaleFactor ;
         
     
     
-            if(_imageScaleFactor != nil) dict[@"imageScaleFactor"] = _imageScaleFactor ;
+            if(_imageQuality != nil) dict[@"imageQuality"] = _imageQuality ;
         
     
 

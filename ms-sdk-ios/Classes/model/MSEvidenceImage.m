@@ -12,6 +12,8 @@
 @synthesize imageQuality = _imageQuality;
 @synthesize imageScaleFactor = _imageScaleFactor;
 @synthesize ocr = _ocr;
+@synthesize ocrTemplate = _ocrTemplate;
+@synthesize ocrFields = _ocrFields;
 
 -(id)messageCode: (NSString*) messageCode
     evidenceCode: (NSString*) evidenceCode
@@ -22,6 +24,8 @@
     imageQuality: (NSNumber*) imageQuality
     imageScaleFactor: (NSNumber*) imageScaleFactor
     ocr: (MSOcrData*) ocr
+    ocrTemplate: (NSString*) ocrTemplate
+    ocrFields: (NSString*) ocrFields
     
 {
     _messageCode = messageCode;
@@ -33,6 +37,8 @@
     _imageQuality = imageQuality;
     _imageScaleFactor = imageScaleFactor;
     _ocr = ocr;
+    _ocrTemplate = ocrTemplate;
+    _ocrFields = ocrFields;
     
 
     return self;
@@ -97,6 +103,10 @@
         if(ocr_dict != nil)
             _ocr = [[MSOcrData  alloc]initWithValues:ocr_dict];
         
+        
+        _ocrTemplate = dict[@"ocrTemplate"];
+        
+        _ocrFields = dict[@"ocrFields"];
         
         
     }
@@ -225,6 +235,14 @@
         }
     }
     
+    
+    
+            if(_ocrTemplate != nil) dict[@"ocrTemplate"] = _ocrTemplate ;
+        
+    
+    
+            if(_ocrFields != nil) dict[@"ocrFields"] = _ocrFields ;
+        
     
 
     NSDictionary* output = [dict copy];

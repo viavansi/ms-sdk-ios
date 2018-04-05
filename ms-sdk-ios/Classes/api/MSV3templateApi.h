@@ -88,6 +88,25 @@
 
 /**
 
+ Method for list user policy templates
+ 
+ Only show templates with form json
+ 
+
+ 
+ @param userCode userCode
+ 
+
+ return type: NSArray*
+ */
++(NSNumber*) findPolicyTemplatesByUser :(NSString*) userCode 
+    
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(NSArray* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    
+
+
+/**
+
  Method get template info by code
  
  

@@ -1,8 +1,8 @@
 #import <Foundation/Foundation.h>
 #import "SWGObject.h"
-#import "MSPosition.h"
-#import "MSGeolocation.h"
 #import "MSParam.h"
+#import "MSGeolocation.h"
+#import "MSPosition.h"
 #import "MSEvidenceDevice.h"
 
 
@@ -18,8 +18,8 @@
 @property(nonatomic) NSString* providerId;  
 @property(nonatomic) NSString* evidenceDescription;  
 @property(nonatomic) NSNumber* expirationTime;  
-@property(nonatomic) NSNumber* imageQuality;  
 @property(nonatomic) NSNumber* imageScaleFactor;  
+@property(nonatomic) NSNumber* imageQuality;  
 - (id) messageCode: (NSString*) messageCode     
     evidenceCode: (NSString*) evidenceCode     
     geolocation: (MSGeolocation*) geolocation     
@@ -30,8 +30,8 @@
     providerId: (NSString*) providerId     
     evidenceDescription: (NSString*) evidenceDescription     
     expirationTime: (NSNumber*) expirationTime     
-    imageQuality: (NSNumber*) imageQuality     
-    imageScaleFactor: (NSNumber*) imageScaleFactor;
+    imageScaleFactor: (NSNumber*) imageScaleFactor     
+    imageQuality: (NSNumber*) imageQuality;
     
 
 - (id) initWithValues: (NSDictionary*)dict;

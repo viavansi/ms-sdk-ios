@@ -1,10 +1,10 @@
 #import <Foundation/Foundation.h>
 #import "SWGObject.h"
-#import "MSEvidenceGeneric.h"
 #import "MSItem.h"
+#import "MSEvidenceGeneric.h"
+#import "MSEvidenceSignature.h"
 #import "MSEvidenceFingerPrint.h"
 #import "MSEvidenceImage.h"
-#import "MSEvidenceSignature.h"
 
 
 @interface MSMessageData : SWGObject
