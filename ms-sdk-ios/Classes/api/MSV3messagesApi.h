@@ -1,5 +1,6 @@
 #import <Foundation/Foundation.h>
 #import "MSMessage.h"
+#import "MSMessageBuild.h"
 #import "MSMessageData.h"
 #import "MSDownload.h"
 #import "MSMessageStatus.h"
@@ -28,6 +29,25 @@
 +(NSNumber*) sendMessage :(MSMessage*) body 
     
     auth:(OAuth1Client *) auth onSuccess: (void (^)(NSString* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    
+
+
+/**
+
+ Method for asynchronous execution of a message
+ 
+ asynchronous execution
+ 
+
+ 
+ @param body Message with asynchronous execution
+ 
+
+ return type: MSMessageBuild*
+ */
++(NSNumber*) messagesBuild :(MSMessage*) body 
+    
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(MSMessageBuild* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     
 
 
