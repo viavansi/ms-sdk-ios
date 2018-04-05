@@ -18,8 +18,8 @@
 @property(nonatomic) NSString* providerId;  
 @property(nonatomic) NSString* evidenceDescription;  
 @property(nonatomic) NSNumber* expirationTime;  
-@property(nonatomic) NSNumber* imageScaleFactor;  
 @property(nonatomic) NSNumber* imageQuality;  
+@property(nonatomic) NSNumber* imageScaleFactor;  
 - (id) messageCode: (NSString*) messageCode     
     evidenceCode: (NSString*) evidenceCode     
     geolocation: (MSGeolocation*) geolocation     
@@ -30,8 +30,8 @@
     providerId: (NSString*) providerId     
     evidenceDescription: (NSString*) evidenceDescription     
     expirationTime: (NSNumber*) expirationTime     
-    imageScaleFactor: (NSNumber*) imageScaleFactor     
-    imageQuality: (NSNumber*) imageQuality;
+    imageQuality: (NSNumber*) imageQuality     
+    imageScaleFactor: (NSNumber*) imageScaleFactor;
     
 
 - (id) initWithValues: (NSDictionary*)dict;
