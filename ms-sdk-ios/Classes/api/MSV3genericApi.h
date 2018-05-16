@@ -1,6 +1,7 @@
 #import <Foundation/Foundation.h>
 #import "MSDownload.h"
 #import "MSEvidence.h"
+#import "MSImageProviderConfig.h"
 #import "SWGObject.h"
 #import "OAuth1Client.h"
 
@@ -22,6 +23,25 @@
  return type: MSDownload*
  */
 +(NSNumber*) genericImageForEvidence :(MSEvidence*) body 
+    
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(MSDownload* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    
+
+
+/**
+
+ Method to build image for a providerId by group
+ 
+ Return custom image
+ 
+
+ 
+ @param body image provider config
+ 
+
+ return type: MSDownload*
+ */
++(NSNumber*) genericImageForProvider :(MSImageProviderConfig*) body 
     
     auth:(OAuth1Client *) auth onSuccess: (void (^)(MSDownload* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     
