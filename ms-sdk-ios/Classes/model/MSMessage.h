@@ -25,6 +25,8 @@
 @property(nonatomic) NSString* callbackURL;  
 @property(nonatomic) NSString* callbackMails;  
 @property(nonatomic) NSArray* callbackMailsFormKeys;  
+@property(nonatomic) NSString* callbackMailFilename;  
+@property(nonatomic) NSString* callbackAuthorization;  
 @property(nonatomic) MSErrorResponse* error;  
 @property(nonatomic) NSString* pid;  
 @property(nonatomic) NSString* server;  
@@ -45,6 +47,8 @@
     callbackURL: (NSString*) callbackURL     
     callbackMails: (NSString*) callbackMails     
     callbackMailsFormKeys: (NSArray*) callbackMailsFormKeys     
+    callbackMailFilename: (NSString*) callbackMailFilename     
+    callbackAuthorization: (NSString*) callbackAuthorization     
     error: (MSErrorResponse*) error     
     pid: (NSString*) pid     
     server: (NSString*) server     

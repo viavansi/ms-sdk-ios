@@ -3,6 +3,9 @@
 #import "MSMessageBuild.h"
 #import "MSMessageData.h"
 #import "MSDownload.h"
+#import "MSCallbackUrl.h"
+#import "MSNotificationResend.h"
+#import "MSNotification.h"
 #import "MSMessageStatus.h"
 #import "MSDocument.h"
 #import "MSMessagePaginatedList.h"
@@ -146,6 +149,44 @@
      comment:(NSString*) comment 
     
     auth:(OAuth1Client *) auth onSuccess: (void (^)(MSMessage* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    
+
+
+/**
+
+ Send callback URL
+ 
+ Send callback URL
+ 
+
+ 
+ @param body JSCallbackUrl object that needs to send callback URL
+ 
+
+ return type: MSMessage*
+ */
++(NSNumber*) sendCallbackUrl :(MSCallbackUrl*) body 
+    
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(MSMessage* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    
+
+
+/**
+
+ Send notifications
+ 
+ Send notifications
+ 
+
+ 
+ @param body JSNotificationResend object that needs to resend message notification
+ 
+
+ return type: MSNotification*
+ */
++(NSNumber*) resendNotification :(MSNotificationResend*) body 
+    
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(MSNotification* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     
 
 

@@ -21,6 +21,7 @@
 @synthesize logDevice = _logDevice;
 @synthesize status = _status;
 @synthesize groups = _groups;
+@synthesize properties = _properties;
 @synthesize mobile = _mobile;
 @synthesize channel = _channel;
 
@@ -42,6 +43,7 @@
     logDevice: (NSNumber*) logDevice
     status: (NSString*) status
     groups: (NSArray*) groups
+    properties: (NSArray*) properties
     mobile: (NSString*) mobile
     channel: (NSString*) channel
     
@@ -64,6 +66,7 @@
     _logDevice = logDevice;
     _status = status;
     _groups = groups;
+    _properties = properties;
     _mobile = mobile;
     _channel = channel;
     
@@ -110,6 +113,28 @@
         _status = dict[@"status"];
         
         _groups = dict[@"groups"];
+        
+        
+        
+        id properties_dict = dict[@"properties"];
+        
+        if([properties_dict isKindOfClass:[NSArray class]]) {
+            NSMutableArray * objs = [[NSMutableArray alloc] initWithCapacity:[(NSArray*)properties_dict count]];
+            if([(NSArray*)properties_dict count] > 0) {
+                for (int i=0 ; i<[(NSArray*)properties_dict count] ; i++) {
+                	NSDictionary *dict = [[NSDictionary alloc] initWithDictionary:[properties_dict objectAtIndex:i]];
+                    MSParam* d = [[MSParam alloc] initWithValues:dict];
+                    [objs addObject:d];
+                }
+                _properties = [[NSArray alloc] initWithArray:objs];
+            }
+            else
+                _properties = [[NSArray alloc] init];
+        }
+        else {
+            _properties = [[NSArray alloc] init];
+        }
+        
         
         _mobile = dict[@"mobile"];
         
@@ -194,6 +219,31 @@
     
             if(_groups != nil) dict[@"groups"] = _groups ;
         
+    
+    
+    if(_properties != nil){
+        if([_properties isKindOfClass:[NSArray class]]){
+            NSMutableArray * array = [[NSMutableArray alloc] init];
+            for( int i=0 ; i<[(NSArray*)_properties count] ; i++ ) {
+				MSParam *properties = [[MSParam alloc]init];
+				properties = [(NSArray*)_properties objectAtIndex:i];
+                [array addObject:[(SWGObject*)properties asDictionary]];
+            }
+            dict[@"properties"] = array;
+        }
+        else if(_properties && [_properties isKindOfClass:[SWGDate class]]) {
+            NSString * dateString = [(SWGDate*)_properties toString];
+            if(dateString){
+                dict[@"properties"] = dateString;
+            }
+        }
+        else {
+        
+            if(_properties != nil) dict[@"properties"] = [(SWGObject*)_properties asDictionary];
+        
+        }
+    }
+    
     
     
             if(_mobile != nil) dict[@"mobile"] = _mobile ;

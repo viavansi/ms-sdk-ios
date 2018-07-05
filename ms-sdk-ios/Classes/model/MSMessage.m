@@ -16,6 +16,8 @@
 @synthesize callbackURL = _callbackURL;
 @synthesize callbackMails = _callbackMails;
 @synthesize callbackMailsFormKeys = _callbackMailsFormKeys;
+@synthesize callbackMailFilename = _callbackMailFilename;
+@synthesize callbackAuthorization = _callbackAuthorization;
 @synthesize error = _error;
 @synthesize pid = _pid;
 @synthesize server = _server;
@@ -37,6 +39,8 @@
     callbackURL: (NSString*) callbackURL
     callbackMails: (NSString*) callbackMails
     callbackMailsFormKeys: (NSArray*) callbackMailsFormKeys
+    callbackMailFilename: (NSString*) callbackMailFilename
+    callbackAuthorization: (NSString*) callbackAuthorization
     error: (MSErrorResponse*) error
     pid: (NSString*) pid
     server: (NSString*) server
@@ -59,6 +63,8 @@
     _callbackURL = callbackURL;
     _callbackMails = callbackMails;
     _callbackMailsFormKeys = callbackMailsFormKeys;
+    _callbackMailFilename = callbackMailFilename;
+    _callbackAuthorization = callbackAuthorization;
     _error = error;
     _pid = pid;
     _server = server;
@@ -158,6 +164,10 @@
         _callbackMails = dict[@"callbackMails"];
         
         _callbackMailsFormKeys = dict[@"callbackMailsFormKeys"];
+        
+        _callbackMailFilename = dict[@"callbackMailFilename"];
+        
+        _callbackAuthorization = dict[@"callbackAuthorization"];
         
         
         
@@ -368,6 +378,14 @@
     
     
             if(_callbackMailsFormKeys != nil) dict[@"callbackMailsFormKeys"] = _callbackMailsFormKeys ;
+        
+    
+    
+            if(_callbackMailFilename != nil) dict[@"callbackMailFilename"] = _callbackMailFilename ;
+        
+    
+    
+            if(_callbackAuthorization != nil) dict[@"callbackAuthorization"] = _callbackAuthorization ;
         
     
     

@@ -1,5 +1,6 @@
 #import <Foundation/Foundation.h>
 #import "SWGObject.h"
+#import "MSParam.h"
 
 
 @interface MSUser : SWGObject
@@ -22,6 +23,7 @@
 @property(nonatomic) NSNumber* logDevice;  
 @property(nonatomic) NSString* status;  
 @property(nonatomic) NSArray* groups;  
+@property(nonatomic) NSArray* properties;  
 @property(nonatomic) NSString* mobile;  
 @property(nonatomic) NSString* channel;  
 - (id) code: (NSString*) code     
@@ -42,6 +44,7 @@
     logDevice: (NSNumber*) logDevice     
     status: (NSString*) status     
     groups: (NSArray*) groups     
+    properties: (NSArray*) properties     
     mobile: (NSString*) mobile     
     channel: (NSString*) channel;
     
