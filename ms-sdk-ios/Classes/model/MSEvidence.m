@@ -39,6 +39,7 @@
 @synthesize genericData = _genericData;
 @synthesize base64Image = _base64Image;
 @synthesize imageType = _imageType;
+@synthesize addLink = _addLink;
 
 -(id)type: (NSString*) type
     code: (NSString*) code
@@ -76,6 +77,7 @@
     genericData: (MSEvidenceGeneric*) genericData
     base64Image: (NSString*) base64Image
     imageType: (NSString*) imageType
+    addLink: (NSNumber*) addLink
     
 {
     _type = type;
@@ -114,6 +116,7 @@
     _genericData = genericData;
     _base64Image = base64Image;
     _imageType = imageType;
+    _addLink = addLink;
     
 
     return self;
@@ -270,6 +273,8 @@
         _base64Image = dict[@"base64Image"];
         
         _imageType = dict[@"imageType"];
+        
+        _addLink = dict[@"addLink"];
         
         
     }
@@ -589,6 +594,10 @@
     
     
             if(_imageType != nil) dict[@"imageType"] = _imageType ;
+        
+    
+    
+            if(_addLink != nil) dict[@"addLink"] = _addLink ;
         
     
 

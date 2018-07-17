@@ -20,6 +20,7 @@
 @synthesize policyCode = _policyCode;
 @synthesize password = _password;
 @synthesize readRequired = _readRequired;
+@synthesize numPages = _numPages;
 
 -(id)templateCode: (NSString*) templateCode
     templateReference: (NSString*) templateReference
@@ -38,6 +39,7 @@
     policyCode: (NSString*) policyCode
     password: (NSString*) password
     readRequired: (NSNumber*) readRequired
+    numPages: (NSNumber*) numPages
     
 {
     _templateCode = templateCode;
@@ -57,6 +59,7 @@
     _policyCode = policyCode;
     _password = password;
     _readRequired = readRequired;
+    _numPages = numPages;
     
 
     return self;
@@ -125,6 +128,8 @@
         _password = dict[@"password"];
         
         _readRequired = dict[@"readRequired"];
+        
+        _numPages = dict[@"numPages"];
         
         
     }
@@ -242,6 +247,10 @@
     
     
             if(_readRequired != nil) dict[@"readRequired"] = _readRequired ;
+        
+    
+    
+            if(_numPages != nil) dict[@"numPages"] = _numPages ;
         
     
 

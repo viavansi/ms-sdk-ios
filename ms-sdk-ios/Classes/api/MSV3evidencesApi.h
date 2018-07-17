@@ -70,6 +70,53 @@
 
 /**
 
+ Method for get OTP Mail info
+ 
+ Get OTP Mail evidence info
+ 
+
+ 
+ @param messageCode Message&#39;s unique code
+ 
+ @param evidenceCode Evidence&#39;s unique code
+ 
+
+ return type: MSEvidence*
+ */
++(NSNumber*) prepareOtpMailEvidence :(NSString*) messageCode 
+     evidenceCode:(NSString*) evidenceCode 
+    
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(MSEvidence* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    
+
+
+/**
+
+ Method for validate OTP Mail info
+ 
+ Get OTP Mail evidence info
+ 
+
+ 
+ @param messageCode messageCode
+ 
+ @param evidenceCode evidenceCode
+ 
+ @param token token
+ 
+
+ return type: MSEvidence*
+ */
++(NSNumber*) validateOtpMailEvidence :(NSString*) messageCode 
+     evidenceCode:(NSString*) evidenceCode 
+     token:(NSString*) token 
+    
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(MSEvidence* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    
+
+
+/**
+
  Method for get OTP SMS info
  
  Get OTP SMS evidence info
@@ -129,6 +176,25 @@
  return type: MSEvidence*
  */
 +(NSNumber*) addSignatureAsEvidence :(MSEvidenceSignature*) body 
+    
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(MSEvidence* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    
+
+
+/**
+
+ Method for change user password
+ 
+ Notify user by mail and SMS to change password
+ 
+
+ 
+ @param userCode User&#39;s unique code
+ 
+
+ return type: MSEvidence*
+ */
++(NSNumber*) sendSmsChangePassword :(NSString*) userCode 
     
     auth:(OAuth1Client *) auth onSuccess: (void (^)(MSEvidence* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     

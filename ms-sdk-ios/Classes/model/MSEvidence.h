@@ -48,6 +48,7 @@
 @property(nonatomic) MSEvidenceGeneric* genericData;  
 @property(nonatomic) NSString* base64Image;  
 @property(nonatomic) NSString* imageType;  
+@property(nonatomic) NSNumber* addLink;  
 - (id) type: (NSString*) type     
     code: (NSString*) code     
     status: (NSString*) status     
@@ -83,7 +84,8 @@
     ocr: (MSOcrData*) ocr     
     genericData: (MSEvidenceGeneric*) genericData     
     base64Image: (NSString*) base64Image     
-    imageType: (NSString*) imageType;
+    imageType: (NSString*) imageType     
+    addLink: (NSNumber*) addLink;
     
 
 - (id) initWithValues: (NSDictionary*)dict;

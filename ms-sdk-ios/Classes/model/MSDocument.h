@@ -23,6 +23,7 @@
 @property(nonatomic) NSString* policyCode;  /* (since 3.5.0) code of policy to use  */
 @property(nonatomic) NSString* password;  /* (since 3.5.0) document password  */
 @property(nonatomic) NSNumber* readRequired;  
+@property(nonatomic) NSNumber* numPages;  
 - (id) templateCode: (NSString*) templateCode     
     templateReference: (NSString*) templateReference     
     templateVersion: (NSNumber*) templateVersion     
@@ -39,7 +40,8 @@
     font: (MSFont*) font     
     policyCode: (NSString*) policyCode     
     password: (NSString*) password     
-    readRequired: (NSNumber*) readRequired;
+    readRequired: (NSNumber*) readRequired     
+    numPages: (NSNumber*) numPages;
     
 
 - (id) initWithValues: (NSDictionary*)dict;

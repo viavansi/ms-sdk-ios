@@ -1,7 +1,6 @@
 #import <Foundation/Foundation.h>
 #import "MSDownload.h"
 #import "MSTemplateList.h"
-#import "MSDocument.h"
 #import "MSTemplate.h"
 #import "SWGObject.h"
 #import "OAuth1Client.h"
@@ -45,25 +44,6 @@
 +(NSNumber*) findTemplatesByUser :(NSString*) userCode 
     
     auth:(OAuth1Client *) auth onSuccess: (void (^)(NSArray* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
-    
-
-
-/**
-
- Method for generate pdf
- 
- 
- 
-
- 
- @param body Document info
- 
-
- return type: MSDownload*
- */
-+(NSNumber*) generatePdf :(MSDocument*) body 
-    
-    auth:(OAuth1Client *) auth onSuccess: (void (^)(MSDownload* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     
 
 
