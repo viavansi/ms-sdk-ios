@@ -192,6 +192,25 @@
 
 /**
 
+ Method for resend message
+ 
+ Resend message
+ 
+
+ 
+ @param code Message code
+ 
+
+ return type: NSString*
+ */
++(NSNumber*) resendMessage :(NSString*) code 
+    
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(NSString* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    
+
+
+/**
+
  Method for get status of a existing message
  
  Get message status

@@ -2,7 +2,7 @@
 #import "MSAlive.h"
 #import "MSConfiguration.h"
 #import "MSInfoSystemStatus.h"
-#import "MSTaskManager.h"
+#import "MSWorkflowManager.h"
 #import "SWGObject.h"
 #import "OAuth1Client.h"
 
@@ -70,10 +70,10 @@
 
  
 
- return type: MSTaskManager*
+ return type: MSWorkflowManager*
  */
 +(NSNumber*) getWorkflowConfiguration :(OAuth1Client *) auth onSuccess:
-    (void (^)(MSTaskManager* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    (void (^)(MSWorkflowManager* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     
 
 

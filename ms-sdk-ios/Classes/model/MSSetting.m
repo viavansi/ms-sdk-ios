@@ -8,6 +8,7 @@
 @synthesize policy = _policy;
 @synthesize computec_key = _computec_key;
 @synthesize policies = _policies;
+@synthesize callbackAuthorization = _callbackAuthorization;
 @synthesize callbackURL = _callbackURL;
 @synthesize callbackMails = _callbackMails;
 @synthesize callbackMailsFormKeys = _callbackMailsFormKeys;
@@ -16,6 +17,7 @@
 @synthesize font = _font;
 @synthesize acrofieldsPositions = _acrofieldsPositions;
 @synthesize readDocumentRequired = _readDocumentRequired;
+@synthesize allowDocumentResend = _allowDocumentResend;
 @synthesize customization = _customization;
 
 -(id)titleKey: (NSString*) titleKey
@@ -23,6 +25,7 @@
     policy: (MSPolicy*) policy
     computec_key: (NSString*) computec_key
     policies: (NSArray*) policies
+    callbackAuthorization: (NSString*) callbackAuthorization
     callbackURL: (NSString*) callbackURL
     callbackMails: (NSString*) callbackMails
     callbackMailsFormKeys: (NSArray*) callbackMailsFormKeys
@@ -31,6 +34,7 @@
     font: (MSFont*) font
     acrofieldsPositions: (NSArray*) acrofieldsPositions
     readDocumentRequired: (NSNumber*) readDocumentRequired
+    allowDocumentResend: (NSNumber*) allowDocumentResend
     customization: (MSCustomization*) customization
     
 {
@@ -39,6 +43,7 @@
     _policy = policy;
     _computec_key = computec_key;
     _policies = policies;
+    _callbackAuthorization = callbackAuthorization;
     _callbackURL = callbackURL;
     _callbackMails = callbackMails;
     _callbackMailsFormKeys = callbackMailsFormKeys;
@@ -47,6 +52,7 @@
     _font = font;
     _acrofieldsPositions = acrofieldsPositions;
     _readDocumentRequired = readDocumentRequired;
+    _allowDocumentResend = allowDocumentResend;
     _customization = customization;
     
 
@@ -93,6 +99,8 @@
         }
         
         
+        _callbackAuthorization = dict[@"callbackAuthorization"];
+        
         _callbackURL = dict[@"callbackURL"];
         
         _callbackMails = dict[@"callbackMails"];
@@ -134,6 +142,8 @@
         
         
         _readDocumentRequired = dict[@"readDocumentRequired"];
+        
+        _allowDocumentResend = dict[@"allowDocumentResend"];
         
         
         
@@ -214,6 +224,10 @@
     
     
     
+            if(_callbackAuthorization != nil) dict[@"callbackAuthorization"] = _callbackAuthorization ;
+        
+    
+    
             if(_callbackURL != nil) dict[@"callbackURL"] = _callbackURL ;
         
     
@@ -285,6 +299,10 @@
     
     
             if(_readDocumentRequired != nil) dict[@"readDocumentRequired"] = _readDocumentRequired ;
+        
+    
+    
+            if(_allowDocumentResend != nil) dict[@"allowDocumentResend"] = _allowDocumentResend ;
         
     
     

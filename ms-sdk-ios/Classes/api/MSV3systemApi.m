@@ -4,7 +4,7 @@
 #import "MSAlive.h"
 #import "MSConfiguration.h"
 #import "MSInfoSystemStatus.h"
-#import "MSTaskManager.h"
+#import "MSWorkflowManager.h"
 
 
 
@@ -228,7 +228,7 @@
 }
 
 +(NSNumber*) getWorkflowConfiguration:(OAuth1Client *) auth onSuccess: 
-        (void (^)(MSTaskManager* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock
+        (void (^)(MSWorkflowManager* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock
          {
 
     NSMutableString* requestUrl = [NSMutableString stringWithFormat:@"%@/v3/system/workflow", [[ApiClient sharedInstance] url]];
@@ -281,9 +281,9 @@
           responseContentType: responseContentType
               successBlock: ^(NSDictionary *data) {
                 
-                MSTaskManager *result = nil;
+                MSWorkflowManager *result = nil;
                 if (data) {
-                    result = [[MSTaskManager    alloc]initWithValues: data];
+                    result = [[MSWorkflowManager    alloc]initWithValues: data];
                 }
                 onSuccessBlock(result);
                 

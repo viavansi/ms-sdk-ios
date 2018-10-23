@@ -13,6 +13,9 @@
 @interface MSEvidence : SWGObject
 
 @property(nonatomic) NSString* type;  
+@property(nonatomic) NSString* _id;  
+@property(nonatomic) NSString* enabledExpression;  
+@property(nonatomic) NSNumber* enabled;  
 @property(nonatomic) NSString* code;  
 @property(nonatomic) NSString* status;  
 @property(nonatomic) NSString* helpText;  
@@ -50,6 +53,9 @@
 @property(nonatomic) NSString* imageType;  
 @property(nonatomic) NSNumber* addLink;  
 - (id) type: (NSString*) type     
+    _id: (NSString*) _id     
+    enabledExpression: (NSString*) enabledExpression     
+    enabled: (NSNumber*) enabled     
     code: (NSString*) code     
     status: (NSString*) status     
     helpText: (NSString*) helpText     

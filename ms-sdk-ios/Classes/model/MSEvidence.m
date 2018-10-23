@@ -4,6 +4,9 @@
 @implementation MSEvidence
 
 @synthesize type = _type;
+@synthesize _id = __id;
+@synthesize enabledExpression = _enabledExpression;
+@synthesize enabled = _enabled;
 @synthesize code = _code;
 @synthesize status = _status;
 @synthesize helpText = _helpText;
@@ -42,6 +45,9 @@
 @synthesize addLink = _addLink;
 
 -(id)type: (NSString*) type
+    _id: (NSString*) _id
+    enabledExpression: (NSString*) enabledExpression
+    enabled: (NSNumber*) enabled
     code: (NSString*) code
     status: (NSString*) status
     helpText: (NSString*) helpText
@@ -81,6 +87,9 @@
     
 {
     _type = type;
+    __id = _id;
+    _enabledExpression = enabledExpression;
+    _enabled = enabled;
     _code = code;
     _status = status;
     _helpText = helpText;
@@ -127,6 +136,12 @@
     self = [super init];
     if(self) {
         _type = dict[@"type"];
+        
+        __id = dict[@"id"];
+        
+        _enabledExpression = dict[@"enabledExpression"];
+        
+        _enabled = dict[@"enabled"];
         
         _code = dict[@"code"];
         
@@ -286,6 +301,18 @@
     
     
             if(_type != nil) dict[@"type"] = _type ;
+        
+    
+    
+            if(__id != nil) dict[@"id"] = __id ;
+        
+    
+    
+            if(_enabledExpression != nil) dict[@"enabledExpression"] = _enabledExpression ;
+        
+    
+    
+            if(_enabled != nil) dict[@"enabled"] = _enabled ;
         
     
     

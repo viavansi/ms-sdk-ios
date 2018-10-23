@@ -24,6 +24,8 @@
 @property(nonatomic) NSString* password;  /* (since 3.5.0) document password  */
 @property(nonatomic) NSNumber* readRequired;  
 @property(nonatomic) NSNumber* numPages;  
+@property(nonatomic) NSNumber* allowResend;  
+@property(nonatomic) NSString* watermarkText;  
 - (id) templateCode: (NSString*) templateCode     
     templateReference: (NSString*) templateReference     
     templateVersion: (NSNumber*) templateVersion     
@@ -41,7 +43,9 @@
     policyCode: (NSString*) policyCode     
     password: (NSString*) password     
     readRequired: (NSNumber*) readRequired     
-    numPages: (NSNumber*) numPages;
+    numPages: (NSNumber*) numPages     
+    allowResend: (NSNumber*) allowResend     
+    watermarkText: (NSString*) watermarkText;
     
 
 - (id) initWithValues: (NSDictionary*)dict;

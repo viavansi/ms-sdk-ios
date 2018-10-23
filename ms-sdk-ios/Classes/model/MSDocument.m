@@ -21,6 +21,8 @@
 @synthesize password = _password;
 @synthesize readRequired = _readRequired;
 @synthesize numPages = _numPages;
+@synthesize allowResend = _allowResend;
+@synthesize watermarkText = _watermarkText;
 
 -(id)templateCode: (NSString*) templateCode
     templateReference: (NSString*) templateReference
@@ -40,6 +42,8 @@
     password: (NSString*) password
     readRequired: (NSNumber*) readRequired
     numPages: (NSNumber*) numPages
+    allowResend: (NSNumber*) allowResend
+    watermarkText: (NSString*) watermarkText
     
 {
     _templateCode = templateCode;
@@ -60,6 +64,8 @@
     _password = password;
     _readRequired = readRequired;
     _numPages = numPages;
+    _allowResend = allowResend;
+    _watermarkText = watermarkText;
     
 
     return self;
@@ -130,6 +136,10 @@
         _readRequired = dict[@"readRequired"];
         
         _numPages = dict[@"numPages"];
+        
+        _allowResend = dict[@"allowResend"];
+        
+        _watermarkText = dict[@"watermarkText"];
         
         
     }
@@ -251,6 +261,14 @@
     
     
             if(_numPages != nil) dict[@"numPages"] = _numPages ;
+        
+    
+    
+            if(_allowResend != nil) dict[@"allowResend"] = _allowResend ;
+        
+    
+    
+            if(_watermarkText != nil) dict[@"watermarkText"] = _watermarkText ;
         
     
 

@@ -812,6 +812,73 @@
     
 }
 
++(NSNumber*) resendMessage: (NSString*) code
+        
+        auth:(OAuth1Client *) auth onSuccess: (void (^)(NSString* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock
+         {
+
+    NSMutableString* requestUrl = [NSMutableString stringWithFormat:@"%@/v3/messages/resend/{code}/", [[ApiClient sharedInstance] url]];
+
+    // remove format in URL if needed
+    if ([requestUrl rangeOfString:@".{format}"].location != NSNotFound){
+        [requestUrl replaceCharactersInRange: [requestUrl rangeOfString:@".{format}"] withString:@".json"];
+    }
+
+    [requestUrl replaceCharactersInRange: [requestUrl rangeOfString:[NSString stringWithFormat:@"%@%@%@", @"{", @"code", @"}"]] withString: [ApiClient escape:code]];
+    
+
+	NSArray * requestContentTypes = @[];
+    NSString* requestContentType = requestContentTypes.count > 0 ? requestContentTypes[0] : @"application/json";
+
+    NSArray * responseContentTypes = @[];
+    NSString* responseContentType = responseContentTypes.count > 0 ? responseContentTypes[0] : @"application/json";
+
+    NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
+    
+    NSMutableDictionary* headerParams = [[NSMutableDictionary alloc] init];
+    
+
+    id bodyDictionary = nil;
+    
+    
+    bodyDictionary = [[NSMutableArray alloc] init];
+
+    NSMutableDictionary * formParams = [[NSMutableDictionary alloc]init];
+
+    
+    [bodyDictionary addObject:formParams];
+    
+
+    
+
+    ApiClient* client = [ApiClient sharedInstance];
+
+    
+    
+            // primitive response type
+    return [client stringWithCompletionBlock: auth
+					                                requestUrl: requestUrl 
+                                              method: @"GET"
+                                         queryParams: queryParams
+                                                body: bodyDictionary
+                                        headerParams: headerParams
+                                  requestContentType: requestContentType
+                                 responseContentType: responseContentType
+                                     successBlock: ^(NSString *data) {
+                                        NSString *result = data ? [[NSString  alloc]initWithString: data] : nil;
+                                        onSuccessBlock(result);
+                                     }
+                                     errorBlock: ^(NSError *error) {
+                         onErrorBlock(error);
+                     }];
+    
+    
+
+        
+
+    
+}
+
 +(NSNumber*) getMessageStatusByCode: (NSString*) messageCode
         
         auth:(OAuth1Client *) auth onSuccess: (void (^)(MSMessageStatus* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock
