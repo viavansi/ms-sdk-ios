@@ -10,6 +10,7 @@
 @synthesize policies = _policies;
 @synthesize callbackAuthorization = _callbackAuthorization;
 @synthesize callbackURL = _callbackURL;
+@synthesize callbackCheckListMails = _callbackCheckListMails;
 @synthesize callbackMails = _callbackMails;
 @synthesize callbackMailsFormKeys = _callbackMailsFormKeys;
 @synthesize validateCode = _validateCode;
@@ -27,6 +28,7 @@
     policies: (NSArray*) policies
     callbackAuthorization: (NSString*) callbackAuthorization
     callbackURL: (NSString*) callbackURL
+    callbackCheckListMails: (NSString*) callbackCheckListMails
     callbackMails: (NSString*) callbackMails
     callbackMailsFormKeys: (NSArray*) callbackMailsFormKeys
     validateCode: (NSString*) validateCode
@@ -45,6 +47,7 @@
     _policies = policies;
     _callbackAuthorization = callbackAuthorization;
     _callbackURL = callbackURL;
+    _callbackCheckListMails = callbackCheckListMails;
     _callbackMails = callbackMails;
     _callbackMailsFormKeys = callbackMailsFormKeys;
     _validateCode = validateCode;
@@ -102,6 +105,8 @@
         _callbackAuthorization = dict[@"callbackAuthorization"];
         
         _callbackURL = dict[@"callbackURL"];
+        
+        _callbackCheckListMails = dict[@"callbackCheckListMails"];
         
         _callbackMails = dict[@"callbackMails"];
         
@@ -229,6 +234,10 @@
     
     
             if(_callbackURL != nil) dict[@"callbackURL"] = _callbackURL ;
+        
+    
+    
+            if(_callbackCheckListMails != nil) dict[@"callbackCheckListMails"] = _callbackCheckListMails ;
         
     
     

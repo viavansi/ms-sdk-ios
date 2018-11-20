@@ -24,6 +24,7 @@
 @property(nonatomic) NSArray* policies;  
 @property(nonatomic) NSString* callbackURL;  
 @property(nonatomic) NSString* callbackMails;  
+@property(nonatomic) NSString* callbackCheckListMails;  
 @property(nonatomic) NSArray* callbackMailsFormKeys;  
 @property(nonatomic) NSString* callbackMailFilename;  
 @property(nonatomic) NSString* callbackAuthorization;  
@@ -46,6 +47,7 @@
     policies: (NSArray*) policies     
     callbackURL: (NSString*) callbackURL     
     callbackMails: (NSString*) callbackMails     
+    callbackCheckListMails: (NSString*) callbackCheckListMails     
     callbackMailsFormKeys: (NSArray*) callbackMailsFormKeys     
     callbackMailFilename: (NSString*) callbackMailFilename     
     callbackAuthorization: (NSString*) callbackAuthorization     

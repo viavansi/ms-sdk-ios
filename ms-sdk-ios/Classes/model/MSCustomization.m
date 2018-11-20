@@ -12,6 +12,8 @@
 @synthesize callbackMailSuccessBody = _callbackMailSuccessBody;
 @synthesize callbackMailExpiredSubject = _callbackMailExpiredSubject;
 @synthesize callbackMailExpiredBody = _callbackMailExpiredBody;
+@synthesize callbackMailWaitingCheckSubject = _callbackMailWaitingCheckSubject;
+@synthesize callbackMailWaitingCheckBody = _callbackMailWaitingCheckBody;
 @synthesize callbackMailRejectedSubject = _callbackMailRejectedSubject;
 @synthesize callbackMailRejectedBody = _callbackMailRejectedBody;
 @synthesize callbackMailErrorSubject = _callbackMailErrorSubject;
@@ -29,6 +31,8 @@
     callbackMailSuccessBody: (NSString*) callbackMailSuccessBody
     callbackMailExpiredSubject: (NSString*) callbackMailExpiredSubject
     callbackMailExpiredBody: (NSString*) callbackMailExpiredBody
+    callbackMailWaitingCheckSubject: (NSString*) callbackMailWaitingCheckSubject
+    callbackMailWaitingCheckBody: (NSString*) callbackMailWaitingCheckBody
     callbackMailRejectedSubject: (NSString*) callbackMailRejectedSubject
     callbackMailRejectedBody: (NSString*) callbackMailRejectedBody
     callbackMailErrorSubject: (NSString*) callbackMailErrorSubject
@@ -47,6 +51,8 @@
     _callbackMailSuccessBody = callbackMailSuccessBody;
     _callbackMailExpiredSubject = callbackMailExpiredSubject;
     _callbackMailExpiredBody = callbackMailExpiredBody;
+    _callbackMailWaitingCheckSubject = callbackMailWaitingCheckSubject;
+    _callbackMailWaitingCheckBody = callbackMailWaitingCheckBody;
     _callbackMailRejectedSubject = callbackMailRejectedSubject;
     _callbackMailRejectedBody = callbackMailRejectedBody;
     _callbackMailErrorSubject = callbackMailErrorSubject;
@@ -80,6 +86,10 @@
         _callbackMailExpiredSubject = dict[@"callbackMailExpiredSubject"];
         
         _callbackMailExpiredBody = dict[@"callbackMailExpiredBody"];
+        
+        _callbackMailWaitingCheckSubject = dict[@"callbackMailWaitingCheckSubject"];
+        
+        _callbackMailWaitingCheckBody = dict[@"callbackMailWaitingCheckBody"];
         
         _callbackMailRejectedSubject = dict[@"callbackMailRejectedSubject"];
         
@@ -137,6 +147,14 @@
     
     
             if(_callbackMailExpiredBody != nil) dict[@"callbackMailExpiredBody"] = _callbackMailExpiredBody ;
+        
+    
+    
+            if(_callbackMailWaitingCheckSubject != nil) dict[@"callbackMailWaitingCheckSubject"] = _callbackMailWaitingCheckSubject ;
+        
+    
+    
+            if(_callbackMailWaitingCheckBody != nil) dict[@"callbackMailWaitingCheckBody"] = _callbackMailWaitingCheckBody ;
         
     
     

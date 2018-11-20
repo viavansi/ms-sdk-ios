@@ -187,6 +187,25 @@
 
 /**
 
+ Method for get notifications by message code
+ 
+ Get notifications by message code
+ 
+
+ 
+ @param code Notification message code
+ 
+
+ return type: MSNotification*
+ */
++(NSNumber*) findNotificationsByMessageCode :(NSString*) code 
+    
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(MSNotification* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    
+
+
+/**
+
  Method for get a notification's list by status, app, user and device
  
  Get notifications by status, app, user and device

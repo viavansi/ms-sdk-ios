@@ -13,6 +13,8 @@
 @property(nonatomic) NSString* callbackMailSuccessBody;  
 @property(nonatomic) NSString* callbackMailExpiredSubject;  
 @property(nonatomic) NSString* callbackMailExpiredBody;  
+@property(nonatomic) NSString* callbackMailWaitingCheckSubject;  
+@property(nonatomic) NSString* callbackMailWaitingCheckBody;  
 @property(nonatomic) NSString* callbackMailRejectedSubject;  
 @property(nonatomic) NSString* callbackMailRejectedBody;  
 @property(nonatomic) NSString* callbackMailErrorSubject;  
@@ -29,6 +31,8 @@
     callbackMailSuccessBody: (NSString*) callbackMailSuccessBody     
     callbackMailExpiredSubject: (NSString*) callbackMailExpiredSubject     
     callbackMailExpiredBody: (NSString*) callbackMailExpiredBody     
+    callbackMailWaitingCheckSubject: (NSString*) callbackMailWaitingCheckSubject     
+    callbackMailWaitingCheckBody: (NSString*) callbackMailWaitingCheckBody     
     callbackMailRejectedSubject: (NSString*) callbackMailRejectedSubject     
     callbackMailRejectedBody: (NSString*) callbackMailRejectedBody     
     callbackMailErrorSubject: (NSString*) callbackMailErrorSubject     

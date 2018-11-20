@@ -21,6 +21,7 @@
 @synthesize logDevice = _logDevice;
 @synthesize status = _status;
 @synthesize groups = _groups;
+@synthesize groupsInfo = _groupsInfo;
 @synthesize properties = _properties;
 @synthesize mobile = _mobile;
 @synthesize channel = _channel;
@@ -43,6 +44,7 @@
     logDevice: (NSNumber*) logDevice
     status: (NSString*) status
     groups: (NSArray*) groups
+    groupsInfo: (NSArray*) groupsInfo
     properties: (NSArray*) properties
     mobile: (NSString*) mobile
     channel: (NSString*) channel
@@ -66,6 +68,7 @@
     _logDevice = logDevice;
     _status = status;
     _groups = groups;
+    _groupsInfo = groupsInfo;
     _properties = properties;
     _mobile = mobile;
     _channel = channel;
@@ -113,6 +116,28 @@
         _status = dict[@"status"];
         
         _groups = dict[@"groups"];
+        
+        
+        
+        id groupsInfo_dict = dict[@"groupsInfo"];
+        
+        if([groupsInfo_dict isKindOfClass:[NSArray class]]) {
+            NSMutableArray * objs = [[NSMutableArray alloc] initWithCapacity:[(NSArray*)groupsInfo_dict count]];
+            if([(NSArray*)groupsInfo_dict count] > 0) {
+                for (int i=0 ; i<[(NSArray*)groupsInfo_dict count] ; i++) {
+                	NSDictionary *dict = [[NSDictionary alloc] initWithDictionary:[groupsInfo_dict objectAtIndex:i]];
+                    MSGroup* d = [[MSGroup alloc] initWithValues:dict];
+                    [objs addObject:d];
+                }
+                _groupsInfo = [[NSArray alloc] initWithArray:objs];
+            }
+            else
+                _groupsInfo = [[NSArray alloc] init];
+        }
+        else {
+            _groupsInfo = [[NSArray alloc] init];
+        }
+        
         
         
         
@@ -219,6 +244,31 @@
     
             if(_groups != nil) dict[@"groups"] = _groups ;
         
+    
+    
+    if(_groupsInfo != nil){
+        if([_groupsInfo isKindOfClass:[NSArray class]]){
+            NSMutableArray * array = [[NSMutableArray alloc] init];
+            for( int i=0 ; i<[(NSArray*)_groupsInfo count] ; i++ ) {
+				MSGroup *groupsInfo = [[MSGroup alloc]init];
+				groupsInfo = [(NSArray*)_groupsInfo objectAtIndex:i];
+                [array addObject:[(SWGObject*)groupsInfo asDictionary]];
+            }
+            dict[@"groupsInfo"] = array;
+        }
+        else if(_groupsInfo && [_groupsInfo isKindOfClass:[SWGDate class]]) {
+            NSString * dateString = [(SWGDate*)_groupsInfo toString];
+            if(dateString){
+                dict[@"groupsInfo"] = dateString;
+            }
+        }
+        else {
+        
+            if(_groupsInfo != nil) dict[@"groupsInfo"] = [(SWGObject*)_groupsInfo asDictionary];
+        
+        }
+    }
+    
     
     
     if(_properties != nil){

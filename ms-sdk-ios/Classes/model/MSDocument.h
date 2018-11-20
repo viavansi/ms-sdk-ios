@@ -25,6 +25,7 @@
 @property(nonatomic) NSNumber* readRequired;  
 @property(nonatomic) NSNumber* numPages;  
 @property(nonatomic) NSNumber* allowResend;  
+@property(nonatomic) NSNumber* deleteSignedDocuments;  
 @property(nonatomic) NSString* watermarkText;  
 - (id) templateCode: (NSString*) templateCode     
     templateReference: (NSString*) templateReference     
@@ -45,6 +46,7 @@
     readRequired: (NSNumber*) readRequired     
     numPages: (NSNumber*) numPages     
     allowResend: (NSNumber*) allowResend     
+    deleteSignedDocuments: (NSNumber*) deleteSignedDocuments     
     watermarkText: (NSString*) watermarkText;
     
 

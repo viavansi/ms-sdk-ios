@@ -7,12 +7,14 @@
 @synthesize title = _title;
 @synthesize _description = __description;
 @synthesize creationDate = _creationDate;
+@synthesize groups = _groups;
 @synthesize version = _version;
 
 -(id)code: (NSString*) code
     title: (NSString*) title
     _description: (NSString*) _description
     creationDate: (SWGDate*) creationDate
+    groups: (NSString*) groups
     version: (NSString*) version
     
 {
@@ -20,6 +22,7 @@
     _title = title;
     __description = _description;
     _creationDate = creationDate;
+    _groups = groups;
     _version = version;
     
 
@@ -43,6 +46,8 @@
         if(creationDate_dict != nil)
             _creationDate = [[SWGDate  alloc]initWithValues:creationDate_dict];
         
+        
+        _groups = dict[@"groups"];
         
         _version = dict[@"version"];
         
@@ -90,6 +95,10 @@
         }
     }
     
+    
+    
+            if(_groups != nil) dict[@"groups"] = _groups ;
+        
     
     
             if(_version != nil) dict[@"version"] = _version ;

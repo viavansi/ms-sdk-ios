@@ -3,27 +3,27 @@
 
 @implementation MSAuditory
 
+@synthesize action = _action;
 @synthesize date = _date;
 @synthesize ip = _ip;
-@synthesize geolocation = _geolocation;
-@synthesize action = _action;
 @synthesize data = _data;
 @synthesize detail = _detail;
+@synthesize geolocation = _geolocation;
 
--(id)date: (SWGDate*) date
+-(id)action: (NSString*) action
+    date: (SWGDate*) date
     ip: (NSString*) ip
-    geolocation: (MSGeolocation*) geolocation
-    action: (NSString*) action
     data: (NSString*) data
     detail: (NSString*) detail
+    geolocation: (MSGeolocation*) geolocation
     
 {
+    _action = action;
     _date = date;
     _ip = ip;
-    _geolocation = geolocation;
-    _action = action;
     _data = data;
     _detail = detail;
+    _geolocation = geolocation;
     
 
     return self;
@@ -33,6 +33,8 @@
 {
     self = [super init];
     if(self) {
+        _action = dict[@"action"];
+        
         
         
         id date_dict = dict[@"date"];
@@ -43,6 +45,10 @@
         
         _ip = dict[@"ip"];
         
+        _data = dict[@"data"];
+        
+        _detail = dict[@"detail"];
+        
         
         
         id geolocation_dict = dict[@"geolocation"];
@@ -51,12 +57,6 @@
             _geolocation = [[MSGeolocation  alloc]initWithValues:geolocation_dict];
         
         
-        _action = dict[@"action"];
-        
-        _data = dict[@"data"];
-        
-        _detail = dict[@"detail"];
-        
         
     }
     return self;
@@ -64,6 +64,10 @@
 
 -(NSDictionary*) asDictionary {
     NSMutableDictionary* dict = [[NSMutableDictionary alloc] init];
+    
+    
+            if(_action != nil) dict[@"action"] = _action ;
+        
     
     
     if(_date != nil){
@@ -95,6 +99,14 @@
         
     
     
+            if(_data != nil) dict[@"data"] = _data ;
+        
+    
+    
+            if(_detail != nil) dict[@"detail"] = _detail ;
+        
+    
+    
     if(_geolocation != nil){
         if([_geolocation isKindOfClass:[NSArray class]]){
             NSMutableArray * array = [[NSMutableArray alloc] init];
@@ -118,18 +130,6 @@
         }
     }
     
-    
-    
-            if(_action != nil) dict[@"action"] = _action ;
-        
-    
-    
-            if(_data != nil) dict[@"data"] = _data ;
-        
-    
-    
-            if(_detail != nil) dict[@"detail"] = _detail ;
-        
     
 
     NSDictionary* output = [dict copy];

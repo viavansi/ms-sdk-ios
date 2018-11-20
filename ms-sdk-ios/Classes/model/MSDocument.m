@@ -22,6 +22,7 @@
 @synthesize readRequired = _readRequired;
 @synthesize numPages = _numPages;
 @synthesize allowResend = _allowResend;
+@synthesize deleteSignedDocuments = _deleteSignedDocuments;
 @synthesize watermarkText = _watermarkText;
 
 -(id)templateCode: (NSString*) templateCode
@@ -43,6 +44,7 @@
     readRequired: (NSNumber*) readRequired
     numPages: (NSNumber*) numPages
     allowResend: (NSNumber*) allowResend
+    deleteSignedDocuments: (NSNumber*) deleteSignedDocuments
     watermarkText: (NSString*) watermarkText
     
 {
@@ -65,6 +67,7 @@
     _readRequired = readRequired;
     _numPages = numPages;
     _allowResend = allowResend;
+    _deleteSignedDocuments = deleteSignedDocuments;
     _watermarkText = watermarkText;
     
 
@@ -138,6 +141,8 @@
         _numPages = dict[@"numPages"];
         
         _allowResend = dict[@"allowResend"];
+        
+        _deleteSignedDocuments = dict[@"deleteSignedDocuments"];
         
         _watermarkText = dict[@"watermarkText"];
         
@@ -265,6 +270,10 @@
     
     
             if(_allowResend != nil) dict[@"allowResend"] = _allowResend ;
+        
+    
+    
+            if(_deleteSignedDocuments != nil) dict[@"deleteSignedDocuments"] = _deleteSignedDocuments ;
         
     
     
