@@ -2,6 +2,7 @@
 #import "SWGObject.h"
 #import "MSParam.h"
 #import "MSCheck.h"
+#import "MSAttachment.h"
 #import "MSEvidence.h"
 #import "MSSignature.h"
 #import "MSErrorResponse.h"
@@ -22,6 +23,7 @@
 @property(nonatomic) NSArray* evidences;  
 @property(nonatomic) NSArray* signatures;  
 @property(nonatomic) MSErrorResponse* error;  
+@property(nonatomic) NSArray* attachments;  
 @property(nonatomic) NSArray* checklist;  /* (since 3.4.0) checklist actions  */
 - (id) code: (NSString*) code     
     userCode: (NSString*) userCode     
@@ -36,6 +38,7 @@
     evidences: (NSArray*) evidences     
     signatures: (NSArray*) signatures     
     error: (MSErrorResponse*) error     
+    attachments: (NSArray*) attachments     
     checklist: (NSArray*) checklist;
     
 

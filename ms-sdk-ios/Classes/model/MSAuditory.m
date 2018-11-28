@@ -5,6 +5,8 @@
 
 @synthesize action = _action;
 @synthesize date = _date;
+@synthesize app = _app;
+@synthesize user = _user;
 @synthesize ip = _ip;
 @synthesize data = _data;
 @synthesize detail = _detail;
@@ -12,6 +14,8 @@
 
 -(id)action: (NSString*) action
     date: (SWGDate*) date
+    app: (NSString*) app
+    user: (NSString*) user
     ip: (NSString*) ip
     data: (NSString*) data
     detail: (NSString*) detail
@@ -20,6 +24,8 @@
 {
     _action = action;
     _date = date;
+    _app = app;
+    _user = user;
     _ip = ip;
     _data = data;
     _detail = detail;
@@ -42,6 +48,10 @@
         if(date_dict != nil)
             _date = [[SWGDate  alloc]initWithValues:date_dict];
         
+        
+        _app = dict[@"app"];
+        
+        _user = dict[@"user"];
         
         _ip = dict[@"ip"];
         
@@ -93,6 +103,14 @@
         }
     }
     
+    
+    
+            if(_app != nil) dict[@"app"] = _app ;
+        
+    
+    
+            if(_user != nil) dict[@"user"] = _user ;
+        
     
     
             if(_ip != nil) dict[@"ip"] = _ip ;
