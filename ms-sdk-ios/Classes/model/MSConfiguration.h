@@ -2,6 +2,7 @@
 #import "SWGObject.h"
 #import "MSFinalizeAction.h"
 #import "MSVersion.h"
+#import "MSGroup.h"
 #import "MSMenuOption.h"
 
 
@@ -26,6 +27,7 @@
 @property(nonatomic) NSArray* versions;  
 @property(nonatomic) NSNumber* clientSignature;  
 @property(nonatomic) NSArray* finalizeActions;  
+@property(nonatomic) NSArray* groups;  
 @property(nonatomic) NSNumber* sSLPinningEnabled;  
 - (id) viafirmaURL: (NSString*) viafirmaURL     
     editableURL: (NSNumber*) editableURL     
@@ -46,6 +48,7 @@
     versions: (NSArray*) versions     
     clientSignature: (NSNumber*) clientSignature     
     finalizeActions: (NSArray*) finalizeActions     
+    groups: (NSArray*) groups     
     sSLPinningEnabled: (NSNumber*) sSLPinningEnabled;
     
 

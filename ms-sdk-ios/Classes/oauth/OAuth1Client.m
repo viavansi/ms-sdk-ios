@@ -82,6 +82,12 @@ static inline NSString * AFNounce() {
 	if([contentType isEqualToString:@"application/x-www-form-urlencoded"]){
 		
 		NSString *requestParameters = [[NSString alloc] initWithData:[request HTTPBody] encoding:NSASCIIStringEncoding];
+		
+		// Workaround: Fix for passwords with characters from this list:  !"#$%&'()*+,-./:;<=>?@[\]^_`{|}~
+		// Both ? and / were not encoded as expected on backend and Android. (%2F instead of %252F)
+		requestParameters = [requestParameters stringByReplacingOccurrencesOfString:@"?" withString:@"%3F"];
+		requestParameters = [requestParameters stringByReplacingOccurrencesOfString:@"/" withString:@"%2F"];
+		
 		NSString *requestParametersToEncode = [NSString stringWithFormat:@"%@&%@", requestParameters, oauthParameters];
 		NSString *requestStringOrdered = [[[requestParametersToEncode componentsSeparatedByString:@"&"] sortedArrayUsingSelector:@selector(compare:)] componentsJoinedByString:@"&"];
 		

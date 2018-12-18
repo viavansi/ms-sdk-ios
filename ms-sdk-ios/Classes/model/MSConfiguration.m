@@ -22,6 +22,7 @@
 @synthesize versions = _versions;
 @synthesize clientSignature = _clientSignature;
 @synthesize finalizeActions = _finalizeActions;
+@synthesize groups = _groups;
 @synthesize sSLPinningEnabled = _sSLPinningEnabled;
 
 -(id)viafirmaURL: (NSString*) viafirmaURL
@@ -43,6 +44,7 @@
     versions: (NSArray*) versions
     clientSignature: (NSNumber*) clientSignature
     finalizeActions: (NSArray*) finalizeActions
+    groups: (NSArray*) groups
     sSLPinningEnabled: (NSNumber*) sSLPinningEnabled
     
 {
@@ -65,6 +67,7 @@
     _versions = versions;
     _clientSignature = clientSignature;
     _finalizeActions = finalizeActions;
+    _groups = groups;
     _sSLPinningEnabled = sSLPinningEnabled;
     
 
@@ -170,6 +173,28 @@
         }
         else {
             _finalizeActions = [[NSArray alloc] init];
+        }
+        
+        
+        
+        
+        id groups_dict = dict[@"groups"];
+        
+        if([groups_dict isKindOfClass:[NSArray class]]) {
+            NSMutableArray * objs = [[NSMutableArray alloc] initWithCapacity:[(NSArray*)groups_dict count]];
+            if([(NSArray*)groups_dict count] > 0) {
+                for (int i=0 ; i<[(NSArray*)groups_dict count] ; i++) {
+                	NSDictionary *dict = [[NSDictionary alloc] initWithDictionary:[groups_dict objectAtIndex:i]];
+                    MSGroup* d = [[MSGroup alloc] initWithValues:dict];
+                    [objs addObject:d];
+                }
+                _groups = [[NSArray alloc] initWithArray:objs];
+            }
+            else
+                _groups = [[NSArray alloc] init];
+        }
+        else {
+            _groups = [[NSArray alloc] init];
         }
         
         
@@ -317,6 +342,31 @@
         else {
         
             if(_finalizeActions != nil) dict[@"finalizeActions"] = [(SWGObject*)_finalizeActions asDictionary];
+        
+        }
+    }
+    
+    
+    
+    if(_groups != nil){
+        if([_groups isKindOfClass:[NSArray class]]){
+            NSMutableArray * array = [[NSMutableArray alloc] init];
+            for( int i=0 ; i<[(NSArray*)_groups count] ; i++ ) {
+				MSGroup *groups = [[MSGroup alloc]init];
+				groups = [(NSArray*)_groups objectAtIndex:i];
+                [array addObject:[(SWGObject*)groups asDictionary]];
+            }
+            dict[@"groups"] = array;
+        }
+        else if(_groups && [_groups isKindOfClass:[SWGDate class]]) {
+            NSString * dateString = [(SWGDate*)_groups toString];
+            if(dateString){
+                dict[@"groups"] = dateString;
+            }
+        }
+        else {
+        
+            if(_groups != nil) dict[@"groups"] = [(SWGObject*)_groups asDictionary];
         
         }
     }

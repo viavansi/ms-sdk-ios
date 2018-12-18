@@ -13,6 +13,7 @@
 @interface MSMessage : SWGObject
 
 @property(nonatomic) NSString* code;  
+@property(nonatomic) NSString* externalCode;  
 @property(nonatomic) NSString* userCode;  
 @property(nonatomic) NSString* groupCode;  
 @property(nonatomic) NSString* appCode;  
@@ -36,6 +37,7 @@
 @property(nonatomic) NSString* callbackResponse;  
 @property(nonatomic) NSArray* auditory;  
 - (id) code: (NSString*) code     
+    externalCode: (NSString*) externalCode     
     userCode: (NSString*) userCode     
     groupCode: (NSString*) groupCode     
     appCode: (NSString*) appCode     

@@ -8,16 +8,12 @@
 
 @property(nonatomic) NSString* action;  
 @property(nonatomic) SWGDate* date;  
-@property(nonatomic) NSString* app;  
-@property(nonatomic) NSString* user;  
 @property(nonatomic) NSString* ip;  
 @property(nonatomic) NSString* data;  
 @property(nonatomic) NSString* detail;  
 @property(nonatomic) MSGeolocation* geolocation;  
 - (id) action: (NSString*) action     
     date: (SWGDate*) date     
-    app: (NSString*) app     
-    user: (NSString*) user     
     ip: (NSString*) ip     
     data: (NSString*) data     
     detail: (NSString*) detail     

@@ -4,6 +4,7 @@
 @implementation MSMessage
 
 @synthesize code = _code;
+@synthesize externalCode = _externalCode;
 @synthesize userCode = _userCode;
 @synthesize groupCode = _groupCode;
 @synthesize appCode = _appCode;
@@ -28,6 +29,7 @@
 @synthesize auditory = _auditory;
 
 -(id)code: (NSString*) code
+    externalCode: (NSString*) externalCode
     userCode: (NSString*) userCode
     groupCode: (NSString*) groupCode
     appCode: (NSString*) appCode
@@ -53,6 +55,7 @@
     
 {
     _code = code;
+    _externalCode = externalCode;
     _userCode = userCode;
     _groupCode = groupCode;
     _appCode = appCode;
@@ -85,6 +88,8 @@
     self = [super init];
     if(self) {
         _code = dict[@"code"];
+        
+        _externalCode = dict[@"externalCode"];
         
         _userCode = dict[@"userCode"];
         
@@ -230,6 +235,10 @@
     
     
             if(_code != nil) dict[@"code"] = _code ;
+        
+    
+    
+            if(_externalCode != nil) dict[@"externalCode"] = _externalCode ;
         
     
     
