@@ -6,6 +6,7 @@
 @synthesize type = _type;
 @synthesize version = _version;
 @synthesize showUpdate = _showUpdate;
+@synthesize forceUpdate = _forceUpdate;
 @synthesize installURL = _installURL;
 @synthesize installMessage = _installMessage;
 @synthesize iconURL = _iconURL;
@@ -13,6 +14,7 @@
 -(id)type: (NSString*) type
     version: (NSString*) version
     showUpdate: (NSNumber*) showUpdate
+    forceUpdate: (NSNumber*) forceUpdate
     installURL: (NSString*) installURL
     installMessage: (NSString*) installMessage
     iconURL: (NSString*) iconURL
@@ -21,6 +23,7 @@
     _type = type;
     _version = version;
     _showUpdate = showUpdate;
+    _forceUpdate = forceUpdate;
     _installURL = installURL;
     _installMessage = installMessage;
     _iconURL = iconURL;
@@ -38,6 +41,8 @@
         _version = dict[@"version"];
         
         _showUpdate = dict[@"showUpdate"];
+        
+        _forceUpdate = dict[@"forceUpdate"];
         
         _installURL = dict[@"installURL"];
         
@@ -63,6 +68,10 @@
     
     
             if(_showUpdate != nil) dict[@"showUpdate"] = _showUpdate ;
+        
+    
+    
+            if(_forceUpdate != nil) dict[@"forceUpdate"] = _forceUpdate ;
         
     
     
