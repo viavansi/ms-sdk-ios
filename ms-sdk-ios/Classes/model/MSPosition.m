@@ -5,13 +5,19 @@
 
 @synthesize rectangle = _rectangle;
 @synthesize page = _page;
+@synthesize positionMatchId = _positionMatchId;
+@synthesize _id = __id;
 
 -(id)rectangle: (MSRectangle*) rectangle
     page: (NSNumber*) page
+    positionMatchId: (NSString*) positionMatchId
+    _id: (NSString*) _id
     
 {
     _rectangle = rectangle;
     _page = page;
+    _positionMatchId = positionMatchId;
+    __id = _id;
     
 
     return self;
@@ -30,6 +36,10 @@
         
         
         _page = dict[@"page"];
+        
+        _positionMatchId = dict[@"positionMatchId"];
+        
+        __id = dict[@"id"];
         
         
     }
@@ -66,6 +76,14 @@
     
     
             if(_page != nil) dict[@"page"] = _page ;
+        
+    
+    
+            if(_positionMatchId != nil) dict[@"positionMatchId"] = _positionMatchId ;
+        
+    
+    
+            if(__id != nil) dict[@"id"] = __id ;
         
     
 

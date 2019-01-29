@@ -6,15 +6,18 @@
 @synthesize _id = __id;
 @synthesize page = _page;
 @synthesize rectangle = _rectangle;
+@synthesize positionMatchId = _positionMatchId;
 
 -(id)_id: (NSString*) _id
     page: (NSNumber*) page
     rectangle: (MSRectangle*) rectangle
+    positionMatchId: (NSString*) positionMatchId
     
 {
     __id = _id;
     _page = page;
     _rectangle = rectangle;
+    _positionMatchId = positionMatchId;
     
 
     return self;
@@ -35,6 +38,8 @@
         if(rectangle_dict != nil)
             _rectangle = [[MSRectangle  alloc]initWithValues:rectangle_dict];
         
+        
+        _positionMatchId = dict[@"positionMatchId"];
         
         
     }
@@ -76,6 +81,10 @@
         }
     }
     
+    
+    
+            if(_positionMatchId != nil) dict[@"positionMatchId"] = _positionMatchId ;
+        
     
 
     NSDictionary* output = [dict copy];

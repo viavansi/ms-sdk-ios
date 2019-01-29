@@ -7,8 +7,12 @@
 
 @property(nonatomic) MSRectangle* rectangle;  
 @property(nonatomic) NSNumber* page;  
+@property(nonatomic) NSString* positionMatchId;  
+@property(nonatomic) NSString* _id;  
 - (id) rectangle: (MSRectangle*) rectangle     
-    page: (NSNumber*) page;
+    page: (NSNumber*) page     
+    positionMatchId: (NSString*) positionMatchId     
+    _id: (NSString*) _id;
     
 
 - (id) initWithValues: (NSDictionary*)dict;

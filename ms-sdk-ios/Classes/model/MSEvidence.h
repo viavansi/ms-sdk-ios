@@ -8,6 +8,7 @@
 #import "MSPosition.h"
 #import "MSOcrData.h"
 #import "MSEvidenceImage.h"
+#import "MSPositionsMatch.h"
 
 
 @interface MSEvidence : SWGObject
@@ -41,6 +42,7 @@
 @property(nonatomic) MSEvidenceFingerPrint* fingerPrintData;  
 @property(nonatomic) MSEvidenceImage* imageData;  
 @property(nonatomic) NSString* positionsKey;  
+@property(nonatomic) NSArray* positionsMatch;  
 @property(nonatomic) NSNumber* stampsMin;  
 @property(nonatomic) NSString* stampsPolicy;  
 @property(nonatomic) NSArray* stylus;  
@@ -81,6 +83,7 @@
     fingerPrintData: (MSEvidenceFingerPrint*) fingerPrintData     
     imageData: (MSEvidenceImage*) imageData     
     positionsKey: (NSString*) positionsKey     
+    positionsMatch: (NSArray*) positionsMatch     
     stampsMin: (NSNumber*) stampsMin     
     stampsPolicy: (NSString*) stampsPolicy     
     stylus: (NSArray*) stylus     

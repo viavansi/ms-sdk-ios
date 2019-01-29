@@ -32,6 +32,7 @@
 @synthesize fingerPrintData = _fingerPrintData;
 @synthesize imageData = _imageData;
 @synthesize positionsKey = _positionsKey;
+@synthesize positionsMatch = _positionsMatch;
 @synthesize stampsMin = _stampsMin;
 @synthesize stampsPolicy = _stampsPolicy;
 @synthesize stylus = _stylus;
@@ -73,6 +74,7 @@
     fingerPrintData: (MSEvidenceFingerPrint*) fingerPrintData
     imageData: (MSEvidenceImage*) imageData
     positionsKey: (NSString*) positionsKey
+    positionsMatch: (NSArray*) positionsMatch
     stampsMin: (NSNumber*) stampsMin
     stampsPolicy: (NSString*) stampsPolicy
     stylus: (NSArray*) stylus
@@ -115,6 +117,7 @@
     _fingerPrintData = fingerPrintData;
     _imageData = imageData;
     _positionsKey = positionsKey;
+    _positionsMatch = positionsMatch;
     _stampsMin = stampsMin;
     _stampsPolicy = stampsPolicy;
     _stylus = stylus;
@@ -250,6 +253,28 @@
         
         
         _positionsKey = dict[@"positionsKey"];
+        
+        
+        
+        id positionsMatch_dict = dict[@"positionsMatch"];
+        
+        if([positionsMatch_dict isKindOfClass:[NSArray class]]) {
+            NSMutableArray * objs = [[NSMutableArray alloc] initWithCapacity:[(NSArray*)positionsMatch_dict count]];
+            if([(NSArray*)positionsMatch_dict count] > 0) {
+                for (int i=0 ; i<[(NSArray*)positionsMatch_dict count] ; i++) {
+                	NSDictionary *dict = [[NSDictionary alloc] initWithDictionary:[positionsMatch_dict objectAtIndex:i]];
+                    MSPositionsMatch* d = [[MSPositionsMatch alloc] initWithValues:dict];
+                    [objs addObject:d];
+                }
+                _positionsMatch = [[NSArray alloc] initWithArray:objs];
+            }
+            else
+                _positionsMatch = [[NSArray alloc] init];
+        }
+        else {
+            _positionsMatch = [[NSArray alloc] init];
+        }
+        
         
         _stampsMin = dict[@"stampsMin"];
         
@@ -519,6 +544,31 @@
     
             if(_positionsKey != nil) dict[@"positionsKey"] = _positionsKey ;
         
+    
+    
+    if(_positionsMatch != nil){
+        if([_positionsMatch isKindOfClass:[NSArray class]]){
+            NSMutableArray * array = [[NSMutableArray alloc] init];
+            for( int i=0 ; i<[(NSArray*)_positionsMatch count] ; i++ ) {
+				MSPositionsMatch *positionsMatch = [[MSPositionsMatch alloc]init];
+				positionsMatch = [(NSArray*)_positionsMatch objectAtIndex:i];
+                [array addObject:[(SWGObject*)positionsMatch asDictionary]];
+            }
+            dict[@"positionsMatch"] = array;
+        }
+        else if(_positionsMatch && [_positionsMatch isKindOfClass:[SWGDate class]]) {
+            NSString * dateString = [(SWGDate*)_positionsMatch toString];
+            if(dateString){
+                dict[@"positionsMatch"] = dateString;
+            }
+        }
+        else {
+        
+            if(_positionsMatch != nil) dict[@"positionsMatch"] = [(SWGObject*)_positionsMatch asDictionary];
+        
+        }
+    }
+    
     
     
             if(_stampsMin != nil) dict[@"stampsMin"] = _stampsMin ;
