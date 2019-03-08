@@ -29,6 +29,7 @@
 @synthesize minLength = _minLength;
 @synthesize monthNames = _monthNames;
 @synthesize dayNames = _dayNames;
+@synthesize defaultCountry = _defaultCountry;
 @synthesize increment = _increment;
 
 -(id)key: (NSString*) key
@@ -57,6 +58,7 @@
     minLength: (NSString*) minLength
     monthNames: (NSArray*) monthNames
     dayNames: (NSArray*) dayNames
+    defaultCountry: (NSString*) defaultCountry
     increment: (NSNumber*) increment
     
 {
@@ -86,6 +88,7 @@
     _minLength = minLength;
     _monthNames = monthNames;
     _dayNames = dayNames;
+    _defaultCountry = defaultCountry;
     _increment = increment;
     
 
@@ -147,6 +150,8 @@
         _monthNames = dict[@"monthNames"];
         
         _dayNames = dict[@"dayNames"];
+        
+        _defaultCountry = dict[@"defaultCountry"];
         
         _increment = dict[@"increment"];
         
@@ -260,6 +265,10 @@
     
     
             if(_dayNames != nil) dict[@"dayNames"] = _dayNames ;
+        
+    
+    
+            if(_defaultCountry != nil) dict[@"defaultCountry"] = _defaultCountry ;
         
     
     

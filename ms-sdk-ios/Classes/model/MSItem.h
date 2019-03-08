@@ -30,6 +30,7 @@
 @property(nonatomic) NSString* minLength;  
 @property(nonatomic) NSArray* monthNames;  
 @property(nonatomic) NSArray* dayNames;  
+@property(nonatomic) NSString* defaultCountry;  
 @property(nonatomic) NSNumber* increment;  
 - (id) key: (NSString*) key     
     value: (NSString*) value     
@@ -57,6 +58,7 @@
     minLength: (NSString*) minLength     
     monthNames: (NSArray*) monthNames     
     dayNames: (NSArray*) dayNames     
+    defaultCountry: (NSString*) defaultCountry     
     increment: (NSNumber*) increment;
     
 
