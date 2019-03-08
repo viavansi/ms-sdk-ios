@@ -9,6 +9,8 @@
 @synthesize groupCode = _groupCode;
 @synthesize templateCode = _templateCode;
 @synthesize creationDate = _creationDate;
+@synthesize externalCode = _externalCode;
+@synthesize externalStatus = _externalStatus;
 
 -(id)messageCode: (NSString*) messageCode
     status: (NSString*) status
@@ -16,6 +18,8 @@
     groupCode: (NSString*) groupCode
     templateCode: (NSString*) templateCode
     creationDate: (SWGDate*) creationDate
+    externalCode: (NSString*) externalCode
+    externalStatus: (NSString*) externalStatus
     
 {
     _messageCode = messageCode;
@@ -24,6 +28,8 @@
     _groupCode = groupCode;
     _templateCode = templateCode;
     _creationDate = creationDate;
+    _externalCode = externalCode;
+    _externalStatus = externalStatus;
     
 
     return self;
@@ -50,6 +56,10 @@
         if(creationDate_dict != nil)
             _creationDate = [[SWGDate  alloc]initWithValues:creationDate_dict];
         
+        
+        _externalCode = dict[@"externalCode"];
+        
+        _externalStatus = dict[@"externalStatus"];
         
         
     }
@@ -103,6 +113,14 @@
         }
     }
     
+    
+    
+            if(_externalCode != nil) dict[@"externalCode"] = _externalCode ;
+        
+    
+    
+            if(_externalStatus != nil) dict[@"externalStatus"] = _externalStatus ;
+        
     
 
     NSDictionary* output = [dict copy];

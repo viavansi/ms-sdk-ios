@@ -3,6 +3,7 @@
 #import "MSMessageBuild.h"
 #import "MSMessageData.h"
 #import "MSDownload.h"
+#import "MSMessageList.h"
 #import "MSCallbackUrl.h"
 #import "MSNotificationResend.h"
 #import "MSNotification.h"
@@ -75,6 +76,25 @@
 
 /**
 
+ Disabled message by code
+ 
+ Disabled message by code. Only can be disabled final status messages
+ 
+
+ 
+ @param messageCode Message Code
+ 
+
+ return type: MSMessage*
+ */
++(NSNumber*) disableByCode :(NSString*) messageCode 
+    
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(MSMessage* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    
+
+
+/**
+
  Method for dispatch new message
  
  Dispatch new message
@@ -108,6 +128,112 @@
 +(NSNumber*) documentBuild :(MSMessage*) body 
     
     auth:(OAuth1Client *) auth onSuccess: (void (^)(MSDownload* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    
+
+
+/**
+
+ Method for get messages by external code
+ 
+ Get messages without external status
+ 
+
+ 
+ @param groupCode Group code
+ 
+ @param requestAppCode Request app code
+ 
+ @param templateCode Template code
+ 
+
+ return type: NSArray*
+ */
++(NSNumber*) getMessagesByExternalStatus :(NSString*) groupCode 
+     requestAppCode:(NSString*) requestAppCode 
+     templateCode:(NSString*) templateCode 
+    
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(NSArray* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    
+
+
+/**
+
+ Method for get messages by external code
+ 
+ Get messages by external status
+ 
+
+ 
+ @param externalStatus Message&#39;s external status
+ 
+ @param groupCode Group code
+ 
+ @param requestAppCode Request app code
+ 
+ @param templateCode Template code
+ 
+
+ return type: NSArray*
+ */
++(NSNumber*) getMessagesByExternalStatus :(NSString*) externalStatus 
+     groupCode:(NSString*) groupCode 
+     requestAppCode:(NSString*) requestAppCode 
+     templateCode:(NSString*) templateCode 
+    
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(NSArray* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    
+
+
+/**
+
+ Method for get messages by external code
+ 
+ Get messages by external code
+ 
+
+ 
+ @param externalCode Message&#39;s external code
+ 
+ @param externalStatus External status
+ 
+ @param groupCode Group code
+ 
+ @param requestAppCode Request app code
+ 
+ @param templateCode Template code
+ 
+
+ return type: NSArray*
+ */
++(NSNumber*) getMessagesByExternalService :(NSString*) externalCode 
+     externalStatus:(NSString*) externalStatus 
+     groupCode:(NSString*) groupCode 
+     requestAppCode:(NSString*) requestAppCode 
+     templateCode:(NSString*) templateCode 
+    
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(NSArray* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    
+
+
+/**
+
+ Method for change external status
+ 
+ change external status by message code
+ 
+
+ 
+ @param messageCode Message Code
+ 
+ @param status External Status
+ 
+
+ return type: MSMessage*
+ */
++(NSNumber*) changeNotificationStatus :(NSString*) messageCode 
+     status:(NSString*) status 
+    
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(MSMessage* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     
 
 
@@ -192,7 +318,26 @@
 
 /**
 
- Method for resend message
+ Method for retry error message
+ 
+ Retry error message
+ 
+
+ 
+ @param code Message code
+ 
+
+ return type: NSString*
+ */
++(NSNumber*) retryMessage :(NSString*) code 
+    
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(NSString* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    
+
+
+/**
+
+ Method for resend expired or rejected messages
  
  Resend message
  

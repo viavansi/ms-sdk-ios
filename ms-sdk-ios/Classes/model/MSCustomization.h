@@ -19,6 +19,7 @@
 @property(nonatomic) NSString* callbackMailRejectedBody;  
 @property(nonatomic) NSString* callbackMailErrorSubject;  
 @property(nonatomic) NSString* callbackMailErrorBody;  
+@property(nonatomic) NSString* callbackSmsReminderBody;  
 @property(nonatomic) NSString* callbackMailReminderBody;  
 @property(nonatomic) NSString* callbackMailReminderSubject;  
 @property(nonatomic) NSString* successMessage;  
@@ -37,6 +38,7 @@
     callbackMailRejectedBody: (NSString*) callbackMailRejectedBody     
     callbackMailErrorSubject: (NSString*) callbackMailErrorSubject     
     callbackMailErrorBody: (NSString*) callbackMailErrorBody     
+    callbackSmsReminderBody: (NSString*) callbackSmsReminderBody     
     callbackMailReminderBody: (NSString*) callbackMailReminderBody     
     callbackMailReminderSubject: (NSString*) callbackMailReminderSubject     
     successMessage: (NSString*) successMessage;

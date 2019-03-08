@@ -1,6 +1,6 @@
 #import <Foundation/Foundation.h>
 #import "MSNotification.h"
-#import "MSGestDocRequest.h"
+#import "MSJSGestDocRequest.h"
 #import "SWGObject.h"
 #import "OAuth1Client.h"
 
@@ -21,7 +21,7 @@
 
  return type: NSArray*
  */
-+(NSNumber*) sendGestdocTransactionByMsisdn :(MSGestDocRequest*) body 
++(NSNumber*) sendGestdocTransactionByMsisdn :(MSJSGestDocRequest*) body 
     
     auth:(OAuth1Client *) auth onSuccess: (void (^)(NSArray* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     

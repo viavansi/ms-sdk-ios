@@ -2,7 +2,7 @@
 #import "SWGFile.h"
 #import "ApiClient.h"
 #import "MSNotification.h"
-#import "MSGestDocRequest.h"
+#import "MSJSGestDocRequest.h"
 
 
 
@@ -13,7 +13,7 @@
 }
 
 
-+(NSNumber*) sendGestdocTransactionByMsisdn: (MSGestDocRequest*) body
++(NSNumber*) sendGestdocTransactionByMsisdn: (MSJSGestDocRequest*) body
         
         auth:(OAuth1Client *) auth onSuccess: (void (^)(NSArray* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock
          {
@@ -27,10 +27,10 @@
 
     
 
-	NSArray * requestContentTypes = @[];
+	NSArray * requestContentTypes = @[@"application/json"];
     NSString* requestContentType = requestContentTypes.count > 0 ? requestContentTypes[0] : @"application/json";
 
-    NSArray * responseContentTypes = @[];
+    NSArray * responseContentTypes = @[@"application/json"];
     NSString* responseContentType = responseContentTypes.count > 0 ? responseContentTypes[0] : @"application/json";
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];

@@ -87,6 +87,25 @@
 
 /**
 
+ Method for list user templates
+ 
+ 
+ 
+
+ 
+ @param userCode userCode
+ 
+
+ return type: NSArray*
+ */
++(NSNumber*) findWacomByUser :(NSString*) userCode 
+    
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(NSArray* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    
+
+
+/**
+
  Method get template info by code
  
  

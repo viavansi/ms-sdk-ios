@@ -5,6 +5,8 @@
 
 @synthesize code = _code;
 @synthesize externalCode = _externalCode;
+@synthesize externalStatus = _externalStatus;
+@synthesize disabled = _disabled;
 @synthesize userCode = _userCode;
 @synthesize groupCode = _groupCode;
 @synthesize appCode = _appCode;
@@ -30,6 +32,8 @@
 
 -(id)code: (NSString*) code
     externalCode: (NSString*) externalCode
+    externalStatus: (NSString*) externalStatus
+    disabled: (NSNumber*) disabled
     userCode: (NSString*) userCode
     groupCode: (NSString*) groupCode
     appCode: (NSString*) appCode
@@ -56,6 +60,8 @@
 {
     _code = code;
     _externalCode = externalCode;
+    _externalStatus = externalStatus;
+    _disabled = disabled;
     _userCode = userCode;
     _groupCode = groupCode;
     _appCode = appCode;
@@ -90,6 +96,10 @@
         _code = dict[@"code"];
         
         _externalCode = dict[@"externalCode"];
+        
+        _externalStatus = dict[@"externalStatus"];
+        
+        _disabled = dict[@"disabled"];
         
         _userCode = dict[@"userCode"];
         
@@ -239,6 +249,14 @@
     
     
             if(_externalCode != nil) dict[@"externalCode"] = _externalCode ;
+        
+    
+    
+            if(_externalStatus != nil) dict[@"externalStatus"] = _externalStatus ;
+        
+    
+    
+            if(_disabled != nil) dict[@"disabled"] = _disabled ;
         
     
     

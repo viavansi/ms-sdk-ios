@@ -18,6 +18,7 @@
 @synthesize callbackMailRejectedBody = _callbackMailRejectedBody;
 @synthesize callbackMailErrorSubject = _callbackMailErrorSubject;
 @synthesize callbackMailErrorBody = _callbackMailErrorBody;
+@synthesize callbackSmsReminderBody = _callbackSmsReminderBody;
 @synthesize callbackMailReminderBody = _callbackMailReminderBody;
 @synthesize callbackMailReminderSubject = _callbackMailReminderSubject;
 @synthesize successMessage = _successMessage;
@@ -37,6 +38,7 @@
     callbackMailRejectedBody: (NSString*) callbackMailRejectedBody
     callbackMailErrorSubject: (NSString*) callbackMailErrorSubject
     callbackMailErrorBody: (NSString*) callbackMailErrorBody
+    callbackSmsReminderBody: (NSString*) callbackSmsReminderBody
     callbackMailReminderBody: (NSString*) callbackMailReminderBody
     callbackMailReminderSubject: (NSString*) callbackMailReminderSubject
     successMessage: (NSString*) successMessage
@@ -57,6 +59,7 @@
     _callbackMailRejectedBody = callbackMailRejectedBody;
     _callbackMailErrorSubject = callbackMailErrorSubject;
     _callbackMailErrorBody = callbackMailErrorBody;
+    _callbackSmsReminderBody = callbackSmsReminderBody;
     _callbackMailReminderBody = callbackMailReminderBody;
     _callbackMailReminderSubject = callbackMailReminderSubject;
     _successMessage = successMessage;
@@ -98,6 +101,8 @@
         _callbackMailErrorSubject = dict[@"callbackMailErrorSubject"];
         
         _callbackMailErrorBody = dict[@"callbackMailErrorBody"];
+        
+        _callbackSmsReminderBody = dict[@"callbackSmsReminderBody"];
         
         _callbackMailReminderBody = dict[@"callbackMailReminderBody"];
         
@@ -171,6 +176,10 @@
     
     
             if(_callbackMailErrorBody != nil) dict[@"callbackMailErrorBody"] = _callbackMailErrorBody ;
+        
+    
+    
+            if(_callbackSmsReminderBody != nil) dict[@"callbackSmsReminderBody"] = _callbackSmsReminderBody ;
         
     
     

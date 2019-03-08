@@ -10,12 +10,14 @@
 @property(nonatomic) NSString* _description;  
 @property(nonatomic) SWGDate* creationDate;  
 @property(nonatomic) NSString* groups;  
+@property(nonatomic) NSNumber* onlyWacom;  
 @property(nonatomic) NSString* version;  
 - (id) code: (NSString*) code     
     title: (NSString*) title     
     _description: (NSString*) _description     
     creationDate: (SWGDate*) creationDate     
     groups: (NSString*) groups     
+    onlyWacom: (NSNumber*) onlyWacom     
     version: (NSString*) version;
     
 

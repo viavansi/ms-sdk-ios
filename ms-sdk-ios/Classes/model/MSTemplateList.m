@@ -8,6 +8,7 @@
 @synthesize _description = __description;
 @synthesize creationDate = _creationDate;
 @synthesize groups = _groups;
+@synthesize onlyWacom = _onlyWacom;
 @synthesize version = _version;
 
 -(id)code: (NSString*) code
@@ -15,6 +16,7 @@
     _description: (NSString*) _description
     creationDate: (SWGDate*) creationDate
     groups: (NSString*) groups
+    onlyWacom: (NSNumber*) onlyWacom
     version: (NSString*) version
     
 {
@@ -23,6 +25,7 @@
     __description = _description;
     _creationDate = creationDate;
     _groups = groups;
+    _onlyWacom = onlyWacom;
     _version = version;
     
 
@@ -48,6 +51,8 @@
         
         
         _groups = dict[@"groups"];
+        
+        _onlyWacom = dict[@"onlyWacom"];
         
         _version = dict[@"version"];
         
@@ -98,6 +103,10 @@
     
     
             if(_groups != nil) dict[@"groups"] = _groups ;
+        
+    
+    
+            if(_onlyWacom != nil) dict[@"onlyWacom"] = _onlyWacom ;
         
     
     
