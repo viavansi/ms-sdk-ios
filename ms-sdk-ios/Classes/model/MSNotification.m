@@ -6,6 +6,7 @@
 @synthesize code = _code;
 @synthesize messageCode = _messageCode;
 @synthesize validateCode = _validateCode;
+@synthesize validateCodeFinish = _validateCodeFinish;
 @synthesize text = _text;
 @synthesize detail = _detail;
 @synthesize sound = _sound;
@@ -22,6 +23,7 @@
 -(id)code: (NSString*) code
     messageCode: (NSString*) messageCode
     validateCode: (NSString*) validateCode
+    validateCodeFinish: (NSString*) validateCodeFinish
     text: (NSString*) text
     detail: (NSString*) detail
     sound: (NSString*) sound
@@ -39,6 +41,7 @@
     _code = code;
     _messageCode = messageCode;
     _validateCode = validateCode;
+    _validateCodeFinish = validateCodeFinish;
     _text = text;
     _detail = detail;
     _sound = sound;
@@ -65,6 +68,8 @@
         _messageCode = dict[@"messageCode"];
         
         _validateCode = dict[@"validateCode"];
+        
+        _validateCodeFinish = dict[@"validateCodeFinish"];
         
         _text = dict[@"text"];
         
@@ -166,6 +171,10 @@
     
     
             if(_validateCode != nil) dict[@"validateCode"] = _validateCode ;
+        
+    
+    
+            if(_validateCodeFinish != nil) dict[@"validateCodeFinish"] = _validateCodeFinish ;
         
     
     

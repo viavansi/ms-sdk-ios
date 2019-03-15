@@ -14,6 +14,7 @@
 @synthesize callbackMails = _callbackMails;
 @synthesize callbackMailsFormKeys = _callbackMailsFormKeys;
 @synthesize validateCode = _validateCode;
+@synthesize validateCodeFinish = _validateCodeFinish;
 @synthesize workflow = _workflow;
 @synthesize font = _font;
 @synthesize acrofieldsPositions = _acrofieldsPositions;
@@ -32,6 +33,7 @@
     callbackMails: (NSString*) callbackMails
     callbackMailsFormKeys: (NSArray*) callbackMailsFormKeys
     validateCode: (NSString*) validateCode
+    validateCodeFinish: (NSString*) validateCodeFinish
     workflow: (NSString*) workflow
     font: (MSFont*) font
     acrofieldsPositions: (NSArray*) acrofieldsPositions
@@ -51,6 +53,7 @@
     _callbackMails = callbackMails;
     _callbackMailsFormKeys = callbackMailsFormKeys;
     _validateCode = validateCode;
+    _validateCodeFinish = validateCodeFinish;
     _workflow = workflow;
     _font = font;
     _acrofieldsPositions = acrofieldsPositions;
@@ -113,6 +116,8 @@
         _callbackMailsFormKeys = dict[@"callbackMailsFormKeys"];
         
         _validateCode = dict[@"validateCode"];
+        
+        _validateCodeFinish = dict[@"validateCodeFinish"];
         
         _workflow = dict[@"workflow"];
         
@@ -250,6 +255,10 @@
     
     
             if(_validateCode != nil) dict[@"validateCode"] = _validateCode ;
+        
+    
+    
+            if(_validateCodeFinish != nil) dict[@"validateCodeFinish"] = _validateCodeFinish ;
         
     
     

@@ -19,6 +19,7 @@
 @property(nonatomic) NSString* callbackMails;  
 @property(nonatomic) NSArray* callbackMailsFormKeys;  
 @property(nonatomic) NSString* validateCode;  
+@property(nonatomic) NSString* validateCodeFinish;  
 @property(nonatomic) NSString* workflow;  
 @property(nonatomic) MSFont* font;  
 @property(nonatomic) NSArray* acrofieldsPositions;  
@@ -36,6 +37,7 @@
     callbackMails: (NSString*) callbackMails     
     callbackMailsFormKeys: (NSArray*) callbackMailsFormKeys     
     validateCode: (NSString*) validateCode     
+    validateCodeFinish: (NSString*) validateCodeFinish     
     workflow: (NSString*) workflow     
     font: (MSFont*) font     
     acrofieldsPositions: (NSArray*) acrofieldsPositions     

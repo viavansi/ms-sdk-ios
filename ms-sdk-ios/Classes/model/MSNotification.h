@@ -12,6 +12,7 @@
 @property(nonatomic) NSString* code;  
 @property(nonatomic) NSString* messageCode;  
 @property(nonatomic) NSString* validateCode;  
+@property(nonatomic) NSString* validateCodeFinish;  
 @property(nonatomic) NSString* text;  
 @property(nonatomic) NSString* detail;  
 @property(nonatomic) NSString* sound;  
@@ -27,6 +28,7 @@
 - (id) code: (NSString*) code     
     messageCode: (NSString*) messageCode     
     validateCode: (NSString*) validateCode     
+    validateCodeFinish: (NSString*) validateCodeFinish     
     text: (NSString*) text     
     detail: (NSString*) detail     
     sound: (NSString*) sound     
