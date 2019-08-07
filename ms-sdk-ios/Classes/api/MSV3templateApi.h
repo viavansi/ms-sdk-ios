@@ -1,6 +1,7 @@
 #import <Foundation/Foundation.h>
 #import "MSDownload.h"
 #import "MSTemplateList.h"
+#import "MSDocument.h"
 #import "MSTemplate.h"
 #import "SWGObject.h"
 #import "OAuth1Client.h"
@@ -45,6 +46,23 @@
     
     auth:(OAuth1Client *) auth onSuccess: (void (^)(NSArray* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     
+
+
+/**
+
+ 
+ 
+
+ 
+ @param body Document info
+ 
+
+ return type: 
+ */
++(NSNumber*) generatePdf :(MSDocument*) body 
+    
+    
+    auth:(OAuth1Client *) auth onSuccess: (void)onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
 
 
 /**

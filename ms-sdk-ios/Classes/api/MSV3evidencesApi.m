@@ -309,7 +309,7 @@
     [requestUrl replaceCharactersInRange: [requestUrl rangeOfString:[NSString stringWithFormat:@"%@%@%@", @"{", @"evidenceCode", @"}"]] withString: [ApiClient escape:evidenceCode]];
     
 
-	NSArray * requestContentTypes = @[];
+	NSArray * requestContentTypes = @[@"application/json"];
     NSString* requestContentType = requestContentTypes.count > 0 ? requestContentTypes[0] : @"application/json";
 
     NSArray * responseContentTypes = @[@"application/json"];
@@ -468,7 +468,7 @@
     [requestUrl replaceCharactersInRange: [requestUrl rangeOfString:[NSString stringWithFormat:@"%@%@%@", @"{", @"evidenceCode", @"}"]] withString: [ApiClient escape:evidenceCode]];
     
 
-	NSArray * requestContentTypes = @[];
+	NSArray * requestContentTypes = @[@"application/json"];
     NSString* requestContentType = requestContentTypes.count > 0 ? requestContentTypes[0] : @"application/json";
 
     NSArray * responseContentTypes = @[@"application/json"];
@@ -717,7 +717,7 @@
     [requestUrl replaceCharactersInRange: [requestUrl rangeOfString:[NSString stringWithFormat:@"%@%@%@", @"{", @"userCode", @"}"]] withString: [ApiClient escape:userCode]];
     
 
-	NSArray * requestContentTypes = @[];
+	NSArray * requestContentTypes = @[@"application/json"];
     NSString* requestContentType = requestContentTypes.count > 0 ? requestContentTypes[0] : @"application/json";
 
     NSArray * responseContentTypes = @[@"application/json"];

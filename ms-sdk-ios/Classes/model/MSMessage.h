@@ -4,6 +4,7 @@
 #import "SWGDate.h"
 #import "MSNotification.h"
 #import "MSWorkflow.h"
+#import "MSJSTransfer.h"
 #import "MSPolicy.h"
 #import "MSErrorResponse.h"
 #import "MSAuditory.h"
@@ -15,6 +16,13 @@
 @property(nonatomic) NSString* code;  
 @property(nonatomic) NSString* externalCode;  
 @property(nonatomic) NSString* externalStatus;  
+@property(nonatomic) NSString* inboxCode;  
+@property(nonatomic) NSString* inboxStatus;  
+@property(nonatomic) NSString* callbackInbox;  
+@property(nonatomic) NSString* callbackInboxAuthorization;  
+@property(nonatomic) NSString* callbackCRM;  
+@property(nonatomic) NSString* callbackCRMAuthorization;  
+@property(nonatomic) NSString* callbackCRMResponse;  
 @property(nonatomic) NSNumber* disabled;  
 @property(nonatomic) NSString* userCode;  
 @property(nonatomic) NSString* groupCode;  
@@ -26,6 +34,7 @@
 @property(nonatomic) NSArray* metadataList;  
 @property(nonatomic) NSArray* policies;  
 @property(nonatomic) NSString* callbackURL;  
+@property(nonatomic) NSString* callbackPhones;  
 @property(nonatomic) NSString* callbackMails;  
 @property(nonatomic) NSString* callbackCheckListMails;  
 @property(nonatomic) NSArray* callbackMailsFormKeys;  
@@ -38,9 +47,19 @@
 @property(nonatomic) NSString* commentReject;  
 @property(nonatomic) NSString* callbackResponse;  
 @property(nonatomic) NSArray* auditory;  
+@property(nonatomic) NSArray* transfers;  
+@property(nonatomic) NSString* languageId;  
+@property(nonatomic) NSString* timeZoneId;  
 - (id) code: (NSString*) code     
     externalCode: (NSString*) externalCode     
     externalStatus: (NSString*) externalStatus     
+    inboxCode: (NSString*) inboxCode     
+    inboxStatus: (NSString*) inboxStatus     
+    callbackInbox: (NSString*) callbackInbox     
+    callbackInboxAuthorization: (NSString*) callbackInboxAuthorization     
+    callbackCRM: (NSString*) callbackCRM     
+    callbackCRMAuthorization: (NSString*) callbackCRMAuthorization     
+    callbackCRMResponse: (NSString*) callbackCRMResponse     
     disabled: (NSNumber*) disabled     
     userCode: (NSString*) userCode     
     groupCode: (NSString*) groupCode     
@@ -52,6 +71,7 @@
     metadataList: (NSArray*) metadataList     
     policies: (NSArray*) policies     
     callbackURL: (NSString*) callbackURL     
+    callbackPhones: (NSString*) callbackPhones     
     callbackMails: (NSString*) callbackMails     
     callbackCheckListMails: (NSString*) callbackCheckListMails     
     callbackMailsFormKeys: (NSArray*) callbackMailsFormKeys     
@@ -63,7 +83,10 @@
     processTimeExpired: (SWGDate*) processTimeExpired     
     commentReject: (NSString*) commentReject     
     callbackResponse: (NSString*) callbackResponse     
-    auditory: (NSArray*) auditory;
+    auditory: (NSArray*) auditory     
+    transfers: (NSArray*) transfers     
+    languageId: (NSString*) languageId     
+    timeZoneId: (NSString*) timeZoneId;
     
 
 - (id) initWithValues: (NSDictionary*)dict;

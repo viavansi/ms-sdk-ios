@@ -31,6 +31,8 @@
 @synthesize dayNames = _dayNames;
 @synthesize defaultCountry = _defaultCountry;
 @synthesize increment = _increment;
+@synthesize scanTypes = _scanTypes;
+@synthesize originalValue = _originalValue;
 
 -(id)key: (NSString*) key
     value: (NSString*) value
@@ -60,6 +62,8 @@
     dayNames: (NSArray*) dayNames
     defaultCountry: (NSString*) defaultCountry
     increment: (NSNumber*) increment
+    scanTypes: (NSArray*) scanTypes
+    originalValue: (NSString*) originalValue
     
 {
     _key = key;
@@ -90,6 +94,8 @@
     _dayNames = dayNames;
     _defaultCountry = defaultCountry;
     _increment = increment;
+    _scanTypes = scanTypes;
+    _originalValue = originalValue;
     
 
     return self;
@@ -154,6 +160,10 @@
         _defaultCountry = dict[@"defaultCountry"];
         
         _increment = dict[@"increment"];
+        
+        _scanTypes = dict[@"scanTypes"];
+        
+        _originalValue = dict[@"originalValue"];
         
         
     }
@@ -273,6 +283,14 @@
     
     
             if(_increment != nil) dict[@"increment"] = _increment ;
+        
+    
+    
+            if(_scanTypes != nil) dict[@"scanTypes"] = _scanTypes ;
+        
+    
+    
+            if(_originalValue != nil) dict[@"originalValue"] = _originalValue ;
         
     
 

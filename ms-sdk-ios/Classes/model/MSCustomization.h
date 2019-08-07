@@ -9,6 +9,7 @@
 @property(nonatomic) NSString* requestMailSubject;  
 @property(nonatomic) NSString* requestMailBody;  
 @property(nonatomic) NSString* requestSmsBody;  
+@property(nonatomic) NSString* callbackSmsBody;  
 @property(nonatomic) NSString* callbackMailSuccessSubject;  
 @property(nonatomic) NSString* callbackMailSuccessBody;  
 @property(nonatomic) NSString* callbackMailExpiredSubject;  
@@ -28,6 +29,7 @@
     requestMailSubject: (NSString*) requestMailSubject     
     requestMailBody: (NSString*) requestMailBody     
     requestSmsBody: (NSString*) requestSmsBody     
+    callbackSmsBody: (NSString*) callbackSmsBody     
     callbackMailSuccessSubject: (NSString*) callbackMailSuccessSubject     
     callbackMailSuccessBody: (NSString*) callbackMailSuccessBody     
     callbackMailExpiredSubject: (NSString*) callbackMailExpiredSubject     

@@ -17,6 +17,9 @@
 @synthesize updateDate = _updateDate;
 @synthesize retryTime = _retryTime;
 @synthesize customization = _customization;
+@synthesize deliveryGroup = _deliveryGroup;
+@synthesize deliveryType = _deliveryType;
+@synthesize deliveryAppCode = _deliveryAppCode;
 @synthesize metadata = _metadata;
 @synthesize devices = _devices;
 
@@ -34,6 +37,9 @@
     updateDate: (SWGDate*) updateDate
     retryTime: (NSNumber*) retryTime
     customization: (MSCustomization*) customization
+    deliveryGroup: (NSString*) deliveryGroup
+    deliveryType: (NSString*) deliveryType
+    deliveryAppCode: (NSString*) deliveryAppCode
     metadata: (NSArray*) metadata
     devices: (NSArray*) devices
     
@@ -52,6 +58,9 @@
     _updateDate = updateDate;
     _retryTime = retryTime;
     _customization = customization;
+    _deliveryGroup = deliveryGroup;
+    _deliveryType = deliveryType;
+    _deliveryAppCode = deliveryAppCode;
     _metadata = metadata;
     _devices = devices;
     
@@ -108,6 +117,12 @@
         if(customization_dict != nil)
             _customization = [[MSCustomization  alloc]initWithValues:customization_dict];
         
+        
+        _deliveryGroup = dict[@"deliveryGroup"];
+        
+        _deliveryType = dict[@"deliveryType"];
+        
+        _deliveryAppCode = dict[@"deliveryAppCode"];
         
         
         
@@ -279,6 +294,18 @@
         }
     }
     
+    
+    
+            if(_deliveryGroup != nil) dict[@"deliveryGroup"] = _deliveryGroup ;
+        
+    
+    
+            if(_deliveryType != nil) dict[@"deliveryType"] = _deliveryType ;
+        
+    
+    
+            if(_deliveryAppCode != nil) dict[@"deliveryAppCode"] = _deliveryAppCode ;
+        
     
     
     if(_metadata != nil){

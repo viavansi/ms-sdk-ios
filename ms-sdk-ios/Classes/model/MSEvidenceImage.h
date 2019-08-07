@@ -1,5 +1,6 @@
 #import <Foundation/Foundation.h>
 #import "SWGObject.h"
+#import "MSParam.h"
 #import "MSGeolocation.h"
 #import "MSPosition.h"
 #import "MSOcrData.h"
@@ -19,6 +20,7 @@
 @property(nonatomic) MSOcrData* ocr;  
 @property(nonatomic) NSString* ocrTemplate;  
 @property(nonatomic) NSString* ocrFields;  
+@property(nonatomic) NSArray* properties;  
 - (id) messageCode: (NSString*) messageCode     
     evidenceCode: (NSString*) evidenceCode     
     base64Image: (NSString*) base64Image     
@@ -29,7 +31,8 @@
     imageScaleFactor: (NSNumber*) imageScaleFactor     
     ocr: (MSOcrData*) ocr     
     ocrTemplate: (NSString*) ocrTemplate     
-    ocrFields: (NSString*) ocrFields;
+    ocrFields: (NSString*) ocrFields     
+    properties: (NSArray*) properties;
     
 
 - (id) initWithValues: (NSDictionary*)dict;

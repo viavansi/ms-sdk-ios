@@ -5,14 +5,14 @@
 
 @interface MSAcrofieldPosition : SWGObject
 
-@property(nonatomic) NSString* _id;  
-@property(nonatomic) NSNumber* page;  
 @property(nonatomic) MSRectangle* rectangle;  
+@property(nonatomic) NSNumber* page;  
 @property(nonatomic) NSString* positionMatchId;  
-- (id) _id: (NSString*) _id     
+@property(nonatomic) NSString* _id;  
+- (id) rectangle: (MSRectangle*) rectangle     
     page: (NSNumber*) page     
-    rectangle: (MSRectangle*) rectangle     
-    positionMatchId: (NSString*) positionMatchId;
+    positionMatchId: (NSString*) positionMatchId     
+    _id: (NSString*) _id;
     
 
 - (id) initWithValues: (NSDictionary*)dict;

@@ -3,21 +3,21 @@
 
 @implementation MSAcrofieldPosition
 
-@synthesize _id = __id;
-@synthesize page = _page;
 @synthesize rectangle = _rectangle;
+@synthesize page = _page;
 @synthesize positionMatchId = _positionMatchId;
+@synthesize _id = __id;
 
--(id)_id: (NSString*) _id
+-(id)rectangle: (MSRectangle*) rectangle
     page: (NSNumber*) page
-    rectangle: (MSRectangle*) rectangle
     positionMatchId: (NSString*) positionMatchId
+    _id: (NSString*) _id
     
 {
-    __id = _id;
-    _page = page;
     _rectangle = rectangle;
+    _page = page;
     _positionMatchId = positionMatchId;
+    __id = _id;
     
 
     return self;
@@ -27,10 +27,6 @@
 {
     self = [super init];
     if(self) {
-        __id = dict[@"id"];
-        
-        _page = dict[@"page"];
-        
         
         
         id rectangle_dict = dict[@"rectangle"];
@@ -39,7 +35,11 @@
             _rectangle = [[MSRectangle  alloc]initWithValues:rectangle_dict];
         
         
+        _page = dict[@"page"];
+        
         _positionMatchId = dict[@"positionMatchId"];
+        
+        __id = dict[@"id"];
         
         
     }
@@ -48,14 +48,6 @@
 
 -(NSDictionary*) asDictionary {
     NSMutableDictionary* dict = [[NSMutableDictionary alloc] init];
-    
-    
-            if(__id != nil) dict[@"id"] = __id ;
-        
-    
-    
-            if(_page != nil) dict[@"page"] = _page ;
-        
     
     
     if(_rectangle != nil){
@@ -83,7 +75,15 @@
     
     
     
+            if(_page != nil) dict[@"page"] = _page ;
+        
+    
+    
             if(_positionMatchId != nil) dict[@"positionMatchId"] = _positionMatchId ;
+        
+    
+    
+            if(__id != nil) dict[@"id"] = __id ;
         
     
 

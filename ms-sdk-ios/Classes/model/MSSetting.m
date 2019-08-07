@@ -12,6 +12,7 @@
 @synthesize callbackURL = _callbackURL;
 @synthesize callbackCheckListMails = _callbackCheckListMails;
 @synthesize callbackMails = _callbackMails;
+@synthesize callbackPhones = _callbackPhones;
 @synthesize callbackMailsFormKeys = _callbackMailsFormKeys;
 @synthesize validateCode = _validateCode;
 @synthesize validateCodeFinish = _validateCodeFinish;
@@ -21,6 +22,7 @@
 @synthesize readDocumentRequired = _readDocumentRequired;
 @synthesize allowDocumentResend = _allowDocumentResend;
 @synthesize customization = _customization;
+@synthesize callbackMailsFromForm = _callbackMailsFromForm;
 
 -(id)titleKey: (NSString*) titleKey
     descriptionKey: (NSString*) descriptionKey
@@ -31,6 +33,7 @@
     callbackURL: (NSString*) callbackURL
     callbackCheckListMails: (NSString*) callbackCheckListMails
     callbackMails: (NSString*) callbackMails
+    callbackPhones: (NSString*) callbackPhones
     callbackMailsFormKeys: (NSArray*) callbackMailsFormKeys
     validateCode: (NSString*) validateCode
     validateCodeFinish: (NSString*) validateCodeFinish
@@ -40,6 +43,7 @@
     readDocumentRequired: (NSNumber*) readDocumentRequired
     allowDocumentResend: (NSNumber*) allowDocumentResend
     customization: (MSCustomization*) customization
+    callbackMailsFromForm: (NSArray*) callbackMailsFromForm
     
 {
     _titleKey = titleKey;
@@ -51,6 +55,7 @@
     _callbackURL = callbackURL;
     _callbackCheckListMails = callbackCheckListMails;
     _callbackMails = callbackMails;
+    _callbackPhones = callbackPhones;
     _callbackMailsFormKeys = callbackMailsFormKeys;
     _validateCode = validateCode;
     _validateCodeFinish = validateCodeFinish;
@@ -60,6 +65,7 @@
     _readDocumentRequired = readDocumentRequired;
     _allowDocumentResend = allowDocumentResend;
     _customization = customization;
+    _callbackMailsFromForm = callbackMailsFromForm;
     
 
     return self;
@@ -113,6 +119,8 @@
         
         _callbackMails = dict[@"callbackMails"];
         
+        _callbackPhones = dict[@"callbackPhones"];
+        
         _callbackMailsFormKeys = dict[@"callbackMailsFormKeys"];
         
         _validateCode = dict[@"validateCode"];
@@ -162,6 +170,8 @@
         if(customization_dict != nil)
             _customization = [[MSCustomization  alloc]initWithValues:customization_dict];
         
+        
+        _callbackMailsFromForm = dict[@"callbackMailsFromForm"];
         
         
     }
@@ -247,6 +257,10 @@
     
     
             if(_callbackMails != nil) dict[@"callbackMails"] = _callbackMails ;
+        
+    
+    
+            if(_callbackPhones != nil) dict[@"callbackPhones"] = _callbackPhones ;
         
     
     
@@ -347,6 +361,10 @@
         }
     }
     
+    
+    
+            if(_callbackMailsFromForm != nil) dict[@"callbackMailsFromForm"] = _callbackMailsFromForm ;
+        
     
 
     NSDictionary* output = [dict copy];

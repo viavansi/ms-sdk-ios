@@ -1,6 +1,6 @@
 #import <Foundation/Foundation.h>
 #import "SWGObject.h"
-#import "MSJSOcrFieldExtractionResult.h"
+#import "MSOcrFieldExtractionResult.h"
 
 
 @interface MSOcrPageResult : SWGObject

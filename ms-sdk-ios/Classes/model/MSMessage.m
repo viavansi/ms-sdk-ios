@@ -6,6 +6,13 @@
 @synthesize code = _code;
 @synthesize externalCode = _externalCode;
 @synthesize externalStatus = _externalStatus;
+@synthesize inboxCode = _inboxCode;
+@synthesize inboxStatus = _inboxStatus;
+@synthesize callbackInbox = _callbackInbox;
+@synthesize callbackInboxAuthorization = _callbackInboxAuthorization;
+@synthesize callbackCRM = _callbackCRM;
+@synthesize callbackCRMAuthorization = _callbackCRMAuthorization;
+@synthesize callbackCRMResponse = _callbackCRMResponse;
 @synthesize disabled = _disabled;
 @synthesize userCode = _userCode;
 @synthesize groupCode = _groupCode;
@@ -17,6 +24,7 @@
 @synthesize metadataList = _metadataList;
 @synthesize policies = _policies;
 @synthesize callbackURL = _callbackURL;
+@synthesize callbackPhones = _callbackPhones;
 @synthesize callbackMails = _callbackMails;
 @synthesize callbackCheckListMails = _callbackCheckListMails;
 @synthesize callbackMailsFormKeys = _callbackMailsFormKeys;
@@ -29,10 +37,20 @@
 @synthesize commentReject = _commentReject;
 @synthesize callbackResponse = _callbackResponse;
 @synthesize auditory = _auditory;
+@synthesize transfers = _transfers;
+@synthesize languageId = _languageId;
+@synthesize timeZoneId = _timeZoneId;
 
 -(id)code: (NSString*) code
     externalCode: (NSString*) externalCode
     externalStatus: (NSString*) externalStatus
+    inboxCode: (NSString*) inboxCode
+    inboxStatus: (NSString*) inboxStatus
+    callbackInbox: (NSString*) callbackInbox
+    callbackInboxAuthorization: (NSString*) callbackInboxAuthorization
+    callbackCRM: (NSString*) callbackCRM
+    callbackCRMAuthorization: (NSString*) callbackCRMAuthorization
+    callbackCRMResponse: (NSString*) callbackCRMResponse
     disabled: (NSNumber*) disabled
     userCode: (NSString*) userCode
     groupCode: (NSString*) groupCode
@@ -44,6 +62,7 @@
     metadataList: (NSArray*) metadataList
     policies: (NSArray*) policies
     callbackURL: (NSString*) callbackURL
+    callbackPhones: (NSString*) callbackPhones
     callbackMails: (NSString*) callbackMails
     callbackCheckListMails: (NSString*) callbackCheckListMails
     callbackMailsFormKeys: (NSArray*) callbackMailsFormKeys
@@ -56,11 +75,21 @@
     commentReject: (NSString*) commentReject
     callbackResponse: (NSString*) callbackResponse
     auditory: (NSArray*) auditory
+    transfers: (NSArray*) transfers
+    languageId: (NSString*) languageId
+    timeZoneId: (NSString*) timeZoneId
     
 {
     _code = code;
     _externalCode = externalCode;
     _externalStatus = externalStatus;
+    _inboxCode = inboxCode;
+    _inboxStatus = inboxStatus;
+    _callbackInbox = callbackInbox;
+    _callbackInboxAuthorization = callbackInboxAuthorization;
+    _callbackCRM = callbackCRM;
+    _callbackCRMAuthorization = callbackCRMAuthorization;
+    _callbackCRMResponse = callbackCRMResponse;
     _disabled = disabled;
     _userCode = userCode;
     _groupCode = groupCode;
@@ -72,6 +101,7 @@
     _metadataList = metadataList;
     _policies = policies;
     _callbackURL = callbackURL;
+    _callbackPhones = callbackPhones;
     _callbackMails = callbackMails;
     _callbackCheckListMails = callbackCheckListMails;
     _callbackMailsFormKeys = callbackMailsFormKeys;
@@ -84,6 +114,9 @@
     _commentReject = commentReject;
     _callbackResponse = callbackResponse;
     _auditory = auditory;
+    _transfers = transfers;
+    _languageId = languageId;
+    _timeZoneId = timeZoneId;
     
 
     return self;
@@ -98,6 +131,20 @@
         _externalCode = dict[@"externalCode"];
         
         _externalStatus = dict[@"externalStatus"];
+        
+        _inboxCode = dict[@"inboxCode"];
+        
+        _inboxStatus = dict[@"inboxStatus"];
+        
+        _callbackInbox = dict[@"callbackInbox"];
+        
+        _callbackInboxAuthorization = dict[@"callbackInboxAuthorization"];
+        
+        _callbackCRM = dict[@"callbackCRM"];
+        
+        _callbackCRMAuthorization = dict[@"callbackCRMAuthorization"];
+        
+        _callbackCRMResponse = dict[@"callbackCRMResponse"];
         
         _disabled = dict[@"disabled"];
         
@@ -179,6 +226,8 @@
         
         _callbackURL = dict[@"callbackURL"];
         
+        _callbackPhones = dict[@"callbackPhones"];
+        
         _callbackMails = dict[@"callbackMails"];
         
         _callbackCheckListMails = dict[@"callbackCheckListMails"];
@@ -236,6 +285,32 @@
         
         
         
+        
+        id transfers_dict = dict[@"transfers"];
+        
+        if([transfers_dict isKindOfClass:[NSArray class]]) {
+            NSMutableArray * objs = [[NSMutableArray alloc] initWithCapacity:[(NSArray*)transfers_dict count]];
+            if([(NSArray*)transfers_dict count] > 0) {
+                for (int i=0 ; i<[(NSArray*)transfers_dict count] ; i++) {
+                	NSDictionary *dict = [[NSDictionary alloc] initWithDictionary:[transfers_dict objectAtIndex:i]];
+                    MSJSTransfer* d = [[MSJSTransfer alloc] initWithValues:dict];
+                    [objs addObject:d];
+                }
+                _transfers = [[NSArray alloc] initWithArray:objs];
+            }
+            else
+                _transfers = [[NSArray alloc] init];
+        }
+        else {
+            _transfers = [[NSArray alloc] init];
+        }
+        
+        
+        _languageId = dict[@"languageId"];
+        
+        _timeZoneId = dict[@"timeZoneId"];
+        
+        
     }
     return self;
 }
@@ -253,6 +328,34 @@
     
     
             if(_externalStatus != nil) dict[@"externalStatus"] = _externalStatus ;
+        
+    
+    
+            if(_inboxCode != nil) dict[@"inboxCode"] = _inboxCode ;
+        
+    
+    
+            if(_inboxStatus != nil) dict[@"inboxStatus"] = _inboxStatus ;
+        
+    
+    
+            if(_callbackInbox != nil) dict[@"callbackInbox"] = _callbackInbox ;
+        
+    
+    
+            if(_callbackInboxAuthorization != nil) dict[@"callbackInboxAuthorization"] = _callbackInboxAuthorization ;
+        
+    
+    
+            if(_callbackCRM != nil) dict[@"callbackCRM"] = _callbackCRM ;
+        
+    
+    
+            if(_callbackCRMAuthorization != nil) dict[@"callbackCRMAuthorization"] = _callbackCRMAuthorization ;
+        
+    
+    
+            if(_callbackCRMResponse != nil) dict[@"callbackCRMResponse"] = _callbackCRMResponse ;
         
     
     
@@ -405,6 +508,10 @@
         
     
     
+            if(_callbackPhones != nil) dict[@"callbackPhones"] = _callbackPhones ;
+        
+    
+    
             if(_callbackMails != nil) dict[@"callbackMails"] = _callbackMails ;
         
     
@@ -514,6 +621,39 @@
         }
     }
     
+    
+    
+    if(_transfers != nil){
+        if([_transfers isKindOfClass:[NSArray class]]){
+            NSMutableArray * array = [[NSMutableArray alloc] init];
+            for( int i=0 ; i<[(NSArray*)_transfers count] ; i++ ) {
+				MSJSTransfer *transfers = [[MSJSTransfer alloc]init];
+				transfers = [(NSArray*)_transfers objectAtIndex:i];
+                [array addObject:[(SWGObject*)transfers asDictionary]];
+            }
+            dict[@"transfers"] = array;
+        }
+        else if(_transfers && [_transfers isKindOfClass:[SWGDate class]]) {
+            NSString * dateString = [(SWGDate*)_transfers toString];
+            if(dateString){
+                dict[@"transfers"] = dateString;
+            }
+        }
+        else {
+        
+            if(_transfers != nil) dict[@"transfers"] = [(SWGObject*)_transfers asDictionary];
+        
+        }
+    }
+    
+    
+    
+            if(_languageId != nil) dict[@"languageId"] = _languageId ;
+        
+    
+    
+            if(_timeZoneId != nil) dict[@"timeZoneId"] = _timeZoneId ;
+        
     
 
     NSDictionary* output = [dict copy];

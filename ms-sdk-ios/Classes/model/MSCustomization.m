@@ -8,6 +8,7 @@
 @synthesize requestMailSubject = _requestMailSubject;
 @synthesize requestMailBody = _requestMailBody;
 @synthesize requestSmsBody = _requestSmsBody;
+@synthesize callbackSmsBody = _callbackSmsBody;
 @synthesize callbackMailSuccessSubject = _callbackMailSuccessSubject;
 @synthesize callbackMailSuccessBody = _callbackMailSuccessBody;
 @synthesize callbackMailExpiredSubject = _callbackMailExpiredSubject;
@@ -28,6 +29,7 @@
     requestMailSubject: (NSString*) requestMailSubject
     requestMailBody: (NSString*) requestMailBody
     requestSmsBody: (NSString*) requestSmsBody
+    callbackSmsBody: (NSString*) callbackSmsBody
     callbackMailSuccessSubject: (NSString*) callbackMailSuccessSubject
     callbackMailSuccessBody: (NSString*) callbackMailSuccessBody
     callbackMailExpiredSubject: (NSString*) callbackMailExpiredSubject
@@ -49,6 +51,7 @@
     _requestMailSubject = requestMailSubject;
     _requestMailBody = requestMailBody;
     _requestSmsBody = requestSmsBody;
+    _callbackSmsBody = callbackSmsBody;
     _callbackMailSuccessSubject = callbackMailSuccessSubject;
     _callbackMailSuccessBody = callbackMailSuccessBody;
     _callbackMailExpiredSubject = callbackMailExpiredSubject;
@@ -81,6 +84,8 @@
         _requestMailBody = dict[@"requestMailBody"];
         
         _requestSmsBody = dict[@"requestSmsBody"];
+        
+        _callbackSmsBody = dict[@"callbackSmsBody"];
         
         _callbackMailSuccessSubject = dict[@"callbackMailSuccessSubject"];
         
@@ -136,6 +141,10 @@
     
     
             if(_requestSmsBody != nil) dict[@"requestSmsBody"] = _requestSmsBody ;
+        
+    
+    
+            if(_callbackSmsBody != nil) dict[@"callbackSmsBody"] = _callbackSmsBody ;
         
     
     

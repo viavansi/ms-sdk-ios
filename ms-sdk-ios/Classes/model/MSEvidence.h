@@ -36,6 +36,7 @@
 @property(nonatomic) NSString* metadataCipherPublicKey;  
 @property(nonatomic) NSString* encryptionKeyAlias;  
 @property(nonatomic) NSNumber* optional;  
+@property(nonatomic) NSNumber* required;  
 @property(nonatomic) NSString* ratioH;  
 @property(nonatomic) NSString* ratioW;  
 @property(nonatomic) MSEvidenceSignature* signatureData;  
@@ -51,6 +52,7 @@
 @property(nonatomic) NSNumber* imageScaleFactor;  /* (since 3.5.0) factor multiplicador del tamaño de la imagen, para permitir zoom, 1, 2, 3  */
 @property(nonatomic) MSOcrData* ocr;  
 @property(nonatomic) MSEvidenceGeneric* genericData;  
+@property(nonatomic) NSString* phone;  
 @property(nonatomic) NSString* base64Image;  
 @property(nonatomic) NSString* imageType;  
 @property(nonatomic) NSNumber* addLink;  
@@ -77,6 +79,7 @@
     metadataCipherPublicKey: (NSString*) metadataCipherPublicKey     
     encryptionKeyAlias: (NSString*) encryptionKeyAlias     
     optional: (NSNumber*) optional     
+    required: (NSNumber*) required     
     ratioH: (NSString*) ratioH     
     ratioW: (NSString*) ratioW     
     signatureData: (MSEvidenceSignature*) signatureData     
@@ -92,6 +95,7 @@
     imageScaleFactor: (NSNumber*) imageScaleFactor     
     ocr: (MSOcrData*) ocr     
     genericData: (MSEvidenceGeneric*) genericData     
+    phone: (NSString*) phone     
     base64Image: (NSString*) base64Image     
     imageType: (NSString*) imageType     
     addLink: (NSNumber*) addLink;

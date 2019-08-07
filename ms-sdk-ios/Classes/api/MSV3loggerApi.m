@@ -1,7 +1,7 @@
 #import "MSV3loggerApi.h"
 #import "SWGFile.h"
 #import "ApiClient.h"
-#import "MSLog.h"
+#import "MSItem.h"
 
 
 
@@ -12,9 +12,9 @@
 }
 
 
-+(NSNumber*) addLog: (MSLog*) body
++(NSNumber*) addLog: (MSItem*) body
         
-        auth:(OAuth1Client *) auth onSuccess: (void (^)(MSLog* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock
+        auth:(OAuth1Client *) auth onSuccess: (void (^)(MSItem* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock
          {
 
     NSMutableString* requestUrl = [NSMutableString stringWithFormat:@"%@/v3/logger", [[ApiClient sharedInstance] url]];
@@ -26,10 +26,10 @@
 
     
 
-	NSArray * requestContentTypes = @[];
+	NSArray * requestContentTypes = @[@"application/json"];
     NSString* requestContentType = requestContentTypes.count > 0 ? requestContentTypes[0] : @"application/json";
 
-    NSArray * responseContentTypes = @[];
+    NSArray * responseContentTypes = @[@"application/json"];
     NSString* responseContentType = responseContentTypes.count > 0 ? responseContentTypes[0] : @"application/json";
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
@@ -88,9 +88,9 @@
           responseContentType: responseContentType
               successBlock: ^(NSDictionary *data) {
                 
-                MSLog *result = nil;
+                MSItem *result = nil;
                 if (data) {
-                    result = [[MSLog    alloc]initWithValues: data];
+                    result = [[MSItem    alloc]initWithValues: data];
                 }
                 onSuccessBlock(result);
                 

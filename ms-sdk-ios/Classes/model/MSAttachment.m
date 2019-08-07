@@ -12,6 +12,8 @@
 @synthesize helpDetail = _helpDetail;
 @synthesize optional = _optional;
 @synthesize metadataList = _metadataList;
+@synthesize date = _date;
+@synthesize hash = _hash;
 
 -(id)type: (NSString*) type
     processType: (NSString*) processType
@@ -22,6 +24,8 @@
     helpDetail: (NSString*) helpDetail
     optional: (NSNumber*) optional
     metadataList: (NSArray*) metadataList
+    date: (SWGDate*) date
+    hash: (NSString*) hash
     
 {
     _type = type;
@@ -33,6 +37,8 @@
     _helpDetail = helpDetail;
     _optional = optional;
     _metadataList = metadataList;
+    _date = date;
+    _hash = hash;
     
 
     return self;
@@ -79,6 +85,16 @@
             _metadataList = [[NSArray alloc] init];
         }
         
+        
+        
+        
+        id date_dict = dict[@"date"];
+        
+        if(date_dict != nil)
+            _date = [[SWGDate  alloc]initWithValues:date_dict];
+        
+        
+        _hash = dict[@"hash"];
         
         
     }
@@ -144,6 +160,35 @@
         }
     }
     
+    
+    
+    if(_date != nil){
+        if([_date isKindOfClass:[NSArray class]]){
+            NSMutableArray * array = [[NSMutableArray alloc] init];
+            for( int i=0 ; i<[(NSArray*)_date count] ; i++ ) {
+				SWGDate *date = [[SWGDate alloc]init];
+				date = [(NSArray*)_date objectAtIndex:i];
+                [array addObject:[(SWGObject*)date asDictionary]];
+            }
+            dict[@"date"] = array;
+        }
+        else if(_date && [_date isKindOfClass:[SWGDate class]]) {
+            NSString * dateString = [(SWGDate*)_date toString];
+            if(dateString){
+                dict[@"date"] = dateString;
+            }
+        }
+        else {
+        
+            if(_date != nil) dict[@"date"] = [(SWGObject*)_date asDictionary];
+        
+        }
+    }
+    
+    
+    
+            if(_hash != nil) dict[@"hash"] = _hash ;
+        
     
 
     NSDictionary* output = [dict copy];

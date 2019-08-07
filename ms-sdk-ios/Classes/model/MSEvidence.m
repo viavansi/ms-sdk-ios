@@ -26,6 +26,7 @@
 @synthesize metadataCipherPublicKey = _metadataCipherPublicKey;
 @synthesize encryptionKeyAlias = _encryptionKeyAlias;
 @synthesize optional = _optional;
+@synthesize required = _required;
 @synthesize ratioH = _ratioH;
 @synthesize ratioW = _ratioW;
 @synthesize signatureData = _signatureData;
@@ -41,6 +42,7 @@
 @synthesize imageScaleFactor = _imageScaleFactor;
 @synthesize ocr = _ocr;
 @synthesize genericData = _genericData;
+@synthesize phone = _phone;
 @synthesize base64Image = _base64Image;
 @synthesize imageType = _imageType;
 @synthesize addLink = _addLink;
@@ -68,6 +70,7 @@
     metadataCipherPublicKey: (NSString*) metadataCipherPublicKey
     encryptionKeyAlias: (NSString*) encryptionKeyAlias
     optional: (NSNumber*) optional
+    required: (NSNumber*) required
     ratioH: (NSString*) ratioH
     ratioW: (NSString*) ratioW
     signatureData: (MSEvidenceSignature*) signatureData
@@ -83,6 +86,7 @@
     imageScaleFactor: (NSNumber*) imageScaleFactor
     ocr: (MSOcrData*) ocr
     genericData: (MSEvidenceGeneric*) genericData
+    phone: (NSString*) phone
     base64Image: (NSString*) base64Image
     imageType: (NSString*) imageType
     addLink: (NSNumber*) addLink
@@ -111,6 +115,7 @@
     _metadataCipherPublicKey = metadataCipherPublicKey;
     _encryptionKeyAlias = encryptionKeyAlias;
     _optional = optional;
+    _required = required;
     _ratioH = ratioH;
     _ratioW = ratioW;
     _signatureData = signatureData;
@@ -126,6 +131,7 @@
     _imageScaleFactor = imageScaleFactor;
     _ocr = ocr;
     _genericData = genericData;
+    _phone = phone;
     _base64Image = base64Image;
     _imageType = imageType;
     _addLink = addLink;
@@ -224,6 +230,8 @@
         
         _optional = dict[@"optional"];
         
+        _required = dict[@"required"];
+        
         _ratioH = dict[@"ratioH"];
         
         _ratioW = dict[@"ratioW"];
@@ -309,6 +317,8 @@
         if(genericData_dict != nil)
             _genericData = [[MSEvidenceGeneric  alloc]initWithValues:genericData_dict];
         
+        
+        _phone = dict[@"phone"];
         
         _base64Image = dict[@"base64Image"];
         
@@ -456,6 +466,10 @@
     
     
             if(_optional != nil) dict[@"optional"] = _optional ;
+        
+    
+    
+            if(_required != nil) dict[@"required"] = _required ;
         
     
     
@@ -664,6 +678,10 @@
         }
     }
     
+    
+    
+            if(_phone != nil) dict[@"phone"] = _phone ;
+        
     
     
             if(_base64Image != nil) dict[@"base64Image"] = _base64Image ;

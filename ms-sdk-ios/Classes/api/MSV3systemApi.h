@@ -1,5 +1,6 @@
 #import <Foundation/Foundation.h>
 #import "MSAlive.h"
+#import "MSGroupUserData.h"
 #import "MSConfiguration.h"
 #import "MSInfoSystemStatus.h"
 #import "MSWorkflowManager.h"
@@ -23,6 +24,25 @@
  */
 +(NSNumber*) isAlive :(OAuth1Client *) auth onSuccess:
     (void (^)(MSAlive* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    
+
+
+/**
+
+ Method to create aplication, group and user by name
+ 
+ Method to create aplication, group and user by name
+ 
+
+ 
+ @param body GroupUserData object that contains all user data and app/group name
+ 
+
+ return type: NSString*
+ */
++(NSNumber*) sendMessageData_1 :(MSGroupUserData*) body 
+    
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(NSString* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     
 
 

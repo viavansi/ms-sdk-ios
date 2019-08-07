@@ -1,4 +1,5 @@
 #import <Foundation/Foundation.h>
+#import "MSBase64.h"
 #import "MSDownload.h"
 #import "SWGObject.h"
 #import "OAuth1Client.h"
@@ -7,6 +8,23 @@
 @interface MSV3documentsApi: NSObject
 
 +(unsigned long) requestQueueSize;
+/**
+
+ 
+ 
+
+ 
+ @param body Base64 document
+ 
+
+ return type: 
+ */
++(NSNumber*) addCache :(MSBase64*) body 
+    
+    
+    auth:(OAuth1Client *) auth onSuccess: (void)onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+
+
 /**
 
  Method for get preview of an existing document
@@ -62,6 +80,29 @@
     
     auth:(OAuth1Client *) auth onSuccess: (void (^)(MSDownload* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     
+
+
+/**
+
+ 
+ 
+
+ 
+ @param type Document&#39;s type
+ 
+ @param messageCode Message&#39;s unique code
+ 
+ @param documentCode Document&#39;s unique code
+ 
+
+ return type: 
+ */
++(NSNumber*) getDocument :(NSString*) type 
+     messageCode:(NSString*) messageCode 
+     documentCode:(NSString*) documentCode 
+    
+    
+    auth:(OAuth1Client *) auth onSuccess: (void)onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
 
 
 

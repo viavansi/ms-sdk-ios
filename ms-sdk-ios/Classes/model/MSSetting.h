@@ -17,6 +17,7 @@
 @property(nonatomic) NSString* callbackURL;  
 @property(nonatomic) NSString* callbackCheckListMails;  
 @property(nonatomic) NSString* callbackMails;  
+@property(nonatomic) NSString* callbackPhones;  
 @property(nonatomic) NSArray* callbackMailsFormKeys;  
 @property(nonatomic) NSString* validateCode;  
 @property(nonatomic) NSString* validateCodeFinish;  
@@ -26,6 +27,7 @@
 @property(nonatomic) NSNumber* readDocumentRequired;  
 @property(nonatomic) NSNumber* allowDocumentResend;  
 @property(nonatomic) MSCustomization* customization;  
+@property(nonatomic) NSArray* callbackMailsFromForm;  
 - (id) titleKey: (NSString*) titleKey     
     descriptionKey: (NSString*) descriptionKey     
     policy: (MSPolicy*) policy     
@@ -35,6 +37,7 @@
     callbackURL: (NSString*) callbackURL     
     callbackCheckListMails: (NSString*) callbackCheckListMails     
     callbackMails: (NSString*) callbackMails     
+    callbackPhones: (NSString*) callbackPhones     
     callbackMailsFormKeys: (NSArray*) callbackMailsFormKeys     
     validateCode: (NSString*) validateCode     
     validateCodeFinish: (NSString*) validateCodeFinish     
@@ -43,7 +46,8 @@
     acrofieldsPositions: (NSArray*) acrofieldsPositions     
     readDocumentRequired: (NSNumber*) readDocumentRequired     
     allowDocumentResend: (NSNumber*) allowDocumentResend     
-    customization: (MSCustomization*) customization;
+    customization: (MSCustomization*) customization     
+    callbackMailsFromForm: (NSArray*) callbackMailsFromForm;
     
 
 - (id) initWithValues: (NSDictionary*)dict;

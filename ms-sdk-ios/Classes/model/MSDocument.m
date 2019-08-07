@@ -24,6 +24,7 @@
 @synthesize allowResend = _allowResend;
 @synthesize deleteSignedDocuments = _deleteSignedDocuments;
 @synthesize watermarkText = _watermarkText;
+@synthesize formUpdated = _formUpdated;
 
 -(id)templateCode: (NSString*) templateCode
     templateReference: (NSString*) templateReference
@@ -46,6 +47,7 @@
     allowResend: (NSNumber*) allowResend
     deleteSignedDocuments: (NSNumber*) deleteSignedDocuments
     watermarkText: (NSString*) watermarkText
+    formUpdated: (NSNumber*) formUpdated
     
 {
     _templateCode = templateCode;
@@ -69,6 +71,7 @@
     _allowResend = allowResend;
     _deleteSignedDocuments = deleteSignedDocuments;
     _watermarkText = watermarkText;
+    _formUpdated = formUpdated;
     
 
     return self;
@@ -145,6 +148,8 @@
         _deleteSignedDocuments = dict[@"deleteSignedDocuments"];
         
         _watermarkText = dict[@"watermarkText"];
+        
+        _formUpdated = dict[@"formUpdated"];
         
         
     }
@@ -278,6 +283,10 @@
     
     
             if(_watermarkText != nil) dict[@"watermarkText"] = _watermarkText ;
+        
+    
+    
+            if(_formUpdated != nil) dict[@"formUpdated"] = _formUpdated ;
         
     
 

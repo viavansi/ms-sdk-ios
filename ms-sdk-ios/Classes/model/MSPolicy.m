@@ -16,6 +16,7 @@
 @synthesize evidences = _evidences;
 @synthesize signatures = _signatures;
 @synthesize error = _error;
+@synthesize attachments = _attachments;
 @synthesize checklist = _checklist;
 
 -(id)code: (NSString*) code
@@ -31,6 +32,7 @@
     evidences: (NSArray*) evidences
     signatures: (NSArray*) signatures
     error: (MSErrorResponse*) error
+    attachments: (NSArray*) attachments
     checklist: (NSArray*) checklist
     
 {
@@ -47,6 +49,7 @@
     _evidences = evidences;
     _signatures = signatures;
     _error = error;
+    _attachments = attachments;
     _checklist = checklist;
     
 
@@ -147,6 +150,28 @@
         
         if(error_dict != nil)
             _error = [[MSErrorResponse  alloc]initWithValues:error_dict];
+        
+        
+        
+        
+        id attachments_dict = dict[@"attachments"];
+        
+        if([attachments_dict isKindOfClass:[NSArray class]]) {
+            NSMutableArray * objs = [[NSMutableArray alloc] initWithCapacity:[(NSArray*)attachments_dict count]];
+            if([(NSArray*)attachments_dict count] > 0) {
+                for (int i=0 ; i<[(NSArray*)attachments_dict count] ; i++) {
+                	NSDictionary *dict = [[NSDictionary alloc] initWithDictionary:[attachments_dict objectAtIndex:i]];
+                    MSAttachment* d = [[MSAttachment alloc] initWithValues:dict];
+                    [objs addObject:d];
+                }
+                _attachments = [[NSArray alloc] initWithArray:objs];
+            }
+            else
+                _attachments = [[NSArray alloc] init];
+        }
+        else {
+            _attachments = [[NSArray alloc] init];
+        }
         
         
         
@@ -310,6 +335,31 @@
         else {
         
             if(_error != nil) dict[@"error"] = [(SWGObject*)_error asDictionary];
+        
+        }
+    }
+    
+    
+    
+    if(_attachments != nil){
+        if([_attachments isKindOfClass:[NSArray class]]){
+            NSMutableArray * array = [[NSMutableArray alloc] init];
+            for( int i=0 ; i<[(NSArray*)_attachments count] ; i++ ) {
+				MSAttachment *attachments = [[MSAttachment alloc]init];
+				attachments = [(NSArray*)_attachments objectAtIndex:i];
+                [array addObject:[(SWGObject*)attachments asDictionary]];
+            }
+            dict[@"attachments"] = array;
+        }
+        else if(_attachments && [_attachments isKindOfClass:[SWGDate class]]) {
+            NSString * dateString = [(SWGDate*)_attachments toString];
+            if(dateString){
+                dict[@"attachments"] = dateString;
+            }
+        }
+        else {
+        
+            if(_attachments != nil) dict[@"attachments"] = [(SWGObject*)_attachments asDictionary];
         
         }
     }

@@ -1,6 +1,7 @@
 #import <Foundation/Foundation.h>
 #import "SWGObject.h"
 #import "MSParam.h"
+#import "SWGDate.h"
 
 
 @interface MSAttachment : SWGObject
@@ -14,6 +15,8 @@
 @property(nonatomic) NSString* helpDetail;  
 @property(nonatomic) NSNumber* optional;  
 @property(nonatomic) NSArray* metadataList;  
+@property(nonatomic) SWGDate* date;  
+@property(nonatomic) NSString* hash;  
 - (id) type: (NSString*) type     
     processType: (NSString*) processType     
     processId: (NSString*) processId     
@@ -22,7 +25,9 @@
     helpText: (NSString*) helpText     
     helpDetail: (NSString*) helpDetail     
     optional: (NSNumber*) optional     
-    metadataList: (NSArray*) metadataList;
+    metadataList: (NSArray*) metadataList     
+    date: (SWGDate*) date     
+    hash: (NSString*) hash;
     
 
 - (id) initWithValues: (NSDictionary*)dict;

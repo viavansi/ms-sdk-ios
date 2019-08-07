@@ -32,6 +32,8 @@
 @property(nonatomic) NSArray* dayNames;  
 @property(nonatomic) NSString* defaultCountry;  
 @property(nonatomic) NSNumber* increment;  
+@property(nonatomic) NSArray* scanTypes;  
+@property(nonatomic) NSString* originalValue;  
 - (id) key: (NSString*) key     
     value: (NSString*) value     
     type: (NSString*) type     
@@ -59,7 +61,9 @@
     monthNames: (NSArray*) monthNames     
     dayNames: (NSArray*) dayNames     
     defaultCountry: (NSString*) defaultCountry     
-    increment: (NSNumber*) increment;
+    increment: (NSNumber*) increment     
+    scanTypes: (NSArray*) scanTypes     
+    originalValue: (NSString*) originalValue;
     
 
 - (id) initWithValues: (NSDictionary*)dict;

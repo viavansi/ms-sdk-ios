@@ -14,6 +14,7 @@
 @synthesize ocr = _ocr;
 @synthesize ocrTemplate = _ocrTemplate;
 @synthesize ocrFields = _ocrFields;
+@synthesize properties = _properties;
 
 -(id)messageCode: (NSString*) messageCode
     evidenceCode: (NSString*) evidenceCode
@@ -26,6 +27,7 @@
     ocr: (MSOcrData*) ocr
     ocrTemplate: (NSString*) ocrTemplate
     ocrFields: (NSString*) ocrFields
+    properties: (NSArray*) properties
     
 {
     _messageCode = messageCode;
@@ -39,6 +41,7 @@
     _ocr = ocr;
     _ocrTemplate = ocrTemplate;
     _ocrFields = ocrFields;
+    _properties = properties;
     
 
     return self;
@@ -107,6 +110,28 @@
         _ocrTemplate = dict[@"ocrTemplate"];
         
         _ocrFields = dict[@"ocrFields"];
+        
+        
+        
+        id properties_dict = dict[@"properties"];
+        
+        if([properties_dict isKindOfClass:[NSArray class]]) {
+            NSMutableArray * objs = [[NSMutableArray alloc] initWithCapacity:[(NSArray*)properties_dict count]];
+            if([(NSArray*)properties_dict count] > 0) {
+                for (int i=0 ; i<[(NSArray*)properties_dict count] ; i++) {
+                	NSDictionary *dict = [[NSDictionary alloc] initWithDictionary:[properties_dict objectAtIndex:i]];
+                    MSParam* d = [[MSParam alloc] initWithValues:dict];
+                    [objs addObject:d];
+                }
+                _properties = [[NSArray alloc] initWithArray:objs];
+            }
+            else
+                _properties = [[NSArray alloc] init];
+        }
+        else {
+            _properties = [[NSArray alloc] init];
+        }
+        
         
         
     }
@@ -243,6 +268,31 @@
     
             if(_ocrFields != nil) dict[@"ocrFields"] = _ocrFields ;
         
+    
+    
+    if(_properties != nil){
+        if([_properties isKindOfClass:[NSArray class]]){
+            NSMutableArray * array = [[NSMutableArray alloc] init];
+            for( int i=0 ; i<[(NSArray*)_properties count] ; i++ ) {
+				MSParam *properties = [[MSParam alloc]init];
+				properties = [(NSArray*)_properties objectAtIndex:i];
+                [array addObject:[(SWGObject*)properties asDictionary]];
+            }
+            dict[@"properties"] = array;
+        }
+        else if(_properties && [_properties isKindOfClass:[SWGDate class]]) {
+            NSString * dateString = [(SWGDate*)_properties toString];
+            if(dateString){
+                dict[@"properties"] = dateString;
+            }
+        }
+        else {
+        
+            if(_properties != nil) dict[@"properties"] = [(SWGObject*)_properties asDictionary];
+        
+        }
+    }
+    
     
 
     NSDictionary* output = [dict copy];

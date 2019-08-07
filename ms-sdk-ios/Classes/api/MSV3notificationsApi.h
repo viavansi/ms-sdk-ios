@@ -60,7 +60,7 @@
 
  return type: MSNotification*
  */
-+(NSNumber*) changeNotificationStatus :(NSString*) code 
++(NSNumber*) changeNotificationStatus_1 :(NSString*) code 
      status:(NSString*) status 
     
     auth:(OAuth1Client *) auth onSuccess: (void (^)(MSNotification* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
@@ -267,6 +267,43 @@
     
     auth:(OAuth1Client *) auth onSuccess: (void (^)(NSArray* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     
+
+
+/**
+
+ 
+ 
+
+ 
+ @param push_token 
+ 
+
+ return type: 
+ */
++(NSNumber*) findNotificationsByToken :(NSString*) push_token 
+    
+    
+    auth:(OAuth1Client *) auth onSuccess: (void)onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+
+
+/**
+
+ 
+ 
+
+ 
+ @param push_token 
+ 
+ @param status Notification Status
+ 
+
+ return type: 
+ */
++(NSNumber*) findNotificationsByTokenStatus :(NSString*) push_token 
+     status:(NSString*) status 
+    
+    
+    auth:(OAuth1Client *) auth onSuccess: (void)onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
 
 
 

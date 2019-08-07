@@ -148,7 +148,7 @@
 
  return type: NSArray*
  */
-+(NSNumber*) getMessagesByExternalStatus :(NSString*) groupCode 
++(NSNumber*) getMessagesByExternalStatus_1 :(NSString*) groupCode 
      requestAppCode:(NSString*) requestAppCode 
      templateCode:(NSString*) templateCode 
     
@@ -253,6 +253,25 @@
 +(NSNumber*) finalizeMessage :(NSString*) messageCode 
     
     auth:(OAuth1Client *) auth onSuccess: (void (^)(MSMessage* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    
+
+
+/**
+
+ Method for dispatch new messages to a group
+ 
+ Method for dispatch new messages to a group
+ 
+
+ 
+ @param body Message object to be delivery
+ 
+
+ return type: NSString*
+ */
++(NSNumber*) messagesGroup :(MSMessage*) body 
+    
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(NSString* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     
 
 

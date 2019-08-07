@@ -30,7 +30,7 @@
             if([(NSArray*)fieldExtractionResults_dict count] > 0) {
                 for (int i=0 ; i<[(NSArray*)fieldExtractionResults_dict count] ; i++) {
                 	NSDictionary *dict = [[NSDictionary alloc] initWithDictionary:[fieldExtractionResults_dict objectAtIndex:i]];
-                    MSJSOcrFieldExtractionResult* d = [[MSJSOcrFieldExtractionResult alloc] initWithValues:dict];
+                    MSOcrFieldExtractionResult* d = [[MSOcrFieldExtractionResult alloc] initWithValues:dict];
                     [objs addObject:d];
                 }
                 _fieldExtractionResults = [[NSArray alloc] initWithArray:objs];
@@ -58,7 +58,7 @@
         if([_fieldExtractionResults isKindOfClass:[NSArray class]]){
             NSMutableArray * array = [[NSMutableArray alloc] init];
             for( int i=0 ; i<[(NSArray*)_fieldExtractionResults count] ; i++ ) {
-				MSJSOcrFieldExtractionResult *fieldExtractionResults = [[MSJSOcrFieldExtractionResult alloc]init];
+				MSOcrFieldExtractionResult *fieldExtractionResults = [[MSOcrFieldExtractionResult alloc]init];
 				fieldExtractionResults = [(NSArray*)_fieldExtractionResults objectAtIndex:i];
                 [array addObject:[(SWGObject*)fieldExtractionResults asDictionary]];
             }

@@ -29,7 +29,7 @@
 	NSArray * requestContentTypes = @[@"application/json"];
     NSString* requestContentType = requestContentTypes.count > 0 ? requestContentTypes[0] : @"application/json";
 
-    NSArray * responseContentTypes = @[];
+    NSArray * responseContentTypes = @[@"application/json"];
     NSString* responseContentType = responseContentTypes.count > 0 ? responseContentTypes[0] : @"application/json";
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
@@ -119,10 +119,10 @@
     [requestUrl replaceCharactersInRange: [requestUrl rangeOfString:[NSString stringWithFormat:@"%@%@%@", @"{", @"code", @"}"]] withString: [ApiClient escape:code]];
     
 
-	NSArray * requestContentTypes = @[];
+	NSArray * requestContentTypes = @[@"application/json"];
     NSString* requestContentType = requestContentTypes.count > 0 ? requestContentTypes[0] : @"application/json";
 
-    NSArray * responseContentTypes = @[];
+    NSArray * responseContentTypes = @[@"application/json"];
     NSString* responseContentType = responseContentTypes.count > 0 ? responseContentTypes[0] : @"application/json";
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
@@ -176,7 +176,7 @@
     
 }
 
-+(NSNumber*) changeNotificationStatus: (NSString*) code
++(NSNumber*) changeNotificationStatus_1: (NSString*) code
          status: (NSString*) status
         
         auth:(OAuth1Client *) auth onSuccess: (void (^)(MSNotification* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock
@@ -193,10 +193,10 @@
     [requestUrl replaceCharactersInRange: [requestUrl rangeOfString:[NSString stringWithFormat:@"%@%@%@", @"{", @"status", @"}"]] withString: [ApiClient escape:status]];
     
 
-	NSArray * requestContentTypes = @[];
+	NSArray * requestContentTypes = @[@"application/json"];
     NSString* requestContentType = requestContentTypes.count > 0 ? requestContentTypes[0] : @"application/json";
 
-    NSArray * responseContentTypes = @[];
+    NSArray * responseContentTypes = @[@"application/json"];
     NSString* responseContentType = responseContentTypes.count > 0 ? responseContentTypes[0] : @"application/json";
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
@@ -259,7 +259,7 @@
         auth:(OAuth1Client *) auth onSuccess: (void (^)(NSArray* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock
          {
 
-    NSMutableString* requestUrl = [NSMutableString stringWithFormat:@"%@/v3/notifications/completed/app/{app_code}/user/{user_code}/device/{device_code}/{index}/{page_size}/", [[ApiClient sharedInstance] url]];
+    NSMutableString* requestUrl = [NSMutableString stringWithFormat:@"%@/v3/notifications/completed/app/{app_code}/user/{user_code}/device/{device_code}/{index}/{page_size}", [[ApiClient sharedInstance] url]];
 
     // remove format in URL if needed
     if ([requestUrl rangeOfString:@".{format}"].location != NSNotFound){
@@ -273,10 +273,10 @@
     [requestUrl replaceCharactersInRange: [requestUrl rangeOfString:[NSString stringWithFormat:@"%@%@%@", @"{", @"page_size", @"}"]] withString: [ApiClient escape:page_size]];
     
 
-	NSArray * requestContentTypes = @[];
+	NSArray * requestContentTypes = @[@"application/json"];
     NSString* requestContentType = requestContentTypes.count > 0 ? requestContentTypes[0] : @"application/json";
 
-    NSArray * responseContentTypes = @[];
+    NSArray * responseContentTypes = @[@"application/json"];
     NSString* responseContentType = responseContentTypes.count > 0 ? responseContentTypes[0] : @"application/json";
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
@@ -337,7 +337,7 @@
         auth:(OAuth1Client *) auth onSuccess: (void (^)(NSArray* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock
          {
 
-    NSMutableString* requestUrl = [NSMutableString stringWithFormat:@"%@/v3/notifications/completed/app/{app_code}/user/{user_code}/{index}/{page_size}/", [[ApiClient sharedInstance] url]];
+    NSMutableString* requestUrl = [NSMutableString stringWithFormat:@"%@/v3/notifications/completed/app/{app_code}/user/{user_code}/{index}/{page_size}", [[ApiClient sharedInstance] url]];
 
     // remove format in URL if needed
     if ([requestUrl rangeOfString:@".{format}"].location != NSNotFound){
@@ -350,10 +350,10 @@
     [requestUrl replaceCharactersInRange: [requestUrl rangeOfString:[NSString stringWithFormat:@"%@%@%@", @"{", @"page_size", @"}"]] withString: [ApiClient escape:page_size]];
     
 
-	NSArray * requestContentTypes = @[];
+	NSArray * requestContentTypes = @[@"application/json"];
     NSString* requestContentType = requestContentTypes.count > 0 ? requestContentTypes[0] : @"application/json";
 
-    NSArray * responseContentTypes = @[];
+    NSArray * responseContentTypes = @[@"application/json"];
     NSString* responseContentType = responseContentTypes.count > 0 ? responseContentTypes[0] : @"application/json";
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
@@ -415,7 +415,7 @@
         auth:(OAuth1Client *) auth onSuccess: (void (^)(NSArray* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock
          {
 
-    NSMutableString* requestUrl = [NSMutableString stringWithFormat:@"%@/v3/notifications/inbox/app/{app_code}/user/{user_code}/device/{device_code}/{index}/{page_size}/", [[ApiClient sharedInstance] url]];
+    NSMutableString* requestUrl = [NSMutableString stringWithFormat:@"%@/v3/notifications/inbox/app/{app_code}/user/{user_code}/device/{device_code}/{index}/{page_size}", [[ApiClient sharedInstance] url]];
 
     // remove format in URL if needed
     if ([requestUrl rangeOfString:@".{format}"].location != NSNotFound){
@@ -429,10 +429,10 @@
     [requestUrl replaceCharactersInRange: [requestUrl rangeOfString:[NSString stringWithFormat:@"%@%@%@", @"{", @"page_size", @"}"]] withString: [ApiClient escape:page_size]];
     
 
-	NSArray * requestContentTypes = @[];
+	NSArray * requestContentTypes = @[@"application/json"];
     NSString* requestContentType = requestContentTypes.count > 0 ? requestContentTypes[0] : @"application/json";
 
-    NSArray * responseContentTypes = @[];
+    NSArray * responseContentTypes = @[@"application/json"];
     NSString* responseContentType = responseContentTypes.count > 0 ? responseContentTypes[0] : @"application/json";
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
@@ -493,7 +493,7 @@
         auth:(OAuth1Client *) auth onSuccess: (void (^)(NSArray* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock
          {
 
-    NSMutableString* requestUrl = [NSMutableString stringWithFormat:@"%@/v3/notifications/inbox/app/{app_code}/user/{user_code}/{index}/{page_size}/", [[ApiClient sharedInstance] url]];
+    NSMutableString* requestUrl = [NSMutableString stringWithFormat:@"%@/v3/notifications/inbox/app/{app_code}/user/{user_code}/{index}/{page_size}", [[ApiClient sharedInstance] url]];
 
     // remove format in URL if needed
     if ([requestUrl rangeOfString:@".{format}"].location != NSNotFound){
@@ -506,10 +506,10 @@
     [requestUrl replaceCharactersInRange: [requestUrl rangeOfString:[NSString stringWithFormat:@"%@%@%@", @"{", @"page_size", @"}"]] withString: [ApiClient escape:page_size]];
     
 
-	NSArray * requestContentTypes = @[];
+	NSArray * requestContentTypes = @[@"application/json"];
     NSString* requestContentType = requestContentTypes.count > 0 ? requestContentTypes[0] : @"application/json";
 
-    NSArray * responseContentTypes = @[];
+    NSArray * responseContentTypes = @[@"application/json"];
     NSString* responseContentType = responseContentTypes.count > 0 ? responseContentTypes[0] : @"application/json";
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
@@ -577,10 +577,10 @@
     [requestUrl replaceCharactersInRange: [requestUrl rangeOfString:[NSString stringWithFormat:@"%@%@%@", @"{", @"code", @"}"]] withString: [ApiClient escape:code]];
     
 
-	NSArray * requestContentTypes = @[];
+	NSArray * requestContentTypes = @[@"application/json"];
     NSString* requestContentType = requestContentTypes.count > 0 ? requestContentTypes[0] : @"application/json";
 
-    NSArray * responseContentTypes = @[];
+    NSArray * responseContentTypes = @[@"application/json"];
     NSString* responseContentType = responseContentTypes.count > 0 ? responseContentTypes[0] : @"application/json";
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
@@ -644,7 +644,7 @@
         auth:(OAuth1Client *) auth onSuccess: (void (^)(NSArray* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock
          {
 
-    NSMutableString* requestUrl = [NSMutableString stringWithFormat:@"%@/v3/notifications/status/{status}/app/{app_code}/user/{user_code}/device/{device_code}/{index}/{page_size}/", [[ApiClient sharedInstance] url]];
+    NSMutableString* requestUrl = [NSMutableString stringWithFormat:@"%@/v3/notifications/status/{status}/app/{app_code}/user/{user_code}/device/{device_code}/{index}/{page_size}", [[ApiClient sharedInstance] url]];
 
     // remove format in URL if needed
     if ([requestUrl rangeOfString:@".{format}"].location != NSNotFound){
@@ -659,10 +659,10 @@
     [requestUrl replaceCharactersInRange: [requestUrl rangeOfString:[NSString stringWithFormat:@"%@%@%@", @"{", @"page_size", @"}"]] withString: [ApiClient escape:page_size]];
     
 
-	NSArray * requestContentTypes = @[];
+	NSArray * requestContentTypes = @[@"application/json"];
     NSString* requestContentType = requestContentTypes.count > 0 ? requestContentTypes[0] : @"application/json";
 
-    NSArray * responseContentTypes = @[];
+    NSArray * responseContentTypes = @[@"application/json"];
     NSString* responseContentType = responseContentTypes.count > 0 ? responseContentTypes[0] : @"application/json";
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
@@ -724,7 +724,7 @@
         auth:(OAuth1Client *) auth onSuccess: (void (^)(NSArray* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock
          {
 
-    NSMutableString* requestUrl = [NSMutableString stringWithFormat:@"%@/v3/notifications/status/{status}/app/{app_code}/user/{user_code}/{index}/{page_size}/", [[ApiClient sharedInstance] url]];
+    NSMutableString* requestUrl = [NSMutableString stringWithFormat:@"%@/v3/notifications/status/{status}/app/{app_code}/user/{user_code}/{index}/{page_size}", [[ApiClient sharedInstance] url]];
 
     // remove format in URL if needed
     if ([requestUrl rangeOfString:@".{format}"].location != NSNotFound){
@@ -738,10 +738,10 @@
     [requestUrl replaceCharactersInRange: [requestUrl rangeOfString:[NSString stringWithFormat:@"%@%@%@", @"{", @"page_size", @"}"]] withString: [ApiClient escape:page_size]];
     
 
-	NSArray * requestContentTypes = @[];
+	NSArray * requestContentTypes = @[@"application/json"];
     NSString* requestContentType = requestContentTypes.count > 0 ? requestContentTypes[0] : @"application/json";
 
-    NSArray * responseContentTypes = @[];
+    NSArray * responseContentTypes = @[@"application/json"];
     NSString* responseContentType = responseContentTypes.count > 0 ? responseContentTypes[0] : @"application/json";
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
@@ -790,6 +790,140 @@
                 onErrorBlock(error);
                 
             }];
+    
+    
+}
+
++(NSNumber*) findNotificationsByToken: (NSString*) push_token
+        
+        
+        auth:(OAuth1Client *) auth onSuccess: (void)onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock {
+
+    NSMutableString* requestUrl = [NSMutableString stringWithFormat:@"%@/v3/notifications/token/{push_token}", [[ApiClient sharedInstance] url]];
+
+    // remove format in URL if needed
+    if ([requestUrl rangeOfString:@".{format}"].location != NSNotFound){
+        [requestUrl replaceCharactersInRange: [requestUrl rangeOfString:@".{format}"] withString:@".json"];
+    }
+
+    [requestUrl replaceCharactersInRange: [requestUrl rangeOfString:[NSString stringWithFormat:@"%@%@%@", @"{", @"push_token", @"}"]] withString: [ApiClient escape:push_token]];
+    
+
+	NSArray * requestContentTypes = @[@"application/json"];
+    NSString* requestContentType = requestContentTypes.count > 0 ? requestContentTypes[0] : @"application/json";
+
+    NSArray * responseContentTypes = @[@"application/json"];
+    NSString* responseContentType = responseContentTypes.count > 0 ? responseContentTypes[0] : @"application/json";
+
+    NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
+    
+    NSMutableDictionary* headerParams = [[NSMutableDictionary alloc] init];
+    
+
+    id bodyDictionary = nil;
+    
+    
+    bodyDictionary = [[NSMutableArray alloc] init];
+
+    NSMutableDictionary * formParams = [[NSMutableDictionary alloc]init];
+
+    
+    [bodyDictionary addObject:formParams];
+    
+
+    
+
+    ApiClient* client = [ApiClient sharedInstance];
+
+    
+    
+            // primitive response type
+    
+    
+    // no return base type
+    return [client stringWithCompletionBlock: requestUrl
+                                      method: @"GET"
+                                 queryParams: queryParams
+                                        body: bodyDictionary
+                                headerParams: headerParams
+                          requestContentType: requestContentType
+                         responseContentType: responseContentType
+                             successBlock: ^(NSString *data) {
+                                onSuccessBlock(data);
+                             }
+                             onErrorBlock: ^(NSError *error) {
+                errorBlock(error);
+                    }];
+    
+
+    
+    
+}
+
++(NSNumber*) findNotificationsByTokenStatus: (NSString*) push_token
+         status: (NSString*) status
+        
+        
+        auth:(OAuth1Client *) auth onSuccess: (void)onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock {
+
+    NSMutableString* requestUrl = [NSMutableString stringWithFormat:@"%@/v3/notifications/token/{push_token}/status/{status}", [[ApiClient sharedInstance] url]];
+
+    // remove format in URL if needed
+    if ([requestUrl rangeOfString:@".{format}"].location != NSNotFound){
+        [requestUrl replaceCharactersInRange: [requestUrl rangeOfString:@".{format}"] withString:@".json"];
+    }
+
+    [requestUrl replaceCharactersInRange: [requestUrl rangeOfString:[NSString stringWithFormat:@"%@%@%@", @"{", @"push_token", @"}"]] withString: [ApiClient escape:push_token]];
+    [requestUrl replaceCharactersInRange: [requestUrl rangeOfString:[NSString stringWithFormat:@"%@%@%@", @"{", @"status", @"}"]] withString: [ApiClient escape:status]];
+    
+
+	NSArray * requestContentTypes = @[@"application/json"];
+    NSString* requestContentType = requestContentTypes.count > 0 ? requestContentTypes[0] : @"application/json";
+
+    NSArray * responseContentTypes = @[@"application/json"];
+    NSString* responseContentType = responseContentTypes.count > 0 ? responseContentTypes[0] : @"application/json";
+
+    NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
+    
+    NSMutableDictionary* headerParams = [[NSMutableDictionary alloc] init];
+    
+
+    id bodyDictionary = nil;
+    
+    
+    bodyDictionary = [[NSMutableArray alloc] init];
+
+    NSMutableDictionary * formParams = [[NSMutableDictionary alloc]init];
+
+    
+    [bodyDictionary addObject:formParams];
+    
+
+    
+
+    ApiClient* client = [ApiClient sharedInstance];
+
+    
+    
+            // primitive response type
+    
+    
+    // no return base type
+    return [client stringWithCompletionBlock: requestUrl
+                                      method: @"GET"
+                                 queryParams: queryParams
+                                        body: bodyDictionary
+                                headerParams: headerParams
+                          requestContentType: requestContentType
+                         responseContentType: responseContentType
+                             successBlock: ^(NSString *data) {
+                                onSuccessBlock(data);
+                             }
+                             onErrorBlock: ^(NSError *error) {
+                errorBlock(error);
+                    }];
+    
+
     
     
 }

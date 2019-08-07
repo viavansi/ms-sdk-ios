@@ -28,7 +28,7 @@
 @property(nonatomic) NSNumber* clientSignature;  
 @property(nonatomic) NSArray* finalizeActions;  
 @property(nonatomic) NSArray* groups;  
-@property(nonatomic) NSNumber* sSLPinningEnabled;  
+@property(nonatomic) NSNumber* sslpinningEnabled;  
 - (id) viafirmaURL: (NSString*) viafirmaURL     
     editableURL: (NSNumber*) editableURL     
     frontCamera: (NSNumber*) frontCamera     
@@ -49,7 +49,7 @@
     clientSignature: (NSNumber*) clientSignature     
     finalizeActions: (NSArray*) finalizeActions     
     groups: (NSArray*) groups     
-    sSLPinningEnabled: (NSNumber*) sSLPinningEnabled;
+    sslpinningEnabled: (NSNumber*) sslpinningEnabled;
     
 
 - (id) initWithValues: (NSDictionary*)dict;
