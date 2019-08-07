@@ -283,7 +283,7 @@
 +(NSNumber*) findNotificationsByToken :(NSString*) push_token 
     
     
-    auth:(OAuth1Client *) auth onSuccess: (void)onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(void))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
 
 
 /**
@@ -303,7 +303,7 @@
      status:(NSString*) status 
     
     
-    auth:(OAuth1Client *) auth onSuccess: (void)onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(void))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
 
 
 

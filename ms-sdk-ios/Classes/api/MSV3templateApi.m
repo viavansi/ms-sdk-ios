@@ -161,7 +161,7 @@
 +(NSNumber*) generatePdf: (MSDocument*) body
         
         
-        auth:(OAuth1Client *) auth onSuccess: (void)onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock {
+        auth:(OAuth1Client *) auth onSuccess: (void (^)(void))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock {
 
     NSMutableString* requestUrl = [NSMutableString stringWithFormat:@"%@/v3/template/pdf", [[ApiClient sharedInstance] url]];
 
@@ -225,7 +225,8 @@
     
     
     // no return base type
-    return [client stringWithCompletionBlock: requestUrl
+    return [client stringWithCompletionBlock: auth
+    							  requestUrl: requestUrl
                                       method: @"POST"
                                  queryParams: queryParams
                                         body: bodyDictionary
@@ -233,10 +234,10 @@
                           requestContentType: requestContentType
                          responseContentType: responseContentType
                              successBlock: ^(NSString *data) {
-                                onSuccessBlock(data);
+                                onSuccessBlock();
                              }
-                             onErrorBlock: ^(NSError *error) {
-                errorBlock(error);
+                             errorBlock: ^(NSError *error) {
+                onErrorBlock(error);
                     }];
     
 
