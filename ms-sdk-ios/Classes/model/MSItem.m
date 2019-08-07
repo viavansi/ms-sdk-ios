@@ -33,6 +33,8 @@
 @synthesize increment = _increment;
 @synthesize scanTypes = _scanTypes;
 @synthesize originalValue = _originalValue;
+@synthesize scanHideTextfield = _scanHideTextfield;
+@synthesize scanExpression = _scanExpression;
 
 -(id)key: (NSString*) key
     value: (NSString*) value
@@ -64,6 +66,8 @@
     increment: (NSNumber*) increment
     scanTypes: (NSArray*) scanTypes
     originalValue: (NSString*) originalValue
+    scanHideTextfield: (NSNumber*) scanHideTextfield
+    scanExpression: (NSString*) scanExpression
     
 {
     _key = key;
@@ -96,6 +100,8 @@
     _increment = increment;
     _scanTypes = scanTypes;
     _originalValue = originalValue;
+    _scanHideTextfield = scanHideTextfield;
+    _scanExpression = scanExpression;
     
 
     return self;
@@ -164,6 +170,10 @@
         _scanTypes = dict[@"scanTypes"];
         
         _originalValue = dict[@"originalValue"];
+        
+        _scanHideTextfield = dict[@"scanHideTextfield"];
+        
+        _scanExpression = dict[@"scanExpression"];
         
         
     }
@@ -291,6 +301,14 @@
     
     
             if(_originalValue != nil) dict[@"originalValue"] = _originalValue ;
+        
+    
+    
+            if(_scanHideTextfield != nil) dict[@"scanHideTextfield"] = _scanHideTextfield ;
+        
+    
+    
+            if(_scanExpression != nil) dict[@"scanExpression"] = _scanExpression ;
         
     
 

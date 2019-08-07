@@ -34,6 +34,8 @@
 @property(nonatomic) NSNumber* increment;  
 @property(nonatomic) NSArray* scanTypes;  
 @property(nonatomic) NSString* originalValue;  
+@property(nonatomic) NSNumber* scanHideTextfield;  
+@property(nonatomic) NSString* scanExpression;  
 - (id) key: (NSString*) key     
     value: (NSString*) value     
     type: (NSString*) type     
@@ -63,7 +65,9 @@
     defaultCountry: (NSString*) defaultCountry     
     increment: (NSNumber*) increment     
     scanTypes: (NSArray*) scanTypes     
-    originalValue: (NSString*) originalValue;
+    originalValue: (NSString*) originalValue     
+    scanHideTextfield: (NSNumber*) scanHideTextfield     
+    scanExpression: (NSString*) scanExpression;
     
 
 - (id) initWithValues: (NSDictionary*)dict;
