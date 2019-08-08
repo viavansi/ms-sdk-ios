@@ -40,7 +40,7 @@
 
  return type: NSString*
  */
-+(NSNumber*) sendMessageData_1 :(MSGroupUserData*) body 
++(NSNumber*) createApp :(MSGroupUserData*) body 
     
     auth:(OAuth1Client *) auth onSuccess: (void (^)(NSString* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     

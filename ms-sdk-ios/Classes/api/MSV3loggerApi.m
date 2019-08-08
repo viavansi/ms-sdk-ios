@@ -1,7 +1,7 @@
 #import "MSV3loggerApi.h"
 #import "SWGFile.h"
 #import "ApiClient.h"
-#import "MSItem.h"
+#import "MSLog.h"
 
 
 
@@ -12,9 +12,9 @@
 }
 
 
-+(NSNumber*) addLog: (MSItem*) body
++(NSNumber*) addLog: (MSLog*) body
         
-        auth:(OAuth1Client *) auth onSuccess: (void (^)(MSItem* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock
+        auth:(OAuth1Client *) auth onSuccess: (void (^)(MSLog* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock
          {
 
     NSMutableString* requestUrl = [NSMutableString stringWithFormat:@"%@/v3/logger", [[ApiClient sharedInstance] url]];
@@ -88,9 +88,9 @@
           responseContentType: responseContentType
               successBlock: ^(NSDictionary *data) {
                 
-                MSItem *result = nil;
+                MSLog *result = nil;
                 if (data) {
-                    result = [[MSItem    alloc]initWithValues: data];
+                    result = [[MSLog    alloc]initWithValues: data];
                 }
                 onSuccessBlock(result);
                 

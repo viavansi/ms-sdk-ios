@@ -1,5 +1,5 @@
 #import <Foundation/Foundation.h>
-#import "MSItem.h"
+#import "MSLog.h"
 #import "SWGObject.h"
 #import "OAuth1Client.h"
 
@@ -18,11 +18,11 @@
  @param body Log data
  
 
- return type: MSItem*
+ return type: MSLog*
  */
-+(NSNumber*) addLog :(MSItem*) body 
++(NSNumber*) addLog :(MSLog*) body 
     
-    auth:(OAuth1Client *) auth onSuccess: (void (^)(MSItem* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(MSLog* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     
 
 

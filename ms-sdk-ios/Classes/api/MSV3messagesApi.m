@@ -790,7 +790,7 @@
     
 }
 
-+(NSNumber*) changeNotificationStatus: (NSString*) messageCode
++(NSNumber*) changeExternalStatus: (NSString*) messageCode
          status: (NSString*) status
         
         auth:(OAuth1Client *) auth onSuccess: (void (^)(MSMessage* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock

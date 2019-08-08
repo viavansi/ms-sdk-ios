@@ -60,7 +60,7 @@
 
  return type: MSNotification*
  */
-+(NSNumber*) changeNotificationStatus_1 :(NSString*) code 
++(NSNumber*) changeNotificationStatus :(NSString*) code 
      status:(NSString*) status 
     
     auth:(OAuth1Client *) auth onSuccess: (void (^)(MSNotification* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
