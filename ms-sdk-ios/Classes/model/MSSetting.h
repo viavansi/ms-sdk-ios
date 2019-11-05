@@ -1,6 +1,7 @@
 #import <Foundation/Foundation.h>
 #import "SWGObject.h"
 #import "MSCustomization.h"
+#import "MSParam.h"
 #import "MSPolicy.h"
 #import "MSAcrofieldPosition.h"
 #import "MSFont.h"
@@ -28,6 +29,8 @@
 @property(nonatomic) NSNumber* allowDocumentResend;  
 @property(nonatomic) MSCustomization* customization;  
 @property(nonatomic) NSArray* callbackMailsFromForm;  
+@property(nonatomic) NSArray* metadataList;  
+@property(nonatomic) NSNumber* retryTime;  
 - (id) titleKey: (NSString*) titleKey     
     descriptionKey: (NSString*) descriptionKey     
     policy: (MSPolicy*) policy     
@@ -47,7 +50,9 @@
     readDocumentRequired: (NSNumber*) readDocumentRequired     
     allowDocumentResend: (NSNumber*) allowDocumentResend     
     customization: (MSCustomization*) customization     
-    callbackMailsFromForm: (NSArray*) callbackMailsFromForm;
+    callbackMailsFromForm: (NSArray*) callbackMailsFromForm     
+    metadataList: (NSArray*) metadataList     
+    retryTime: (NSNumber*) retryTime;
     
 
 - (id) initWithValues: (NSDictionary*)dict;

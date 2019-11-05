@@ -6,7 +6,9 @@
 @synthesize type = _type;
 @synthesize _id = __id;
 @synthesize enabledExpression = _enabledExpression;
+@synthesize visibleExpression = _visibleExpression;
 @synthesize enabled = _enabled;
+@synthesize visible = _visible;
 @synthesize code = _code;
 @synthesize status = _status;
 @synthesize helpText = _helpText;
@@ -46,11 +48,14 @@
 @synthesize base64Image = _base64Image;
 @synthesize imageType = _imageType;
 @synthesize addLink = _addLink;
+@synthesize recipientKey = _recipientKey;
 
 -(id)type: (NSString*) type
     _id: (NSString*) _id
     enabledExpression: (NSString*) enabledExpression
+    visibleExpression: (NSString*) visibleExpression
     enabled: (NSNumber*) enabled
+    visible: (NSNumber*) visible
     code: (NSString*) code
     status: (NSString*) status
     helpText: (NSString*) helpText
@@ -90,12 +95,15 @@
     base64Image: (NSString*) base64Image
     imageType: (NSString*) imageType
     addLink: (NSNumber*) addLink
+    recipientKey: (NSString*) recipientKey
     
 {
     _type = type;
     __id = _id;
     _enabledExpression = enabledExpression;
+    _visibleExpression = visibleExpression;
     _enabled = enabled;
+    _visible = visible;
     _code = code;
     _status = status;
     _helpText = helpText;
@@ -135,6 +143,7 @@
     _base64Image = base64Image;
     _imageType = imageType;
     _addLink = addLink;
+    _recipientKey = recipientKey;
     
 
     return self;
@@ -150,7 +159,11 @@
         
         _enabledExpression = dict[@"enabledExpression"];
         
+        _visibleExpression = dict[@"visibleExpression"];
+        
         _enabled = dict[@"enabled"];
+        
+        _visible = dict[@"visible"];
         
         _code = dict[@"code"];
         
@@ -326,6 +339,8 @@
         
         _addLink = dict[@"addLink"];
         
+        _recipientKey = dict[@"recipientKey"];
+        
         
     }
     return self;
@@ -347,7 +362,15 @@
         
     
     
+            if(_visibleExpression != nil) dict[@"visibleExpression"] = _visibleExpression ;
+        
+    
+    
             if(_enabled != nil) dict[@"enabled"] = _enabled ;
+        
+    
+    
+            if(_visible != nil) dict[@"visible"] = _visible ;
         
     
     
@@ -693,6 +716,10 @@
     
     
             if(_addLink != nil) dict[@"addLink"] = _addLink ;
+        
+    
+    
+            if(_recipientKey != nil) dict[@"recipientKey"] = _recipientKey ;
         
     
 

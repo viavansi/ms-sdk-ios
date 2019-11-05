@@ -27,6 +27,7 @@
 @property(nonatomic) NSNumber* allowResend;  
 @property(nonatomic) NSNumber* deleteSignedDocuments;  
 @property(nonatomic) NSString* watermarkText;  
+@property(nonatomic) NSNumber* extraPages;  
 @property(nonatomic) NSNumber* formUpdated;  
 - (id) templateCode: (NSString*) templateCode     
     templateReference: (NSString*) templateReference     
@@ -49,6 +50,7 @@
     allowResend: (NSNumber*) allowResend     
     deleteSignedDocuments: (NSNumber*) deleteSignedDocuments     
     watermarkText: (NSString*) watermarkText     
+    extraPages: (NSNumber*) extraPages     
     formUpdated: (NSNumber*) formUpdated;
     
 

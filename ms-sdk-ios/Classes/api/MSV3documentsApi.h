@@ -10,19 +10,21 @@
 +(unsigned long) requestQueueSize;
 /**
 
+ Add cache
  
+ Add cache
  
 
  
  @param body Base64 document
  
 
- return type: 
+ return type: NSString*
  */
 +(NSNumber*) addCache :(MSBase64*) body 
     
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(NSString* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     
-    auth:(OAuth1Client *) auth onSuccess: (void (^)(void))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
 
 
 /**
@@ -84,7 +86,9 @@
 
 /**
 
+ Method for get document
  
+ Return byte[] with the document
  
 
  
@@ -95,14 +99,14 @@
  @param documentCode Document&#39;s unique code
  
 
- return type: 
+ return type: NSArray*
  */
 +(NSNumber*) getDocument :(NSString*) type 
      messageCode:(NSString*) messageCode 
      documentCode:(NSString*) documentCode 
     
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(NSArray* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     
-    auth:(OAuth1Client *) auth onSuccess: (void (^)(void))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
 
 
 

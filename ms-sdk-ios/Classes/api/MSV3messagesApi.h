@@ -148,7 +148,7 @@
 
  return type: NSArray*
  */
-+(NSNumber*) getMessagesByExternalStatus_1 :(NSString*) groupCode 
++(NSNumber*) getMessagesByExternalStatus :(NSString*) groupCode 
      requestAppCode:(NSString*) requestAppCode 
      templateCode:(NSString*) templateCode 
     
@@ -175,7 +175,7 @@
 
  return type: NSArray*
  */
-+(NSNumber*) getMessagesByExternalStatus :(NSString*) externalStatus 
++(NSNumber*) getMessagesByExternalStatus_1 :(NSString*) externalStatus 
      groupCode:(NSString*) groupCode 
      requestAppCode:(NSString*) requestAppCode 
      templateCode:(NSString*) templateCode 
@@ -351,6 +351,34 @@
 +(NSNumber*) retryMessage :(NSString*) code 
     
     auth:(OAuth1Client *) auth onSuccess: (void (^)(NSString* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    
+
+
+/**
+
+ Method for send mails and/or phones the notification
+ 
+ Method for send mails and/or phones the URL
+ 
+
+ 
+ @param messageCode Message Code
+ 
+ @param recipients Recipients 
+ 
+ @param smsText smsText
+ 
+ @param mailText mailText
+ 
+
+ return type: MSMessage*
+ */
++(NSNumber*) resendWebNotification :(NSString*) messageCode 
+     recipients:(NSString*) recipients 
+     smsText:(NSString*) smsText 
+     mailText:(NSString*) mailText 
+    
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(MSMessage* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     
 
 

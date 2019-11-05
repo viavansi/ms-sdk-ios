@@ -796,8 +796,8 @@
 
 +(NSNumber*) findNotificationsByToken: (NSString*) push_token
         
-        
-        auth:(OAuth1Client *) auth onSuccess: (void (^)(void))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock {
+        auth:(OAuth1Client *) auth onSuccess: (void (^)(NSString* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock
+         {
 
     NSMutableString* requestUrl = [NSMutableString stringWithFormat:@"%@/v3/notifications/token/{push_token}", [[ApiClient sharedInstance] url]];
 
@@ -838,34 +838,34 @@
     
     
             // primitive response type
-    
-    
-    // no return base type
     return [client stringWithCompletionBlock: auth
-    							  requestUrl: requestUrl
-                                      method: @"GET"
-                                 queryParams: queryParams
-                                        body: bodyDictionary
-                                headerParams: headerParams
-                          requestContentType: requestContentType
-                         responseContentType: responseContentType
-                             successBlock: ^(NSString *data) {
-                                onSuccessBlock();
-                             }
-                             errorBlock: ^(NSError *error) {
-                onErrorBlock(error);
-                    }];
+					                                requestUrl: requestUrl 
+                                              method: @"GET"
+                                         queryParams: queryParams
+                                                body: bodyDictionary
+                                        headerParams: headerParams
+                                  requestContentType: requestContentType
+                                 responseContentType: responseContentType
+                                     successBlock: ^(NSString *data) {
+                                        NSString *result = data ? [[NSString  alloc]initWithString: data] : nil;
+                                        onSuccessBlock(result);
+                                     }
+                                     errorBlock: ^(NSError *error) {
+                         onErrorBlock(error);
+                     }];
+    
     
 
-    
+        
+
     
 }
 
 +(NSNumber*) findNotificationsByTokenStatus: (NSString*) push_token
          status: (NSString*) status
         
-        
-        auth:(OAuth1Client *) auth onSuccess: (void (^)(void))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock {
+        auth:(OAuth1Client *) auth onSuccess: (void (^)(NSString* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock
+         {
 
     NSMutableString* requestUrl = [NSMutableString stringWithFormat:@"%@/v3/notifications/token/{push_token}/status/{status}", [[ApiClient sharedInstance] url]];
 
@@ -907,26 +907,26 @@
     
     
             // primitive response type
-    
-    
-    // no return base type
     return [client stringWithCompletionBlock: auth
-    							  requestUrl: requestUrl
-                                      method: @"GET"
-                                 queryParams: queryParams
-                                        body: bodyDictionary
-                                headerParams: headerParams
-                          requestContentType: requestContentType
-                         responseContentType: responseContentType
-                             successBlock: ^(NSString *data) {
-                                onSuccessBlock();
-                             }
-                             errorBlock: ^(NSError *error) {
-                onErrorBlock(error);
-                    }];
+					                                requestUrl: requestUrl 
+                                              method: @"GET"
+                                         queryParams: queryParams
+                                                body: bodyDictionary
+                                        headerParams: headerParams
+                                  requestContentType: requestContentType
+                                 responseContentType: responseContentType
+                                     successBlock: ^(NSString *data) {
+                                        NSString *result = data ? [[NSString  alloc]initWithString: data] : nil;
+                                        onSuccessBlock(result);
+                                     }
+                                     errorBlock: ^(NSError *error) {
+                         onErrorBlock(error);
+                     }];
+    
     
 
-    
+        
+
     
 }
 

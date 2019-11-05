@@ -160,8 +160,8 @@
 
 +(NSNumber*) generatePdf: (MSDocument*) body
         
-        
-        auth:(OAuth1Client *) auth onSuccess: (void (^)(void))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock {
+        auth:(OAuth1Client *) auth onSuccess: (void (^)(NSString* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock
+         {
 
     NSMutableString* requestUrl = [NSMutableString stringWithFormat:@"%@/v3/template/pdf", [[ApiClient sharedInstance] url]];
 
@@ -222,26 +222,26 @@
     
     
             // primitive response type
-    
-    
-    // no return base type
     return [client stringWithCompletionBlock: auth
-    							  requestUrl: requestUrl
-                                      method: @"POST"
-                                 queryParams: queryParams
-                                        body: bodyDictionary
-                                headerParams: headerParams
-                          requestContentType: requestContentType
-                         responseContentType: responseContentType
-                             successBlock: ^(NSString *data) {
-                                onSuccessBlock();
-                             }
-                             errorBlock: ^(NSError *error) {
-                onErrorBlock(error);
-                    }];
+					                                requestUrl: requestUrl 
+                                              method: @"POST"
+                                         queryParams: queryParams
+                                                body: bodyDictionary
+                                        headerParams: headerParams
+                                  requestContentType: requestContentType
+                                 responseContentType: responseContentType
+                                     successBlock: ^(NSString *data) {
+                                        NSString *result = data ? [[NSString  alloc]initWithString: data] : nil;
+                                        onSuccessBlock(result);
+                                     }
+                                     errorBlock: ^(NSError *error) {
+                         onErrorBlock(error);
+                     }];
+    
     
 
-    
+        
+
     
 }
 

@@ -18,6 +18,7 @@
 @synthesize retryTime = _retryTime;
 @synthesize customization = _customization;
 @synthesize deliveryGroup = _deliveryGroup;
+@synthesize deliveryUsers = _deliveryUsers;
 @synthesize deliveryType = _deliveryType;
 @synthesize deliveryAppCode = _deliveryAppCode;
 @synthesize metadata = _metadata;
@@ -38,6 +39,7 @@
     retryTime: (NSNumber*) retryTime
     customization: (MSCustomization*) customization
     deliveryGroup: (NSString*) deliveryGroup
+    deliveryUsers: (NSString*) deliveryUsers
     deliveryType: (NSString*) deliveryType
     deliveryAppCode: (NSString*) deliveryAppCode
     metadata: (NSArray*) metadata
@@ -59,6 +61,7 @@
     _retryTime = retryTime;
     _customization = customization;
     _deliveryGroup = deliveryGroup;
+    _deliveryUsers = deliveryUsers;
     _deliveryType = deliveryType;
     _deliveryAppCode = deliveryAppCode;
     _metadata = metadata;
@@ -119,6 +122,8 @@
         
         
         _deliveryGroup = dict[@"deliveryGroup"];
+        
+        _deliveryUsers = dict[@"deliveryUsers"];
         
         _deliveryType = dict[@"deliveryType"];
         
@@ -297,6 +302,10 @@
     
     
             if(_deliveryGroup != nil) dict[@"deliveryGroup"] = _deliveryGroup ;
+        
+    
+    
+            if(_deliveryUsers != nil) dict[@"deliveryUsers"] = _deliveryUsers ;
         
     
     

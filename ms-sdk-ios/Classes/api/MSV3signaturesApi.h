@@ -94,6 +94,28 @@
 
 /**
 
+ Method for get an signature status
+ 
+ Get signature status
+ 
+
+ 
+ @param messageCode Message&#39;s identifier
+ 
+ @param signatureCode Signature&#39;s identifier
+ 
+
+ return type: MSSignature*
+ */
++(NSNumber*) getSignatureByCode :(NSString*) messageCode 
+     signatureCode:(NSString*) signatureCode 
+    
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(MSSignature* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    
+
+
+/**
+
  Method to update the status of a signature
  
  

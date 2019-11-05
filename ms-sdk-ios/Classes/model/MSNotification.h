@@ -24,6 +24,7 @@
 @property(nonatomic) NSNumber* retryTime;  
 @property(nonatomic) MSCustomization* customization;  
 @property(nonatomic) NSString* deliveryGroup;  
+@property(nonatomic) NSString* deliveryUsers;  
 @property(nonatomic) NSString* deliveryType;  
 @property(nonatomic) NSString* deliveryAppCode;  
 @property(nonatomic) NSArray* metadata;  
@@ -43,6 +44,7 @@
     retryTime: (NSNumber*) retryTime     
     customization: (MSCustomization*) customization     
     deliveryGroup: (NSString*) deliveryGroup     
+    deliveryUsers: (NSString*) deliveryUsers     
     deliveryType: (NSString*) deliveryType     
     deliveryAppCode: (NSString*) deliveryAppCode     
     metadata: (NSArray*) metadata     

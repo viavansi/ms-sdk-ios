@@ -50,6 +50,9 @@
 @property(nonatomic) NSArray* transfers;  
 @property(nonatomic) NSString* languageId;  
 @property(nonatomic) NSString* timeZoneId;  
+@property(nonatomic) NSString* setCode;  
+@property(nonatomic) NSString* setStatus;  
+@property(nonatomic) NSString* signPageServer;  
 - (id) code: (NSString*) code     
     externalCode: (NSString*) externalCode     
     externalStatus: (NSString*) externalStatus     
@@ -86,7 +89,10 @@
     auditory: (NSArray*) auditory     
     transfers: (NSArray*) transfers     
     languageId: (NSString*) languageId     
-    timeZoneId: (NSString*) timeZoneId;
+    timeZoneId: (NSString*) timeZoneId     
+    setCode: (NSString*) setCode     
+    setStatus: (NSString*) setStatus     
+    signPageServer: (NSString*) signPageServer;
     
 
 - (id) initWithValues: (NSDictionary*)dict;

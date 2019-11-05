@@ -40,6 +40,9 @@
 @synthesize transfers = _transfers;
 @synthesize languageId = _languageId;
 @synthesize timeZoneId = _timeZoneId;
+@synthesize setCode = _setCode;
+@synthesize setStatus = _setStatus;
+@synthesize signPageServer = _signPageServer;
 
 -(id)code: (NSString*) code
     externalCode: (NSString*) externalCode
@@ -78,6 +81,9 @@
     transfers: (NSArray*) transfers
     languageId: (NSString*) languageId
     timeZoneId: (NSString*) timeZoneId
+    setCode: (NSString*) setCode
+    setStatus: (NSString*) setStatus
+    signPageServer: (NSString*) signPageServer
     
 {
     _code = code;
@@ -117,6 +123,9 @@
     _transfers = transfers;
     _languageId = languageId;
     _timeZoneId = timeZoneId;
+    _setCode = setCode;
+    _setStatus = setStatus;
+    _signPageServer = signPageServer;
     
 
     return self;
@@ -309,6 +318,12 @@
         _languageId = dict[@"languageId"];
         
         _timeZoneId = dict[@"timeZoneId"];
+        
+        _setCode = dict[@"setCode"];
+        
+        _setStatus = dict[@"setStatus"];
+        
+        _signPageServer = dict[@"signPageServer"];
         
         
     }
@@ -653,6 +668,18 @@
     
     
             if(_timeZoneId != nil) dict[@"timeZoneId"] = _timeZoneId ;
+        
+    
+    
+            if(_setCode != nil) dict[@"setCode"] = _setCode ;
+        
+    
+    
+            if(_setStatus != nil) dict[@"setStatus"] = _setStatus ;
+        
+    
+    
+            if(_signPageServer != nil) dict[@"signPageServer"] = _signPageServer ;
         
     
 

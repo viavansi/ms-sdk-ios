@@ -7,8 +7,8 @@
 @synthesize rotation = _rotation;
 @synthesize width = _width;
 @synthesize height = _height;
-@synthesize getxAxis = _getxAxis;
-@synthesize getyAxis = _getyAxis;
+@synthesize xAxis = _xAxis;
+@synthesize yAxis = _yAxis;
 @synthesize page = _page;
 @synthesize imageBase64 = _imageBase64;
 @synthesize positionsKey = _positionsKey;
@@ -18,8 +18,8 @@
     rotation: (NSString*) rotation
     width: (NSNumber*) width
     height: (NSNumber*) height
-    getxAxis: (NSNumber*) getxAxis
-    getyAxis: (NSNumber*) getyAxis
+    xAxis: (NSNumber*) xAxis
+    yAxis: (NSNumber*) yAxis
     page: (NSNumber*) page
     imageBase64: (NSString*) imageBase64
     positionsKey: (NSString*) positionsKey
@@ -30,8 +30,8 @@
     _rotation = rotation;
     _width = width;
     _height = height;
-    _getxAxis = getxAxis;
-    _getyAxis = getyAxis;
+    _xAxis = xAxis;
+    _yAxis = yAxis;
     _page = page;
     _imageBase64 = imageBase64;
     _positionsKey = positionsKey;
@@ -53,9 +53,9 @@
         
         _height = dict[@"height"];
         
-        _getxAxis = dict[@"getxAxis"];
+        _xAxis = dict[@"xAxis"];
         
-        _getyAxis = dict[@"getyAxis"];
+        _yAxis = dict[@"yAxis"];
         
         _page = dict[@"page"];
         
@@ -110,11 +110,11 @@
         
     
     
-            if(_getxAxis != nil) dict[@"getxAxis"] = _getxAxis ;
+            if(_xAxis != nil) dict[@"xAxis"] = _xAxis ;
         
     
     
-            if(_getyAxis != nil) dict[@"getyAxis"] = _getyAxis ;
+            if(_yAxis != nil) dict[@"yAxis"] = _yAxis ;
         
     
     

@@ -14,6 +14,7 @@
 @synthesize metadataList = _metadataList;
 @synthesize date = _date;
 @synthesize hash = _hash;
+@synthesize fileName = _fileName;
 
 -(id)type: (NSString*) type
     processType: (NSString*) processType
@@ -26,6 +27,7 @@
     metadataList: (NSArray*) metadataList
     date: (SWGDate*) date
     hash: (NSString*) hash
+    fileName: (NSString*) fileName
     
 {
     _type = type;
@@ -39,6 +41,7 @@
     _metadataList = metadataList;
     _date = date;
     _hash = hash;
+    _fileName = fileName;
     
 
     return self;
@@ -95,6 +98,8 @@
         
         
         _hash = dict[@"hash"];
+        
+        _fileName = dict[@"fileName"];
         
         
     }
@@ -188,6 +193,10 @@
     
     
             if(_hash != nil) dict[@"hash"] = _hash ;
+        
+    
+    
+            if(_fileName != nil) dict[@"fileName"] = _fileName ;
         
     
 

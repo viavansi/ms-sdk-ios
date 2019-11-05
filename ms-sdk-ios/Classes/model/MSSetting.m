@@ -23,6 +23,8 @@
 @synthesize allowDocumentResend = _allowDocumentResend;
 @synthesize customization = _customization;
 @synthesize callbackMailsFromForm = _callbackMailsFromForm;
+@synthesize metadataList = _metadataList;
+@synthesize retryTime = _retryTime;
 
 -(id)titleKey: (NSString*) titleKey
     descriptionKey: (NSString*) descriptionKey
@@ -44,6 +46,8 @@
     allowDocumentResend: (NSNumber*) allowDocumentResend
     customization: (MSCustomization*) customization
     callbackMailsFromForm: (NSArray*) callbackMailsFromForm
+    metadataList: (NSArray*) metadataList
+    retryTime: (NSNumber*) retryTime
     
 {
     _titleKey = titleKey;
@@ -66,6 +70,8 @@
     _allowDocumentResend = allowDocumentResend;
     _customization = customization;
     _callbackMailsFromForm = callbackMailsFromForm;
+    _metadataList = metadataList;
+    _retryTime = retryTime;
     
 
     return self;
@@ -172,6 +178,30 @@
         
         
         _callbackMailsFromForm = dict[@"callbackMailsFromForm"];
+        
+        
+        
+        id metadataList_dict = dict[@"metadataList"];
+        
+        if([metadataList_dict isKindOfClass:[NSArray class]]) {
+            NSMutableArray * objs = [[NSMutableArray alloc] initWithCapacity:[(NSArray*)metadataList_dict count]];
+            if([(NSArray*)metadataList_dict count] > 0) {
+                for (int i=0 ; i<[(NSArray*)metadataList_dict count] ; i++) {
+                	NSDictionary *dict = [[NSDictionary alloc] initWithDictionary:[metadataList_dict objectAtIndex:i]];
+                    MSParam* d = [[MSParam alloc] initWithValues:dict];
+                    [objs addObject:d];
+                }
+                _metadataList = [[NSArray alloc] initWithArray:objs];
+            }
+            else
+                _metadataList = [[NSArray alloc] init];
+        }
+        else {
+            _metadataList = [[NSArray alloc] init];
+        }
+        
+        
+        _retryTime = dict[@"retryTime"];
         
         
     }
@@ -364,6 +394,35 @@
     
     
             if(_callbackMailsFromForm != nil) dict[@"callbackMailsFromForm"] = _callbackMailsFromForm ;
+        
+    
+    
+    if(_metadataList != nil){
+        if([_metadataList isKindOfClass:[NSArray class]]){
+            NSMutableArray * array = [[NSMutableArray alloc] init];
+            for( int i=0 ; i<[(NSArray*)_metadataList count] ; i++ ) {
+				MSParam *metadataList = [[MSParam alloc]init];
+				metadataList = [(NSArray*)_metadataList objectAtIndex:i];
+                [array addObject:[(SWGObject*)metadataList asDictionary]];
+            }
+            dict[@"metadataList"] = array;
+        }
+        else if(_metadataList && [_metadataList isKindOfClass:[SWGDate class]]) {
+            NSString * dateString = [(SWGDate*)_metadataList toString];
+            if(dateString){
+                dict[@"metadataList"] = dateString;
+            }
+        }
+        else {
+        
+            if(_metadataList != nil) dict[@"metadataList"] = [(SWGObject*)_metadataList asDictionary];
+        
+        }
+    }
+    
+    
+    
+            if(_retryTime != nil) dict[@"retryTime"] = _retryTime ;
         
     
 

@@ -104,7 +104,7 @@
     
 }
 
-+(NSNumber*) registerUser: (MSUser*) body
++(NSNumber*) registerUser_2: (MSUser*) body
         
         auth:(OAuth1Client *) auth onSuccess: (void (^)(MSUser* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock
          {

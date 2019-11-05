@@ -16,7 +16,9 @@
 @property(nonatomic) NSString* type;  
 @property(nonatomic) NSString* _id;  
 @property(nonatomic) NSString* enabledExpression;  
+@property(nonatomic) NSString* visibleExpression;  
 @property(nonatomic) NSNumber* enabled;  
+@property(nonatomic) NSNumber* visible;  
 @property(nonatomic) NSString* code;  
 @property(nonatomic) NSString* status;  
 @property(nonatomic) NSString* helpText;  
@@ -56,10 +58,13 @@
 @property(nonatomic) NSString* base64Image;  
 @property(nonatomic) NSString* imageType;  
 @property(nonatomic) NSNumber* addLink;  
+@property(nonatomic) NSString* recipientKey;  
 - (id) type: (NSString*) type     
     _id: (NSString*) _id     
     enabledExpression: (NSString*) enabledExpression     
+    visibleExpression: (NSString*) visibleExpression     
     enabled: (NSNumber*) enabled     
+    visible: (NSNumber*) visible     
     code: (NSString*) code     
     status: (NSString*) status     
     helpText: (NSString*) helpText     
@@ -98,7 +103,8 @@
     phone: (NSString*) phone     
     base64Image: (NSString*) base64Image     
     imageType: (NSString*) imageType     
-    addLink: (NSNumber*) addLink;
+    addLink: (NSNumber*) addLink     
+    recipientKey: (NSString*) recipientKey;
     
 
 - (id) initWithValues: (NSDictionary*)dict;

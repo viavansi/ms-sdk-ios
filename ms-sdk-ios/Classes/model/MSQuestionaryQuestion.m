@@ -1,0 +1,108 @@
+#import "SWGDate.h"
+#import "MSQuestionaryQuestion.h"
+
+@implementation MSQuestionaryQuestion
+
+@synthesize code = _code;
+@synthesize text = _text;
+@synthesize answers = _answers;
+@synthesize selectedAnswerCode = _selectedAnswerCode;
+
+-(id)code: (NSString*) code
+    text: (NSString*) text
+    answers: (NSArray*) answers
+    selectedAnswerCode: (NSString*) selectedAnswerCode
+    
+{
+    _code = code;
+    _text = text;
+    _answers = answers;
+    _selectedAnswerCode = selectedAnswerCode;
+    
+
+    return self;
+}
+
+-(id) initWithValues:(NSDictionary*)dict
+{
+    self = [super init];
+    if(self) {
+        _code = dict[@"code"];
+        
+        _text = dict[@"text"];
+        
+        
+        
+        id answers_dict = dict[@"answers"];
+        
+        if([answers_dict isKindOfClass:[NSArray class]]) {
+            NSMutableArray * objs = [[NSMutableArray alloc] initWithCapacity:[(NSArray*)answers_dict count]];
+            if([(NSArray*)answers_dict count] > 0) {
+                for (int i=0 ; i<[(NSArray*)answers_dict count] ; i++) {
+                	NSDictionary *dict = [[NSDictionary alloc] initWithDictionary:[answers_dict objectAtIndex:i]];
+                    MSQuestionaryAnswer* d = [[MSQuestionaryAnswer alloc] initWithValues:dict];
+                    [objs addObject:d];
+                }
+                _answers = [[NSArray alloc] initWithArray:objs];
+            }
+            else
+                _answers = [[NSArray alloc] init];
+        }
+        else {
+            _answers = [[NSArray alloc] init];
+        }
+        
+        
+        _selectedAnswerCode = dict[@"selectedAnswerCode"];
+        
+        
+    }
+    return self;
+}
+
+-(NSDictionary*) asDictionary {
+    NSMutableDictionary* dict = [[NSMutableDictionary alloc] init];
+    
+    
+            if(_code != nil) dict[@"code"] = _code ;
+        
+    
+    
+            if(_text != nil) dict[@"text"] = _text ;
+        
+    
+    
+    if(_answers != nil){
+        if([_answers isKindOfClass:[NSArray class]]){
+            NSMutableArray * array = [[NSMutableArray alloc] init];
+            for( int i=0 ; i<[(NSArray*)_answers count] ; i++ ) {
+				MSQuestionaryAnswer *answers = [[MSQuestionaryAnswer alloc]init];
+				answers = [(NSArray*)_answers objectAtIndex:i];
+                [array addObject:[(SWGObject*)answers asDictionary]];
+            }
+            dict[@"answers"] = array;
+        }
+        else if(_answers && [_answers isKindOfClass:[SWGDate class]]) {
+            NSString * dateString = [(SWGDate*)_answers toString];
+            if(dateString){
+                dict[@"answers"] = dateString;
+            }
+        }
+        else {
+        
+            if(_answers != nil) dict[@"answers"] = [(SWGObject*)_answers asDictionary];
+        
+        }
+    }
+    
+    
+    
+            if(_selectedAnswerCode != nil) dict[@"selectedAnswerCode"] = _selectedAnswerCode ;
+        
+    
+
+    NSDictionary* output = [dict copy];
+    return output;
+}
+
+@end

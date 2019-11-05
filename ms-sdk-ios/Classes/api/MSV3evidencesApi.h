@@ -1,4 +1,7 @@
 #import <Foundation/Foundation.h>
+#import "MSAttachment.h"
+#import "MSFile.h"
+#import "MSAttachmentFile.h"
 #import "MSEvidence.h"
 #import "MSEvidenceFingerPrint.h"
 #import "MSEvidenceGeneric.h"
@@ -11,6 +14,100 @@
 @interface MSV3evidencesApi: NSObject
 
 +(unsigned long) requestQueueSize;
+/**
+
+ Method for add attachments 
+ 
+ Add new attachment as input stream
+ 
+
+ 
+ @param messageCode 
+ 
+ @param attachmentCode 
+ 
+ @param attachmentFile 
+ 
+ @param attachmentFilename 
+ 
+
+ return type: MSAttachment*
+ */
++(NSNumber*) attach :(NSString*) messageCode 
+     attachmentCode:(NSString*) attachmentCode 
+     attachmentFile:(MSFile*) attachmentFile 
+     attachmentFilename:(NSString*) attachmentFilename 
+    
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(MSAttachment* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    
+
+
+/**
+
+ Method for get attachment file data
+ 
+ Return json with file name and attach
+ 
+
+ 
+ @param messageCode Message&#39;s unique code
+ 
+ @param attachmentCode Attachment&#39;s unique code
+ 
+
+ return type: MSAttachmentFile*
+ */
++(NSNumber*) getAttachmentData :(NSString*) messageCode 
+     attachmentCode:(NSString*) attachmentCode 
+    
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(MSAttachmentFile* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    
+
+
+/**
+
+ Method for get attachment file
+ 
+ Return attachment file
+ 
+
+ 
+ @param messageCode Message&#39;s unique code
+ 
+ @param attachmentCode Attachment&#39;s unique code
+ 
+
+ return type: NSArray*
+ */
++(NSNumber*) getAttachmentFile :(NSString*) messageCode 
+     attachmentCode:(NSString*) attachmentCode 
+    
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(NSArray* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    
+
+
+/**
+
+ Method for get evidence image
+ 
+ Return byte[] with the image
+ 
+
+ 
+ @param messageCode Message&#39;s unique code
+ 
+ @param evidenceCode Evidence&#39;s unique code
+ 
+
+ return type: NSString*
+ */
++(NSNumber*) getEvidenceData :(NSString*) messageCode 
+     evidenceCode:(NSString*) evidenceCode 
+    
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(NSString* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    
+
+
 /**
 
  Method for add images as evidence
@@ -43,9 +140,28 @@
 
  return type: MSEvidence*
  */
-+(NSNumber*) addGenericAsEvidence :(MSEvidenceGeneric*) body 
++(NSNumber*) addGenericAsEvidence_1 :(MSEvidenceGeneric*) body 
     
     auth:(OAuth1Client *) auth onSuccess: (void (^)(MSEvidence* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    
+
+
+/**
+
+ Method for add images as evidence
+ 
+ Add new evidence (image)
+ 
+
+ 
+ @param body Data for update selected evidence
+ 
+
+ return type: NSNumber*
+ */
++(NSNumber*) addGenericAsEvidence :(NSArray*) body 
+    
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(NSNumber* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     
 
 
@@ -164,6 +280,50 @@
 
 /**
 
+ Method for delete evidence
+ 
+ Return evidence code
+ 
+
+ 
+ @param messageCode Message&#39;s unique code
+ 
+ @param evidenceCode Evidence&#39;s unique code
+ 
+
+ return type: NSString*
+ */
++(NSNumber*) removeEvidence :(NSString*) messageCode 
+     evidenceCode:(NSString*) evidenceCode 
+    
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(NSString* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    
+
+
+/**
+
+ Method for delete attachment
+ 
+ Return attachment code
+ 
+
+ 
+ @param messageCode Message&#39;s unique code
+ 
+ @param attachmentCode Evidence&#39;s unique code
+ 
+
+ return type: NSString*
+ */
++(NSNumber*) removeAttachment :(NSString*) messageCode 
+     attachmentCode:(NSString*) attachmentCode 
+    
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(NSString* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    
+
+
+/**
+
  Method for add images as evidence
  
  Add new evidence (image)
@@ -197,6 +357,28 @@
 +(NSNumber*) sendSmsChangePassword :(NSString*) userCode 
     
     auth:(OAuth1Client *) auth onSuccess: (void (^)(MSEvidence* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    
+
+
+/**
+
+ Method for get an evidence status
+ 
+ Get evidence status
+ 
+
+ 
+ @param messageCode Message&#39;s identifier
+ 
+ @param evidenceCode Evidence&#39;s identifier
+ 
+
+ return type: NSString*
+ */
++(NSNumber*) getEvidenceStatus :(NSString*) messageCode 
+     evidenceCode:(NSString*) evidenceCode 
+    
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(NSString* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     
 
 

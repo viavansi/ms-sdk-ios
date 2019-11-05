@@ -271,24 +271,28 @@
 
 /**
 
+ findNotificationsByToken
  
+ findNotificationsByToken
  
 
  
  @param push_token 
  
 
- return type: 
+ return type: NSString*
  */
 +(NSNumber*) findNotificationsByToken :(NSString*) push_token 
     
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(NSString* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     
-    auth:(OAuth1Client *) auth onSuccess: (void (^)(void))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
 
 
 /**
 
+ findNotificationsByToken
  
+ findNotificationsByToken
  
 
  
@@ -297,13 +301,13 @@
  @param status Notification Status
  
 
- return type: 
+ return type: NSString*
  */
 +(NSNumber*) findNotificationsByTokenStatus :(NSString*) push_token 
      status:(NSString*) status 
     
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(NSString* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     
-    auth:(OAuth1Client *) auth onSuccess: (void (^)(void))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
 
 
 

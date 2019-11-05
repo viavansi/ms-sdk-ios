@@ -9,8 +9,8 @@
 @property(nonatomic) NSString* rotation;  
 @property(nonatomic) NSNumber* width;  
 @property(nonatomic) NSNumber* height;  
-@property(nonatomic) NSNumber* getxAxis;  
-@property(nonatomic) NSNumber* getyAxis;  
+@property(nonatomic) NSNumber* xAxis;  
+@property(nonatomic) NSNumber* yAxis;  
 @property(nonatomic) NSNumber* page;  
 @property(nonatomic) NSString* imageBase64;  
 @property(nonatomic) NSString* positionsKey;  
@@ -19,8 +19,8 @@
     rotation: (NSString*) rotation     
     width: (NSNumber*) width     
     height: (NSNumber*) height     
-    getxAxis: (NSNumber*) getxAxis     
-    getyAxis: (NSNumber*) getyAxis     
+    xAxis: (NSNumber*) xAxis     
+    yAxis: (NSNumber*) yAxis     
     page: (NSNumber*) page     
     imageBase64: (NSString*) imageBase64     
     positionsKey: (NSString*) positionsKey     
