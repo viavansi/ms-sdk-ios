@@ -10,12 +10,14 @@
 @property(nonatomic) NSString* name;  
 @property(nonatomic) NSString* notificationType;  
 @property(nonatomic) NSString* userCode;  
+@property(nonatomic) NSString* _id;  
 - (id) key: (NSString*) key     
     phone: (NSString*) phone     
     mail: (NSString*) mail     
     name: (NSString*) name     
     notificationType: (NSString*) notificationType     
-    userCode: (NSString*) userCode;
+    userCode: (NSString*) userCode     
+    _id: (NSString*) _id;
     
 
 - (id) initWithValues: (NSDictionary*)dict;

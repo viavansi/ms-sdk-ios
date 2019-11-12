@@ -148,7 +148,7 @@
 
  return type: NSArray*
  */
-+(NSNumber*) getMessagesByExternalStatus :(NSString*) groupCode 
++(NSNumber*) getMessagesByExternalStatus_1 :(NSString*) groupCode 
      requestAppCode:(NSString*) requestAppCode 
      templateCode:(NSString*) templateCode 
     
@@ -175,7 +175,7 @@
 
  return type: NSArray*
  */
-+(NSNumber*) getMessagesByExternalStatus_1 :(NSString*) externalStatus 
++(NSNumber*) getMessagesByExternalStatus :(NSString*) externalStatus 
      groupCode:(NSString*) groupCode 
      requestAppCode:(NSString*) requestAppCode 
      templateCode:(NSString*) templateCode 
