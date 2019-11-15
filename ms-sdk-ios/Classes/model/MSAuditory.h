@@ -19,6 +19,8 @@
 @property(nonatomic) NSString* sessionId;  
 @property(nonatomic) MSGeolocation* geolocation;  
 @property(nonatomic) NSArray* metadatas;  
+@property(nonatomic) NSNumber* internal;  
+@property(nonatomic) NSNumber* time;  
 - (id) action: (NSString*) action     
     code: (NSString*) code     
     date: (SWGDate*) date     
@@ -30,7 +32,9 @@
     userAgent: (NSString*) userAgent     
     sessionId: (NSString*) sessionId     
     geolocation: (MSGeolocation*) geolocation     
-    metadatas: (NSArray*) metadatas;
+    metadatas: (NSArray*) metadatas     
+    internal: (NSNumber*) internal     
+    time: (NSNumber*) time;
     
 
 - (id) initWithValues: (NSDictionary*)dict;

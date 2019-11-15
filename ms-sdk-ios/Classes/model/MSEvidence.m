@@ -6,9 +6,7 @@
 @synthesize type = _type;
 @synthesize _id = __id;
 @synthesize enabledExpression = _enabledExpression;
-@synthesize visibleExpression = _visibleExpression;
 @synthesize enabled = _enabled;
-@synthesize visible = _visible;
 @synthesize code = _code;
 @synthesize status = _status;
 @synthesize helpText = _helpText;
@@ -53,9 +51,7 @@
 -(id)type: (NSString*) type
     _id: (NSString*) _id
     enabledExpression: (NSString*) enabledExpression
-    visibleExpression: (NSString*) visibleExpression
     enabled: (NSNumber*) enabled
-    visible: (NSNumber*) visible
     code: (NSString*) code
     status: (NSString*) status
     helpText: (NSString*) helpText
@@ -101,9 +97,7 @@
     _type = type;
     __id = _id;
     _enabledExpression = enabledExpression;
-    _visibleExpression = visibleExpression;
     _enabled = enabled;
-    _visible = visible;
     _code = code;
     _status = status;
     _helpText = helpText;
@@ -159,11 +153,7 @@
         
         _enabledExpression = dict[@"enabledExpression"];
         
-        _visibleExpression = dict[@"visibleExpression"];
-        
         _enabled = dict[@"enabled"];
-        
-        _visible = dict[@"visible"];
         
         _code = dict[@"code"];
         
@@ -362,15 +352,7 @@
         
     
     
-            if(_visibleExpression != nil) dict[@"visibleExpression"] = _visibleExpression ;
-        
-    
-    
             if(_enabled != nil) dict[@"enabled"] = _enabled ;
-        
-    
-    
-            if(_visible != nil) dict[@"visible"] = _visible ;
         
     
     

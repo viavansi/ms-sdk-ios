@@ -39,7 +39,7 @@
 
  return type: MSUser*
  */
-+(NSNumber*) registerUser_2 :(MSUser*) body 
++(NSNumber*) registerUser :(MSUser*) body 
     
     auth:(OAuth1Client *) auth onSuccess: (void (^)(MSUser* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     

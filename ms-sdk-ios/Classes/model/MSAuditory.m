@@ -15,6 +15,8 @@
 @synthesize sessionId = _sessionId;
 @synthesize geolocation = _geolocation;
 @synthesize metadatas = _metadatas;
+@synthesize internal = _internal;
+@synthesize time = _time;
 
 -(id)action: (NSString*) action
     code: (NSString*) code
@@ -28,6 +30,8 @@
     sessionId: (NSString*) sessionId
     geolocation: (MSGeolocation*) geolocation
     metadatas: (NSArray*) metadatas
+    internal: (NSNumber*) internal
+    time: (NSNumber*) time
     
 {
     _action = action;
@@ -42,6 +46,8 @@
     _sessionId = sessionId;
     _geolocation = geolocation;
     _metadatas = metadatas;
+    _internal = internal;
+    _time = time;
     
 
     return self;
@@ -106,6 +112,10 @@
             _metadatas = [[NSArray alloc] init];
         }
         
+        
+        _internal = dict[@"internal"];
+        
+        _time = dict[@"time"];
         
         
     }
@@ -225,6 +235,14 @@
         }
     }
     
+    
+    
+            if(_internal != nil) dict[@"internal"] = _internal ;
+        
+    
+    
+            if(_time != nil) dict[@"time"] = _time ;
+        
     
 
     NSDictionary* output = [dict copy];

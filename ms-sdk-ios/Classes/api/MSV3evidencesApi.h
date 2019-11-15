@@ -140,7 +140,7 @@
 
  return type: MSEvidence*
  */
-+(NSNumber*) addGenericAsEvidence_1 :(MSEvidenceGeneric*) body 
++(NSNumber*) addGenericAsEvidence :(MSEvidenceGeneric*) body 
     
     auth:(OAuth1Client *) auth onSuccess: (void (^)(MSEvidence* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     
@@ -159,7 +159,7 @@
 
  return type: NSNumber*
  */
-+(NSNumber*) addGenericAsEvidence :(NSArray*) body 
++(NSNumber*) addGenericListAsEvidence :(NSArray*) body 
     
     auth:(OAuth1Client *) auth onSuccess: (void (^)(NSNumber* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     

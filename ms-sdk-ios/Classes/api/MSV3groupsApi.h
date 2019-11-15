@@ -22,7 +22,7 @@
 
  return type: MSUser*
  */
-+(NSNumber*) registerUser :(MSGroup*) body 
++(NSNumber*) createGroup :(MSGroup*) body 
     
     auth:(OAuth1Client *) auth onSuccess: (void (^)(MSUser* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     
@@ -43,7 +43,7 @@
 
  return type: MSUser*
  */
-+(NSNumber*) registerUser_1 :(MSGroup*) body 
++(NSNumber*) createGroupByParentGroup :(MSGroup*) body 
      parentGroupCode:(NSString*) parentGroupCode 
     
     auth:(OAuth1Client *) auth onSuccess: (void (^)(MSUser* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;

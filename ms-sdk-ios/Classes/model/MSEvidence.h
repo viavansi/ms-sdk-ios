@@ -16,9 +16,7 @@
 @property(nonatomic) NSString* type;  
 @property(nonatomic) NSString* _id;  
 @property(nonatomic) NSString* enabledExpression;  
-@property(nonatomic) NSString* visibleExpression;  
 @property(nonatomic) NSNumber* enabled;  
-@property(nonatomic) NSNumber* visible;  
 @property(nonatomic) NSString* code;  
 @property(nonatomic) NSString* status;  
 @property(nonatomic) NSString* helpText;  
@@ -62,9 +60,7 @@
 - (id) type: (NSString*) type     
     _id: (NSString*) _id     
     enabledExpression: (NSString*) enabledExpression     
-    visibleExpression: (NSString*) visibleExpression     
     enabled: (NSNumber*) enabled     
-    visible: (NSNumber*) visible     
     code: (NSString*) code     
     status: (NSString*) status     
     helpText: (NSString*) helpText     
