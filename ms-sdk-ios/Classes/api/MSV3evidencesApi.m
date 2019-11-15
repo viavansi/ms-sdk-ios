@@ -582,7 +582,7 @@
                                   requestContentType: requestContentType
                                  responseContentType: responseContentType
                                      successBlock: ^(NSString *data) {
-                                        NSNumber *result = data ? [[NSNumber  alloc]initWithString: data] : nil;
+                                        NSNumber *result = data ? [[NSNumber alloc] initWithInteger:data.integerValue]; : nil;
                                         onSuccessBlock(result);
                                      }
                                      errorBlock: ^(NSError *error) {
