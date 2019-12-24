@@ -18,6 +18,7 @@
 @property(nonatomic) SWGDate* date;  
 @property(nonatomic) NSString* hash;  
 @property(nonatomic) NSString* fileName;  
+@property(nonatomic) NSNumber* readOnly;  
 - (id) type: (NSString*) type     
     processType: (NSString*) processType     
     processId: (NSString*) processId     
@@ -29,7 +30,8 @@
     metadataList: (NSArray*) metadataList     
     date: (SWGDate*) date     
     hash: (NSString*) hash     
-    fileName: (NSString*) fileName;
+    fileName: (NSString*) fileName     
+    readOnly: (NSNumber*) readOnly;
     
 
 - (id) initWithValues: (NSDictionary*)dict;

@@ -8,12 +8,14 @@
 @synthesize link = _link;
 @synthesize status = _status;
 @synthesize recipientStatus = _recipientStatus;
+@synthesize auditTrailPage = _auditTrailPage;
 
 -(id)code: (NSString*) code
     title: (NSString*) title
     link: (NSString*) link
     status: (NSString*) status
     recipientStatus: (NSString*) recipientStatus
+    auditTrailPage: (NSString*) auditTrailPage
     
 {
     _code = code;
@@ -21,6 +23,7 @@
     _link = link;
     _status = status;
     _recipientStatus = recipientStatus;
+    _auditTrailPage = auditTrailPage;
     
 
     return self;
@@ -39,6 +42,8 @@
         _status = dict[@"status"];
         
         _recipientStatus = dict[@"recipientStatus"];
+        
+        _auditTrailPage = dict[@"auditTrailPage"];
         
         
     }
@@ -66,6 +71,10 @@
     
     
             if(_recipientStatus != nil) dict[@"recipientStatus"] = _recipientStatus ;
+        
+    
+    
+            if(_auditTrailPage != nil) dict[@"auditTrailPage"] = _auditTrailPage ;
         
     
 

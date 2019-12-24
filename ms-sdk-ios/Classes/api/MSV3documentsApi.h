@@ -86,6 +86,25 @@
 
 /**
 
+ Method for delete document
+ 
+ Return message code
+ 
+
+ 
+ @param messageCode Message&#39;s unique code
+ 
+
+ return type: NSString*
+ */
++(NSNumber*) removeSignedDocument :(NSString*) messageCode 
+    
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(NSString* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    
+
+
+/**
+
  Method for get document
  
  Return byte[] with the document

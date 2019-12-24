@@ -26,6 +26,7 @@
 @property(nonatomic) NSArray* groups;  
 @property(nonatomic) NSArray* groupsInfo;  
 @property(nonatomic) NSArray* properties;  
+@property(nonatomic) NSArray* roles;  
 @property(nonatomic) NSString* mobile;  
 @property(nonatomic) NSString* channel;  
 - (id) code: (NSString*) code     
@@ -48,6 +49,7 @@
     groups: (NSArray*) groups     
     groupsInfo: (NSArray*) groupsInfo     
     properties: (NSArray*) properties     
+    roles: (NSArray*) roles     
     mobile: (NSString*) mobile     
     channel: (NSString*) channel;
     

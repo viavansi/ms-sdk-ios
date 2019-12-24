@@ -5,15 +5,18 @@
 
 @synthesize code = _code;
 @synthesize status = _status;
+@synthesize policies = _policies;
 @synthesize transfers = _transfers;
 
 -(id)code: (NSString*) code
     status: (NSString*) status
+    policies: (NSArray*) policies
     transfers: (NSArray*) transfers
     
 {
     _code = code;
     _status = status;
+    _policies = policies;
     _transfers = transfers;
     
 
@@ -27,6 +30,28 @@
         _code = dict[@"code"];
         
         _status = dict[@"status"];
+        
+        
+        
+        id policies_dict = dict[@"policies"];
+        
+        if([policies_dict isKindOfClass:[NSArray class]]) {
+            NSMutableArray * objs = [[NSMutableArray alloc] initWithCapacity:[(NSArray*)policies_dict count]];
+            if([(NSArray*)policies_dict count] > 0) {
+                for (int i=0 ; i<[(NSArray*)policies_dict count] ; i++) {
+                	NSDictionary *dict = [[NSDictionary alloc] initWithDictionary:[policies_dict objectAtIndex:i]];
+                    MSPolicy* d = [[MSPolicy alloc] initWithValues:dict];
+                    [objs addObject:d];
+                }
+                _policies = [[NSArray alloc] initWithArray:objs];
+            }
+            else
+                _policies = [[NSArray alloc] init];
+        }
+        else {
+            _policies = [[NSArray alloc] init];
+        }
+        
         
         
         
@@ -65,6 +90,31 @@
     
             if(_status != nil) dict[@"status"] = _status ;
         
+    
+    
+    if(_policies != nil){
+        if([_policies isKindOfClass:[NSArray class]]){
+            NSMutableArray * array = [[NSMutableArray alloc] init];
+            for( int i=0 ; i<[(NSArray*)_policies count] ; i++ ) {
+				MSPolicy *policies = [[MSPolicy alloc]init];
+				policies = [(NSArray*)_policies objectAtIndex:i];
+                [array addObject:[(SWGObject*)policies asDictionary]];
+            }
+            dict[@"policies"] = array;
+        }
+        else if(_policies && [_policies isKindOfClass:[SWGDate class]]) {
+            NSString * dateString = [(SWGDate*)_policies toString];
+            if(dateString){
+                dict[@"policies"] = dateString;
+            }
+        }
+        else {
+        
+            if(_policies != nil) dict[@"policies"] = [(SWGObject*)_policies asDictionary];
+        
+        }
+    }
+    
     
     
     if(_transfers != nil){

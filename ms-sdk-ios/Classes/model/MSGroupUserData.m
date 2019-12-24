@@ -10,6 +10,7 @@
 @synthesize email = _email;
 @synthesize phone = _phone;
 @synthesize templates = _templates;
+@synthesize sendMail = _sendMail;
 
 -(id)code: (NSString*) code
     name: (NSString*) name
@@ -18,6 +19,7 @@
     email: (NSString*) email
     phone: (NSString*) phone
     templates: (NSString*) templates
+    sendMail: (NSNumber*) sendMail
     
 {
     _code = code;
@@ -27,6 +29,7 @@
     _email = email;
     _phone = phone;
     _templates = templates;
+    _sendMail = sendMail;
     
 
     return self;
@@ -49,6 +52,8 @@
         _phone = dict[@"phone"];
         
         _templates = dict[@"templates"];
+        
+        _sendMail = dict[@"sendMail"];
         
         
     }
@@ -84,6 +89,10 @@
     
     
             if(_templates != nil) dict[@"templates"] = _templates ;
+        
+    
+    
+            if(_sendMail != nil) dict[@"sendMail"] = _sendMail ;
         
     
 

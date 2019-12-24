@@ -23,6 +23,7 @@
 @synthesize groups = _groups;
 @synthesize groupsInfo = _groupsInfo;
 @synthesize properties = _properties;
+@synthesize roles = _roles;
 @synthesize mobile = _mobile;
 @synthesize channel = _channel;
 
@@ -46,6 +47,7 @@
     groups: (NSArray*) groups
     groupsInfo: (NSArray*) groupsInfo
     properties: (NSArray*) properties
+    roles: (NSArray*) roles
     mobile: (NSString*) mobile
     channel: (NSString*) channel
     
@@ -70,6 +72,7 @@
     _groups = groups;
     _groupsInfo = groupsInfo;
     _properties = properties;
+    _roles = roles;
     _mobile = mobile;
     _channel = channel;
     
@@ -160,6 +163,8 @@
             _properties = [[NSArray alloc] init];
         }
         
+        
+        _roles = dict[@"roles"];
         
         _mobile = dict[@"mobile"];
         
@@ -294,6 +299,10 @@
         }
     }
     
+    
+    
+            if(_roles != nil) dict[@"roles"] = _roles ;
+        
     
     
             if(_mobile != nil) dict[@"mobile"] = _mobile ;

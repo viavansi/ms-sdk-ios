@@ -277,6 +277,25 @@
 
 /**
 
+ Method for prepare new message
+ 
+ Prepare new message
+ 
+
+ 
+ @param body Message object that needs to be delivery
+ 
+
+ return type: MSMessage*
+ */
++(NSNumber*) prepareMessage :(MSMessage*) body 
+    
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(MSMessage* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    
+
+
+/**
+
  Method for reject an existing message
  
  Reject message
@@ -440,6 +459,46 @@
     
     auth:(OAuth1Client *) auth onSuccess: (void (^)(MSMessage* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     
+
+
+/**
+
+ 
+ 
+
+ 
+ @param messageCode 
+ 
+ @param code 
+ 
+
+ return type: 
+ */
++(NSNumber*) validateCode :(NSString*) messageCode 
+     code:(NSString*) code 
+    
+    
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(void))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+
+
+/**
+
+ 
+ 
+
+ 
+ @param messageCode 
+ 
+ @param code 
+ 
+
+ return type: 
+ */
++(NSNumber*) validateCodeFinish :(NSString*) messageCode 
+     code:(NSString*) code 
+    
+    
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(void))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
 
 
 /**

@@ -43,6 +43,7 @@
 @synthesize setCode = _setCode;
 @synthesize setStatus = _setStatus;
 @synthesize signPageServer = _signPageServer;
+@synthesize auditTrailPage = _auditTrailPage;
 
 -(id)code: (NSString*) code
     externalCode: (NSString*) externalCode
@@ -84,6 +85,7 @@
     setCode: (NSString*) setCode
     setStatus: (NSString*) setStatus
     signPageServer: (NSString*) signPageServer
+    auditTrailPage: (NSString*) auditTrailPage
     
 {
     _code = code;
@@ -126,6 +128,7 @@
     _setCode = setCode;
     _setStatus = setStatus;
     _signPageServer = signPageServer;
+    _auditTrailPage = auditTrailPage;
     
 
     return self;
@@ -324,6 +327,8 @@
         _setStatus = dict[@"setStatus"];
         
         _signPageServer = dict[@"signPageServer"];
+        
+        _auditTrailPage = dict[@"auditTrailPage"];
         
         
     }
@@ -680,6 +685,10 @@
     
     
             if(_signPageServer != nil) dict[@"signPageServer"] = _signPageServer ;
+        
+    
+    
+            if(_auditTrailPage != nil) dict[@"auditTrailPage"] = _auditTrailPage ;
         
     
 

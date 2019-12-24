@@ -53,6 +53,7 @@
 @property(nonatomic) NSString* setCode;  
 @property(nonatomic) NSString* setStatus;  
 @property(nonatomic) NSString* signPageServer;  
+@property(nonatomic) NSString* auditTrailPage;  
 - (id) code: (NSString*) code     
     externalCode: (NSString*) externalCode     
     externalStatus: (NSString*) externalStatus     
@@ -92,7 +93,8 @@
     timeZoneId: (NSString*) timeZoneId     
     setCode: (NSString*) setCode     
     setStatus: (NSString*) setStatus     
-    signPageServer: (NSString*) signPageServer;
+    signPageServer: (NSString*) signPageServer     
+    auditTrailPage: (NSString*) auditTrailPage;
     
 
 - (id) initWithValues: (NSDictionary*)dict;

@@ -12,6 +12,7 @@
 @synthesize page = _page;
 @synthesize imageBase64 = _imageBase64;
 @synthesize positionsKey = _positionsKey;
+@synthesize timeZoneId = _timeZoneId;
 @synthesize positionsMatch = _positionsMatch;
 
 -(id)type: (NSString*) type
@@ -23,6 +24,7 @@
     page: (NSNumber*) page
     imageBase64: (NSString*) imageBase64
     positionsKey: (NSString*) positionsKey
+    timeZoneId: (NSString*) timeZoneId
     positionsMatch: (NSArray*) positionsMatch
     
 {
@@ -35,6 +37,7 @@
     _page = page;
     _imageBase64 = imageBase64;
     _positionsKey = positionsKey;
+    _timeZoneId = timeZoneId;
     _positionsMatch = positionsMatch;
     
 
@@ -62,6 +65,8 @@
         _imageBase64 = dict[@"imageBase64"];
         
         _positionsKey = dict[@"positionsKey"];
+        
+        _timeZoneId = dict[@"timeZoneId"];
         
         
         
@@ -127,6 +132,10 @@
     
     
             if(_positionsKey != nil) dict[@"positionsKey"] = _positionsKey ;
+        
+    
+    
+            if(_timeZoneId != nil) dict[@"timeZoneId"] = _timeZoneId ;
         
     
     

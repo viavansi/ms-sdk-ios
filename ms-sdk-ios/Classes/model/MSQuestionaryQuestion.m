@@ -7,17 +7,26 @@
 @synthesize text = _text;
 @synthesize answers = _answers;
 @synthesize selectedAnswerCode = _selectedAnswerCode;
+@synthesize answerText = _answerText;
+@synthesize answerDate = _answerDate;
+@synthesize type = _type;
 
 -(id)code: (NSString*) code
     text: (NSString*) text
     answers: (NSArray*) answers
     selectedAnswerCode: (NSString*) selectedAnswerCode
+    answerText: (NSString*) answerText
+    answerDate: (SWGDate*) answerDate
+    type: (NSString*) type
     
 {
     _code = code;
     _text = text;
     _answers = answers;
     _selectedAnswerCode = selectedAnswerCode;
+    _answerText = answerText;
+    _answerDate = answerDate;
+    _type = type;
     
 
     return self;
@@ -54,6 +63,18 @@
         
         
         _selectedAnswerCode = dict[@"selectedAnswerCode"];
+        
+        _answerText = dict[@"answerText"];
+        
+        
+        
+        id answerDate_dict = dict[@"answerDate"];
+        
+        if(answerDate_dict != nil)
+            _answerDate = [[SWGDate  alloc]initWithValues:answerDate_dict];
+        
+        
+        _type = dict[@"type"];
         
         
     }
@@ -98,6 +119,39 @@
     
     
             if(_selectedAnswerCode != nil) dict[@"selectedAnswerCode"] = _selectedAnswerCode ;
+        
+    
+    
+            if(_answerText != nil) dict[@"answerText"] = _answerText ;
+        
+    
+    
+    if(_answerDate != nil){
+        if([_answerDate isKindOfClass:[NSArray class]]){
+            NSMutableArray * array = [[NSMutableArray alloc] init];
+            for( int i=0 ; i<[(NSArray*)_answerDate count] ; i++ ) {
+				SWGDate *answerDate = [[SWGDate alloc]init];
+				answerDate = [(NSArray*)_answerDate objectAtIndex:i];
+                [array addObject:[(SWGObject*)answerDate asDictionary]];
+            }
+            dict[@"answerDate"] = array;
+        }
+        else if(_answerDate && [_answerDate isKindOfClass:[SWGDate class]]) {
+            NSString * dateString = [(SWGDate*)_answerDate toString];
+            if(dateString){
+                dict[@"answerDate"] = dateString;
+            }
+        }
+        else {
+        
+            if(_answerDate != nil) dict[@"answerDate"] = [(SWGObject*)_answerDate asDictionary];
+        
+        }
+    }
+    
+    
+    
+            if(_type != nil) dict[@"type"] = _type ;
         
     
 

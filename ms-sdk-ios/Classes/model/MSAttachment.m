@@ -15,6 +15,7 @@
 @synthesize date = _date;
 @synthesize hash = _hash;
 @synthesize fileName = _fileName;
+@synthesize readOnly = _readOnly;
 
 -(id)type: (NSString*) type
     processType: (NSString*) processType
@@ -28,6 +29,7 @@
     date: (SWGDate*) date
     hash: (NSString*) hash
     fileName: (NSString*) fileName
+    readOnly: (NSNumber*) readOnly
     
 {
     _type = type;
@@ -42,6 +44,7 @@
     _date = date;
     _hash = hash;
     _fileName = fileName;
+    _readOnly = readOnly;
     
 
     return self;
@@ -100,6 +103,8 @@
         _hash = dict[@"hash"];
         
         _fileName = dict[@"fileName"];
+        
+        _readOnly = dict[@"readOnly"];
         
         
     }
@@ -197,6 +202,10 @@
     
     
             if(_fileName != nil) dict[@"fileName"] = _fileName ;
+        
+    
+    
+            if(_readOnly != nil) dict[@"readOnly"] = _readOnly ;
         
     
 
