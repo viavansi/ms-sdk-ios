@@ -14,6 +14,8 @@
 @property(nonatomic) SWGDate* lastUpdated;  
 @property(nonatomic) SWGDate* expires;  
 @property(nonatomic) NSString* type;  
+@property(nonatomic) NSString* referenceCode;  
+@property(nonatomic) NSNumber* step;  
 - (id) code: (NSString*) code     
     current: (NSString*) current     
     next: (NSString*) next     
@@ -21,7 +23,9 @@
     initiate: (SWGDate*) initiate     
     lastUpdated: (SWGDate*) lastUpdated     
     expires: (SWGDate*) expires     
-    type: (NSString*) type;
+    type: (NSString*) type     
+    referenceCode: (NSString*) referenceCode     
+    step: (NSNumber*) step;
     
 
 - (id) initWithValues: (NSDictionary*)dict;

@@ -11,6 +11,8 @@
 @synthesize lastUpdated = _lastUpdated;
 @synthesize expires = _expires;
 @synthesize type = _type;
+@synthesize referenceCode = _referenceCode;
+@synthesize step = _step;
 
 -(id)code: (NSString*) code
     current: (NSString*) current
@@ -20,6 +22,8 @@
     lastUpdated: (SWGDate*) lastUpdated
     expires: (SWGDate*) expires
     type: (NSString*) type
+    referenceCode: (NSString*) referenceCode
+    step: (NSNumber*) step
     
 {
     _code = code;
@@ -30,6 +34,8 @@
     _lastUpdated = lastUpdated;
     _expires = expires;
     _type = type;
+    _referenceCode = referenceCode;
+    _step = step;
     
 
     return self;
@@ -92,6 +98,10 @@
         
         
         _type = dict[@"type"];
+        
+        _referenceCode = dict[@"referenceCode"];
+        
+        _step = dict[@"step"];
         
         
     }
@@ -215,6 +225,14 @@
     
     
             if(_type != nil) dict[@"type"] = _type ;
+        
+    
+    
+            if(_referenceCode != nil) dict[@"referenceCode"] = _referenceCode ;
+        
+    
+    
+            if(_step != nil) dict[@"step"] = _step ;
         
     
 

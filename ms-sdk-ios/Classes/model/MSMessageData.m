@@ -9,6 +9,7 @@
 @synthesize fingerPrintsData = _fingerPrintsData;
 @synthesize imagesData = _imagesData;
 @synthesize genericData = _genericData;
+@synthesize metadataList = _metadataList;
 
 -(id)messageCode: (NSString*) messageCode
     items: (NSArray*) items
@@ -16,6 +17,7 @@
     fingerPrintsData: (NSArray*) fingerPrintsData
     imagesData: (NSArray*) imagesData
     genericData: (NSArray*) genericData
+    metadataList: (NSArray*) metadataList
     
 {
     _messageCode = messageCode;
@@ -24,6 +26,7 @@
     _fingerPrintsData = fingerPrintsData;
     _imagesData = imagesData;
     _genericData = genericData;
+    _metadataList = metadataList;
     
 
     return self;
@@ -142,6 +145,28 @@
         }
         else {
             _genericData = [[NSArray alloc] init];
+        }
+        
+        
+        
+        
+        id metadataList_dict = dict[@"metadataList"];
+        
+        if([metadataList_dict isKindOfClass:[NSArray class]]) {
+            NSMutableArray * objs = [[NSMutableArray alloc] initWithCapacity:[(NSArray*)metadataList_dict count]];
+            if([(NSArray*)metadataList_dict count] > 0) {
+                for (int i=0 ; i<[(NSArray*)metadataList_dict count] ; i++) {
+                	NSDictionary *dict = [[NSDictionary alloc] initWithDictionary:[metadataList_dict objectAtIndex:i]];
+                    MSParam* d = [[MSParam alloc] initWithValues:dict];
+                    [objs addObject:d];
+                }
+                _metadataList = [[NSArray alloc] initWithArray:objs];
+            }
+            else
+                _metadataList = [[NSArray alloc] init];
+        }
+        else {
+            _metadataList = [[NSArray alloc] init];
         }
         
         
@@ -277,6 +302,31 @@
         else {
         
             if(_genericData != nil) dict[@"genericData"] = [(SWGObject*)_genericData asDictionary];
+        
+        }
+    }
+    
+    
+    
+    if(_metadataList != nil){
+        if([_metadataList isKindOfClass:[NSArray class]]){
+            NSMutableArray * array = [[NSMutableArray alloc] init];
+            for( int i=0 ; i<[(NSArray*)_metadataList count] ; i++ ) {
+				MSParam *metadataList = [[MSParam alloc]init];
+				metadataList = [(NSArray*)_metadataList objectAtIndex:i];
+                [array addObject:[(SWGObject*)metadataList asDictionary]];
+            }
+            dict[@"metadataList"] = array;
+        }
+        else if(_metadataList && [_metadataList isKindOfClass:[SWGDate class]]) {
+            NSString * dateString = [(SWGDate*)_metadataList toString];
+            if(dateString){
+                dict[@"metadataList"] = dateString;
+            }
+        }
+        else {
+        
+            if(_metadataList != nil) dict[@"metadataList"] = [(SWGObject*)_metadataList asDictionary];
         
         }
     }

@@ -46,6 +46,7 @@
 @synthesize genericData = _genericData;
 @synthesize phone = _phone;
 @synthesize base64Image = _base64Image;
+@synthesize imageText = _imageText;
 @synthesize imageType = _imageType;
 @synthesize addLink = _addLink;
 @synthesize recipientKey = _recipientKey;
@@ -93,6 +94,7 @@
     genericData: (MSEvidenceGeneric*) genericData
     phone: (NSString*) phone
     base64Image: (NSString*) base64Image
+    imageText: (NSString*) imageText
     imageType: (NSString*) imageType
     addLink: (NSNumber*) addLink
     recipientKey: (NSString*) recipientKey
@@ -141,6 +143,7 @@
     _genericData = genericData;
     _phone = phone;
     _base64Image = base64Image;
+    _imageText = imageText;
     _imageType = imageType;
     _addLink = addLink;
     _recipientKey = recipientKey;
@@ -334,6 +337,8 @@
         _phone = dict[@"phone"];
         
         _base64Image = dict[@"base64Image"];
+        
+        _imageText = dict[@"imageText"];
         
         _imageType = dict[@"imageType"];
         
@@ -708,6 +713,10 @@
     
     
             if(_base64Image != nil) dict[@"base64Image"] = _base64Image ;
+        
+    
+    
+            if(_imageText != nil) dict[@"imageText"] = _imageText ;
         
     
     

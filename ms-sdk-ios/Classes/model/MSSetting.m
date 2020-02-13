@@ -23,8 +23,10 @@
 @synthesize allowDocumentResend = _allowDocumentResend;
 @synthesize customization = _customization;
 @synthesize callbackMailsFromForm = _callbackMailsFromForm;
+@synthesize callbackMailFilename = _callbackMailFilename;
 @synthesize metadataList = _metadataList;
 @synthesize retryTime = _retryTime;
+@synthesize workflowReferenceCode = _workflowReferenceCode;
 
 -(id)titleKey: (NSString*) titleKey
     descriptionKey: (NSString*) descriptionKey
@@ -46,8 +48,10 @@
     allowDocumentResend: (NSNumber*) allowDocumentResend
     customization: (MSCustomization*) customization
     callbackMailsFromForm: (NSArray*) callbackMailsFromForm
+    callbackMailFilename: (NSString*) callbackMailFilename
     metadataList: (NSArray*) metadataList
     retryTime: (NSNumber*) retryTime
+    workflowReferenceCode: (NSString*) workflowReferenceCode
     
 {
     _titleKey = titleKey;
@@ -70,8 +74,10 @@
     _allowDocumentResend = allowDocumentResend;
     _customization = customization;
     _callbackMailsFromForm = callbackMailsFromForm;
+    _callbackMailFilename = callbackMailFilename;
     _metadataList = metadataList;
     _retryTime = retryTime;
+    _workflowReferenceCode = workflowReferenceCode;
     
 
     return self;
@@ -179,6 +185,8 @@
         
         _callbackMailsFromForm = dict[@"callbackMailsFromForm"];
         
+        _callbackMailFilename = dict[@"callbackMailFilename"];
+        
         
         
         id metadataList_dict = dict[@"metadataList"];
@@ -202,6 +210,8 @@
         
         
         _retryTime = dict[@"retryTime"];
+        
+        _workflowReferenceCode = dict[@"workflowReferenceCode"];
         
         
     }
@@ -397,6 +407,10 @@
         
     
     
+            if(_callbackMailFilename != nil) dict[@"callbackMailFilename"] = _callbackMailFilename ;
+        
+    
+    
     if(_metadataList != nil){
         if([_metadataList isKindOfClass:[NSArray class]]){
             NSMutableArray * array = [[NSMutableArray alloc] init];
@@ -423,6 +437,10 @@
     
     
             if(_retryTime != nil) dict[@"retryTime"] = _retryTime ;
+        
+    
+    
+            if(_workflowReferenceCode != nil) dict[@"workflowReferenceCode"] = _workflowReferenceCode ;
         
     
 

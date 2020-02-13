@@ -7,6 +7,7 @@
 #import "MSEvidenceGeneric.h"
 #import "MSEvidenceImage.h"
 #import "MSEvidenceSignature.h"
+#import "MSMessage.h"
 #import "SWGObject.h"
 #import "OAuth1Client.h"
 
@@ -379,6 +380,31 @@
      evidenceCode:(NSString*) evidenceCode 
     
     auth:(OAuth1Client *) auth onSuccess: (void (^)(NSString* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    
+
+
+/**
+
+ Method to update the status of a evidence
+ 
+ 
+ 
+
+ 
+ @param messageCode messageCode
+ 
+ @param evidenceCode evidenceCode
+ 
+ @param status status
+ 
+
+ return type: MSMessage*
+ */
++(NSNumber*) updateEvidenceStatus :(NSString*) messageCode 
+     evidenceCode:(NSString*) evidenceCode 
+     status:(NSString*) status 
+    
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(MSMessage* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     
 
 

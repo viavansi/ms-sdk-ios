@@ -29,8 +29,10 @@
 @property(nonatomic) NSNumber* allowDocumentResend;  
 @property(nonatomic) MSCustomization* customization;  
 @property(nonatomic) NSArray* callbackMailsFromForm;  
+@property(nonatomic) NSString* callbackMailFilename;  
 @property(nonatomic) NSArray* metadataList;  
 @property(nonatomic) NSNumber* retryTime;  
+@property(nonatomic) NSString* workflowReferenceCode;  
 - (id) titleKey: (NSString*) titleKey     
     descriptionKey: (NSString*) descriptionKey     
     policy: (MSPolicy*) policy     
@@ -51,8 +53,10 @@
     allowDocumentResend: (NSNumber*) allowDocumentResend     
     customization: (MSCustomization*) customization     
     callbackMailsFromForm: (NSArray*) callbackMailsFromForm     
+    callbackMailFilename: (NSString*) callbackMailFilename     
     metadataList: (NSArray*) metadataList     
-    retryTime: (NSNumber*) retryTime;
+    retryTime: (NSNumber*) retryTime     
+    workflowReferenceCode: (NSString*) workflowReferenceCode;
     
 
 - (id) initWithValues: (NSDictionary*)dict;

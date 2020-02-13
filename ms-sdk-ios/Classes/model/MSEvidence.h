@@ -56,6 +56,7 @@
 @property(nonatomic) MSEvidenceGeneric* genericData;  
 @property(nonatomic) NSString* phone;  
 @property(nonatomic) NSString* base64Image;  
+@property(nonatomic) NSString* imageText;  
 @property(nonatomic) NSString* imageType;  
 @property(nonatomic) NSNumber* addLink;  
 @property(nonatomic) NSString* recipientKey;  
@@ -102,6 +103,7 @@
     genericData: (MSEvidenceGeneric*) genericData     
     phone: (NSString*) phone     
     base64Image: (NSString*) base64Image     
+    imageText: (NSString*) imageText     
     imageType: (NSString*) imageType     
     addLink: (NSNumber*) addLink     
     recipientKey: (NSString*) recipientKey;
