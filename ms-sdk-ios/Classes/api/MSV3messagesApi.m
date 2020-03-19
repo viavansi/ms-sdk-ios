@@ -865,6 +865,7 @@
 }
 
 +(NSNumber*) finalizeMessage: (NSString*) messageCode
+         recipientKey: (NSString*) recipientKey
         
         auth:(OAuth1Client *) auth onSuccess: (void (^)(MSMessage* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock
          {
@@ -899,6 +900,10 @@
     
     if(messageCode){
     formParams[@"messageCode"] = messageCode;
+    }
+    
+    if(recipientKey){
+    formParams[@"recipientKey"] = recipientKey;
     }
     
     [bodyDictionary addObject:formParams];

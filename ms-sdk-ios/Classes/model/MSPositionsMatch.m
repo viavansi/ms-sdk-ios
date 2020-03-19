@@ -9,6 +9,7 @@
 @synthesize yoffset = _yoffset;
 @synthesize width = _width;
 @synthesize height = _height;
+@synthesize forEvidence = _forEvidence;
 
 -(id)_id: (NSString*) _id
     text: (NSString*) text
@@ -16,6 +17,7 @@
     yoffset: (NSNumber*) yoffset
     width: (NSNumber*) width
     height: (NSNumber*) height
+    forEvidence: (NSNumber*) forEvidence
     
 {
     __id = _id;
@@ -24,6 +26,7 @@
     _yoffset = yoffset;
     _width = width;
     _height = height;
+    _forEvidence = forEvidence;
     
 
     return self;
@@ -44,6 +47,8 @@
         _width = dict[@"width"];
         
         _height = dict[@"height"];
+        
+        _forEvidence = dict[@"forEvidence"];
         
         
     }
@@ -75,6 +80,10 @@
     
     
             if(_height != nil) dict[@"height"] = _height ;
+        
+    
+    
+            if(_forEvidence != nil) dict[@"forEvidence"] = _forEvidence ;
         
     
 

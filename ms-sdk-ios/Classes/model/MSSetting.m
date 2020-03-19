@@ -21,6 +21,7 @@
 @synthesize acrofieldsPositions = _acrofieldsPositions;
 @synthesize readDocumentRequired = _readDocumentRequired;
 @synthesize allowDocumentResend = _allowDocumentResend;
+@synthesize autoFinalize = _autoFinalize;
 @synthesize customization = _customization;
 @synthesize callbackMailsFromForm = _callbackMailsFromForm;
 @synthesize callbackMailFilename = _callbackMailFilename;
@@ -46,6 +47,7 @@
     acrofieldsPositions: (NSArray*) acrofieldsPositions
     readDocumentRequired: (NSNumber*) readDocumentRequired
     allowDocumentResend: (NSNumber*) allowDocumentResend
+    autoFinalize: (NSString*) autoFinalize
     customization: (MSCustomization*) customization
     callbackMailsFromForm: (NSArray*) callbackMailsFromForm
     callbackMailFilename: (NSString*) callbackMailFilename
@@ -72,6 +74,7 @@
     _acrofieldsPositions = acrofieldsPositions;
     _readDocumentRequired = readDocumentRequired;
     _allowDocumentResend = allowDocumentResend;
+    _autoFinalize = autoFinalize;
     _customization = customization;
     _callbackMailsFromForm = callbackMailsFromForm;
     _callbackMailFilename = callbackMailFilename;
@@ -174,6 +177,8 @@
         _readDocumentRequired = dict[@"readDocumentRequired"];
         
         _allowDocumentResend = dict[@"allowDocumentResend"];
+        
+        _autoFinalize = dict[@"autoFinalize"];
         
         
         
@@ -375,6 +380,10 @@
     
     
             if(_allowDocumentResend != nil) dict[@"allowDocumentResend"] = _allowDocumentResend ;
+        
+    
+    
+            if(_autoFinalize != nil) dict[@"autoFinalize"] = _autoFinalize ;
         
     
     

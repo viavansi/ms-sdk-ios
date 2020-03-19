@@ -10,12 +10,14 @@
 @property(nonatomic) NSNumber* yoffset;  
 @property(nonatomic) NSNumber* width;  
 @property(nonatomic) NSNumber* height;  
+@property(nonatomic) NSNumber* forEvidence;  
 - (id) _id: (NSString*) _id     
     text: (NSString*) text     
     xoffset: (NSNumber*) xoffset     
     yoffset: (NSNumber*) yoffset     
     width: (NSNumber*) width     
-    height: (NSNumber*) height;
+    height: (NSNumber*) height     
+    forEvidence: (NSNumber*) forEvidence;
     
 
 - (id) initWithValues: (NSDictionary*)dict;

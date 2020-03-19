@@ -13,12 +13,14 @@
 @synthesize callbackCRM = _callbackCRM;
 @synthesize callbackCRMAuthorization = _callbackCRMAuthorization;
 @synthesize callbackCRMResponse = _callbackCRMResponse;
+@synthesize callbackRedirectURL = _callbackRedirectURL;
 @synthesize disabled = _disabled;
 @synthesize userCode = _userCode;
 @synthesize groupCode = _groupCode;
 @synthesize appCode = _appCode;
 @synthesize version = _version;
 @synthesize workflow = _workflow;
+@synthesize recipients = _recipients;
 @synthesize notification = _notification;
 @synthesize document = _document;
 @synthesize metadataList = _metadataList;
@@ -55,12 +57,14 @@
     callbackCRM: (NSString*) callbackCRM
     callbackCRMAuthorization: (NSString*) callbackCRMAuthorization
     callbackCRMResponse: (NSString*) callbackCRMResponse
+    callbackRedirectURL: (NSString*) callbackRedirectURL
     disabled: (NSNumber*) disabled
     userCode: (NSString*) userCode
     groupCode: (NSString*) groupCode
     appCode: (NSString*) appCode
     version: (NSString*) version
     workflow: (MSWorkflow*) workflow
+    recipients: (NSArray*) recipients
     notification: (MSNotification*) notification
     document: (MSDocument*) document
     metadataList: (NSArray*) metadataList
@@ -98,12 +102,14 @@
     _callbackCRM = callbackCRM;
     _callbackCRMAuthorization = callbackCRMAuthorization;
     _callbackCRMResponse = callbackCRMResponse;
+    _callbackRedirectURL = callbackRedirectURL;
     _disabled = disabled;
     _userCode = userCode;
     _groupCode = groupCode;
     _appCode = appCode;
     _version = version;
     _workflow = workflow;
+    _recipients = recipients;
     _notification = notification;
     _document = document;
     _metadataList = metadataList;
@@ -158,6 +164,8 @@
         
         _callbackCRMResponse = dict[@"callbackCRMResponse"];
         
+        _callbackRedirectURL = dict[@"callbackRedirectURL"];
+        
         _disabled = dict[@"disabled"];
         
         _userCode = dict[@"userCode"];
@@ -174,6 +182,28 @@
         
         if(workflow_dict != nil)
             _workflow = [[MSWorkflow  alloc]initWithValues:workflow_dict];
+        
+        
+        
+        
+        id recipients_dict = dict[@"recipients"];
+        
+        if([recipients_dict isKindOfClass:[NSArray class]]) {
+            NSMutableArray * objs = [[NSMutableArray alloc] initWithCapacity:[(NSArray*)recipients_dict count]];
+            if([(NSArray*)recipients_dict count] > 0) {
+                for (int i=0 ; i<[(NSArray*)recipients_dict count] ; i++) {
+                	NSDictionary *dict = [[NSDictionary alloc] initWithDictionary:[recipients_dict objectAtIndex:i]];
+                    MSRecipient* d = [[MSRecipient alloc] initWithValues:dict];
+                    [objs addObject:d];
+                }
+                _recipients = [[NSArray alloc] initWithArray:objs];
+            }
+            else
+                _recipients = [[NSArray alloc] init];
+        }
+        else {
+            _recipients = [[NSArray alloc] init];
+        }
         
         
         
@@ -305,7 +335,7 @@
             if([(NSArray*)transfers_dict count] > 0) {
                 for (int i=0 ; i<[(NSArray*)transfers_dict count] ; i++) {
                 	NSDictionary *dict = [[NSDictionary alloc] initWithDictionary:[transfers_dict objectAtIndex:i]];
-                    MSJSTransfer* d = [[MSJSTransfer alloc] initWithValues:dict];
+                    MSTransfer* d = [[MSTransfer alloc] initWithValues:dict];
                     [objs addObject:d];
                 }
                 _transfers = [[NSArray alloc] initWithArray:objs];
@@ -379,6 +409,10 @@
         
     
     
+            if(_callbackRedirectURL != nil) dict[@"callbackRedirectURL"] = _callbackRedirectURL ;
+        
+    
+    
             if(_disabled != nil) dict[@"disabled"] = _disabled ;
         
     
@@ -418,6 +452,31 @@
         else {
         
             if(_workflow != nil) dict[@"workflow"] = [(SWGObject*)_workflow asDictionary];
+        
+        }
+    }
+    
+    
+    
+    if(_recipients != nil){
+        if([_recipients isKindOfClass:[NSArray class]]){
+            NSMutableArray * array = [[NSMutableArray alloc] init];
+            for( int i=0 ; i<[(NSArray*)_recipients count] ; i++ ) {
+				MSRecipient *recipients = [[MSRecipient alloc]init];
+				recipients = [(NSArray*)_recipients objectAtIndex:i];
+                [array addObject:[(SWGObject*)recipients asDictionary]];
+            }
+            dict[@"recipients"] = array;
+        }
+        else if(_recipients && [_recipients isKindOfClass:[SWGDate class]]) {
+            NSString * dateString = [(SWGDate*)_recipients toString];
+            if(dateString){
+                dict[@"recipients"] = dateString;
+            }
+        }
+        else {
+        
+            if(_recipients != nil) dict[@"recipients"] = [(SWGObject*)_recipients asDictionary];
         
         }
     }
@@ -647,7 +706,7 @@
         if([_transfers isKindOfClass:[NSArray class]]){
             NSMutableArray * array = [[NSMutableArray alloc] init];
             for( int i=0 ; i<[(NSArray*)_transfers count] ; i++ ) {
-				MSJSTransfer *transfers = [[MSJSTransfer alloc]init];
+				MSTransfer *transfers = [[MSTransfer alloc]init];
 				transfers = [(NSArray*)_transfers objectAtIndex:i];
                 [array addObject:[(SWGObject*)transfers asDictionary]];
             }

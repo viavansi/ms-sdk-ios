@@ -52,6 +52,28 @@
 
 /**
 
+ Method for reject an existing message set
+ 
+ Reject set
+ 
+
+ 
+ @param setCode setCode
+ 
+ @param comment comment
+ 
+
+ return type: MSMessageSetResponse*
+ */
++(NSNumber*) rejectSetByCode :(NSString*) setCode 
+     comment:(NSString*) comment 
+    
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(MSMessageSetResponse* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    
+
+
+/**
+
  Method for get an existing message set summary
  
  Get message set

@@ -10,6 +10,7 @@
 @synthesize notificationType = _notificationType;
 @synthesize userCode = _userCode;
 @synthesize _id = __id;
+@synthesize status = _status;
 
 -(id)key: (NSString*) key
     phone: (NSString*) phone
@@ -18,6 +19,7 @@
     notificationType: (NSString*) notificationType
     userCode: (NSString*) userCode
     _id: (NSString*) _id
+    status: (NSString*) status
     
 {
     _key = key;
@@ -27,6 +29,7 @@
     _notificationType = notificationType;
     _userCode = userCode;
     __id = _id;
+    _status = status;
     
 
     return self;
@@ -49,6 +52,8 @@
         _userCode = dict[@"userCode"];
         
         __id = dict[@"id"];
+        
+        _status = dict[@"status"];
         
         
     }
@@ -84,6 +89,10 @@
     
     
             if(__id != nil) dict[@"id"] = __id ;
+        
+    
+    
+            if(_status != nil) dict[@"status"] = _status ;
         
     
 

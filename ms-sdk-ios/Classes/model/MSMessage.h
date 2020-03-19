@@ -4,9 +4,10 @@
 #import "SWGDate.h"
 #import "MSNotification.h"
 #import "MSWorkflow.h"
-#import "MSJSTransfer.h"
 #import "MSPolicy.h"
+#import "MSTransfer.h"
 #import "MSErrorResponse.h"
+#import "MSRecipient.h"
 #import "MSAuditory.h"
 #import "MSDocument.h"
 
@@ -23,12 +24,14 @@
 @property(nonatomic) NSString* callbackCRM;  
 @property(nonatomic) NSString* callbackCRMAuthorization;  
 @property(nonatomic) NSString* callbackCRMResponse;  
+@property(nonatomic) NSString* callbackRedirectURL;  
 @property(nonatomic) NSNumber* disabled;  
 @property(nonatomic) NSString* userCode;  
 @property(nonatomic) NSString* groupCode;  
 @property(nonatomic) NSString* appCode;  
 @property(nonatomic) NSString* version;  
 @property(nonatomic) MSWorkflow* workflow;  
+@property(nonatomic) NSArray* recipients;  
 @property(nonatomic) MSNotification* notification;  
 @property(nonatomic) MSDocument* document;  
 @property(nonatomic) NSArray* metadataList;  
@@ -64,12 +67,14 @@
     callbackCRM: (NSString*) callbackCRM     
     callbackCRMAuthorization: (NSString*) callbackCRMAuthorization     
     callbackCRMResponse: (NSString*) callbackCRMResponse     
+    callbackRedirectURL: (NSString*) callbackRedirectURL     
     disabled: (NSNumber*) disabled     
     userCode: (NSString*) userCode     
     groupCode: (NSString*) groupCode     
     appCode: (NSString*) appCode     
     version: (NSString*) version     
     workflow: (MSWorkflow*) workflow     
+    recipients: (NSArray*) recipients     
     notification: (MSNotification*) notification     
     document: (MSDocument*) document     
     metadataList: (NSArray*) metadataList     

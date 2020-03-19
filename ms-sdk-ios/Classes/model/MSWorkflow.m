@@ -13,6 +13,10 @@
 @synthesize type = _type;
 @synthesize referenceCode = _referenceCode;
 @synthesize step = _step;
+@synthesize steps = _steps;
+@synthesize nextMessageCode = _nextMessageCode;
+@synthesize previousMessageCode = _previousMessageCode;
+@synthesize workflowFinished = _workflowFinished;
 
 -(id)code: (NSString*) code
     current: (NSString*) current
@@ -24,6 +28,10 @@
     type: (NSString*) type
     referenceCode: (NSString*) referenceCode
     step: (NSNumber*) step
+    steps: (NSNumber*) steps
+    nextMessageCode: (NSString*) nextMessageCode
+    previousMessageCode: (NSString*) previousMessageCode
+    workflowFinished: (NSNumber*) workflowFinished
     
 {
     _code = code;
@@ -36,6 +44,10 @@
     _type = type;
     _referenceCode = referenceCode;
     _step = step;
+    _steps = steps;
+    _nextMessageCode = nextMessageCode;
+    _previousMessageCode = previousMessageCode;
+    _workflowFinished = workflowFinished;
     
 
     return self;
@@ -102,6 +114,14 @@
         _referenceCode = dict[@"referenceCode"];
         
         _step = dict[@"step"];
+        
+        _steps = dict[@"steps"];
+        
+        _nextMessageCode = dict[@"nextMessageCode"];
+        
+        _previousMessageCode = dict[@"previousMessageCode"];
+        
+        _workflowFinished = dict[@"workflowFinished"];
         
         
     }
@@ -233,6 +253,22 @@
     
     
             if(_step != nil) dict[@"step"] = _step ;
+        
+    
+    
+            if(_steps != nil) dict[@"steps"] = _steps ;
+        
+    
+    
+            if(_nextMessageCode != nil) dict[@"nextMessageCode"] = _nextMessageCode ;
+        
+    
+    
+            if(_previousMessageCode != nil) dict[@"previousMessageCode"] = _previousMessageCode ;
+        
+    
+    
+            if(_workflowFinished != nil) dict[@"workflowFinished"] = _workflowFinished ;
         
     
 

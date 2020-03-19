@@ -1,7 +1,7 @@
 #import <Foundation/Foundation.h>
 #import "SWGObject.h"
-#import "MSJSTransfer.h"
 #import "MSPolicy.h"
+#import "MSTransfer.h"
 
 
 @interface MSMessageSummary : SWGObject

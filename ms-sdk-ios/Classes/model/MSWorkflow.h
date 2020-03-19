@@ -16,6 +16,10 @@
 @property(nonatomic) NSString* type;  
 @property(nonatomic) NSString* referenceCode;  
 @property(nonatomic) NSNumber* step;  
+@property(nonatomic) NSNumber* steps;  
+@property(nonatomic) NSString* nextMessageCode;  
+@property(nonatomic) NSString* previousMessageCode;  
+@property(nonatomic) NSNumber* workflowFinished;  
 - (id) code: (NSString*) code     
     current: (NSString*) current     
     next: (NSString*) next     
@@ -25,7 +29,11 @@
     expires: (SWGDate*) expires     
     type: (NSString*) type     
     referenceCode: (NSString*) referenceCode     
-    step: (NSNumber*) step;
+    step: (NSNumber*) step     
+    steps: (NSNumber*) steps     
+    nextMessageCode: (NSString*) nextMessageCode     
+    previousMessageCode: (NSString*) previousMessageCode     
+    workflowFinished: (NSNumber*) workflowFinished;
     
 
 - (id) initWithValues: (NSDictionary*)dict;

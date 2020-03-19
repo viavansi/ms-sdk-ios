@@ -4,12 +4,14 @@
 @implementation MSMessageSet
 
 @synthesize groupCode = _groupCode;
+@synthesize expires = _expires;
 @synthesize recipients = _recipients;
 @synthesize customization = _customization;
 @synthesize messages = _messages;
 @synthesize metadataList = _metadataList;
 
 -(id)groupCode: (NSString*) groupCode
+    expires: (SWGDate*) expires
     recipients: (NSArray*) recipients
     customization: (MSCustomization*) customization
     messages: (NSArray*) messages
@@ -17,6 +19,7 @@
     
 {
     _groupCode = groupCode;
+    _expires = expires;
     _recipients = recipients;
     _customization = customization;
     _messages = messages;
@@ -31,6 +34,14 @@
     self = [super init];
     if(self) {
         _groupCode = dict[@"groupCode"];
+        
+        
+        
+        id expires_dict = dict[@"expires"];
+        
+        if(expires_dict != nil)
+            _expires = [[SWGDate  alloc]initWithValues:expires_dict];
+        
         
         
         
@@ -117,6 +128,31 @@
     
             if(_groupCode != nil) dict[@"groupCode"] = _groupCode ;
         
+    
+    
+    if(_expires != nil){
+        if([_expires isKindOfClass:[NSArray class]]){
+            NSMutableArray * array = [[NSMutableArray alloc] init];
+            for( int i=0 ; i<[(NSArray*)_expires count] ; i++ ) {
+				SWGDate *expires = [[SWGDate alloc]init];
+				expires = [(NSArray*)_expires objectAtIndex:i];
+                [array addObject:[(SWGObject*)expires asDictionary]];
+            }
+            dict[@"expires"] = array;
+        }
+        else if(_expires && [_expires isKindOfClass:[SWGDate class]]) {
+            NSString * dateString = [(SWGDate*)_expires toString];
+            if(dateString){
+                dict[@"expires"] = dateString;
+            }
+        }
+        else {
+        
+            if(_expires != nil) dict[@"expires"] = [(SWGObject*)_expires asDictionary];
+        
+        }
+    }
+    
     
     
     if(_recipients != nil){

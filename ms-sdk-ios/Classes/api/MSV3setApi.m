@@ -180,6 +180,83 @@
     
 }
 
++(NSNumber*) rejectSetByCode: (NSString*) setCode
+         comment: (NSString*) comment
+        
+        auth:(OAuth1Client *) auth onSuccess: (void (^)(MSMessageSetResponse* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock
+         {
+
+    NSMutableString* requestUrl = [NSMutableString stringWithFormat:@"%@/v3/set/reject/{setCode}", [[ApiClient sharedInstance] url]];
+
+    // remove format in URL if needed
+    if ([requestUrl rangeOfString:@".{format}"].location != NSNotFound){
+        [requestUrl replaceCharactersInRange: [requestUrl rangeOfString:@".{format}"] withString:@".json"];
+    }
+
+    [requestUrl replaceCharactersInRange: [requestUrl rangeOfString:[NSString stringWithFormat:@"%@%@%@", @"{", @"setCode", @"}"]] withString: [ApiClient escape:setCode]];
+    
+
+	NSArray * requestContentTypes = @[@"application/x-www-form-urlencoded"];
+    NSString* requestContentType = requestContentTypes.count > 0 ? requestContentTypes[0] : @"application/json";
+
+    NSArray * responseContentTypes = @[@"application/json"];
+    NSString* responseContentType = responseContentTypes.count > 0 ? responseContentTypes[0] : @"application/json";
+
+    NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
+    
+    NSMutableDictionary* headerParams = [[NSMutableDictionary alloc] init];
+    
+
+    id bodyDictionary = nil;
+    
+    
+    bodyDictionary = [[NSMutableArray alloc] init];
+
+    NSMutableDictionary * formParams = [[NSMutableDictionary alloc]init];
+
+    
+    if(comment){
+    formParams[@"comment"] = comment;
+    }
+    
+    [bodyDictionary addObject:formParams];
+    
+
+    
+
+    ApiClient* client = [ApiClient sharedInstance];
+
+    
+    
+    
+        
+    // comples response type
+    return [client dictionary: auth
+					         requestUrl: requestUrl 
+                       method: @"PUT"
+                  queryParams: queryParams
+                         body: bodyDictionary
+                 headerParams: headerParams
+           requestContentType: requestContentType
+          responseContentType: responseContentType
+              successBlock: ^(NSDictionary *data) {
+                
+                MSMessageSetResponse *result = nil;
+                if (data) {
+                    result = [[MSMessageSetResponse    alloc]initWithValues: data];
+                }
+                onSuccessBlock(result);
+                
+              }
+              errorBlock: ^(NSError *error) {
+                    onErrorBlock(error);
+                    
+              }];
+    
+
+    
+}
+
 +(NSNumber*) getMessageSetByCode: (NSString*) setCode
         
         auth:(OAuth1Client *) auth onSuccess: (void (^)(MSMessageSetResponse* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock

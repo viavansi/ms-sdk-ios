@@ -62,7 +62,7 @@
             if([(NSArray*)transfers_dict count] > 0) {
                 for (int i=0 ; i<[(NSArray*)transfers_dict count] ; i++) {
                 	NSDictionary *dict = [[NSDictionary alloc] initWithDictionary:[transfers_dict objectAtIndex:i]];
-                    MSJSTransfer* d = [[MSJSTransfer alloc] initWithValues:dict];
+                    MSTransfer* d = [[MSTransfer alloc] initWithValues:dict];
                     [objs addObject:d];
                 }
                 _transfers = [[NSArray alloc] initWithArray:objs];
@@ -121,7 +121,7 @@
         if([_transfers isKindOfClass:[NSArray class]]){
             NSMutableArray * array = [[NSMutableArray alloc] init];
             for( int i=0 ; i<[(NSArray*)_transfers count] ; i++ ) {
-				MSJSTransfer *transfers = [[MSJSTransfer alloc]init];
+				MSTransfer *transfers = [[MSTransfer alloc]init];
 				transfers = [(NSArray*)_transfers objectAtIndex:i];
                 [array addObject:[(SWGObject*)transfers asDictionary]];
             }

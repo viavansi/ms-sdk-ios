@@ -22,6 +22,7 @@
 @synthesize readRequired = _readRequired;
 @synthesize numPages = _numPages;
 @synthesize allowResend = _allowResend;
+@synthesize autoFinalize = _autoFinalize;
 @synthesize deleteSignedDocuments = _deleteSignedDocuments;
 @synthesize watermarkText = _watermarkText;
 @synthesize extraPages = _extraPages;
@@ -46,6 +47,7 @@
     readRequired: (NSNumber*) readRequired
     numPages: (NSNumber*) numPages
     allowResend: (NSNumber*) allowResend
+    autoFinalize: (NSNumber*) autoFinalize
     deleteSignedDocuments: (NSNumber*) deleteSignedDocuments
     watermarkText: (NSString*) watermarkText
     extraPages: (NSNumber*) extraPages
@@ -71,6 +73,7 @@
     _readRequired = readRequired;
     _numPages = numPages;
     _allowResend = allowResend;
+    _autoFinalize = autoFinalize;
     _deleteSignedDocuments = deleteSignedDocuments;
     _watermarkText = watermarkText;
     _extraPages = extraPages;
@@ -147,6 +150,8 @@
         _numPages = dict[@"numPages"];
         
         _allowResend = dict[@"allowResend"];
+        
+        _autoFinalize = dict[@"autoFinalize"];
         
         _deleteSignedDocuments = dict[@"deleteSignedDocuments"];
         
@@ -280,6 +285,10 @@
     
     
             if(_allowResend != nil) dict[@"allowResend"] = _allowResend ;
+        
+    
+    
+            if(_autoFinalize != nil) dict[@"autoFinalize"] = _autoFinalize ;
         
     
     

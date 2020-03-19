@@ -27,6 +27,7 @@
 @property(nonatomic) NSArray* acrofieldsPositions;  
 @property(nonatomic) NSNumber* readDocumentRequired;  
 @property(nonatomic) NSNumber* allowDocumentResend;  
+@property(nonatomic) NSString* autoFinalize;  
 @property(nonatomic) MSCustomization* customization;  
 @property(nonatomic) NSArray* callbackMailsFromForm;  
 @property(nonatomic) NSString* callbackMailFilename;  
@@ -51,6 +52,7 @@
     acrofieldsPositions: (NSArray*) acrofieldsPositions     
     readDocumentRequired: (NSNumber*) readDocumentRequired     
     allowDocumentResend: (NSNumber*) allowDocumentResend     
+    autoFinalize: (NSString*) autoFinalize     
     customization: (MSCustomization*) customization     
     callbackMailsFromForm: (NSArray*) callbackMailsFromForm     
     callbackMailFilename: (NSString*) callbackMailFilename     

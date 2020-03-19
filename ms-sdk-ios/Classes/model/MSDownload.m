@@ -8,12 +8,16 @@
 @synthesize fileName = _fileName;
 @synthesize expires = _expires;
 @synthesize base64 = _base64;
+@synthesize code = _code;
+@synthesize signedID = _signedID;
 
 -(id)link: (NSString*) link
     md5: (NSString*) md5
     fileName: (NSString*) fileName
     expires: (SWGDate*) expires
     base64: (NSString*) base64
+    code: (NSString*) code
+    signedID: (NSString*) signedID
     
 {
     _link = link;
@@ -21,6 +25,8 @@
     _fileName = fileName;
     _expires = expires;
     _base64 = base64;
+    _code = code;
+    _signedID = signedID;
     
 
     return self;
@@ -45,6 +51,10 @@
         
         
         _base64 = dict[@"base64"];
+        
+        _code = dict[@"code"];
+        
+        _signedID = dict[@"signedID"];
         
         
     }
@@ -93,6 +103,14 @@
     
     
             if(_base64 != nil) dict[@"base64"] = _base64 ;
+        
+    
+    
+            if(_code != nil) dict[@"code"] = _code ;
+        
+    
+    
+            if(_signedID != nil) dict[@"signedID"] = _signedID ;
         
     
 

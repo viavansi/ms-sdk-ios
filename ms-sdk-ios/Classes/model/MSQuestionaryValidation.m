@@ -6,15 +6,21 @@
 @synthesize appId = _appId;
 @synthesize valid = _valid;
 @synthesize responseXML = _responseXML;
+@synthesize respCurrentAttempt = _respCurrentAttempt;
+@synthesize respMaxAttempts = _respMaxAttempts;
 
 -(id)appId: (NSString*) appId
     valid: (NSNumber*) valid
     responseXML: (NSString*) responseXML
+    respCurrentAttempt: (NSNumber*) respCurrentAttempt
+    respMaxAttempts: (NSNumber*) respMaxAttempts
     
 {
     _appId = appId;
     _valid = valid;
     _responseXML = responseXML;
+    _respCurrentAttempt = respCurrentAttempt;
+    _respMaxAttempts = respMaxAttempts;
     
 
     return self;
@@ -29,6 +35,10 @@
         _valid = dict[@"valid"];
         
         _responseXML = dict[@"responseXML"];
+        
+        _respCurrentAttempt = dict[@"respCurrentAttempt"];
+        
+        _respMaxAttempts = dict[@"respMaxAttempts"];
         
         
     }
@@ -48,6 +58,14 @@
     
     
             if(_responseXML != nil) dict[@"responseXML"] = _responseXML ;
+        
+    
+    
+            if(_respCurrentAttempt != nil) dict[@"respCurrentAttempt"] = _respCurrentAttempt ;
+        
+    
+    
+            if(_respMaxAttempts != nil) dict[@"respMaxAttempts"] = _respMaxAttempts ;
         
     
 

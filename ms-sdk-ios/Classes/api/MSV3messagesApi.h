@@ -247,10 +247,13 @@
  
  @param messageCode messageCode
  
+ @param recipientKey recipientKey
+ 
 
  return type: MSMessage*
  */
 +(NSNumber*) finalizeMessage :(NSString*) messageCode 
+     recipientKey:(NSString*) recipientKey 
     
     auth:(OAuth1Client *) auth onSuccess: (void (^)(MSMessage* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     

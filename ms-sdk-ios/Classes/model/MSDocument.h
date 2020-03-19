@@ -25,6 +25,7 @@
 @property(nonatomic) NSNumber* readRequired;  
 @property(nonatomic) NSNumber* numPages;  
 @property(nonatomic) NSNumber* allowResend;  
+@property(nonatomic) NSNumber* autoFinalize;  
 @property(nonatomic) NSNumber* deleteSignedDocuments;  
 @property(nonatomic) NSString* watermarkText;  
 @property(nonatomic) NSNumber* extraPages;  
@@ -48,6 +49,7 @@
     readRequired: (NSNumber*) readRequired     
     numPages: (NSNumber*) numPages     
     allowResend: (NSNumber*) allowResend     
+    autoFinalize: (NSNumber*) autoFinalize     
     deleteSignedDocuments: (NSNumber*) deleteSignedDocuments     
     watermarkText: (NSString*) watermarkText     
     extraPages: (NSNumber*) extraPages     

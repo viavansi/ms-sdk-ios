@@ -86,6 +86,25 @@
 
 /**
 
+ Method for get signed document
+ 
+ Get audit trail document
+ 
+
+ 
+ @param messageCode Message&#39;s unique code
+ 
+
+ return type: MSDownload*
+ */
++(NSNumber*) downloadAuditTrail :(NSString*) messageCode 
+    
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(MSDownload* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    
+
+
+/**
+
  Method for delete document
  
  Return message code
