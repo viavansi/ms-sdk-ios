@@ -15,7 +15,7 @@ Pod::Spec.new do |s|
   s.source_files = 'ms-sdk-ios/Classes/**/*.{h,m}'
   s.ios.deployment_target  = '9.0'
   s.osx.deployment_target  = '10.10'
-  s.dependency         'AFNetworking', '~> 2.0'
+  s.dependency         'AFNetworking', '2.7.1'
   s.framework = 'SystemConfiguration'
   s.ios.framework = 'MobileCoreServices'
 end
