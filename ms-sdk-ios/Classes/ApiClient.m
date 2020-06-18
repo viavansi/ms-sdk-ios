@@ -291,8 +291,14 @@ static bool loggingEnabled = true;
     AFJSONRequestSerializer *requestSerializer = [AFJSONRequestSerializer serializer];
 
     if(body != nil) {
-        if([body isKindOfClass:[NSDictionary class]] || [body isKindOfClass:[NSArray class]]){
-            [request setValue:requestContentType forHTTPHeaderField:@"Content-Type"];
+        if([body isKindOfClass:[NSDictionary class]]){
+            if ([(NSDictionary*)[body allKeys] count] > 0) {
+              [request setValue:requestContentType forHTTPHeaderField:@"Content-Type"];
+            }
+        } else if ([body isKindOfClass:[NSArray class]]) {
+            if ([(NSArray*)body count] > 0) {
+                [request setValue:requestContentType forHTTPHeaderField:@"Content-Type"];
+            }
         }
         else if ([body isKindOfClass:[SWGFile class]]) {}
         else {
@@ -451,8 +457,14 @@ static bool loggingEnabled = true;
 
 
     if(body != nil) {
-        if([body isKindOfClass:[NSDictionary class]] || [body isKindOfClass:[NSArray class]]){
-            [request setValue:requestContentType forHTTPHeaderField:@"Content-Type"];
+        if([body isKindOfClass:[NSDictionary class]]){
+            if ([(NSDictionary*)[body allKeys] count] > 0) {
+              [request setValue:requestContentType forHTTPHeaderField:@"Content-Type"];
+            }
+        } else if ([body isKindOfClass:[NSArray class]]) {
+            if ([(NSArray*)body count] > 0) {
+                [request setValue:requestContentType forHTTPHeaderField:@"Content-Type"];
+            }
         }
         else if ([body isKindOfClass:[SWGFile class]]){}
         else {
