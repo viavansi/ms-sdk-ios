@@ -1,6 +1,7 @@
 #import <Foundation/Foundation.h>
 #import "MSBase64.h"
 #import "MSDownload.h"
+#import "MSAuditory.h"
 #import "SWGObject.h"
 #import "OAuth1Client.h"
 
@@ -100,6 +101,25 @@
 +(NSNumber*) downloadAuditTrail :(NSString*) messageCode 
     
     auth:(OAuth1Client *) auth onSuccess: (void (^)(MSDownload* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    
+
+
+/**
+
+ Check document read by code
+ 
+ Check document read by code.
+ 
+
+ 
+ @param body Auditory of a document
+ 
+
+ return type: NSString*
+ */
++(NSNumber*) markAsRead :(MSAuditory*) body 
+    
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(NSString* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     
 
 

@@ -2,6 +2,7 @@
 #import "MSGroup.h"
 #import "MSUser.h"
 #import "MSMessage.h"
+#import "MSGroupInfo.h"
 #import "SWGObject.h"
 #import "OAuth1Client.h"
 
@@ -66,6 +67,25 @@
 +(NSNumber*) getSignPageStyle :(NSString*) groupCode 
     
     auth:(OAuth1Client *) auth onSuccess: (void (^)(MSMessage* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    
+
+
+/**
+
+ Method for update groups
+ 
+ 
+ 
+
+ 
+ @param body Group to update
+ 
+
+ return type: MSGroupInfo*
+ */
++(NSNumber*) updateGroup :(MSGroupInfo*) body 
+    
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(MSGroupInfo* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     
 
 

@@ -1556,7 +1556,7 @@
     [requestUrl replaceCharactersInRange: [requestUrl rangeOfString:[NSString stringWithFormat:@"%@%@%@", @"{", @"code", @"}"]] withString: [ApiClient escape:code]];
     
 
-	NSArray * requestContentTypes = @[@"application/json"];
+	NSArray * requestContentTypes = @[@"text/plain"];
     NSString* requestContentType = requestContentTypes.count > 0 ? requestContentTypes[0] : @"application/json";
 
     NSArray * responseContentTypes = @[@"application/json"];

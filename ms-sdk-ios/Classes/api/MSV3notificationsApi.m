@@ -564,7 +564,7 @@
 
 +(NSNumber*) findNotificationsByMessageCode: (NSString*) code
         
-        auth:(OAuth1Client *) auth onSuccess: (void (^)(MSNotification* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock
+        auth:(OAuth1Client *) auth onSuccess: (void (^)(NSArray* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock
          {
 
     NSMutableString* requestUrl = [NSMutableString stringWithFormat:@"%@/v3/notifications/messageCode/{code}", [[ApiClient sharedInstance] url]];
@@ -603,34 +603,33 @@
 
     ApiClient* client = [ApiClient sharedInstance];
 
-    
-    
-    
-        
-    // comples response type
+        // array container response type
     return [client dictionary: auth
-					         requestUrl: requestUrl 
-                       method: @"GET"
-                  queryParams: queryParams
-                         body: bodyDictionary
+                   requestUrl: requestUrl 
+                       method: @"GET" 
+                  queryParams: queryParams 
+                         body: bodyDictionary 
                  headerParams: headerParams
            requestContentType: requestContentType
           responseContentType: responseContentType
-              successBlock: ^(NSDictionary *data) {
-                
-                MSNotification *result = nil;
-                if (data) {
-                    result = [[MSNotification    alloc]initWithValues: data];
+              successBlock: ^(NSDictionary *data){
+                if([data isKindOfClass:[NSArray class]]){
+                    NSMutableArray * objs = [[NSMutableArray alloc] initWithCapacity:[data count]];
+                    for (NSDictionary* dict in (NSArray*)data) {
+                        
+                        
+                        MSNotification* d = [[MSNotification alloc]initWithValues: dict];
+                        
+                        [objs addObject:d];
+                    }
+                    onSuccessBlock(objs);
                 }
-                onSuccessBlock(result);
-                
               }
               errorBlock: ^(NSError *error) {
-                    onErrorBlock(error);
-                    
-              }];
+                onErrorBlock(error);
+                
+            }];
     
-
     
 }
 

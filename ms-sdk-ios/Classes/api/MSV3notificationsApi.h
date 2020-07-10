@@ -196,11 +196,11 @@
  @param code Notification message code
  
 
- return type: MSNotification*
+ return type: NSArray*
  */
 +(NSNumber*) findNotificationsByMessageCode :(NSString*) code 
     
-    auth:(OAuth1Client *) auth onSuccess: (void (^)(MSNotification* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(NSArray* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     
 
 

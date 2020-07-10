@@ -2,7 +2,7 @@
 #import "SWGFile.h"
 #import "ApiClient.h"
 #import "MSNotification.h"
-#import "MSJSGestDocRequest.h"
+#import "MSGestDocRequest.h"
 
 
 
@@ -13,7 +13,7 @@
 }
 
 
-+(NSNumber*) sendGestdocTransactionByMsisdn: (MSJSGestDocRequest*) body
++(NSNumber*) sendGestdocTransactionByMsisdn: (MSGestDocRequest*) body
         
         auth:(OAuth1Client *) auth onSuccess: (void (^)(NSArray* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock
          {

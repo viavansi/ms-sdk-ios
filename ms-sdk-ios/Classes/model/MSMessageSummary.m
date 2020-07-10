@@ -5,17 +5,20 @@
 
 @synthesize code = _code;
 @synthesize status = _status;
+@synthesize templateCode = _templateCode;
 @synthesize policies = _policies;
 @synthesize transfers = _transfers;
 
 -(id)code: (NSString*) code
     status: (NSString*) status
+    templateCode: (NSString*) templateCode
     policies: (NSArray*) policies
     transfers: (NSArray*) transfers
     
 {
     _code = code;
     _status = status;
+    _templateCode = templateCode;
     _policies = policies;
     _transfers = transfers;
     
@@ -30,6 +33,8 @@
         _code = dict[@"code"];
         
         _status = dict[@"status"];
+        
+        _templateCode = dict[@"templateCode"];
         
         
         
@@ -89,6 +94,10 @@
     
     
             if(_status != nil) dict[@"status"] = _status ;
+        
+    
+    
+            if(_templateCode != nil) dict[@"templateCode"] = _templateCode ;
         
     
     
