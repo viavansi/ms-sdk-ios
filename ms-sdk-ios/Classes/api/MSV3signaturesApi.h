@@ -5,6 +5,7 @@
 #import "MSDataToSign.h"
 #import "MSEvidenceSignature.h"
 #import "MSPolicy.h"
+#import "MSFortressSignature.h"
 #import "MSMessage.h"
 #import "SWGObject.h"
 #import "OAuth1Client.h"
@@ -67,6 +68,28 @@
 +(NSNumber*) addDigitalizedSignature :(MSEvidenceSignature*) body 
     
     auth:(OAuth1Client *) auth onSuccess: (void (^)(MSPolicy* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    
+
+
+/**
+
+ Method for get fortress client signature url
+ 
+ 
+ 
+
+ 
+ @param messageCode Message&#39;s identifier
+ 
+ @param signatureCode Signature&#39;s identifier
+ 
+
+ return type: MSFortressSignature*
+ */
++(NSNumber*) getFortressSignatureUrl :(NSString*) messageCode 
+     signatureCode:(NSString*) signatureCode 
+    
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(MSFortressSignature* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     
 
 

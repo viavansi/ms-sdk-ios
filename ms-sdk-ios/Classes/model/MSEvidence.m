@@ -25,6 +25,7 @@
 @synthesize typeFormatSign = _typeFormatSign;
 @synthesize certificateAlias = _certificateAlias;
 @synthesize certificatePassword = _certificatePassword;
+@synthesize certificateId = _certificateId;
 @synthesize metadataCipherPublicKey = _metadataCipherPublicKey;
 @synthesize encryptionKeyAlias = _encryptionKeyAlias;
 @synthesize optional = _optional;
@@ -73,6 +74,7 @@
     typeFormatSign: (NSString*) typeFormatSign
     certificateAlias: (NSString*) certificateAlias
     certificatePassword: (NSString*) certificatePassword
+    certificateId: (NSString*) certificateId
     metadataCipherPublicKey: (NSString*) metadataCipherPublicKey
     encryptionKeyAlias: (NSString*) encryptionKeyAlias
     optional: (NSNumber*) optional
@@ -122,6 +124,7 @@
     _typeFormatSign = typeFormatSign;
     _certificateAlias = certificateAlias;
     _certificatePassword = certificatePassword;
+    _certificateId = certificateId;
     _metadataCipherPublicKey = metadataCipherPublicKey;
     _encryptionKeyAlias = encryptionKeyAlias;
     _optional = optional;
@@ -239,6 +242,8 @@
         _certificateAlias = dict[@"certificateAlias"];
         
         _certificatePassword = dict[@"certificatePassword"];
+        
+        _certificateId = dict[@"certificateId"];
         
         _metadataCipherPublicKey = dict[@"metadataCipherPublicKey"];
         
@@ -482,6 +487,10 @@
     
     
             if(_certificatePassword != nil) dict[@"certificatePassword"] = _certificatePassword ;
+        
+    
+    
+            if(_certificateId != nil) dict[@"certificateId"] = _certificateId ;
         
     
     

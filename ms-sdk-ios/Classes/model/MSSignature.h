@@ -11,6 +11,8 @@
 @property(nonatomic) NSString* helpText;  
 @property(nonatomic) NSString* certificateAlias;  
 @property(nonatomic) NSString* certificatePassword;  
+@property(nonatomic) NSString* certificateId;  
+@property(nonatomic) NSString* userId;  
 @property(nonatomic) NSString* typeFormatSign;  
 @property(nonatomic) NSString* dataToSign;  
 @property(nonatomic) NSString* idSign;  
@@ -24,6 +26,8 @@
     helpText: (NSString*) helpText     
     certificateAlias: (NSString*) certificateAlias     
     certificatePassword: (NSString*) certificatePassword     
+    certificateId: (NSString*) certificateId     
+    userId: (NSString*) userId     
     typeFormatSign: (NSString*) typeFormatSign     
     dataToSign: (NSString*) dataToSign     
     idSign: (NSString*) idSign     

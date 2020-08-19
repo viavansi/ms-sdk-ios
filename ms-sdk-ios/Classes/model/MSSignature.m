@@ -9,6 +9,8 @@
 @synthesize helpText = _helpText;
 @synthesize certificateAlias = _certificateAlias;
 @synthesize certificatePassword = _certificatePassword;
+@synthesize certificateId = _certificateId;
+@synthesize userId = _userId;
 @synthesize typeFormatSign = _typeFormatSign;
 @synthesize dataToSign = _dataToSign;
 @synthesize idSign = _idSign;
@@ -23,6 +25,8 @@
     helpText: (NSString*) helpText
     certificateAlias: (NSString*) certificateAlias
     certificatePassword: (NSString*) certificatePassword
+    certificateId: (NSString*) certificateId
+    userId: (NSString*) userId
     typeFormatSign: (NSString*) typeFormatSign
     dataToSign: (NSString*) dataToSign
     idSign: (NSString*) idSign
@@ -38,6 +42,8 @@
     _helpText = helpText;
     _certificateAlias = certificateAlias;
     _certificatePassword = certificatePassword;
+    _certificateId = certificateId;
+    _userId = userId;
     _typeFormatSign = typeFormatSign;
     _dataToSign = dataToSign;
     _idSign = idSign;
@@ -65,6 +71,10 @@
         _certificateAlias = dict[@"certificateAlias"];
         
         _certificatePassword = dict[@"certificatePassword"];
+        
+        _certificateId = dict[@"certificateId"];
+        
+        _userId = dict[@"userId"];
         
         _typeFormatSign = dict[@"typeFormatSign"];
         
@@ -130,6 +140,14 @@
     
     
             if(_certificatePassword != nil) dict[@"certificatePassword"] = _certificatePassword ;
+        
+    
+    
+            if(_certificateId != nil) dict[@"certificateId"] = _certificateId ;
+        
+    
+    
+            if(_userId != nil) dict[@"userId"] = _userId ;
         
     
     

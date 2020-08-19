@@ -35,6 +35,7 @@
 @property(nonatomic) NSString* typeFormatSign;  
 @property(nonatomic) NSString* certificateAlias;  
 @property(nonatomic) NSString* certificatePassword;  
+@property(nonatomic) NSString* certificateId;  
 @property(nonatomic) NSString* metadataCipherPublicKey;  
 @property(nonatomic) NSString* encryptionKeyAlias;  
 @property(nonatomic) NSNumber* optional;  
@@ -82,6 +83,7 @@
     typeFormatSign: (NSString*) typeFormatSign     
     certificateAlias: (NSString*) certificateAlias     
     certificatePassword: (NSString*) certificatePassword     
+    certificateId: (NSString*) certificateId     
     metadataCipherPublicKey: (NSString*) metadataCipherPublicKey     
     encryptionKeyAlias: (NSString*) encryptionKeyAlias     
     optional: (NSNumber*) optional     
