@@ -15,6 +15,9 @@
 @synthesize positions = _positions;
 @synthesize imageQuality = _imageQuality;
 @synthesize imageScaleFactor = _imageScaleFactor;
+@synthesize clientTimestamp = _clientTimestamp;
+@synthesize serviceTimestamp = _serviceTimestamp;
+@synthesize serviceTimestampType = _serviceTimestampType;
 
 -(id)messageCode: (NSString*) messageCode
     policyCode: (NSString*) policyCode
@@ -28,6 +31,9 @@
     positions: (NSArray*) positions
     imageQuality: (NSNumber*) imageQuality
     imageScaleFactor: (NSNumber*) imageScaleFactor
+    clientTimestamp: (NSNumber*) clientTimestamp
+    serviceTimestamp: (NSNumber*) serviceTimestamp
+    serviceTimestampType: (NSString*) serviceTimestampType
     
 {
     _messageCode = messageCode;
@@ -42,6 +48,9 @@
     _positions = positions;
     _imageQuality = imageQuality;
     _imageScaleFactor = imageScaleFactor;
+    _clientTimestamp = clientTimestamp;
+    _serviceTimestamp = serviceTimestamp;
+    _serviceTimestampType = serviceTimestampType;
     
 
     return self;
@@ -126,6 +135,12 @@
         _imageQuality = dict[@"imageQuality"];
         
         _imageScaleFactor = dict[@"imageScaleFactor"];
+        
+        _clientTimestamp = dict[@"clientTimestamp"];
+        
+        _serviceTimestamp = dict[@"serviceTimestamp"];
+        
+        _serviceTimestampType = dict[@"serviceTimestampType"];
         
         
     }
@@ -265,6 +280,18 @@
     
     
             if(_imageScaleFactor != nil) dict[@"imageScaleFactor"] = _imageScaleFactor ;
+        
+    
+    
+            if(_clientTimestamp != nil) dict[@"clientTimestamp"] = _clientTimestamp ;
+        
+    
+    
+            if(_serviceTimestamp != nil) dict[@"serviceTimestamp"] = _serviceTimestamp ;
+        
+    
+    
+            if(_serviceTimestampType != nil) dict[@"serviceTimestampType"] = _serviceTimestampType ;
         
     
 

@@ -1,6 +1,5 @@
 #import <Foundation/Foundation.h>
 #import "SWGObject.h"
-#import "SWGDate.h"
 #import "MSAuditoryMetadata.h"
 #import "MSGeolocation.h"
 
@@ -9,7 +8,7 @@
 
 @property(nonatomic) NSString* action;  
 @property(nonatomic) NSString* code;  
-@property(nonatomic) SWGDate* date;  
+@property(nonatomic) NSNumber* date;  /* epoch timestamp in milliseconds  */
 @property(nonatomic) NSString* app;  
 @property(nonatomic) NSString* user;  
 @property(nonatomic) NSString* ip;  
@@ -23,7 +22,7 @@
 @property(nonatomic) NSNumber* time;  
 - (id) action: (NSString*) action     
     code: (NSString*) code     
-    date: (SWGDate*) date     
+    date: (NSNumber*) date     
     app: (NSString*) app     
     user: (NSString*) user     
     ip: (NSString*) ip     

@@ -1,6 +1,5 @@
 #import <Foundation/Foundation.h>
 #import "SWGObject.h"
-#import "SWGDate.h"
 #import "MSSignature.h"
 
 
@@ -11,16 +10,16 @@
 @property(nonatomic) NSString* helpText;  /* (since 3.4.0) who approve the check  */
 @property(nonatomic) MSSignature* signature;  /* (since 3.4.0) signature info  */
 @property(nonatomic) NSString* validateCode;  /* (since 3.4.0) code that allows you to execute the confirmation action  */
-@property(nonatomic) SWGDate* expires;  /* (since 3.4.0) maximum date on which the petition can be approved  */
-@property(nonatomic) SWGDate* date;  /* (since 3.4.0) date on which the petition was approved or rejected  */
+@property(nonatomic) NSNumber* expires;  /* epoch timestamp in milliseconds  */
+@property(nonatomic) NSNumber* date;  /* epoch timestamp in milliseconds  */
 @property(nonatomic) NSString* commentReject;  /* (since 3.4.0) check rejection reason  */
 - (id) status: (NSString*) status     
     code: (NSString*) code     
     helpText: (NSString*) helpText     
     signature: (MSSignature*) signature     
     validateCode: (NSString*) validateCode     
-    expires: (SWGDate*) expires     
-    date: (SWGDate*) date     
+    expires: (NSNumber*) expires     
+    date: (NSNumber*) date     
     commentReject: (NSString*) commentReject;
     
 

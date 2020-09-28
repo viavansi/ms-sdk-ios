@@ -15,6 +15,9 @@
 @synthesize ocrTemplate = _ocrTemplate;
 @synthesize ocrFields = _ocrFields;
 @synthesize properties = _properties;
+@synthesize clientTimestamp = _clientTimestamp;
+@synthesize serviceTimestamp = _serviceTimestamp;
+@synthesize serviceTimestampType = _serviceTimestampType;
 
 -(id)messageCode: (NSString*) messageCode
     evidenceCode: (NSString*) evidenceCode
@@ -28,6 +31,9 @@
     ocrTemplate: (NSString*) ocrTemplate
     ocrFields: (NSString*) ocrFields
     properties: (NSArray*) properties
+    clientTimestamp: (NSNumber*) clientTimestamp
+    serviceTimestamp: (NSNumber*) serviceTimestamp
+    serviceTimestampType: (NSString*) serviceTimestampType
     
 {
     _messageCode = messageCode;
@@ -42,6 +48,9 @@
     _ocrTemplate = ocrTemplate;
     _ocrFields = ocrFields;
     _properties = properties;
+    _clientTimestamp = clientTimestamp;
+    _serviceTimestamp = serviceTimestamp;
+    _serviceTimestampType = serviceTimestampType;
     
 
     return self;
@@ -132,6 +141,12 @@
             _properties = [[NSArray alloc] init];
         }
         
+        
+        _clientTimestamp = dict[@"clientTimestamp"];
+        
+        _serviceTimestamp = dict[@"serviceTimestamp"];
+        
+        _serviceTimestampType = dict[@"serviceTimestampType"];
         
         
     }
@@ -293,6 +308,18 @@
         }
     }
     
+    
+    
+            if(_clientTimestamp != nil) dict[@"clientTimestamp"] = _clientTimestamp ;
+        
+    
+    
+            if(_serviceTimestamp != nil) dict[@"serviceTimestamp"] = _serviceTimestamp ;
+        
+    
+    
+            if(_serviceTimestampType != nil) dict[@"serviceTimestampType"] = _serviceTimestampType ;
+        
     
 
     NSDictionary* output = [dict copy];

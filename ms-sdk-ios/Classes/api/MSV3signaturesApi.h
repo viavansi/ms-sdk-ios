@@ -6,6 +6,7 @@
 #import "MSEvidenceSignature.h"
 #import "MSPolicy.h"
 #import "MSFortressSignature.h"
+#import "MSTimestampResponse.h"
 #import "MSMessage.h"
 #import "SWGObject.h"
 #import "OAuth1Client.h"
@@ -134,6 +135,28 @@
      signatureCode:(NSString*) signatureCode 
     
     auth:(OAuth1Client *) auth onSuccess: (void (^)(MSSignature* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    
+
+
+/**
+
+ Method for get an timestamp
+ 
+ Get timestamp
+ 
+
+ 
+ @param messageCode Message&#39;s identifier
+ 
+ @param evidenceCode Evidence&#39;s identifier
+ 
+
+ return type: MSTimestampResponse*
+ */
++(NSNumber*) getTimeStampByCode :(NSString*) messageCode 
+     evidenceCode:(NSString*) evidenceCode 
+    
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(MSTimestampResponse* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     
 
 

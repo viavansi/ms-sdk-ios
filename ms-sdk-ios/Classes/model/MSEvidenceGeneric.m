@@ -11,6 +11,9 @@
 @synthesize properties = _properties;
 @synthesize base64Image = _base64Image;
 @synthesize providerId = _providerId;
+@synthesize clientTimestamp = _clientTimestamp;
+@synthesize serviceTimestamp = _serviceTimestamp;
+@synthesize serviceTimestampType = _serviceTimestampType;
 @synthesize evidenceDescription = _evidenceDescription;
 @synthesize expirationTime = _expirationTime;
 @synthesize imageQuality = _imageQuality;
@@ -24,6 +27,9 @@
     properties: (NSArray*) properties
     base64Image: (NSString*) base64Image
     providerId: (NSString*) providerId
+    clientTimestamp: (NSNumber*) clientTimestamp
+    serviceTimestamp: (NSNumber*) serviceTimestamp
+    serviceTimestampType: (NSString*) serviceTimestampType
     evidenceDescription: (NSString*) evidenceDescription
     expirationTime: (NSNumber*) expirationTime
     imageQuality: (NSNumber*) imageQuality
@@ -38,6 +44,9 @@
     _properties = properties;
     _base64Image = base64Image;
     _providerId = providerId;
+    _clientTimestamp = clientTimestamp;
+    _serviceTimestamp = serviceTimestamp;
+    _serviceTimestampType = serviceTimestampType;
     _evidenceDescription = evidenceDescription;
     _expirationTime = expirationTime;
     _imageQuality = imageQuality;
@@ -118,6 +127,12 @@
         _base64Image = dict[@"base64Image"];
         
         _providerId = dict[@"providerId"];
+        
+        _clientTimestamp = dict[@"clientTimestamp"];
+        
+        _serviceTimestamp = dict[@"serviceTimestamp"];
+        
+        _serviceTimestampType = dict[@"serviceTimestampType"];
         
         _evidenceDescription = dict[@"evidenceDescription"];
         
@@ -249,6 +264,18 @@
     
     
             if(_providerId != nil) dict[@"providerId"] = _providerId ;
+        
+    
+    
+            if(_clientTimestamp != nil) dict[@"clientTimestamp"] = _clientTimestamp ;
+        
+    
+    
+            if(_serviceTimestamp != nil) dict[@"serviceTimestamp"] = _serviceTimestamp ;
+        
+    
+    
+            if(_serviceTimestampType != nil) dict[@"serviceTimestampType"] = _serviceTimestampType ;
         
     
     

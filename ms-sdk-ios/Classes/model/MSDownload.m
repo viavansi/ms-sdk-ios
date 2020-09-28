@@ -14,7 +14,7 @@
 -(id)link: (NSString*) link
     md5: (NSString*) md5
     fileName: (NSString*) fileName
-    expires: (SWGDate*) expires
+    expires: (NSNumber*) expires
     base64: (NSString*) base64
     code: (NSString*) code
     signedID: (NSString*) signedID
@@ -42,13 +42,7 @@
         
         _fileName = dict[@"fileName"];
         
-        
-        
-        id expires_dict = dict[@"expires"];
-        
-        if(expires_dict != nil)
-            _expires = [[SWGDate  alloc]initWithValues:expires_dict];
-        
+        _expires = dict[@"expires"];
         
         _base64 = dict[@"base64"];
         
@@ -77,29 +71,8 @@
         
     
     
-    if(_expires != nil){
-        if([_expires isKindOfClass:[NSArray class]]){
-            NSMutableArray * array = [[NSMutableArray alloc] init];
-            for( int i=0 ; i<[(NSArray*)_expires count] ; i++ ) {
-				SWGDate *expires = [[SWGDate alloc]init];
-				expires = [(NSArray*)_expires objectAtIndex:i];
-                [array addObject:[(SWGObject*)expires asDictionary]];
-            }
-            dict[@"expires"] = array;
-        }
-        else if(_expires && [_expires isKindOfClass:[SWGDate class]]) {
-            NSString * dateString = [(SWGDate*)_expires toString];
-            if(dateString){
-                dict[@"expires"] = dateString;
-            }
-        }
-        else {
+            if(_expires != nil) dict[@"expires"] = _expires ;
         
-            if(_expires != nil) dict[@"expires"] = [(SWGObject*)_expires asDictionary];
-        
-        }
-    }
-    
     
     
             if(_base64 != nil) dict[@"base64"] = _base64 ;

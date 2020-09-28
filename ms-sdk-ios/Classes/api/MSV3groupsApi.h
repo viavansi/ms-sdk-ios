@@ -1,7 +1,7 @@
 #import <Foundation/Foundation.h>
 #import "MSGroup.h"
 #import "MSUser.h"
-#import "MSMessage.h"
+#import "MSSignPageStyle.h"
 #import "MSGroupInfo.h"
 #import "SWGObject.h"
 #import "OAuth1Client.h"
@@ -62,11 +62,11 @@
  @param groupCode Group&#39;s identifier
  
 
- return type: MSMessage*
+ return type: MSSignPageStyle*
  */
 +(NSNumber*) getSignPageStyle :(NSString*) groupCode 
     
-    auth:(OAuth1Client *) auth onSuccess: (void (^)(MSMessage* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(MSSignPageStyle* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     
 
 

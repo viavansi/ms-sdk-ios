@@ -17,8 +17,8 @@
     helpText: (NSString*) helpText
     signature: (MSSignature*) signature
     validateCode: (NSString*) validateCode
-    expires: (SWGDate*) expires
-    date: (SWGDate*) date
+    expires: (NSNumber*) expires
+    date: (NSNumber*) date
     commentReject: (NSString*) commentReject
     
 {
@@ -55,21 +55,9 @@
         
         _validateCode = dict[@"validateCode"];
         
+        _expires = dict[@"expires"];
         
-        
-        id expires_dict = dict[@"expires"];
-        
-        if(expires_dict != nil)
-            _expires = [[SWGDate  alloc]initWithValues:expires_dict];
-        
-        
-        
-        
-        id date_dict = dict[@"date"];
-        
-        if(date_dict != nil)
-            _date = [[SWGDate  alloc]initWithValues:date_dict];
-        
+        _date = dict[@"date"];
         
         _commentReject = dict[@"commentReject"];
         
@@ -123,54 +111,12 @@
         
     
     
-    if(_expires != nil){
-        if([_expires isKindOfClass:[NSArray class]]){
-            NSMutableArray * array = [[NSMutableArray alloc] init];
-            for( int i=0 ; i<[(NSArray*)_expires count] ; i++ ) {
-				SWGDate *expires = [[SWGDate alloc]init];
-				expires = [(NSArray*)_expires objectAtIndex:i];
-                [array addObject:[(SWGObject*)expires asDictionary]];
-            }
-            dict[@"expires"] = array;
-        }
-        else if(_expires && [_expires isKindOfClass:[SWGDate class]]) {
-            NSString * dateString = [(SWGDate*)_expires toString];
-            if(dateString){
-                dict[@"expires"] = dateString;
-            }
-        }
-        else {
+            if(_expires != nil) dict[@"expires"] = _expires ;
         
-            if(_expires != nil) dict[@"expires"] = [(SWGObject*)_expires asDictionary];
-        
-        }
-    }
     
     
-    
-    if(_date != nil){
-        if([_date isKindOfClass:[NSArray class]]){
-            NSMutableArray * array = [[NSMutableArray alloc] init];
-            for( int i=0 ; i<[(NSArray*)_date count] ; i++ ) {
-				SWGDate *date = [[SWGDate alloc]init];
-				date = [(NSArray*)_date objectAtIndex:i];
-                [array addObject:[(SWGObject*)date asDictionary]];
-            }
-            dict[@"date"] = array;
-        }
-        else if(_date && [_date isKindOfClass:[SWGDate class]]) {
-            NSString * dateString = [(SWGDate*)_date toString];
-            if(dateString){
-                dict[@"date"] = dateString;
-            }
-        }
-        else {
+            if(_date != nil) dict[@"date"] = _date ;
         
-            if(_date != nil) dict[@"date"] = [(SWGObject*)_date asDictionary];
-        
-        }
-    }
-    
     
     
             if(_commentReject != nil) dict[@"commentReject"] = _commentReject ;

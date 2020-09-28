@@ -1,6 +1,5 @@
 #import <Foundation/Foundation.h>
 #import "SWGObject.h"
-#import "SWGDate.h"
 
 
 @interface MSMessageList : SWGObject
@@ -10,7 +9,7 @@
 @property(nonatomic) NSString* userCode;  /* (since 3.4.8, internal) user code  */
 @property(nonatomic) NSString* groupCode;  /* (since 3.4.8, internal) group code  */
 @property(nonatomic) NSString* templateCode;  /* (since 3.4.8, internal) template code  */
-@property(nonatomic) SWGDate* creationDate;  /* (since 3.4.8, internal) creation date  */
+@property(nonatomic) NSNumber* creationDate;  /* epoch timestamp in milliseconds  */
 @property(nonatomic) NSString* externalCode;  /* (since 3.5.120, internal) external code  */
 @property(nonatomic) NSString* externalStatus;  /* (since 3.5.120, internal) external status  */
 - (id) messageCode: (NSString*) messageCode     
@@ -18,7 +17,7 @@
     userCode: (NSString*) userCode     
     groupCode: (NSString*) groupCode     
     templateCode: (NSString*) templateCode     
-    creationDate: (SWGDate*) creationDate     
+    creationDate: (NSNumber*) creationDate     
     externalCode: (NSString*) externalCode     
     externalStatus: (NSString*) externalStatus;
     

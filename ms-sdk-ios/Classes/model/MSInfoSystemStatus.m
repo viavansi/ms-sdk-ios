@@ -10,7 +10,7 @@
 @synthesize notifications = _notifications;
 @synthesize status = _status;
 
--(id)date: (SWGDate*) date
+-(id)date: (NSNumber*) date
     name: (NSString*) name
     info: (NSArray*) info
     system: (MSSystemInfo*) system
@@ -33,13 +33,7 @@
 {
     self = [super init];
     if(self) {
-        
-        
-        id date_dict = dict[@"date"];
-        
-        if(date_dict != nil)
-            _date = [[SWGDate  alloc]initWithValues:date_dict];
-        
+        _date = dict[@"date"];
         
         _name = dict[@"name"];
         
@@ -86,29 +80,8 @@
     NSMutableDictionary* dict = [[NSMutableDictionary alloc] init];
     
     
-    if(_date != nil){
-        if([_date isKindOfClass:[NSArray class]]){
-            NSMutableArray * array = [[NSMutableArray alloc] init];
-            for( int i=0 ; i<[(NSArray*)_date count] ; i++ ) {
-				SWGDate *date = [[SWGDate alloc]init];
-				date = [(NSArray*)_date objectAtIndex:i];
-                [array addObject:[(SWGObject*)date asDictionary]];
-            }
-            dict[@"date"] = array;
-        }
-        else if(_date && [_date isKindOfClass:[SWGDate class]]) {
-            NSString * dateString = [(SWGDate*)_date toString];
-            if(dateString){
-                dict[@"date"] = dateString;
-            }
-        }
-        else {
+            if(_date != nil) dict[@"date"] = _date ;
         
-            if(_date != nil) dict[@"date"] = [(SWGObject*)_date asDictionary];
-        
-        }
-    }
-    
     
     
             if(_name != nil) dict[@"name"] = _name ;

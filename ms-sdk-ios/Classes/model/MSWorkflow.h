@@ -1,6 +1,5 @@
 #import <Foundation/Foundation.h>
 #import "SWGObject.h"
-#import "SWGDate.h"
 #import "MSEventHistory.h"
 
 
@@ -10,9 +9,9 @@
 @property(nonatomic) NSString* current;  
 @property(nonatomic) NSString* next;  
 @property(nonatomic) NSArray* history;  
-@property(nonatomic) SWGDate* initiate;  
-@property(nonatomic) SWGDate* lastUpdated;  
-@property(nonatomic) SWGDate* expires;  
+@property(nonatomic) NSNumber* initiate;  /* epoch timestamp in milliseconds  */
+@property(nonatomic) NSNumber* lastUpdated;  /* epoch timestamp in milliseconds  */
+@property(nonatomic) NSNumber* expires;  /* epoch timestamp in milliseconds  */
 @property(nonatomic) NSString* type;  
 @property(nonatomic) NSString* referenceCode;  
 @property(nonatomic) NSNumber* step;  
@@ -24,9 +23,9 @@
     current: (NSString*) current     
     next: (NSString*) next     
     history: (NSArray*) history     
-    initiate: (SWGDate*) initiate     
-    lastUpdated: (SWGDate*) lastUpdated     
-    expires: (SWGDate*) expires     
+    initiate: (NSNumber*) initiate     
+    lastUpdated: (NSNumber*) lastUpdated     
+    expires: (NSNumber*) expires     
     type: (NSString*) type     
     referenceCode: (NSString*) referenceCode     
     step: (NSNumber*) step     

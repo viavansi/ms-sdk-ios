@@ -21,6 +21,7 @@
 @synthesize version = _version;
 @synthesize workflow = _workflow;
 @synthesize recipients = _recipients;
+@synthesize recipientStep = _recipientStep;
 @synthesize notification = _notification;
 @synthesize document = _document;
 @synthesize metadataList = _metadataList;
@@ -46,6 +47,7 @@
 @synthesize setStatus = _setStatus;
 @synthesize signPageServer = _signPageServer;
 @synthesize auditTrailPage = _auditTrailPage;
+@synthesize order = _order;
 
 -(id)code: (NSString*) code
     externalCode: (NSString*) externalCode
@@ -65,6 +67,7 @@
     version: (NSString*) version
     workflow: (MSWorkflow*) workflow
     recipients: (NSArray*) recipients
+    recipientStep: (NSNumber*) recipientStep
     notification: (MSNotification*) notification
     document: (MSDocument*) document
     metadataList: (NSArray*) metadataList
@@ -79,7 +82,7 @@
     error: (MSErrorResponse*) error
     pid: (NSString*) pid
     server: (NSString*) server
-    processTimeExpired: (SWGDate*) processTimeExpired
+    processTimeExpired: (NSNumber*) processTimeExpired
     commentReject: (NSString*) commentReject
     callbackResponse: (NSString*) callbackResponse
     auditory: (NSArray*) auditory
@@ -90,6 +93,7 @@
     setStatus: (NSString*) setStatus
     signPageServer: (NSString*) signPageServer
     auditTrailPage: (NSString*) auditTrailPage
+    order: (NSNumber*) order
     
 {
     _code = code;
@@ -110,6 +114,7 @@
     _version = version;
     _workflow = workflow;
     _recipients = recipients;
+    _recipientStep = recipientStep;
     _notification = notification;
     _document = document;
     _metadataList = metadataList;
@@ -135,6 +140,7 @@
     _setStatus = setStatus;
     _signPageServer = signPageServer;
     _auditTrailPage = auditTrailPage;
+    _order = order;
     
 
     return self;
@@ -205,6 +211,8 @@
             _recipients = [[NSArray alloc] init];
         }
         
+        
+        _recipientStep = dict[@"recipientStep"];
         
         
         
@@ -292,13 +300,7 @@
         
         _server = dict[@"server"];
         
-        
-        
-        id processTimeExpired_dict = dict[@"processTimeExpired"];
-        
-        if(processTimeExpired_dict != nil)
-            _processTimeExpired = [[SWGDate  alloc]initWithValues:processTimeExpired_dict];
-        
+        _processTimeExpired = dict[@"processTimeExpired"];
         
         _commentReject = dict[@"commentReject"];
         
@@ -359,6 +361,8 @@
         _signPageServer = dict[@"signPageServer"];
         
         _auditTrailPage = dict[@"auditTrailPage"];
+        
+        _order = dict[@"order"];
         
         
     }
@@ -481,6 +485,10 @@
         }
     }
     
+    
+    
+            if(_recipientStep != nil) dict[@"recipientStep"] = _recipientStep ;
+        
     
     
     if(_notification != nil){
@@ -644,29 +652,8 @@
         
     
     
-    if(_processTimeExpired != nil){
-        if([_processTimeExpired isKindOfClass:[NSArray class]]){
-            NSMutableArray * array = [[NSMutableArray alloc] init];
-            for( int i=0 ; i<[(NSArray*)_processTimeExpired count] ; i++ ) {
-				SWGDate *processTimeExpired = [[SWGDate alloc]init];
-				processTimeExpired = [(NSArray*)_processTimeExpired objectAtIndex:i];
-                [array addObject:[(SWGObject*)processTimeExpired asDictionary]];
-            }
-            dict[@"processTimeExpired"] = array;
-        }
-        else if(_processTimeExpired && [_processTimeExpired isKindOfClass:[SWGDate class]]) {
-            NSString * dateString = [(SWGDate*)_processTimeExpired toString];
-            if(dateString){
-                dict[@"processTimeExpired"] = dateString;
-            }
-        }
-        else {
+            if(_processTimeExpired != nil) dict[@"processTimeExpired"] = _processTimeExpired ;
         
-            if(_processTimeExpired != nil) dict[@"processTimeExpired"] = [(SWGObject*)_processTimeExpired asDictionary];
-        
-        }
-    }
-    
     
     
             if(_commentReject != nil) dict[@"commentReject"] = _commentReject ;
@@ -748,6 +735,10 @@
     
     
             if(_auditTrailPage != nil) dict[@"auditTrailPage"] = _auditTrailPage ;
+        
+    
+    
+            if(_order != nil) dict[@"order"] = _order ;
         
     
 

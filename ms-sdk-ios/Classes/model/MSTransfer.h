@@ -1,20 +1,19 @@
 #import <Foundation/Foundation.h>
 #import "SWGObject.h"
 #import "MSParam.h"
-#import "SWGDate.h"
 
 
 @interface MSTransfer : SWGObject
 
 @property(nonatomic) NSString* name;  
 @property(nonatomic) NSString* status;  
-@property(nonatomic) SWGDate* transferDate;  
+@property(nonatomic) NSNumber* transferDate;  /* epoch timestamp in milliseconds  */
 @property(nonatomic) NSString* error;  
 @property(nonatomic) NSString* response;  
 @property(nonatomic) NSArray* metadataList;  
 - (id) name: (NSString*) name     
     status: (NSString*) status     
-    transferDate: (SWGDate*) transferDate     
+    transferDate: (NSNumber*) transferDate     
     error: (NSString*) error     
     response: (NSString*) response     
     metadataList: (NSArray*) metadataList;

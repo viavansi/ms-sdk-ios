@@ -1,19 +1,18 @@
 #import <Foundation/Foundation.h>
 #import "SWGObject.h"
 #import "MSSystemInfo.h"
-#import "SWGDate.h"
 #import "MSSystemStatus.h"
 
 
 @interface MSInfoSystemStatus : SWGObject
 
-@property(nonatomic) SWGDate* date;  
+@property(nonatomic) NSNumber* date;  /* epoch timestamp in milliseconds  */
 @property(nonatomic) NSString* name;  
 @property(nonatomic) NSArray* info;  
 @property(nonatomic) MSSystemInfo* system;  
 @property(nonatomic) NSDictionary* notifications;  
 @property(nonatomic) NSString* status;  
-- (id) date: (SWGDate*) date     
+- (id) date: (NSNumber*) date     
     name: (NSString*) name     
     info: (NSArray*) info     
     system: (MSSystemInfo*) system     

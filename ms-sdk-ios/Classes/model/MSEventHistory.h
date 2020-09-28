@@ -1,18 +1,17 @@
 #import <Foundation/Foundation.h>
 #import "SWGObject.h"
-#import "SWGDate.h"
 #import "MSErrorResponse.h"
 
 
 @interface MSEventHistory : SWGObject
 
-@property(nonatomic) SWGDate* start;  
-@property(nonatomic) SWGDate* ends;  
+@property(nonatomic) NSNumber* start;  /* epoch timestamp in milliseconds  */
+@property(nonatomic) NSNumber* ends;  /* epoch timestamp in milliseconds  */
 @property(nonatomic) NSString* taskName;  
 @property(nonatomic) NSNumber* order;  
 @property(nonatomic) MSErrorResponse* error;  
-- (id) start: (SWGDate*) start     
-    ends: (SWGDate*) ends     
+- (id) start: (NSNumber*) start     
+    ends: (NSNumber*) ends     
     taskName: (NSString*) taskName     
     order: (NSNumber*) order     
     error: (MSErrorResponse*) error;

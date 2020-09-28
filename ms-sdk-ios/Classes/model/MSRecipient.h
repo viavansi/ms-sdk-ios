@@ -12,6 +12,7 @@
 @property(nonatomic) NSString* userCode;  
 @property(nonatomic) NSString* _id;  
 @property(nonatomic) NSString* status;  
+@property(nonatomic) NSNumber* order;  
 - (id) key: (NSString*) key     
     phone: (NSString*) phone     
     mail: (NSString*) mail     
@@ -19,7 +20,8 @@
     notificationType: (NSString*) notificationType     
     userCode: (NSString*) userCode     
     _id: (NSString*) _id     
-    status: (NSString*) status;
+    status: (NSString*) status     
+    order: (NSNumber*) order;
     
 
 - (id) initWithValues: (NSDictionary*)dict;

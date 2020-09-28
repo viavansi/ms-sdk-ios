@@ -17,7 +17,7 @@
     userCode: (NSString*) userCode
     groupCode: (NSString*) groupCode
     templateCode: (NSString*) templateCode
-    creationDate: (SWGDate*) creationDate
+    creationDate: (NSNumber*) creationDate
     externalCode: (NSString*) externalCode
     externalStatus: (NSString*) externalStatus
     
@@ -49,13 +49,7 @@
         
         _templateCode = dict[@"templateCode"];
         
-        
-        
-        id creationDate_dict = dict[@"creationDate"];
-        
-        if(creationDate_dict != nil)
-            _creationDate = [[SWGDate  alloc]initWithValues:creationDate_dict];
-        
+        _creationDate = dict[@"creationDate"];
         
         _externalCode = dict[@"externalCode"];
         
@@ -90,29 +84,8 @@
         
     
     
-    if(_creationDate != nil){
-        if([_creationDate isKindOfClass:[NSArray class]]){
-            NSMutableArray * array = [[NSMutableArray alloc] init];
-            for( int i=0 ; i<[(NSArray*)_creationDate count] ; i++ ) {
-				SWGDate *creationDate = [[SWGDate alloc]init];
-				creationDate = [(NSArray*)_creationDate objectAtIndex:i];
-                [array addObject:[(SWGObject*)creationDate asDictionary]];
-            }
-            dict[@"creationDate"] = array;
-        }
-        else if(_creationDate && [_creationDate isKindOfClass:[SWGDate class]]) {
-            NSString * dateString = [(SWGDate*)_creationDate toString];
-            if(dateString){
-                dict[@"creationDate"] = dateString;
-            }
-        }
-        else {
+            if(_creationDate != nil) dict[@"creationDate"] = _creationDate ;
         
-            if(_creationDate != nil) dict[@"creationDate"] = [(SWGObject*)_creationDate asDictionary];
-        
-        }
-    }
-    
     
     
             if(_externalCode != nil) dict[@"externalCode"] = _externalCode ;

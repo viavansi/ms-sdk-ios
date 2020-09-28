@@ -7,7 +7,7 @@
 @synthesize lastUpdated = _lastUpdated;
 
 -(id)status: (NSString*) status
-    lastUpdated: (SWGDate*) lastUpdated
+    lastUpdated: (NSNumber*) lastUpdated
     
 {
     _status = status;
@@ -23,13 +23,7 @@
     if(self) {
         _status = dict[@"status"];
         
-        
-        
-        id lastUpdated_dict = dict[@"lastUpdated"];
-        
-        if(lastUpdated_dict != nil)
-            _lastUpdated = [[SWGDate  alloc]initWithValues:lastUpdated_dict];
-        
+        _lastUpdated = dict[@"lastUpdated"];
         
         
     }
@@ -44,29 +38,8 @@
         
     
     
-    if(_lastUpdated != nil){
-        if([_lastUpdated isKindOfClass:[NSArray class]]){
-            NSMutableArray * array = [[NSMutableArray alloc] init];
-            for( int i=0 ; i<[(NSArray*)_lastUpdated count] ; i++ ) {
-				SWGDate *lastUpdated = [[SWGDate alloc]init];
-				lastUpdated = [(NSArray*)_lastUpdated objectAtIndex:i];
-                [array addObject:[(SWGObject*)lastUpdated asDictionary]];
-            }
-            dict[@"lastUpdated"] = array;
-        }
-        else if(_lastUpdated && [_lastUpdated isKindOfClass:[SWGDate class]]) {
-            NSString * dateString = [(SWGDate*)_lastUpdated toString];
-            if(dateString){
-                dict[@"lastUpdated"] = dateString;
-            }
-        }
-        else {
+            if(_lastUpdated != nil) dict[@"lastUpdated"] = _lastUpdated ;
         
-            if(_lastUpdated != nil) dict[@"lastUpdated"] = [(SWGObject*)_lastUpdated asDictionary];
-        
-        }
-    }
-    
     
 
     NSDictionary* output = [dict copy];

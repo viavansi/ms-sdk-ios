@@ -20,7 +20,7 @@
 
 -(id)action: (NSString*) action
     code: (NSString*) code
-    date: (SWGDate*) date
+    date: (NSNumber*) date
     app: (NSString*) app
     user: (NSString*) user
     ip: (NSString*) ip
@@ -61,13 +61,7 @@
         
         _code = dict[@"code"];
         
-        
-        
-        id date_dict = dict[@"date"];
-        
-        if(date_dict != nil)
-            _date = [[SWGDate  alloc]initWithValues:date_dict];
-        
+        _date = dict[@"date"];
         
         _app = dict[@"app"];
         
@@ -134,29 +128,8 @@
         
     
     
-    if(_date != nil){
-        if([_date isKindOfClass:[NSArray class]]){
-            NSMutableArray * array = [[NSMutableArray alloc] init];
-            for( int i=0 ; i<[(NSArray*)_date count] ; i++ ) {
-				SWGDate *date = [[SWGDate alloc]init];
-				date = [(NSArray*)_date objectAtIndex:i];
-                [array addObject:[(SWGObject*)date asDictionary]];
-            }
-            dict[@"date"] = array;
-        }
-        else if(_date && [_date isKindOfClass:[SWGDate class]]) {
-            NSString * dateString = [(SWGDate*)_date toString];
-            if(dateString){
-                dict[@"date"] = dateString;
-            }
-        }
-        else {
+            if(_date != nil) dict[@"date"] = _date ;
         
-            if(_date != nil) dict[@"date"] = [(SWGObject*)_date asDictionary];
-        
-        }
-    }
-    
     
     
             if(_app != nil) dict[@"app"] = _app ;

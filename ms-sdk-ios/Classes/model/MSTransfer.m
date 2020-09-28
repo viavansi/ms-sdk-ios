@@ -12,7 +12,7 @@
 
 -(id)name: (NSString*) name
     status: (NSString*) status
-    transferDate: (SWGDate*) transferDate
+    transferDate: (NSNumber*) transferDate
     error: (NSString*) error
     response: (NSString*) response
     metadataList: (NSArray*) metadataList
@@ -37,13 +37,7 @@
         
         _status = dict[@"status"];
         
-        
-        
-        id transferDate_dict = dict[@"transferDate"];
-        
-        if(transferDate_dict != nil)
-            _transferDate = [[SWGDate  alloc]initWithValues:transferDate_dict];
-        
+        _transferDate = dict[@"transferDate"];
         
         _error = dict[@"error"];
         
@@ -88,29 +82,8 @@
         
     
     
-    if(_transferDate != nil){
-        if([_transferDate isKindOfClass:[NSArray class]]){
-            NSMutableArray * array = [[NSMutableArray alloc] init];
-            for( int i=0 ; i<[(NSArray*)_transferDate count] ; i++ ) {
-				SWGDate *transferDate = [[SWGDate alloc]init];
-				transferDate = [(NSArray*)_transferDate objectAtIndex:i];
-                [array addObject:[(SWGObject*)transferDate asDictionary]];
-            }
-            dict[@"transferDate"] = array;
-        }
-        else if(_transferDate && [_transferDate isKindOfClass:[SWGDate class]]) {
-            NSString * dateString = [(SWGDate*)_transferDate toString];
-            if(dateString){
-                dict[@"transferDate"] = dateString;
-            }
-        }
-        else {
+            if(_transferDate != nil) dict[@"transferDate"] = _transferDate ;
         
-            if(_transferDate != nil) dict[@"transferDate"] = [(SWGObject*)_transferDate asDictionary];
-        
-        }
-    }
-    
     
     
             if(_error != nil) dict[@"error"] = _error ;

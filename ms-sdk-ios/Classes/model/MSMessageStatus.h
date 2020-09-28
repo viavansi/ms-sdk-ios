@@ -1,14 +1,13 @@
 #import <Foundation/Foundation.h>
 #import "SWGObject.h"
-#import "SWGDate.h"
 
 
 @interface MSMessageStatus : SWGObject
 
 @property(nonatomic) NSString* status;  
-@property(nonatomic) SWGDate* lastUpdated;  
+@property(nonatomic) NSNumber* lastUpdated;  /* epoch timestamp in milliseconds  */
 - (id) status: (NSString*) status     
-    lastUpdated: (SWGDate*) lastUpdated;
+    lastUpdated: (NSNumber*) lastUpdated;
     
 
 - (id) initWithValues: (NSDictionary*)dict;

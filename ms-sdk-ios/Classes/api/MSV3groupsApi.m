@@ -3,7 +3,7 @@
 #import "ApiClient.h"
 #import "MSGroup.h"
 #import "MSUser.h"
-#import "MSMessage.h"
+#import "MSSignPageStyle.h"
 #import "MSGroupInfo.h"
 
 
@@ -203,7 +203,7 @@
 
 +(NSNumber*) getSignPageStyle: (NSString*) groupCode
         
-        auth:(OAuth1Client *) auth onSuccess: (void (^)(MSMessage* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock
+        auth:(OAuth1Client *) auth onSuccess: (void (^)(MSSignPageStyle* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock
          {
 
     NSMutableString* requestUrl = [NSMutableString stringWithFormat:@"%@/v3/groups/style/{groupCode}", [[ApiClient sharedInstance] url]];
@@ -257,9 +257,9 @@
           responseContentType: responseContentType
               successBlock: ^(NSDictionary *data) {
                 
-                MSMessage *result = nil;
+                MSSignPageStyle *result = nil;
                 if (data) {
-                    result = [[MSMessage    alloc]initWithValues: data];
+                    result = [[MSSignPageStyle    alloc]initWithValues: data];
                 }
                 onSuccessBlock(result);
                 

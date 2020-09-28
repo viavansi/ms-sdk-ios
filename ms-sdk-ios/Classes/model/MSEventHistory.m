@@ -9,8 +9,8 @@
 @synthesize order = _order;
 @synthesize error = _error;
 
--(id)start: (SWGDate*) start
-    ends: (SWGDate*) ends
+-(id)start: (NSNumber*) start
+    ends: (NSNumber*) ends
     taskName: (NSString*) taskName
     order: (NSNumber*) order
     error: (MSErrorResponse*) error
@@ -30,21 +30,9 @@
 {
     self = [super init];
     if(self) {
+        _start = dict[@"start"];
         
-        
-        id start_dict = dict[@"start"];
-        
-        if(start_dict != nil)
-            _start = [[SWGDate  alloc]initWithValues:start_dict];
-        
-        
-        
-        
-        id ends_dict = dict[@"ends"];
-        
-        if(ends_dict != nil)
-            _ends = [[SWGDate  alloc]initWithValues:ends_dict];
-        
+        _ends = dict[@"ends"];
         
         _taskName = dict[@"taskName"];
         
@@ -67,54 +55,12 @@
     NSMutableDictionary* dict = [[NSMutableDictionary alloc] init];
     
     
-    if(_start != nil){
-        if([_start isKindOfClass:[NSArray class]]){
-            NSMutableArray * array = [[NSMutableArray alloc] init];
-            for( int i=0 ; i<[(NSArray*)_start count] ; i++ ) {
-				SWGDate *start = [[SWGDate alloc]init];
-				start = [(NSArray*)_start objectAtIndex:i];
-                [array addObject:[(SWGObject*)start asDictionary]];
-            }
-            dict[@"start"] = array;
-        }
-        else if(_start && [_start isKindOfClass:[SWGDate class]]) {
-            NSString * dateString = [(SWGDate*)_start toString];
-            if(dateString){
-                dict[@"start"] = dateString;
-            }
-        }
-        else {
+            if(_start != nil) dict[@"start"] = _start ;
         
-            if(_start != nil) dict[@"start"] = [(SWGObject*)_start asDictionary];
-        
-        }
-    }
     
     
-    
-    if(_ends != nil){
-        if([_ends isKindOfClass:[NSArray class]]){
-            NSMutableArray * array = [[NSMutableArray alloc] init];
-            for( int i=0 ; i<[(NSArray*)_ends count] ; i++ ) {
-				SWGDate *ends = [[SWGDate alloc]init];
-				ends = [(NSArray*)_ends objectAtIndex:i];
-                [array addObject:[(SWGObject*)ends asDictionary]];
-            }
-            dict[@"ends"] = array;
-        }
-        else if(_ends && [_ends isKindOfClass:[SWGDate class]]) {
-            NSString * dateString = [(SWGDate*)_ends toString];
-            if(dateString){
-                dict[@"ends"] = dateString;
-            }
-        }
-        else {
+            if(_ends != nil) dict[@"ends"] = _ends ;
         
-            if(_ends != nil) dict[@"ends"] = [(SWGObject*)_ends asDictionary];
-        
-        }
-    }
-    
     
     
             if(_taskName != nil) dict[@"taskName"] = _taskName ;

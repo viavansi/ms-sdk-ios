@@ -16,6 +16,9 @@
 @property(nonatomic) NSArray* properties;  
 @property(nonatomic) NSString* base64Image;  
 @property(nonatomic) NSString* providerId;  
+@property(nonatomic) NSNumber* clientTimestamp;  
+@property(nonatomic) NSNumber* serviceTimestamp;  
+@property(nonatomic) NSString* serviceTimestampType;  
 @property(nonatomic) NSString* evidenceDescription;  
 @property(nonatomic) NSNumber* expirationTime;  
 @property(nonatomic) NSNumber* imageQuality;  
@@ -28,6 +31,9 @@
     properties: (NSArray*) properties     
     base64Image: (NSString*) base64Image     
     providerId: (NSString*) providerId     
+    clientTimestamp: (NSNumber*) clientTimestamp     
+    serviceTimestamp: (NSNumber*) serviceTimestamp     
+    serviceTimestampType: (NSString*) serviceTimestampType     
     evidenceDescription: (NSString*) evidenceDescription     
     expirationTime: (NSNumber*) expirationTime     
     imageQuality: (NSNumber*) imageQuality     

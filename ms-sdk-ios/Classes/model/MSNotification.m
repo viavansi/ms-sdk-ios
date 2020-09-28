@@ -35,7 +35,7 @@
     notificationType: (NSString*) notificationType
     location: (NSString*) location
     sharedLink: (MSSharedLink*) sharedLink
-    updateDate: (SWGDate*) updateDate
+    updateDate: (NSNumber*) updateDate
     retryTime: (NSNumber*) retryTime
     customization: (MSCustomization*) customization
     deliveryGroup: (NSString*) deliveryGroup
@@ -103,13 +103,7 @@
             _sharedLink = [[MSSharedLink  alloc]initWithValues:sharedLink_dict];
         
         
-        
-        
-        id updateDate_dict = dict[@"updateDate"];
-        
-        if(updateDate_dict != nil)
-            _updateDate = [[SWGDate  alloc]initWithValues:updateDate_dict];
-        
+        _updateDate = dict[@"updateDate"];
         
         _retryTime = dict[@"retryTime"];
         
@@ -247,29 +241,8 @@
     
     
     
-    if(_updateDate != nil){
-        if([_updateDate isKindOfClass:[NSArray class]]){
-            NSMutableArray * array = [[NSMutableArray alloc] init];
-            for( int i=0 ; i<[(NSArray*)_updateDate count] ; i++ ) {
-				SWGDate *updateDate = [[SWGDate alloc]init];
-				updateDate = [(NSArray*)_updateDate objectAtIndex:i];
-                [array addObject:[(SWGObject*)updateDate asDictionary]];
-            }
-            dict[@"updateDate"] = array;
-        }
-        else if(_updateDate && [_updateDate isKindOfClass:[SWGDate class]]) {
-            NSString * dateString = [(SWGDate*)_updateDate toString];
-            if(dateString){
-                dict[@"updateDate"] = dateString;
-            }
-        }
-        else {
+            if(_updateDate != nil) dict[@"updateDate"] = _updateDate ;
         
-            if(_updateDate != nil) dict[@"updateDate"] = [(SWGObject*)_updateDate asDictionary];
-        
-        }
-    }
-    
     
     
             if(_retryTime != nil) dict[@"retryTime"] = _retryTime ;

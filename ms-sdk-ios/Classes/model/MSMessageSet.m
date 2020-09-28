@@ -5,25 +5,31 @@
 
 @synthesize groupCode = _groupCode;
 @synthesize expires = _expires;
+@synthesize retryTime = _retryTime;
 @synthesize recipients = _recipients;
 @synthesize customization = _customization;
 @synthesize messages = _messages;
 @synthesize metadataList = _metadataList;
+@synthesize messagesStep = _messagesStep;
 
 -(id)groupCode: (NSString*) groupCode
-    expires: (SWGDate*) expires
+    expires: (NSNumber*) expires
+    retryTime: (NSNumber*) retryTime
     recipients: (NSArray*) recipients
     customization: (MSCustomization*) customization
     messages: (NSArray*) messages
     metadataList: (NSArray*) metadataList
+    messagesStep: (NSNumber*) messagesStep
     
 {
     _groupCode = groupCode;
     _expires = expires;
+    _retryTime = retryTime;
     _recipients = recipients;
     _customization = customization;
     _messages = messages;
     _metadataList = metadataList;
+    _messagesStep = messagesStep;
     
 
     return self;
@@ -35,13 +41,9 @@
     if(self) {
         _groupCode = dict[@"groupCode"];
         
+        _expires = dict[@"expires"];
         
-        
-        id expires_dict = dict[@"expires"];
-        
-        if(expires_dict != nil)
-            _expires = [[SWGDate  alloc]initWithValues:expires_dict];
-        
+        _retryTime = dict[@"retryTime"];
         
         
         
@@ -117,6 +119,8 @@
         }
         
         
+        _messagesStep = dict[@"messagesStep"];
+        
         
     }
     return self;
@@ -130,29 +134,12 @@
         
     
     
-    if(_expires != nil){
-        if([_expires isKindOfClass:[NSArray class]]){
-            NSMutableArray * array = [[NSMutableArray alloc] init];
-            for( int i=0 ; i<[(NSArray*)_expires count] ; i++ ) {
-				SWGDate *expires = [[SWGDate alloc]init];
-				expires = [(NSArray*)_expires objectAtIndex:i];
-                [array addObject:[(SWGObject*)expires asDictionary]];
-            }
-            dict[@"expires"] = array;
-        }
-        else if(_expires && [_expires isKindOfClass:[SWGDate class]]) {
-            NSString * dateString = [(SWGDate*)_expires toString];
-            if(dateString){
-                dict[@"expires"] = dateString;
-            }
-        }
-        else {
+            if(_expires != nil) dict[@"expires"] = _expires ;
         
-            if(_expires != nil) dict[@"expires"] = [(SWGObject*)_expires asDictionary];
-        
-        }
-    }
     
+    
+            if(_retryTime != nil) dict[@"retryTime"] = _retryTime ;
+        
     
     
     if(_recipients != nil){
@@ -253,6 +240,10 @@
         }
     }
     
+    
+    
+            if(_messagesStep != nil) dict[@"messagesStep"] = _messagesStep ;
+        
     
 
     NSDictionary* output = [dict copy];

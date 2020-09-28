@@ -10,12 +10,14 @@
 @property(nonatomic) NSString* status;  
 @property(nonatomic) NSString* recipientStatus;  
 @property(nonatomic) NSString* auditTrailPage;  
+@property(nonatomic) NSString* languageId;  
 - (id) code: (NSString*) code     
     title: (NSString*) title     
     link: (NSString*) link     
     status: (NSString*) status     
     recipientStatus: (NSString*) recipientStatus     
-    auditTrailPage: (NSString*) auditTrailPage;
+    auditTrailPage: (NSString*) auditTrailPage     
+    languageId: (NSString*) languageId;
     
 
 - (id) initWithValues: (NSDictionary*)dict;

@@ -1,7 +1,6 @@
 #import <Foundation/Foundation.h>
 #import "SWGObject.h"
 #import "MSParam.h"
-#import "SWGDate.h"
 
 
 @interface MSAttachment : SWGObject
@@ -15,7 +14,7 @@
 @property(nonatomic) NSString* helpDetail;  
 @property(nonatomic) NSNumber* optional;  
 @property(nonatomic) NSArray* metadataList;  
-@property(nonatomic) SWGDate* date;  
+@property(nonatomic) NSNumber* date;  /* epoch timestamp in milliseconds  */
 @property(nonatomic) NSString* hash;  
 @property(nonatomic) NSString* fileName;  
 @property(nonatomic) NSNumber* readOnly;  
@@ -28,7 +27,7 @@
     helpDetail: (NSString*) helpDetail     
     optional: (NSNumber*) optional     
     metadataList: (NSArray*) metadataList     
-    date: (SWGDate*) date     
+    date: (NSNumber*) date     
     hash: (NSString*) hash     
     fileName: (NSString*) fileName     
     readOnly: (NSNumber*) readOnly;

@@ -5,8 +5,10 @@
 #import "MSDownload.h"
 #import "MSMessageList.h"
 #import "MSCallbackUrl.h"
+#import "MSCallbackMail.h"
 #import "MSNotificationResend.h"
 #import "MSNotification.h"
+#import "MSMessageRestart.h"
 #import "MSMessageStatus.h"
 #import "MSDocument.h"
 #import "MSMessagePaginatedList.h"
@@ -340,6 +342,25 @@
 
 /**
 
+ Send callback URL
+ 
+ Send callback URL
+ 
+
+ 
+ @param body JSCallbackMail object that needs to send callback email
+ 
+
+ return type: MSMessage*
+ */
++(NSNumber*) sendCallback :(MSCallbackMail*) body 
+    
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(MSMessage* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    
+
+
+/**
+
  Send notifications
  
  Send notifications
@@ -412,15 +433,32 @@
  
 
  
- @param code Message code
+ @param body Message object that needs to be delivery
  
 
  return type: NSString*
  */
-+(NSNumber*) resendMessage :(NSString*) code 
++(NSNumber*) resendMessage :(MSMessageRestart*) body 
     
     auth:(OAuth1Client *) auth onSuccess: (void (^)(NSString* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     
+
+
+/**
+
+ 
+ 
+
+ 
+ @param code Message code
+ 
+
+ return type: 
+ */
++(NSNumber*) resendMessageOld :(NSString*) code 
+    
+    
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(void))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
 
 
 /**

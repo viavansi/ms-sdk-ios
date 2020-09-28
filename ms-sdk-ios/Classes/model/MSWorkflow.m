@@ -22,9 +22,9 @@
     current: (NSString*) current
     next: (NSString*) next
     history: (NSArray*) history
-    initiate: (SWGDate*) initiate
-    lastUpdated: (SWGDate*) lastUpdated
-    expires: (SWGDate*) expires
+    initiate: (NSNumber*) initiate
+    lastUpdated: (NSNumber*) lastUpdated
+    expires: (NSNumber*) expires
     type: (NSString*) type
     referenceCode: (NSString*) referenceCode
     step: (NSNumber*) step
@@ -85,29 +85,11 @@
         }
         
         
+        _initiate = dict[@"initiate"];
         
+        _lastUpdated = dict[@"lastUpdated"];
         
-        id initiate_dict = dict[@"initiate"];
-        
-        if(initiate_dict != nil)
-            _initiate = [[SWGDate  alloc]initWithValues:initiate_dict];
-        
-        
-        
-        
-        id lastUpdated_dict = dict[@"lastUpdated"];
-        
-        if(lastUpdated_dict != nil)
-            _lastUpdated = [[SWGDate  alloc]initWithValues:lastUpdated_dict];
-        
-        
-        
-        
-        id expires_dict = dict[@"expires"];
-        
-        if(expires_dict != nil)
-            _expires = [[SWGDate  alloc]initWithValues:expires_dict];
-        
+        _expires = dict[@"expires"];
         
         _type = dict[@"type"];
         
@@ -169,79 +151,16 @@
     
     
     
-    if(_initiate != nil){
-        if([_initiate isKindOfClass:[NSArray class]]){
-            NSMutableArray * array = [[NSMutableArray alloc] init];
-            for( int i=0 ; i<[(NSArray*)_initiate count] ; i++ ) {
-				SWGDate *initiate = [[SWGDate alloc]init];
-				initiate = [(NSArray*)_initiate objectAtIndex:i];
-                [array addObject:[(SWGObject*)initiate asDictionary]];
-            }
-            dict[@"initiate"] = array;
-        }
-        else if(_initiate && [_initiate isKindOfClass:[SWGDate class]]) {
-            NSString * dateString = [(SWGDate*)_initiate toString];
-            if(dateString){
-                dict[@"initiate"] = dateString;
-            }
-        }
-        else {
+            if(_initiate != nil) dict[@"initiate"] = _initiate ;
         
-            if(_initiate != nil) dict[@"initiate"] = [(SWGObject*)_initiate asDictionary];
+    
+    
+            if(_lastUpdated != nil) dict[@"lastUpdated"] = _lastUpdated ;
         
-        }
-    }
     
     
-    
-    if(_lastUpdated != nil){
-        if([_lastUpdated isKindOfClass:[NSArray class]]){
-            NSMutableArray * array = [[NSMutableArray alloc] init];
-            for( int i=0 ; i<[(NSArray*)_lastUpdated count] ; i++ ) {
-				SWGDate *lastUpdated = [[SWGDate alloc]init];
-				lastUpdated = [(NSArray*)_lastUpdated objectAtIndex:i];
-                [array addObject:[(SWGObject*)lastUpdated asDictionary]];
-            }
-            dict[@"lastUpdated"] = array;
-        }
-        else if(_lastUpdated && [_lastUpdated isKindOfClass:[SWGDate class]]) {
-            NSString * dateString = [(SWGDate*)_lastUpdated toString];
-            if(dateString){
-                dict[@"lastUpdated"] = dateString;
-            }
-        }
-        else {
+            if(_expires != nil) dict[@"expires"] = _expires ;
         
-            if(_lastUpdated != nil) dict[@"lastUpdated"] = [(SWGObject*)_lastUpdated asDictionary];
-        
-        }
-    }
-    
-    
-    
-    if(_expires != nil){
-        if([_expires isKindOfClass:[NSArray class]]){
-            NSMutableArray * array = [[NSMutableArray alloc] init];
-            for( int i=0 ; i<[(NSArray*)_expires count] ; i++ ) {
-				SWGDate *expires = [[SWGDate alloc]init];
-				expires = [(NSArray*)_expires objectAtIndex:i];
-                [array addObject:[(SWGObject*)expires asDictionary]];
-            }
-            dict[@"expires"] = array;
-        }
-        else if(_expires && [_expires isKindOfClass:[SWGDate class]]) {
-            NSString * dateString = [(SWGDate*)_expires toString];
-            if(dateString){
-                dict[@"expires"] = dateString;
-            }
-        }
-        else {
-        
-            if(_expires != nil) dict[@"expires"] = [(SWGObject*)_expires asDictionary];
-        
-        }
-    }
-    
     
     
             if(_type != nil) dict[@"type"] = _type ;

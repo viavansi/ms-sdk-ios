@@ -18,6 +18,9 @@
 @property(nonatomic) NSArray* positions;  
 @property(nonatomic) NSNumber* imageQuality;  
 @property(nonatomic) NSNumber* imageScaleFactor;  
+@property(nonatomic) NSNumber* clientTimestamp;  
+@property(nonatomic) NSNumber* serviceTimestamp;  
+@property(nonatomic) NSString* serviceTimestampType;  
 - (id) messageCode: (NSString*) messageCode     
     evidenceCode: (NSString*) evidenceCode     
     base64Image: (NSString*) base64Image     
@@ -28,7 +31,10 @@
     device: (MSEvidenceDevice*) device     
     positions: (NSArray*) positions     
     imageQuality: (NSNumber*) imageQuality     
-    imageScaleFactor: (NSNumber*) imageScaleFactor;
+    imageScaleFactor: (NSNumber*) imageScaleFactor     
+    clientTimestamp: (NSNumber*) clientTimestamp     
+    serviceTimestamp: (NSNumber*) serviceTimestamp     
+    serviceTimestampType: (NSString*) serviceTimestampType;
     
 
 - (id) initWithValues: (NSDictionary*)dict;

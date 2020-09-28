@@ -21,6 +21,9 @@
 @property(nonatomic) NSString* ocrTemplate;  
 @property(nonatomic) NSString* ocrFields;  
 @property(nonatomic) NSArray* properties;  
+@property(nonatomic) NSNumber* clientTimestamp;  
+@property(nonatomic) NSNumber* serviceTimestamp;  
+@property(nonatomic) NSString* serviceTimestampType;  
 - (id) messageCode: (NSString*) messageCode     
     evidenceCode: (NSString*) evidenceCode     
     base64Image: (NSString*) base64Image     
@@ -32,7 +35,10 @@
     ocr: (MSOcrData*) ocr     
     ocrTemplate: (NSString*) ocrTemplate     
     ocrFields: (NSString*) ocrFields     
-    properties: (NSArray*) properties;
+    properties: (NSArray*) properties     
+    clientTimestamp: (NSNumber*) clientTimestamp     
+    serviceTimestamp: (NSNumber*) serviceTimestamp     
+    serviceTimestampType: (NSString*) serviceTimestampType;
     
 
 - (id) initWithValues: (NSDictionary*)dict;

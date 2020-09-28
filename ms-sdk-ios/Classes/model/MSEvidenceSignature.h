@@ -20,6 +20,9 @@
 @property(nonatomic) NSArray* positions;  
 @property(nonatomic) NSNumber* imageQuality;  
 @property(nonatomic) NSNumber* imageScaleFactor;  
+@property(nonatomic) NSNumber* clientTimestamp;  
+@property(nonatomic) NSNumber* serviceTimestamp;  
+@property(nonatomic) NSString* serviceTimestampType;  
 - (id) messageCode: (NSString*) messageCode     
     policyCode: (NSString*) policyCode     
     evidenceCode: (NSString*) evidenceCode     
@@ -31,7 +34,10 @@
     signAreaWidth: (NSNumber*) signAreaWidth     
     positions: (NSArray*) positions     
     imageQuality: (NSNumber*) imageQuality     
-    imageScaleFactor: (NSNumber*) imageScaleFactor;
+    imageScaleFactor: (NSNumber*) imageScaleFactor     
+    clientTimestamp: (NSNumber*) clientTimestamp     
+    serviceTimestamp: (NSNumber*) serviceTimestamp     
+    serviceTimestampType: (NSString*) serviceTimestampType;
     
 
 - (id) initWithValues: (NSDictionary*)dict;

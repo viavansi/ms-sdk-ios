@@ -11,6 +11,7 @@
 @synthesize userCode = _userCode;
 @synthesize _id = __id;
 @synthesize status = _status;
+@synthesize order = _order;
 
 -(id)key: (NSString*) key
     phone: (NSString*) phone
@@ -20,6 +21,7 @@
     userCode: (NSString*) userCode
     _id: (NSString*) _id
     status: (NSString*) status
+    order: (NSNumber*) order
     
 {
     _key = key;
@@ -30,6 +32,7 @@
     _userCode = userCode;
     __id = _id;
     _status = status;
+    _order = order;
     
 
     return self;
@@ -54,6 +57,8 @@
         __id = dict[@"id"];
         
         _status = dict[@"status"];
+        
+        _order = dict[@"order"];
         
         
     }
@@ -93,6 +98,10 @@
     
     
             if(_status != nil) dict[@"status"] = _status ;
+        
+    
+    
+            if(_order != nil) dict[@"order"] = _order ;
         
     
 

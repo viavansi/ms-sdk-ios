@@ -8,12 +8,14 @@
 @synthesize templateCode = _templateCode;
 @synthesize policies = _policies;
 @synthesize transfers = _transfers;
+@synthesize languageId = _languageId;
 
 -(id)code: (NSString*) code
     status: (NSString*) status
     templateCode: (NSString*) templateCode
     policies: (NSArray*) policies
     transfers: (NSArray*) transfers
+    languageId: (NSString*) languageId
     
 {
     _code = code;
@@ -21,6 +23,7 @@
     _templateCode = templateCode;
     _policies = policies;
     _transfers = transfers;
+    _languageId = languageId;
     
 
     return self;
@@ -79,6 +82,8 @@
             _transfers = [[NSArray alloc] init];
         }
         
+        
+        _languageId = dict[@"languageId"];
         
         
     }
@@ -149,6 +154,10 @@
         }
     }
     
+    
+    
+            if(_languageId != nil) dict[@"languageId"] = _languageId ;
+        
     
 
     NSDictionary* output = [dict copy];

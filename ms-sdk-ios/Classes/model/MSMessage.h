@@ -1,7 +1,6 @@
 #import <Foundation/Foundation.h>
 #import "SWGObject.h"
 #import "MSParam.h"
-#import "SWGDate.h"
 #import "MSNotification.h"
 #import "MSWorkflow.h"
 #import "MSPolicy.h"
@@ -32,6 +31,7 @@
 @property(nonatomic) NSString* version;  
 @property(nonatomic) MSWorkflow* workflow;  
 @property(nonatomic) NSArray* recipients;  
+@property(nonatomic) NSNumber* recipientStep;  
 @property(nonatomic) MSNotification* notification;  
 @property(nonatomic) MSDocument* document;  
 @property(nonatomic) NSArray* metadataList;  
@@ -46,7 +46,7 @@
 @property(nonatomic) MSErrorResponse* error;  
 @property(nonatomic) NSString* pid;  
 @property(nonatomic) NSString* server;  
-@property(nonatomic) SWGDate* processTimeExpired;  
+@property(nonatomic) NSNumber* processTimeExpired;  /* epoch timestamp in milliseconds  */
 @property(nonatomic) NSString* commentReject;  
 @property(nonatomic) NSString* callbackResponse;  
 @property(nonatomic) NSArray* auditory;  
@@ -57,6 +57,7 @@
 @property(nonatomic) NSString* setStatus;  
 @property(nonatomic) NSString* signPageServer;  
 @property(nonatomic) NSString* auditTrailPage;  
+@property(nonatomic) NSNumber* order;  
 - (id) code: (NSString*) code     
     externalCode: (NSString*) externalCode     
     externalStatus: (NSString*) externalStatus     
@@ -75,6 +76,7 @@
     version: (NSString*) version     
     workflow: (MSWorkflow*) workflow     
     recipients: (NSArray*) recipients     
+    recipientStep: (NSNumber*) recipientStep     
     notification: (MSNotification*) notification     
     document: (MSDocument*) document     
     metadataList: (NSArray*) metadataList     
@@ -89,7 +91,7 @@
     error: (MSErrorResponse*) error     
     pid: (NSString*) pid     
     server: (NSString*) server     
-    processTimeExpired: (SWGDate*) processTimeExpired     
+    processTimeExpired: (NSNumber*) processTimeExpired     
     commentReject: (NSString*) commentReject     
     callbackResponse: (NSString*) callbackResponse     
     auditory: (NSArray*) auditory     
@@ -99,7 +101,8 @@
     setCode: (NSString*) setCode     
     setStatus: (NSString*) setStatus     
     signPageServer: (NSString*) signPageServer     
-    auditTrailPage: (NSString*) auditTrailPage;
+    auditTrailPage: (NSString*) auditTrailPage     
+    order: (NSNumber*) order;
     
 
 - (id) initWithValues: (NSDictionary*)dict;

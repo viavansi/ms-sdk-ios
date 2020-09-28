@@ -11,11 +11,13 @@
 @property(nonatomic) NSString* templateCode;  
 @property(nonatomic) NSArray* policies;  
 @property(nonatomic) NSArray* transfers;  
+@property(nonatomic) NSString* languageId;  
 - (id) code: (NSString*) code     
     status: (NSString*) status     
     templateCode: (NSString*) templateCode     
     policies: (NSArray*) policies     
-    transfers: (NSArray*) transfers;
+    transfers: (NSArray*) transfers     
+    languageId: (NSString*) languageId;
     
 
 - (id) initWithValues: (NSDictionary*)dict;

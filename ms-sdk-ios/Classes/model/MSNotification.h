@@ -2,7 +2,6 @@
 #import "SWGObject.h"
 #import "MSCustomization.h"
 #import "MSParam.h"
-#import "SWGDate.h"
 #import "MSDevice.h"
 #import "MSSharedLink.h"
 
@@ -20,7 +19,7 @@
 @property(nonatomic) NSString* notificationType;  
 @property(nonatomic) NSString* location;  
 @property(nonatomic) MSSharedLink* sharedLink;  
-@property(nonatomic) SWGDate* updateDate;  
+@property(nonatomic) NSNumber* updateDate;  /* epoch timestamp in milliseconds  */
 @property(nonatomic) NSNumber* retryTime;  
 @property(nonatomic) MSCustomization* customization;  
 @property(nonatomic) NSString* deliveryGroup;  
@@ -40,7 +39,7 @@
     notificationType: (NSString*) notificationType     
     location: (NSString*) location     
     sharedLink: (MSSharedLink*) sharedLink     
-    updateDate: (SWGDate*) updateDate     
+    updateDate: (NSNumber*) updateDate     
     retryTime: (NSNumber*) retryTime     
     customization: (MSCustomization*) customization     
     deliveryGroup: (NSString*) deliveryGroup     
