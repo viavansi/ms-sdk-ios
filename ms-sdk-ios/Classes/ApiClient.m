@@ -248,12 +248,16 @@ static bool loggingEnabled = true;
                                                    }
                                                                        error:nil];
         }else{
+            id parameters;
             if ([[params allKeys] count] == 0) {
-                params = nil;
-            }
+				parameters = nil;
+			} else {
+				// Parameter "params" incorrect when using body as NSArray with similar NSDictionary elements.
+				parameters = body;
+			}
             request = [self.requestSerializer requestWithMethod:method
                                                       URLString:urlString
-                                                     parameters:params
+                                                     parameters:parameters
                                                           error:nil];
         }
     } else {
