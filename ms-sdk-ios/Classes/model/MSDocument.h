@@ -1,6 +1,7 @@
 #import <Foundation/Foundation.h>
 #import "SWGObject.h"
 #import "MSItem.h"
+#import "SWGDate.h"
 #import "MSFont.h"
 
 
@@ -14,6 +15,7 @@
 @property(nonatomic) NSString* signedCode;  
 @property(nonatomic) NSString* signedID;  
 @property(nonatomic) NSString* signedReference;  
+@property(nonatomic) SWGDate* signingDate;  
 @property(nonatomic) NSString* templateType;  
 @property(nonatomic) NSNumber* formRequired;  
 @property(nonatomic) NSNumber* formDisabled;  
@@ -30,6 +32,7 @@
 @property(nonatomic) NSString* watermarkText;  
 @property(nonatomic) NSNumber* extraPages;  
 @property(nonatomic) NSNumber* formUpdated;  
+@property(nonatomic) NSNumber* hideDocumentBeforeStart;  
 - (id) templateCode: (NSString*) templateCode     
     templateReference: (NSString*) templateReference     
     templateVersion: (NSNumber*) templateVersion     
@@ -38,6 +41,7 @@
     signedCode: (NSString*) signedCode     
     signedID: (NSString*) signedID     
     signedReference: (NSString*) signedReference     
+    signingDate: (SWGDate*) signingDate     
     templateType: (NSString*) templateType     
     formRequired: (NSNumber*) formRequired     
     formDisabled: (NSNumber*) formDisabled     
@@ -53,7 +57,8 @@
     deleteSignedDocuments: (NSNumber*) deleteSignedDocuments     
     watermarkText: (NSString*) watermarkText     
     extraPages: (NSNumber*) extraPages     
-    formUpdated: (NSNumber*) formUpdated;
+    formUpdated: (NSNumber*) formUpdated     
+    hideDocumentBeforeStart: (NSNumber*) hideDocumentBeforeStart;
     
 
 - (id) initWithValues: (NSDictionary*)dict;

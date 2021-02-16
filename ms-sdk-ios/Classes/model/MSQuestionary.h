@@ -1,16 +1,19 @@
 #import <Foundation/Foundation.h>
 #import "SWGObject.h"
+#import "MSParam.h"
 #import "MSQuestionaryQuestion.h"
 
 
 @interface MSQuestionary : SWGObject
 
 @property(nonatomic) NSString* regCuestionario;  
-@property(nonatomic) NSString* getiDCuestionario;  
+@property(nonatomic) NSArray* params;  
 @property(nonatomic) NSArray* questions;  
+@property(nonatomic) NSString* idcuestionario;  
 - (id) regCuestionario: (NSString*) regCuestionario     
-    getiDCuestionario: (NSString*) getiDCuestionario     
-    questions: (NSArray*) questions;
+    params: (NSArray*) params     
+    questions: (NSArray*) questions     
+    idcuestionario: (NSString*) idcuestionario;
     
 
 - (id) initWithValues: (NSDictionary*)dict;

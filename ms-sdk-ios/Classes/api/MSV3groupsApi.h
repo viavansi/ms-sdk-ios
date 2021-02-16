@@ -12,6 +12,22 @@
 +(unsigned long) requestQueueSize;
 /**
 
+ Method only for admin apps to get all groups
+ 
+ 
+ 
+
+ 
+
+ return type: NSArray*
+ */
++(NSNumber*) getAllGroups :(OAuth1Client *) auth onSuccess:
+    (void (^)(NSArray* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    
+
+
+/**
+
  Method for create groups
  
  

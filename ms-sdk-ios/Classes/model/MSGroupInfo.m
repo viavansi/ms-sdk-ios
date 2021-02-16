@@ -25,6 +25,13 @@
 @synthesize referenceCode = _referenceCode;
 @synthesize _description = __description;
 @synthesize style = _style;
+@synthesize extensionOid = _extensionOid;
+@synthesize extensionValue = _extensionValue;
+@synthesize creationDate = _creationDate;
+@synthesize startDate = _startDate;
+@synthesize endDate = _endDate;
+@synthesize renovationDate = _renovationDate;
+@synthesize active = _active;
 @synthesize properties = _properties;
 @synthesize apps = _apps;
 @synthesize templates = _templates;
@@ -52,6 +59,13 @@
     referenceCode: (NSString*) referenceCode
     _description: (NSString*) _description
     style: (MSStyle*) style
+    extensionOid: (NSString*) extensionOid
+    extensionValue: (NSString*) extensionValue
+    creationDate: (SWGDate*) creationDate
+    startDate: (SWGDate*) startDate
+    endDate: (SWGDate*) endDate
+    renovationDate: (SWGDate*) renovationDate
+    active: (NSNumber*) active
     properties: (NSArray*) properties
     apps: (NSArray*) apps
     templates: (NSArray*) templates
@@ -80,6 +94,13 @@
     _referenceCode = referenceCode;
     __description = _description;
     _style = style;
+    _extensionOid = extensionOid;
+    _extensionValue = extensionValue;
+    _creationDate = creationDate;
+    _startDate = startDate;
+    _endDate = endDate;
+    _renovationDate = renovationDate;
+    _active = active;
     _properties = properties;
     _apps = apps;
     _templates = templates;
@@ -142,6 +163,44 @@
         if(style_dict != nil)
             _style = [[MSStyle  alloc]initWithValues:style_dict];
         
+        
+        _extensionOid = dict[@"extensionOid"];
+        
+        _extensionValue = dict[@"extensionValue"];
+        
+        
+        
+        id creationDate_dict = dict[@"creationDate"];
+        
+        if(creationDate_dict != nil)
+            _creationDate = [[SWGDate  alloc]initWithValues:creationDate_dict];
+        
+        
+        
+        
+        id startDate_dict = dict[@"startDate"];
+        
+        if(startDate_dict != nil)
+            _startDate = [[SWGDate  alloc]initWithValues:startDate_dict];
+        
+        
+        
+        
+        id endDate_dict = dict[@"endDate"];
+        
+        if(endDate_dict != nil)
+            _endDate = [[SWGDate  alloc]initWithValues:endDate_dict];
+        
+        
+        
+        
+        id renovationDate_dict = dict[@"renovationDate"];
+        
+        if(renovationDate_dict != nil)
+            _renovationDate = [[SWGDate  alloc]initWithValues:renovationDate_dict];
+        
+        
+        _active = dict[@"active"];
         
         
         
@@ -347,6 +406,118 @@
         }
     }
     
+    
+    
+            if(_extensionOid != nil) dict[@"extensionOid"] = _extensionOid ;
+        
+    
+    
+            if(_extensionValue != nil) dict[@"extensionValue"] = _extensionValue ;
+        
+    
+    
+    if(_creationDate != nil){
+        if([_creationDate isKindOfClass:[NSArray class]]){
+            NSMutableArray * array = [[NSMutableArray alloc] init];
+            for( int i=0 ; i<[(NSArray*)_creationDate count] ; i++ ) {
+				SWGDate *creationDate = [[SWGDate alloc]init];
+				creationDate = [(NSArray*)_creationDate objectAtIndex:i];
+                [array addObject:[(SWGObject*)creationDate asDictionary]];
+            }
+            dict[@"creationDate"] = array;
+        }
+        else if(_creationDate && [_creationDate isKindOfClass:[SWGDate class]]) {
+            NSString * dateString = [(SWGDate*)_creationDate toString];
+            if(dateString){
+                dict[@"creationDate"] = dateString;
+            }
+        }
+        else {
+        
+            if(_creationDate != nil) dict[@"creationDate"] = [(SWGObject*)_creationDate asDictionary];
+        
+        }
+    }
+    
+    
+    
+    if(_startDate != nil){
+        if([_startDate isKindOfClass:[NSArray class]]){
+            NSMutableArray * array = [[NSMutableArray alloc] init];
+            for( int i=0 ; i<[(NSArray*)_startDate count] ; i++ ) {
+				SWGDate *startDate = [[SWGDate alloc]init];
+				startDate = [(NSArray*)_startDate objectAtIndex:i];
+                [array addObject:[(SWGObject*)startDate asDictionary]];
+            }
+            dict[@"startDate"] = array;
+        }
+        else if(_startDate && [_startDate isKindOfClass:[SWGDate class]]) {
+            NSString * dateString = [(SWGDate*)_startDate toString];
+            if(dateString){
+                dict[@"startDate"] = dateString;
+            }
+        }
+        else {
+        
+            if(_startDate != nil) dict[@"startDate"] = [(SWGObject*)_startDate asDictionary];
+        
+        }
+    }
+    
+    
+    
+    if(_endDate != nil){
+        if([_endDate isKindOfClass:[NSArray class]]){
+            NSMutableArray * array = [[NSMutableArray alloc] init];
+            for( int i=0 ; i<[(NSArray*)_endDate count] ; i++ ) {
+				SWGDate *endDate = [[SWGDate alloc]init];
+				endDate = [(NSArray*)_endDate objectAtIndex:i];
+                [array addObject:[(SWGObject*)endDate asDictionary]];
+            }
+            dict[@"endDate"] = array;
+        }
+        else if(_endDate && [_endDate isKindOfClass:[SWGDate class]]) {
+            NSString * dateString = [(SWGDate*)_endDate toString];
+            if(dateString){
+                dict[@"endDate"] = dateString;
+            }
+        }
+        else {
+        
+            if(_endDate != nil) dict[@"endDate"] = [(SWGObject*)_endDate asDictionary];
+        
+        }
+    }
+    
+    
+    
+    if(_renovationDate != nil){
+        if([_renovationDate isKindOfClass:[NSArray class]]){
+            NSMutableArray * array = [[NSMutableArray alloc] init];
+            for( int i=0 ; i<[(NSArray*)_renovationDate count] ; i++ ) {
+				SWGDate *renovationDate = [[SWGDate alloc]init];
+				renovationDate = [(NSArray*)_renovationDate objectAtIndex:i];
+                [array addObject:[(SWGObject*)renovationDate asDictionary]];
+            }
+            dict[@"renovationDate"] = array;
+        }
+        else if(_renovationDate && [_renovationDate isKindOfClass:[SWGDate class]]) {
+            NSString * dateString = [(SWGDate*)_renovationDate toString];
+            if(dateString){
+                dict[@"renovationDate"] = dateString;
+            }
+        }
+        else {
+        
+            if(_renovationDate != nil) dict[@"renovationDate"] = [(SWGObject*)_renovationDate asDictionary];
+        
+        }
+    }
+    
+    
+    
+            if(_active != nil) dict[@"active"] = _active ;
+        
     
     
     if(_properties != nil){

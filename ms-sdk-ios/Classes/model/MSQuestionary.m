@@ -4,17 +4,20 @@
 @implementation MSQuestionary
 
 @synthesize regCuestionario = _regCuestionario;
-@synthesize getiDCuestionario = _getiDCuestionario;
+@synthesize params = _params;
 @synthesize questions = _questions;
+@synthesize idcuestionario = _idcuestionario;
 
 -(id)regCuestionario: (NSString*) regCuestionario
-    getiDCuestionario: (NSString*) getiDCuestionario
+    params: (NSArray*) params
     questions: (NSArray*) questions
+    idcuestionario: (NSString*) idcuestionario
     
 {
     _regCuestionario = regCuestionario;
-    _getiDCuestionario = getiDCuestionario;
+    _params = params;
     _questions = questions;
+    _idcuestionario = idcuestionario;
     
 
     return self;
@@ -26,7 +29,27 @@
     if(self) {
         _regCuestionario = dict[@"regCuestionario"];
         
-        _getiDCuestionario = dict[@"getiDCuestionario"];
+        
+        
+        id params_dict = dict[@"params"];
+        
+        if([params_dict isKindOfClass:[NSArray class]]) {
+            NSMutableArray * objs = [[NSMutableArray alloc] initWithCapacity:[(NSArray*)params_dict count]];
+            if([(NSArray*)params_dict count] > 0) {
+                for (int i=0 ; i<[(NSArray*)params_dict count] ; i++) {
+                	NSDictionary *dict = [[NSDictionary alloc] initWithDictionary:[params_dict objectAtIndex:i]];
+                    MSParam* d = [[MSParam alloc] initWithValues:dict];
+                    [objs addObject:d];
+                }
+                _params = [[NSArray alloc] initWithArray:objs];
+            }
+            else
+                _params = [[NSArray alloc] init];
+        }
+        else {
+            _params = [[NSArray alloc] init];
+        }
+        
         
         
         
@@ -50,6 +73,8 @@
         }
         
         
+        _idcuestionario = dict[@"idcuestionario"];
+        
         
     }
     return self;
@@ -63,8 +88,29 @@
         
     
     
-            if(_getiDCuestionario != nil) dict[@"getiDCuestionario"] = _getiDCuestionario ;
+    if(_params != nil){
+        if([_params isKindOfClass:[NSArray class]]){
+            NSMutableArray * array = [[NSMutableArray alloc] init];
+            for( int i=0 ; i<[(NSArray*)_params count] ; i++ ) {
+				MSParam *params = [[MSParam alloc]init];
+				params = [(NSArray*)_params objectAtIndex:i];
+                [array addObject:[(SWGObject*)params asDictionary]];
+            }
+            dict[@"params"] = array;
+        }
+        else if(_params && [_params isKindOfClass:[SWGDate class]]) {
+            NSString * dateString = [(SWGDate*)_params toString];
+            if(dateString){
+                dict[@"params"] = dateString;
+            }
+        }
+        else {
         
+            if(_params != nil) dict[@"params"] = [(SWGObject*)_params asDictionary];
+        
+        }
+    }
+    
     
     
     if(_questions != nil){
@@ -90,6 +136,10 @@
         }
     }
     
+    
+    
+            if(_idcuestionario != nil) dict[@"idcuestionario"] = _idcuestionario ;
+        
     
 
     NSDictionary* output = [dict copy];

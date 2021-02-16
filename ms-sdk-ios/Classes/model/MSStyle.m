@@ -12,6 +12,8 @@
 @synthesize fingerprintImage = _fingerprintImage;
 @synthesize identicaImage = _identicaImage;
 @synthesize questionImage = _questionImage;
+@synthesize experianImage = _experianImage;
+@synthesize lisimImage = _lisimImage;
 @synthesize jsonStyleFile = _jsonStyleFile;
 
 -(id)emailTemplateActionFile: (NSString*) emailTemplateActionFile
@@ -23,6 +25,8 @@
     fingerprintImage: (NSString*) fingerprintImage
     identicaImage: (NSString*) identicaImage
     questionImage: (NSString*) questionImage
+    experianImage: (NSString*) experianImage
+    lisimImage: (NSString*) lisimImage
     jsonStyleFile: (NSString*) jsonStyleFile
     
 {
@@ -35,6 +39,8 @@
     _fingerprintImage = fingerprintImage;
     _identicaImage = identicaImage;
     _questionImage = questionImage;
+    _experianImage = experianImage;
+    _lisimImage = lisimImage;
     _jsonStyleFile = jsonStyleFile;
     
 
@@ -62,6 +68,10 @@
         _identicaImage = dict[@"identicaImage"];
         
         _questionImage = dict[@"questionImage"];
+        
+        _experianImage = dict[@"experianImage"];
+        
+        _lisimImage = dict[@"lisimImage"];
         
         _jsonStyleFile = dict[@"jsonStyleFile"];
         
@@ -107,6 +117,14 @@
     
     
             if(_questionImage != nil) dict[@"questionImage"] = _questionImage ;
+        
+    
+    
+            if(_experianImage != nil) dict[@"experianImage"] = _experianImage ;
+        
+    
+    
+            if(_lisimImage != nil) dict[@"lisimImage"] = _lisimImage ;
         
     
     

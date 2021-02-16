@@ -67,6 +67,22 @@
 
 /**
 
+ Method to recover global message from admin configuration
+ 
+ Method to recover global message from admin configuration
+ 
+
+ 
+
+ return type: NSString*
+ */
++(NSNumber*) getGlobalMessage :(OAuth1Client *) auth onSuccess:
+    (void (^)(NSString* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    
+
+
+/**
+
  Returns device configuration for a target app
  
  

@@ -214,6 +214,7 @@ static bool loggingEnabled = true;
     if (body != nil && [body isKindOfClass:[NSArray class]]){
         SWGFile * file;
         NSMutableDictionary * params = [[NSMutableDictionary alloc] init];
+        BOOL sendArray = NO;
         for(id obj in body) {
             if([obj isKindOfClass:[SWGFile class]]) {
                 file = (SWGFile*) obj;
@@ -221,7 +222,12 @@ static bool loggingEnabled = true;
             }
             else if([obj isKindOfClass:[NSDictionary class]]) {
                 for(NSString * key in obj) {
-                    params[key] = obj[key];
+                    if ([params objectForKey:key]) {
+						// body is NSArray of elements of same type.
+						sendArray = YES;
+					} else {
+						params[key] = obj[key];
+					}
                 }
             }
         }
@@ -250,10 +256,13 @@ static bool loggingEnabled = true;
         }else{
             id parameters;
             if ([[params allKeys] count] == 0) {
-				parameters = nil;
-			} else {
+				params = nil;
+				parameters = params;
+			} else if (sendArray) {
 				// Parameter "params" incorrect when using body as NSArray with similar NSDictionary elements.
 				parameters = body;
+			} else {
+				parameters = params;
 			}
             request = [self.requestSerializer requestWithMethod:method
                                                       URLString:urlString

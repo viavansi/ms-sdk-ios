@@ -31,6 +31,22 @@
 
 /**
 
+ Method for list oauth2 user templates
+ 
+ 
+ 
+
+ 
+
+ return type: NSArray*
+ */
++(NSNumber*) findMyTemplates :(OAuth1Client *) auth onSuccess:
+    (void (^)(NSArray* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    
+
+
+/**
+
  Method for list user templates
  
  

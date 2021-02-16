@@ -482,6 +482,47 @@
 
 /**
 
+ Method for transfer message to external transfer system
+ 
+ Method for transfer message to external transfer system
+ 
+
+ 
+ @param messageCode Message Code
+ 
+
+ return type: MSMessage*
+ */
++(NSNumber*) transfer :(NSString*) messageCode 
+    
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(MSMessage* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    
+
+
+/**
+
+ Method for transfer message to external transfer system
+ 
+ Method for transfer message to external transfer system
+ 
+
+ 
+ @param messageCode Message Code
+ 
+ @param transferSystem Transfer system
+ 
+
+ return type: NSString*
+ */
++(NSNumber*) resendTransfer :(NSString*) messageCode 
+     transferSystem:(NSString*) transferSystem 
+    
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(NSString* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    
+
+
+/**
+
  Method for update a document
  
  Update document

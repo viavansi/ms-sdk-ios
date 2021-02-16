@@ -11,6 +11,7 @@
 @synthesize signedCode = _signedCode;
 @synthesize signedID = _signedID;
 @synthesize signedReference = _signedReference;
+@synthesize signingDate = _signingDate;
 @synthesize templateType = _templateType;
 @synthesize formRequired = _formRequired;
 @synthesize formDisabled = _formDisabled;
@@ -27,6 +28,7 @@
 @synthesize watermarkText = _watermarkText;
 @synthesize extraPages = _extraPages;
 @synthesize formUpdated = _formUpdated;
+@synthesize hideDocumentBeforeStart = _hideDocumentBeforeStart;
 
 -(id)templateCode: (NSString*) templateCode
     templateReference: (NSString*) templateReference
@@ -36,6 +38,7 @@
     signedCode: (NSString*) signedCode
     signedID: (NSString*) signedID
     signedReference: (NSString*) signedReference
+    signingDate: (SWGDate*) signingDate
     templateType: (NSString*) templateType
     formRequired: (NSNumber*) formRequired
     formDisabled: (NSNumber*) formDisabled
@@ -52,6 +55,7 @@
     watermarkText: (NSString*) watermarkText
     extraPages: (NSNumber*) extraPages
     formUpdated: (NSNumber*) formUpdated
+    hideDocumentBeforeStart: (NSNumber*) hideDocumentBeforeStart
     
 {
     _templateCode = templateCode;
@@ -62,6 +66,7 @@
     _signedCode = signedCode;
     _signedID = signedID;
     _signedReference = signedReference;
+    _signingDate = signingDate;
     _templateType = templateType;
     _formRequired = formRequired;
     _formDisabled = formDisabled;
@@ -78,6 +83,7 @@
     _watermarkText = watermarkText;
     _extraPages = extraPages;
     _formUpdated = formUpdated;
+    _hideDocumentBeforeStart = hideDocumentBeforeStart;
     
 
     return self;
@@ -102,6 +108,14 @@
         _signedID = dict[@"signedID"];
         
         _signedReference = dict[@"signedReference"];
+        
+        
+        
+        id signingDate_dict = dict[@"signingDate"];
+        
+        if(signingDate_dict != nil)
+            _signingDate = [[SWGDate  alloc]initWithValues:signingDate_dict];
+        
         
         _templateType = dict[@"templateType"];
         
@@ -161,6 +175,8 @@
         
         _formUpdated = dict[@"formUpdated"];
         
+        _hideDocumentBeforeStart = dict[@"hideDocumentBeforeStart"];
+        
         
     }
     return self;
@@ -200,6 +216,31 @@
     
             if(_signedReference != nil) dict[@"signedReference"] = _signedReference ;
         
+    
+    
+    if(_signingDate != nil){
+        if([_signingDate isKindOfClass:[NSArray class]]){
+            NSMutableArray * array = [[NSMutableArray alloc] init];
+            for( int i=0 ; i<[(NSArray*)_signingDate count] ; i++ ) {
+				SWGDate *signingDate = [[SWGDate alloc]init];
+				signingDate = [(NSArray*)_signingDate objectAtIndex:i];
+                [array addObject:[(SWGObject*)signingDate asDictionary]];
+            }
+            dict[@"signingDate"] = array;
+        }
+        else if(_signingDate && [_signingDate isKindOfClass:[SWGDate class]]) {
+            NSString * dateString = [(SWGDate*)_signingDate toString];
+            if(dateString){
+                dict[@"signingDate"] = dateString;
+            }
+        }
+        else {
+        
+            if(_signingDate != nil) dict[@"signingDate"] = [(SWGObject*)_signingDate asDictionary];
+        
+        }
+    }
+    
     
     
             if(_templateType != nil) dict[@"templateType"] = _templateType ;
@@ -305,6 +346,10 @@
     
     
             if(_formUpdated != nil) dict[@"formUpdated"] = _formUpdated ;
+        
+    
+    
+            if(_hideDocumentBeforeStart != nil) dict[@"hideDocumentBeforeStart"] = _hideDocumentBeforeStart ;
         
     
 

@@ -18,6 +18,7 @@
 @property(nonatomic) NSString* hash;  
 @property(nonatomic) NSString* fileName;  
 @property(nonatomic) NSNumber* readOnly;  
+@property(nonatomic) NSString* recipientKey;  
 - (id) type: (NSString*) type     
     processType: (NSString*) processType     
     processId: (NSString*) processId     
@@ -30,7 +31,8 @@
     date: (NSNumber*) date     
     hash: (NSString*) hash     
     fileName: (NSString*) fileName     
-    readOnly: (NSNumber*) readOnly;
+    readOnly: (NSNumber*) readOnly     
+    recipientKey: (NSString*) recipientKey;
     
 
 - (id) initWithValues: (NSDictionary*)dict;

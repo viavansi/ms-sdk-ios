@@ -17,6 +17,7 @@
 @synthesize custodyDisabled = _custodyDisabled;
 @synthesize stampers = _stampers;
 @synthesize lastUpdated = _lastUpdated;
+@synthesize recipientKey = _recipientKey;
 @synthesize certificationLevel = _certificationLevel;
 
 -(id)type: (NSString*) type
@@ -33,6 +34,7 @@
     custodyDisabled: (NSNumber*) custodyDisabled
     stampers: (NSArray*) stampers
     lastUpdated: (NSNumber*) lastUpdated
+    recipientKey: (NSString*) recipientKey
     certificationLevel: (NSString*) certificationLevel
     
 {
@@ -50,6 +52,7 @@
     _custodyDisabled = custodyDisabled;
     _stampers = stampers;
     _lastUpdated = lastUpdated;
+    _recipientKey = recipientKey;
     _certificationLevel = certificationLevel;
     
 
@@ -107,6 +110,8 @@
         
         
         _lastUpdated = dict[@"lastUpdated"];
+        
+        _recipientKey = dict[@"recipientKey"];
         
         _certificationLevel = dict[@"certificationLevel"];
         
@@ -193,6 +198,10 @@
     
     
             if(_lastUpdated != nil) dict[@"lastUpdated"] = _lastUpdated ;
+        
+    
+    
+            if(_recipientKey != nil) dict[@"recipientKey"] = _recipientKey ;
         
     
     

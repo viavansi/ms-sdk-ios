@@ -12,6 +12,7 @@
 @property(nonatomic) NSNumber* creationDate;  /* epoch timestamp in milliseconds  */
 @property(nonatomic) NSString* externalCode;  /* (since 3.5.120, internal) external code  */
 @property(nonatomic) NSString* externalStatus;  /* (since 3.5.120, internal) external status  */
+@property(nonatomic) NSString* setCode;  /* (since 3.6.43, internal) external code  */
 - (id) messageCode: (NSString*) messageCode     
     status: (NSString*) status     
     userCode: (NSString*) userCode     
@@ -19,7 +20,8 @@
     templateCode: (NSString*) templateCode     
     creationDate: (NSNumber*) creationDate     
     externalCode: (NSString*) externalCode     
-    externalStatus: (NSString*) externalStatus;
+    externalStatus: (NSString*) externalStatus     
+    setCode: (NSString*) setCode;
     
 
 - (id) initWithValues: (NSDictionary*)dict;

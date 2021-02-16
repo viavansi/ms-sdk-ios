@@ -11,6 +11,7 @@
 @synthesize creationDate = _creationDate;
 @synthesize externalCode = _externalCode;
 @synthesize externalStatus = _externalStatus;
+@synthesize setCode = _setCode;
 
 -(id)messageCode: (NSString*) messageCode
     status: (NSString*) status
@@ -20,6 +21,7 @@
     creationDate: (NSNumber*) creationDate
     externalCode: (NSString*) externalCode
     externalStatus: (NSString*) externalStatus
+    setCode: (NSString*) setCode
     
 {
     _messageCode = messageCode;
@@ -30,6 +32,7 @@
     _creationDate = creationDate;
     _externalCode = externalCode;
     _externalStatus = externalStatus;
+    _setCode = setCode;
     
 
     return self;
@@ -54,6 +57,8 @@
         _externalCode = dict[@"externalCode"];
         
         _externalStatus = dict[@"externalStatus"];
+        
+        _setCode = dict[@"setCode"];
         
         
     }
@@ -93,6 +98,10 @@
     
     
             if(_externalStatus != nil) dict[@"externalStatus"] = _externalStatus ;
+        
+    
+    
+            if(_setCode != nil) dict[@"setCode"] = _setCode ;
         
     
 

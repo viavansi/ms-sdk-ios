@@ -5,15 +5,18 @@
 
 @synthesize code = _code;
 @synthesize status = _status;
+@synthesize links = _links;
 @synthesize messages = _messages;
 
 -(id)code: (NSString*) code
     status: (NSString*) status
+    links: (NSArray*) links
     messages: (NSArray*) messages
     
 {
     _code = code;
     _status = status;
+    _links = links;
     _messages = messages;
     
 
@@ -27,6 +30,28 @@
         _code = dict[@"code"];
         
         _status = dict[@"status"];
+        
+        
+        
+        id links_dict = dict[@"links"];
+        
+        if([links_dict isKindOfClass:[NSArray class]]) {
+            NSMutableArray * objs = [[NSMutableArray alloc] initWithCapacity:[(NSArray*)links_dict count]];
+            if([(NSArray*)links_dict count] > 0) {
+                for (int i=0 ; i<[(NSArray*)links_dict count] ; i++) {
+                	NSDictionary *dict = [[NSDictionary alloc] initWithDictionary:[links_dict objectAtIndex:i]];
+                    MSRecipientLink* d = [[MSRecipientLink alloc] initWithValues:dict];
+                    [objs addObject:d];
+                }
+                _links = [[NSArray alloc] initWithArray:objs];
+            }
+            else
+                _links = [[NSArray alloc] init];
+        }
+        else {
+            _links = [[NSArray alloc] init];
+        }
+        
         
         
         
@@ -65,6 +90,31 @@
     
             if(_status != nil) dict[@"status"] = _status ;
         
+    
+    
+    if(_links != nil){
+        if([_links isKindOfClass:[NSArray class]]){
+            NSMutableArray * array = [[NSMutableArray alloc] init];
+            for( int i=0 ; i<[(NSArray*)_links count] ; i++ ) {
+				MSRecipientLink *links = [[MSRecipientLink alloc]init];
+				links = [(NSArray*)_links objectAtIndex:i];
+                [array addObject:[(SWGObject*)links asDictionary]];
+            }
+            dict[@"links"] = array;
+        }
+        else if(_links && [_links isKindOfClass:[SWGDate class]]) {
+            NSString * dateString = [(SWGDate*)_links toString];
+            if(dateString){
+                dict[@"links"] = dateString;
+            }
+        }
+        else {
+        
+            if(_links != nil) dict[@"links"] = [(SWGObject*)_links asDictionary];
+        
+        }
+    }
+    
     
     
     if(_messages != nil){

@@ -13,6 +13,8 @@
 @property(nonatomic) NSString* fingerprintImage;  
 @property(nonatomic) NSString* identicaImage;  
 @property(nonatomic) NSString* questionImage;  
+@property(nonatomic) NSString* experianImage;  
+@property(nonatomic) NSString* lisimImage;  
 @property(nonatomic) NSString* jsonStyleFile;  
 - (id) emailTemplateActionFile: (NSString*) emailTemplateActionFile     
     emailTemplateFile: (NSString*) emailTemplateFile     
@@ -23,6 +25,8 @@
     fingerprintImage: (NSString*) fingerprintImage     
     identicaImage: (NSString*) identicaImage     
     questionImage: (NSString*) questionImage     
+    experianImage: (NSString*) experianImage     
+    lisimImage: (NSString*) lisimImage     
     jsonStyleFile: (NSString*) jsonStyleFile;
     
 

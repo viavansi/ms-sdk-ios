@@ -74,6 +74,25 @@
 
 /**
 
+ Method for resend set notification
+ 
+ Method for resend 
+ 
+
+ 
+ @param setCode Set Code
+ 
+
+ return type: MSMessageSet*
+ */
++(NSNumber*) resendNotificationByRecipient :(NSString*) setCode 
+    
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(MSMessageSet* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    
+
+
+/**
+
  Method for get an existing message set summary
  
  Get message set

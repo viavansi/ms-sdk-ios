@@ -1,6 +1,7 @@
 #import <Foundation/Foundation.h>
 #import "SWGObject.h"
 #import "MSStyle.h"
+#import "SWGDate.h"
 #import "MSProperty.h"
 #import "MSConfiguration.h"
 #import "MSTemplate.h"
@@ -31,6 +32,13 @@
 @property(nonatomic) NSString* referenceCode;  
 @property(nonatomic) NSString* _description;  
 @property(nonatomic) MSStyle* style;  
+@property(nonatomic) NSString* extensionOid;  
+@property(nonatomic) NSString* extensionValue;  
+@property(nonatomic) SWGDate* creationDate;  
+@property(nonatomic) SWGDate* startDate;  
+@property(nonatomic) SWGDate* endDate;  
+@property(nonatomic) SWGDate* renovationDate;  
+@property(nonatomic) NSNumber* active;  
 @property(nonatomic) NSArray* properties;  
 @property(nonatomic) NSArray* apps;  
 @property(nonatomic) NSArray* templates;  
@@ -57,6 +65,13 @@
     referenceCode: (NSString*) referenceCode     
     _description: (NSString*) _description     
     style: (MSStyle*) style     
+    extensionOid: (NSString*) extensionOid     
+    extensionValue: (NSString*) extensionValue     
+    creationDate: (SWGDate*) creationDate     
+    startDate: (SWGDate*) startDate     
+    endDate: (SWGDate*) endDate     
+    renovationDate: (SWGDate*) renovationDate     
+    active: (NSNumber*) active     
     properties: (NSArray*) properties     
     apps: (NSArray*) apps     
     templates: (NSArray*) templates     

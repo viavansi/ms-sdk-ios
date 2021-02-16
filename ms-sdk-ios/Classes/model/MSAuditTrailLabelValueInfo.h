@@ -6,8 +6,10 @@
 
 @property(nonatomic) NSString* label;  
 @property(nonatomic) NSString* value;  
+@property(nonatomic) NSString* type;  
 - (id) label: (NSString*) label     
-    value: (NSString*) value;
+    value: (NSString*) value     
+    type: (NSString*) type;
     
 
 - (id) initWithValues: (NSDictionary*)dict;

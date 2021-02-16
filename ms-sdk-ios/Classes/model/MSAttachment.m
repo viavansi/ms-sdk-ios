@@ -16,6 +16,7 @@
 @synthesize hash = _hash;
 @synthesize fileName = _fileName;
 @synthesize readOnly = _readOnly;
+@synthesize recipientKey = _recipientKey;
 
 -(id)type: (NSString*) type
     processType: (NSString*) processType
@@ -30,6 +31,7 @@
     hash: (NSString*) hash
     fileName: (NSString*) fileName
     readOnly: (NSNumber*) readOnly
+    recipientKey: (NSString*) recipientKey
     
 {
     _type = type;
@@ -45,6 +47,7 @@
     _hash = hash;
     _fileName = fileName;
     _readOnly = readOnly;
+    _recipientKey = recipientKey;
     
 
     return self;
@@ -99,6 +102,8 @@
         _fileName = dict[@"fileName"];
         
         _readOnly = dict[@"readOnly"];
+        
+        _recipientKey = dict[@"recipientKey"];
         
         
     }
@@ -179,6 +184,10 @@
     
     
             if(_readOnly != nil) dict[@"readOnly"] = _readOnly ;
+        
+    
+    
+            if(_recipientKey != nil) dict[@"recipientKey"] = _recipientKey ;
         
     
 

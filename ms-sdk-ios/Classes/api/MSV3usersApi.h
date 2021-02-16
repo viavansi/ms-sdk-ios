@@ -1,5 +1,6 @@
 #import <Foundation/Foundation.h>
 #import "MSUser.h"
+#import "MSAutoRegister.h"
 #import "SWGObject.h"
 #import "OAuth1Client.h"
 
@@ -42,6 +43,47 @@
 +(NSNumber*) registerUser :(MSUser*) body 
     
     auth:(OAuth1Client *) auth onSuccess: (void (^)(MSUser* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    
+
+
+/**
+
+ Method only for admin apps to get all users
+ 
+ 
+ 
+
+ 
+ @param index 
+ 
+ @param page_size 
+ 
+
+ return type: NSArray*
+ */
++(NSNumber*) getAllUsers :(NSString*) index 
+     page_size:(NSString*) page_size 
+    
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(NSArray* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    
+
+
+/**
+
+ Method for auto register users
+ 
+ 
+ 
+
+ 
+ @param body User to register
+ 
+
+ return type: MSAutoRegister*
+ */
++(NSNumber*) autoRegisterUser :(MSAutoRegister*) body 
+    
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(MSAutoRegister* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     
 
 
@@ -121,6 +163,47 @@
 +(NSNumber*) sendResetPasswordEmail :(NSString*) userCode 
     
     auth:(OAuth1Client *) auth onSuccess: (void (^)(MSUser* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    
+
+
+/**
+
+ Method for auto register users
+ 
+ 
+ 
+
+ 
+ @param token token
+ 
+ @param pass pass
+ 
+ @param captchaId captchaId
+ 
+
+ return type: MSAutoRegister*
+ */
++(NSNumber*) updatePassword :(NSString*) token 
+     pass:(NSString*) pass 
+     captchaId:(NSString*) captchaId 
+    
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(MSAutoRegister* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    
+
+
+/**
+
+ Method for get user info from oauth user
+ 
+ Get user info from oauth user
+ 
+
+ 
+
+ return type: MSUser*
+ */
++(NSNumber*) whoIam :(OAuth1Client *) auth onSuccess:
+    (void (^)(MSUser* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     
 
 
