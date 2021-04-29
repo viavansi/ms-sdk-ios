@@ -7,7 +7,7 @@
 - (id) initWithValues:(NSString*)input {
     if([input isKindOfClass:[NSString class]]){
         NSDateFormatter* df = [NSDateFormatter new];
-        NSLocale *locale = [[NSLocale new]                        
+        NSLocale *locale = [[NSLocale alloc]                        
                             initWithLocaleIdentifier:@"en_US_POSIX"];
         [df setLocale:locale];
         [df setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.SSSZ"];
@@ -23,7 +23,7 @@
 
 -(NSString*) toString {
     NSDateFormatter* df = [NSDateFormatter new];
-    NSLocale *locale = [[NSLocale new]                        
+    NSLocale *locale = [[NSLocale alloc]                        
                         initWithLocaleIdentifier:@"en_US_POSIX"];
     [df setLocale:locale];
     [df setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.SSSZ"];
