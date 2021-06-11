@@ -1,7 +1,10 @@
-platform :ios, '6.0'
+platform :ios, '8.0'
 inhibit_all_warnings!
-link_with 'ms-sdk-ios'
 
-source 'https://github.com/CocoaPods/Specs.git'
+def generic_pods
+	pod 'AFNetworking', :git => 'git@github.com:elaget/AFNetworking.git', :tag => '2.7.1'
+end
 
-pod 'AFNetworking', :git => 'https://github.com/elaget/AFNetworking.git', :tag => '2.7.1'
+target 'ms-sdk-ios' do
+	generic_pods
+end
