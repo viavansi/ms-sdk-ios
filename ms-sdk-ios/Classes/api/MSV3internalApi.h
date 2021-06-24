@@ -34,6 +34,23 @@
 
  return type: 
  */
++(NSNumber*) metrics :(NSString*) metrics_pass 
+    
+    
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(void))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+
+
+/**
+
+ 
+ 
+
+ 
+ @param metrics_pass 
+ 
+
+ return type: 
+ */
 +(NSNumber*) prometheus :(NSString*) metrics_pass 
     
     

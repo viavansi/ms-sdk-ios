@@ -10,6 +10,10 @@
 @synthesize installURL = _installURL;
 @synthesize installMessage = _installMessage;
 @synthesize iconURL = _iconURL;
+@synthesize teamId = _teamId;
+@synthesize keyId = _keyId;
+@synthesize authKey = _authKey;
+@synthesize tokenGCM = _tokenGCM;
 
 -(id)type: (NSString*) type
     version: (NSString*) version
@@ -18,6 +22,10 @@
     installURL: (NSString*) installURL
     installMessage: (NSString*) installMessage
     iconURL: (NSString*) iconURL
+    teamId: (NSString*) teamId
+    keyId: (NSString*) keyId
+    authKey: (NSString*) authKey
+    tokenGCM: (NSString*) tokenGCM
     
 {
     _type = type;
@@ -27,6 +35,10 @@
     _installURL = installURL;
     _installMessage = installMessage;
     _iconURL = iconURL;
+    _teamId = teamId;
+    _keyId = keyId;
+    _authKey = authKey;
+    _tokenGCM = tokenGCM;
     
 
     return self;
@@ -49,6 +61,14 @@
         _installMessage = dict[@"installMessage"];
         
         _iconURL = dict[@"iconURL"];
+        
+        _teamId = dict[@"teamId"];
+        
+        _keyId = dict[@"keyId"];
+        
+        _authKey = dict[@"authKey"];
+        
+        _tokenGCM = dict[@"tokenGCM"];
         
         
     }
@@ -84,6 +104,22 @@
     
     
             if(_iconURL != nil) dict[@"iconURL"] = _iconURL ;
+        
+    
+    
+            if(_teamId != nil) dict[@"teamId"] = _teamId ;
+        
+    
+    
+            if(_keyId != nil) dict[@"keyId"] = _keyId ;
+        
+    
+    
+            if(_authKey != nil) dict[@"authKey"] = _authKey ;
+        
+    
+    
+            if(_tokenGCM != nil) dict[@"tokenGCM"] = _tokenGCM ;
         
     
 

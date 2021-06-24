@@ -18,6 +18,7 @@
 @synthesize clientTimestamp = _clientTimestamp;
 @synthesize serviceTimestamp = _serviceTimestamp;
 @synthesize serviceTimestampType = _serviceTimestampType;
+@synthesize imageDataType = _imageDataType;
 
 -(id)messageCode: (NSString*) messageCode
     policyCode: (NSString*) policyCode
@@ -34,6 +35,7 @@
     clientTimestamp: (NSNumber*) clientTimestamp
     serviceTimestamp: (NSNumber*) serviceTimestamp
     serviceTimestampType: (NSString*) serviceTimestampType
+    imageDataType: (NSString*) imageDataType
     
 {
     _messageCode = messageCode;
@@ -51,6 +53,7 @@
     _clientTimestamp = clientTimestamp;
     _serviceTimestamp = serviceTimestamp;
     _serviceTimestampType = serviceTimestampType;
+    _imageDataType = imageDataType;
     
 
     return self;
@@ -141,6 +144,8 @@
         _serviceTimestamp = dict[@"serviceTimestamp"];
         
         _serviceTimestampType = dict[@"serviceTimestampType"];
+        
+        _imageDataType = dict[@"imageDataType"];
         
         
     }
@@ -292,6 +297,10 @@
     
     
             if(_serviceTimestampType != nil) dict[@"serviceTimestampType"] = _serviceTimestampType ;
+        
+    
+    
+            if(_imageDataType != nil) dict[@"imageDataType"] = _imageDataType ;
         
     
 

@@ -2,7 +2,9 @@
 #import "SWGObject.h"
 
 
-@interface MSNumber : SWGObject 
+@interface MSNumber : SWGObject
+
+- (id) 
 
 - (id) initWithValues: (NSDictionary*)dict;
 - (NSDictionary*) asDictionary;

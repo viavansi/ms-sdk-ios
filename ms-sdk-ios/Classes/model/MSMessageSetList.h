@@ -10,6 +10,7 @@
 @property(nonatomic) NSString* status;  
 @property(nonatomic) NSString* recipientStatus;  
 @property(nonatomic) NSString* auditTrailPage;  
+@property(nonatomic) NSString* recipientKey;  
 @property(nonatomic) NSString* languageId;  
 - (id) code: (NSString*) code     
     title: (NSString*) title     
@@ -17,6 +18,7 @@
     status: (NSString*) status     
     recipientStatus: (NSString*) recipientStatus     
     auditTrailPage: (NSString*) auditTrailPage     
+    recipientKey: (NSString*) recipientKey     
     languageId: (NSString*) languageId;
     
 

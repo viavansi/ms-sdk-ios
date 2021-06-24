@@ -12,7 +12,10 @@
 @synthesize _id = __id;
 @synthesize status = _status;
 @synthesize order = _order;
+@synthesize deviceCode = _deviceCode;
 @synthesize presential = _presential;
+@synthesize label = _label;
+@synthesize optional = _optional;
 
 -(id)key: (NSString*) key
     phone: (NSString*) phone
@@ -23,7 +26,10 @@
     _id: (NSString*) _id
     status: (NSString*) status
     order: (NSNumber*) order
+    deviceCode: (NSString*) deviceCode
     presential: (NSNumber*) presential
+    label: (NSString*) label
+    optional: (NSNumber*) optional
     
 {
     _key = key;
@@ -35,7 +41,10 @@
     __id = _id;
     _status = status;
     _order = order;
+    _deviceCode = deviceCode;
     _presential = presential;
+    _label = label;
+    _optional = optional;
     
 
     return self;
@@ -63,7 +72,13 @@
         
         _order = dict[@"order"];
         
+        _deviceCode = dict[@"deviceCode"];
+        
         _presential = dict[@"presential"];
+        
+        _label = dict[@"label"];
+        
+        _optional = dict[@"optional"];
         
         
     }
@@ -110,7 +125,19 @@
         
     
     
+            if(_deviceCode != nil) dict[@"deviceCode"] = _deviceCode ;
+        
+    
+    
             if(_presential != nil) dict[@"presential"] = _presential ;
+        
+    
+    
+            if(_label != nil) dict[@"label"] = _label ;
+        
+    
+    
+            if(_optional != nil) dict[@"optional"] = _optional ;
         
     
 

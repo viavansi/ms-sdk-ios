@@ -12,6 +12,7 @@
 @property(nonatomic) NSArray* transformAlgorithms;  
 @property(nonatomic) NSString* dssReferenceUri;  
 @property(nonatomic) NSNumber* useSigningCertificateV2;  
+@property(nonatomic) NSString* toCounterSignSignatureValueId;  
 @property(nonatomic) NSString* xpathLocationString;  
 - (id) signedInfoCanonicalizationMethod: (NSString*) signedInfoCanonicalizationMethod     
     signedPropertiesCanonicalizationMethod: (NSString*) signedPropertiesCanonicalizationMethod     
@@ -21,6 +22,7 @@
     transformAlgorithms: (NSArray*) transformAlgorithms     
     dssReferenceUri: (NSString*) dssReferenceUri     
     useSigningCertificateV2: (NSNumber*) useSigningCertificateV2     
+    toCounterSignSignatureValueId: (NSString*) toCounterSignSignatureValueId     
     xpathLocationString: (NSString*) xpathLocationString;
     
 

@@ -58,6 +58,7 @@
 @property(nonatomic) NSString* signPageServer;  
 @property(nonatomic) NSString* auditTrailPage;  
 @property(nonatomic) NSNumber* order;  
+@property(nonatomic) NSString* callbackRedirectURLTargetWindow;  
 - (id) code: (NSString*) code     
     externalCode: (NSString*) externalCode     
     externalStatus: (NSString*) externalStatus     
@@ -102,7 +103,8 @@
     setStatus: (NSString*) setStatus     
     signPageServer: (NSString*) signPageServer     
     auditTrailPage: (NSString*) auditTrailPage     
-    order: (NSNumber*) order;
+    order: (NSNumber*) order     
+    callbackRedirectURLTargetWindow: (NSString*) callbackRedirectURLTargetWindow;
     
 
 - (id) initWithValues: (NSDictionary*)dict;

@@ -48,6 +48,7 @@
 @synthesize signPageServer = _signPageServer;
 @synthesize auditTrailPage = _auditTrailPage;
 @synthesize order = _order;
+@synthesize callbackRedirectURLTargetWindow = _callbackRedirectURLTargetWindow;
 
 -(id)code: (NSString*) code
     externalCode: (NSString*) externalCode
@@ -94,6 +95,7 @@
     signPageServer: (NSString*) signPageServer
     auditTrailPage: (NSString*) auditTrailPage
     order: (NSNumber*) order
+    callbackRedirectURLTargetWindow: (NSString*) callbackRedirectURLTargetWindow
     
 {
     _code = code;
@@ -141,6 +143,7 @@
     _signPageServer = signPageServer;
     _auditTrailPage = auditTrailPage;
     _order = order;
+    _callbackRedirectURLTargetWindow = callbackRedirectURLTargetWindow;
     
 
     return self;
@@ -363,6 +366,8 @@
         _auditTrailPage = dict[@"auditTrailPage"];
         
         _order = dict[@"order"];
+        
+        _callbackRedirectURLTargetWindow = dict[@"callbackRedirectURLTargetWindow"];
         
         
     }
@@ -739,6 +744,10 @@
     
     
             if(_order != nil) dict[@"order"] = _order ;
+        
+    
+    
+            if(_callbackRedirectURLTargetWindow != nil) dict[@"callbackRedirectURLTargetWindow"] = _callbackRedirectURLTargetWindow ;
         
     
 

@@ -1,6 +1,7 @@
 #import <Foundation/Foundation.h>
 #import "MSUser.h"
 #import "MSAutoRegister.h"
+#import "MSResetPassword.h"
 #import "SWGObject.h"
 #import "OAuth1Client.h"
 
@@ -125,6 +126,25 @@
      email:(NSString*) email 
     
     auth:(OAuth1Client *) auth onSuccess: (void (^)(MSUser* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    
+
+
+/**
+
+ Method for reset user password
+ 
+ 
+ 
+
+ 
+ @param body User to reset password
+ 
+
+ return type: MSResetPassword*
+ */
++(NSNumber*) resetPassword :(MSResetPassword*) body 
+    
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(MSResetPassword* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     
 
 

@@ -3,21 +3,21 @@
 
 @implementation MSTimeZone
 
-@synthesize displayName = _displayName;
-@synthesize _id = __id;
 @synthesize dstsavings = _dstsavings;
 @synthesize rawOffset = _rawOffset;
+@synthesize _id = __id;
+@synthesize displayName = _displayName;
 
--(id)displayName: (NSString*) displayName
-    _id: (NSString*) _id
-    dstsavings: (NSNumber*) dstsavings
+-(id)dstsavings: (NSNumber*) dstsavings
     rawOffset: (NSNumber*) rawOffset
+    _id: (NSString*) _id
+    displayName: (NSString*) displayName
     
 {
-    _displayName = displayName;
-    __id = _id;
     _dstsavings = dstsavings;
     _rawOffset = rawOffset;
+    __id = _id;
+    _displayName = displayName;
     
 
     return self;
@@ -27,13 +27,13 @@
 {
     self = [super init];
     if(self) {
-        _displayName = dict[@"displayName"];
-        
-        __id = dict[@"id"];
-        
         _dstsavings = dict[@"dstsavings"];
         
         _rawOffset = dict[@"rawOffset"];
+        
+        __id = dict[@"id"];
+        
+        _displayName = dict[@"displayName"];
         
         
     }
@@ -44,7 +44,11 @@
     NSMutableDictionary* dict = [[NSMutableDictionary alloc] init];
     
     
-            if(_displayName != nil) dict[@"displayName"] = _displayName ;
+            if(_dstsavings != nil) dict[@"dstsavings"] = _dstsavings ;
+        
+    
+    
+            if(_rawOffset != nil) dict[@"rawOffset"] = _rawOffset ;
         
     
     
@@ -52,11 +56,7 @@
         
     
     
-            if(_dstsavings != nil) dict[@"dstsavings"] = _dstsavings ;
-        
-    
-    
-            if(_rawOffset != nil) dict[@"rawOffset"] = _rawOffset ;
+            if(_displayName != nil) dict[@"displayName"] = _displayName ;
         
     
 

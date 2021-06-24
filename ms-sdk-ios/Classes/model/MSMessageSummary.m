@@ -9,6 +9,7 @@
 @synthesize policies = _policies;
 @synthesize transfers = _transfers;
 @synthesize languageId = _languageId;
+@synthesize externalCode = _externalCode;
 
 -(id)code: (NSString*) code
     status: (NSString*) status
@@ -16,6 +17,7 @@
     policies: (NSArray*) policies
     transfers: (NSArray*) transfers
     languageId: (NSString*) languageId
+    externalCode: (NSString*) externalCode
     
 {
     _code = code;
@@ -24,6 +26,7 @@
     _policies = policies;
     _transfers = transfers;
     _languageId = languageId;
+    _externalCode = externalCode;
     
 
     return self;
@@ -84,6 +87,8 @@
         
         
         _languageId = dict[@"languageId"];
+        
+        _externalCode = dict[@"externalCode"];
         
         
     }
@@ -157,6 +162,10 @@
     
     
             if(_languageId != nil) dict[@"languageId"] = _languageId ;
+        
+    
+    
+            if(_externalCode != nil) dict[@"externalCode"] = _externalCode ;
         
     
 

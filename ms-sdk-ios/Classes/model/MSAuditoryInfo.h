@@ -8,8 +8,10 @@
 
 @property(nonatomic) MSAuditoryActions* actions;  
 @property(nonatomic) MSVerifierDocumentDTO* info;  
+@property(nonatomic) NSString* messageCode;  
 - (id) actions: (MSAuditoryActions*) actions     
-    info: (MSVerifierDocumentDTO*) info;
+    info: (MSVerifierDocumentDTO*) info     
+    messageCode: (NSString*) messageCode;
     
 
 - (id) initWithValues: (NSDictionary*)dict;

@@ -12,18 +12,20 @@
 }
 
 
-+(NSNumber*) webhook: (MSJSMati*) body
++(NSNumber*) webhook: (NSString*) token
+         body: (MSJSMati*) body
         
         auth:(OAuth1Client *) auth onSuccess: (void (^)(NSString* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock
          {
 
-    NSMutableString* requestUrl = [NSMutableString stringWithFormat:@"%@/v3/mati/webhook", [[ApiClient sharedInstance] url]];
+    NSMutableString* requestUrl = [NSMutableString stringWithFormat:@"%@/v3/mati/webhook/{token}", [[ApiClient sharedInstance] url]];
 
     // remove format in URL if needed
     if ([requestUrl rangeOfString:@".{format}"].location != NSNotFound){
         [requestUrl replaceCharactersInRange: [requestUrl rangeOfString:@".{format}"] withString:@".json"];
     }
 
+    [requestUrl replaceCharactersInRange: [requestUrl rangeOfString:[NSString stringWithFormat:@"%@%@%@", @"{", @"token", @"}"]] withString: [ApiClient escape:token]];
     
 
 	NSArray * requestContentTypes = @[@"application/json"];

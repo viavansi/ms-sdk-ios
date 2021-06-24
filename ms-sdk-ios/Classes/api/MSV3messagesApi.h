@@ -3,7 +3,9 @@
 #import "MSMessageBuild.h"
 #import "MSMessageData.h"
 #import "MSDownload.h"
+#import "MSExtendPeriod.h"
 #import "MSMessageList.h"
+#import "MSMessagePaginatedList.h"
 #import "MSCallbackUrl.h"
 #import "MSCallbackMail.h"
 #import "MSNotificationResend.h"
@@ -11,7 +13,6 @@
 #import "MSMessageRestart.h"
 #import "MSMessageStatus.h"
 #import "MSDocument.h"
-#import "MSMessagePaginatedList.h"
 #import "SWGObject.h"
 #import "OAuth1Client.h"
 
@@ -135,6 +136,25 @@
 
 /**
 
+ Method for resend expired or rejected messages
+ 
+ Resend message
+ 
+
+ 
+ @param body Message object that needs to be delivery
+ 
+
+ return type: NSString*
+ */
++(NSNumber*) extendSignaturePeriod :(MSExtendPeriod*) body 
+    
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(NSString* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    
+
+
+/**
+
  Method for get messages by external code
  
  Get messages without external status
@@ -219,6 +239,28 @@
 
 /**
 
+ Method for change external code
+ 
+ change external code by message code
+ 
+
+ 
+ @param messageCode Message Code
+ 
+ @param code External Status
+ 
+
+ return type: MSMessage*
+ */
++(NSNumber*) changeExternalCode :(NSString*) messageCode 
+     code:(NSString*) code 
+    
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(MSMessage* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    
+
+
+/**
+
  Method for change external status
  
  change external status by message code
@@ -277,6 +319,50 @@
 +(NSNumber*) messagesGroup :(MSMessage*) body 
     
     auth:(OAuth1Client *) auth onSuccess: (void (^)(NSString* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    
+
+
+/**
+
+ Method for get an existing message
+ 
+ Get message
+ 
+
+ 
+ @param messageCode messageCode
+ 
+ @param recipientKey recipientKey
+ 
+
+ return type: NSNumber*
+ */
++(NSNumber*) isFinalizable :(NSString*) messageCode 
+     recipientKey:(NSString*) recipientKey 
+    
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(NSNumber* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    
+
+
+/**
+
+ Method for get a list the user's messages request
+ 
+ User's messages request
+ 
+
+ 
+ @param index Index
+ 
+ @param page_size Page size
+ 
+
+ return type: NSArray*
+ */
++(NSNumber*) getMessagesByUser :(NSString*) index 
+     page_size:(NSString*) page_size 
+    
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(NSArray* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     
 
 

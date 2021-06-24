@@ -4,6 +4,13 @@
 @implementation MSNumber
 
 
+-(id)
+{
+    
+
+    return self;
+}
+
 -(id) initWithValues:(NSDictionary*)dict
 {
     self = [super init];

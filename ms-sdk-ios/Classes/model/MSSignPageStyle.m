@@ -27,6 +27,12 @@
 @synthesize hideOpenInApp = _hideOpenInApp;
 @synthesize hideIntro = _hideIntro;
 @synthesize hideAuditTrailLink = _hideAuditTrailLink;
+@synthesize showUploadSignature = _showUploadSignature;
+@synthesize languageId = _languageId;
+@synthesize hideSidebar = _hideSidebar;
+@synthesize hideHeader = _hideHeader;
+@synthesize favicon = _favicon;
+@synthesize tabTitle = _tabTitle;
 
 -(id)logo: (NSString*) logo
     mainColor: (NSString*) mainColor
@@ -52,6 +58,12 @@
     hideOpenInApp: (NSNumber*) hideOpenInApp
     hideIntro: (NSNumber*) hideIntro
     hideAuditTrailLink: (NSNumber*) hideAuditTrailLink
+    showUploadSignature: (NSNumber*) showUploadSignature
+    languageId: (NSString*) languageId
+    hideSidebar: (NSNumber*) hideSidebar
+    hideHeader: (NSNumber*) hideHeader
+    favicon: (NSString*) favicon
+    tabTitle: (NSString*) tabTitle
     
 {
     _logo = logo;
@@ -78,6 +90,12 @@
     _hideOpenInApp = hideOpenInApp;
     _hideIntro = hideIntro;
     _hideAuditTrailLink = hideAuditTrailLink;
+    _showUploadSignature = showUploadSignature;
+    _languageId = languageId;
+    _hideSidebar = hideSidebar;
+    _hideHeader = hideHeader;
+    _favicon = favicon;
+    _tabTitle = tabTitle;
     
 
     return self;
@@ -134,6 +152,18 @@
         _hideIntro = dict[@"hideIntro"];
         
         _hideAuditTrailLink = dict[@"hideAuditTrailLink"];
+        
+        _showUploadSignature = dict[@"showUploadSignature"];
+        
+        _languageId = dict[@"languageId"];
+        
+        _hideSidebar = dict[@"hideSidebar"];
+        
+        _hideHeader = dict[@"hideHeader"];
+        
+        _favicon = dict[@"favicon"];
+        
+        _tabTitle = dict[@"tabTitle"];
         
         
     }
@@ -237,6 +267,30 @@
     
     
             if(_hideAuditTrailLink != nil) dict[@"hideAuditTrailLink"] = _hideAuditTrailLink ;
+        
+    
+    
+            if(_showUploadSignature != nil) dict[@"showUploadSignature"] = _showUploadSignature ;
+        
+    
+    
+            if(_languageId != nil) dict[@"languageId"] = _languageId ;
+        
+    
+    
+            if(_hideSidebar != nil) dict[@"hideSidebar"] = _hideSidebar ;
+        
+    
+    
+            if(_hideHeader != nil) dict[@"hideHeader"] = _hideHeader ;
+        
+    
+    
+            if(_favicon != nil) dict[@"favicon"] = _favicon ;
+        
+    
+    
+            if(_tabTitle != nil) dict[@"tabTitle"] = _tabTitle ;
         
     
 

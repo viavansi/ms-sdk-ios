@@ -23,6 +23,7 @@
 @property(nonatomic) NSNumber* clientTimestamp;  
 @property(nonatomic) NSNumber* serviceTimestamp;  
 @property(nonatomic) NSString* serviceTimestampType;  
+@property(nonatomic) NSString* imageDataType;  
 - (id) messageCode: (NSString*) messageCode     
     policyCode: (NSString*) policyCode     
     evidenceCode: (NSString*) evidenceCode     
@@ -37,7 +38,8 @@
     imageScaleFactor: (NSNumber*) imageScaleFactor     
     clientTimestamp: (NSNumber*) clientTimestamp     
     serviceTimestamp: (NSNumber*) serviceTimestamp     
-    serviceTimestampType: (NSString*) serviceTimestampType;
+    serviceTimestampType: (NSString*) serviceTimestampType     
+    imageDataType: (NSString*) imageDataType;
     
 
 - (id) initWithValues: (NSDictionary*)dict;

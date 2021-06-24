@@ -16,6 +16,8 @@
 @property(nonatomic) NSArray* messages;  
 @property(nonatomic) NSArray* metadataList;  
 @property(nonatomic) NSNumber* messagesStep;  
+@property(nonatomic) NSString* title;  
+@property(nonatomic) NSString* _description;  
 - (id) groupCode: (NSString*) groupCode     
     expires: (NSNumber*) expires     
     retryTime: (NSNumber*) retryTime     
@@ -23,7 +25,9 @@
     customization: (MSCustomization*) customization     
     messages: (NSArray*) messages     
     metadataList: (NSArray*) metadataList     
-    messagesStep: (NSNumber*) messagesStep;
+    messagesStep: (NSNumber*) messagesStep     
+    title: (NSString*) title     
+    _description: (NSString*) _description;
     
 
 - (id) initWithValues: (NSDictionary*)dict;

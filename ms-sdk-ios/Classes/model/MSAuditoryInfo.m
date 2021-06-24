@@ -5,13 +5,16 @@
 
 @synthesize actions = _actions;
 @synthesize info = _info;
+@synthesize messageCode = _messageCode;
 
 -(id)actions: (MSAuditoryActions*) actions
     info: (MSVerifierDocumentDTO*) info
+    messageCode: (NSString*) messageCode
     
 {
     _actions = actions;
     _info = info;
+    _messageCode = messageCode;
     
 
     return self;
@@ -36,6 +39,8 @@
         if(info_dict != nil)
             _info = [[MSVerifierDocumentDTO  alloc]initWithValues:info_dict];
         
+        
+        _messageCode = dict[@"messageCode"];
         
         
     }
@@ -94,6 +99,10 @@
         }
     }
     
+    
+    
+            if(_messageCode != nil) dict[@"messageCode"] = _messageCode ;
+        
     
 
     NSDictionary* output = [dict copy];

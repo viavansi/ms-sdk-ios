@@ -7,14 +7,12 @@
 @synthesize name = _name;
 @synthesize info = _info;
 @synthesize system = _system;
-@synthesize notifications = _notifications;
 @synthesize status = _status;
 
 -(id)date: (NSNumber*) date
     name: (NSString*) name
     info: (NSArray*) info
     system: (MSSystemInfo*) system
-    notifications: (NSDictionary*) notifications
     status: (NSString*) status
     
 {
@@ -22,7 +20,6 @@
     _name = name;
     _info = info;
     _system = system;
-    _notifications = notifications;
     _status = status;
     
 
@@ -66,8 +63,6 @@
         if(system_dict != nil)
             _system = [[MSSystemInfo  alloc]initWithValues:system_dict];
         
-        
-        _notifications = dict[@"notifications"];
         
         _status = dict[@"status"];
         
@@ -136,10 +131,6 @@
         }
     }
     
-    
-    
-            if(_notifications != nil) dict[@"notifications"] = _notifications ;
-        
     
     
             if(_status != nil) dict[@"status"] = _status ;

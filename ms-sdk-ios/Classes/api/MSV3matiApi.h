@@ -15,12 +15,15 @@
  
 
  
+ @param token Security Token
+ 
  @param body Mati info object
  
 
  return type: NSString*
  */
-+(NSNumber*) webhook :(MSJSMati*) body 
++(NSNumber*) webhook :(NSString*) token 
+     body:(MSJSMati*) body 
     
     auth:(OAuth1Client *) auth onSuccess: (void (^)(NSString* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     

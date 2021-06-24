@@ -28,6 +28,12 @@
 @property(nonatomic) NSNumber* hideOpenInApp;  
 @property(nonatomic) NSNumber* hideIntro;  
 @property(nonatomic) NSNumber* hideAuditTrailLink;  
+@property(nonatomic) NSNumber* showUploadSignature;  
+@property(nonatomic) NSString* languageId;  
+@property(nonatomic) NSNumber* hideSidebar;  
+@property(nonatomic) NSNumber* hideHeader;  
+@property(nonatomic) NSString* favicon;  
+@property(nonatomic) NSString* tabTitle;  
 - (id) logo: (NSString*) logo     
     mainColor: (NSString*) mainColor     
     mainNegativeColor: (NSString*) mainNegativeColor     
@@ -51,7 +57,13 @@
     hideRejectAction: (NSNumber*) hideRejectAction     
     hideOpenInApp: (NSNumber*) hideOpenInApp     
     hideIntro: (NSNumber*) hideIntro     
-    hideAuditTrailLink: (NSNumber*) hideAuditTrailLink;
+    hideAuditTrailLink: (NSNumber*) hideAuditTrailLink     
+    showUploadSignature: (NSNumber*) showUploadSignature     
+    languageId: (NSString*) languageId     
+    hideSidebar: (NSNumber*) hideSidebar     
+    hideHeader: (NSNumber*) hideHeader     
+    favicon: (NSString*) favicon     
+    tabTitle: (NSString*) tabTitle;
     
 
 - (id) initWithValues: (NSDictionary*)dict;

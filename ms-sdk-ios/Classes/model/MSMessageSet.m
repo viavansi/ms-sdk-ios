@@ -11,6 +11,8 @@
 @synthesize messages = _messages;
 @synthesize metadataList = _metadataList;
 @synthesize messagesStep = _messagesStep;
+@synthesize title = _title;
+@synthesize _description = __description;
 
 -(id)groupCode: (NSString*) groupCode
     expires: (NSNumber*) expires
@@ -20,6 +22,8 @@
     messages: (NSArray*) messages
     metadataList: (NSArray*) metadataList
     messagesStep: (NSNumber*) messagesStep
+    title: (NSString*) title
+    _description: (NSString*) _description
     
 {
     _groupCode = groupCode;
@@ -30,6 +34,8 @@
     _messages = messages;
     _metadataList = metadataList;
     _messagesStep = messagesStep;
+    _title = title;
+    __description = _description;
     
 
     return self;
@@ -120,6 +126,10 @@
         
         
         _messagesStep = dict[@"messagesStep"];
+        
+        _title = dict[@"title"];
+        
+        __description = dict[@"description"];
         
         
     }
@@ -243,6 +253,14 @@
     
     
             if(_messagesStep != nil) dict[@"messagesStep"] = _messagesStep ;
+        
+    
+    
+            if(_title != nil) dict[@"title"] = _title ;
+        
+    
+    
+            if(__description != nil) dict[@"description"] = __description ;
         
     
 

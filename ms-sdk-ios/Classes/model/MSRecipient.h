@@ -13,7 +13,10 @@
 @property(nonatomic) NSString* _id;  
 @property(nonatomic) NSString* status;  
 @property(nonatomic) NSNumber* order;  
+@property(nonatomic) NSString* deviceCode;  
 @property(nonatomic) NSNumber* presential;  
+@property(nonatomic) NSString* label;  
+@property(nonatomic) NSNumber* optional;  
 - (id) key: (NSString*) key     
     phone: (NSString*) phone     
     mail: (NSString*) mail     
@@ -23,7 +26,10 @@
     _id: (NSString*) _id     
     status: (NSString*) status     
     order: (NSNumber*) order     
-    presential: (NSNumber*) presential;
+    deviceCode: (NSString*) deviceCode     
+    presential: (NSNumber*) presential     
+    label: (NSString*) label     
+    optional: (NSNumber*) optional;
     
 
 - (id) initWithValues: (NSDictionary*)dict;

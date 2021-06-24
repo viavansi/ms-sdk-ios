@@ -7,17 +7,20 @@
 @synthesize timeZone = _timeZone;
 @synthesize addPdfLinks = _addPdfLinks;
 @synthesize signPDF = _signPDF;
+@synthesize customizationUrl = _customizationUrl;
 
 -(id)locale: (NSString*) locale
     timeZone: (NSString*) timeZone
     addPdfLinks: (NSNumber*) addPdfLinks
     signPDF: (NSNumber*) signPDF
+    customizationUrl: (NSString*) customizationUrl
     
 {
     _locale = locale;
     _timeZone = timeZone;
     _addPdfLinks = addPdfLinks;
     _signPDF = signPDF;
+    _customizationUrl = customizationUrl;
     
 
     return self;
@@ -34,6 +37,8 @@
         _addPdfLinks = dict[@"addPdfLinks"];
         
         _signPDF = dict[@"signPDF"];
+        
+        _customizationUrl = dict[@"customizationUrl"];
         
         
     }
@@ -57,6 +62,10 @@
     
     
             if(_signPDF != nil) dict[@"signPDF"] = _signPDF ;
+        
+    
+    
+            if(_customizationUrl != nil) dict[@"customizationUrl"] = _customizationUrl ;
         
     
 

@@ -11,6 +11,7 @@
 @synthesize transformAlgorithms = _transformAlgorithms;
 @synthesize dssReferenceUri = _dssReferenceUri;
 @synthesize useSigningCertificateV2 = _useSigningCertificateV2;
+@synthesize toCounterSignSignatureValueId = _toCounterSignSignatureValueId;
 @synthesize xpathLocationString = _xpathLocationString;
 
 -(id)signedInfoCanonicalizationMethod: (NSString*) signedInfoCanonicalizationMethod
@@ -21,6 +22,7 @@
     transformAlgorithms: (NSArray*) transformAlgorithms
     dssReferenceUri: (NSString*) dssReferenceUri
     useSigningCertificateV2: (NSNumber*) useSigningCertificateV2
+    toCounterSignSignatureValueId: (NSString*) toCounterSignSignatureValueId
     xpathLocationString: (NSString*) xpathLocationString
     
 {
@@ -32,6 +34,7 @@
     _transformAlgorithms = transformAlgorithms;
     _dssReferenceUri = dssReferenceUri;
     _useSigningCertificateV2 = useSigningCertificateV2;
+    _toCounterSignSignatureValueId = toCounterSignSignatureValueId;
     _xpathLocationString = xpathLocationString;
     
 
@@ -57,6 +60,8 @@
         _dssReferenceUri = dict[@"dssReferenceUri"];
         
         _useSigningCertificateV2 = dict[@"useSigningCertificateV2"];
+        
+        _toCounterSignSignatureValueId = dict[@"toCounterSignSignatureValueId"];
         
         _xpathLocationString = dict[@"xpathLocationString"];
         
@@ -98,6 +103,10 @@
     
     
             if(_useSigningCertificateV2 != nil) dict[@"useSigningCertificateV2"] = _useSigningCertificateV2 ;
+        
+    
+    
+            if(_toCounterSignSignatureValueId != nil) dict[@"toCounterSignSignatureValueId"] = _toCounterSignSignatureValueId ;
         
     
     

@@ -12,6 +12,9 @@
 @synthesize externalCode = _externalCode;
 @synthesize externalStatus = _externalStatus;
 @synthesize setCode = _setCode;
+@synthesize title = _title;
+@synthesize _description = __description;
+@synthesize auditTrailUrl = _auditTrailUrl;
 
 -(id)messageCode: (NSString*) messageCode
     status: (NSString*) status
@@ -22,6 +25,9 @@
     externalCode: (NSString*) externalCode
     externalStatus: (NSString*) externalStatus
     setCode: (NSString*) setCode
+    title: (NSString*) title
+    _description: (NSString*) _description
+    auditTrailUrl: (NSString*) auditTrailUrl
     
 {
     _messageCode = messageCode;
@@ -33,6 +39,9 @@
     _externalCode = externalCode;
     _externalStatus = externalStatus;
     _setCode = setCode;
+    _title = title;
+    __description = _description;
+    _auditTrailUrl = auditTrailUrl;
     
 
     return self;
@@ -59,6 +68,12 @@
         _externalStatus = dict[@"externalStatus"];
         
         _setCode = dict[@"setCode"];
+        
+        _title = dict[@"title"];
+        
+        __description = dict[@"description"];
+        
+        _auditTrailUrl = dict[@"auditTrailUrl"];
         
         
     }
@@ -102,6 +117,18 @@
     
     
             if(_setCode != nil) dict[@"setCode"] = _setCode ;
+        
+    
+    
+            if(_title != nil) dict[@"title"] = _title ;
+        
+    
+    
+            if(__description != nil) dict[@"description"] = __description ;
+        
+    
+    
+            if(_auditTrailUrl != nil) dict[@"auditTrailUrl"] = _auditTrailUrl ;
         
     
 

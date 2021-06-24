@@ -9,6 +9,7 @@
 @synthesize status = _status;
 @synthesize recipientStatus = _recipientStatus;
 @synthesize auditTrailPage = _auditTrailPage;
+@synthesize recipientKey = _recipientKey;
 @synthesize languageId = _languageId;
 
 -(id)code: (NSString*) code
@@ -17,6 +18,7 @@
     status: (NSString*) status
     recipientStatus: (NSString*) recipientStatus
     auditTrailPage: (NSString*) auditTrailPage
+    recipientKey: (NSString*) recipientKey
     languageId: (NSString*) languageId
     
 {
@@ -26,6 +28,7 @@
     _status = status;
     _recipientStatus = recipientStatus;
     _auditTrailPage = auditTrailPage;
+    _recipientKey = recipientKey;
     _languageId = languageId;
     
 
@@ -47,6 +50,8 @@
         _recipientStatus = dict[@"recipientStatus"];
         
         _auditTrailPage = dict[@"auditTrailPage"];
+        
+        _recipientKey = dict[@"recipientKey"];
         
         _languageId = dict[@"languageId"];
         
@@ -80,6 +85,10 @@
     
     
             if(_auditTrailPage != nil) dict[@"auditTrailPage"] = _auditTrailPage ;
+        
+    
+    
+            if(_recipientKey != nil) dict[@"recipientKey"] = _recipientKey ;
         
     
     

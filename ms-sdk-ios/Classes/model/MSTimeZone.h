@@ -4,14 +4,14 @@
 
 @interface MSTimeZone : SWGObject
 
-@property(nonatomic) NSString* displayName;  
-@property(nonatomic) NSString* _id;  
 @property(nonatomic) NSNumber* dstsavings;  
 @property(nonatomic) NSNumber* rawOffset;  
-- (id) displayName: (NSString*) displayName     
+@property(nonatomic) NSString* _id;  
+@property(nonatomic) NSString* displayName;  
+- (id) dstsavings: (NSNumber*) dstsavings     
+    rawOffset: (NSNumber*) rawOffset     
     _id: (NSString*) _id     
-    dstsavings: (NSNumber*) dstsavings     
-    rawOffset: (NSNumber*) rawOffset;
+    displayName: (NSString*) displayName;
     
 
 - (id) initWithValues: (NSDictionary*)dict;

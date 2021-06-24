@@ -1,6 +1,6 @@
 #import <Foundation/Foundation.h>
 #import "MSAttachment.h"
-#import "SWGFile.h"
+#import "MSFile.h"
 #import "MSAttachmentFile.h"
 #import "MSEvidence.h"
 #import "MSEvidenceFingerPrint.h"
@@ -36,7 +36,7 @@
  */
 +(NSNumber*) attach :(NSString*) messageCode 
      attachmentCode:(NSString*) attachmentCode 
-     attachmentFile:(SWGFile*) attachmentFile 
+     attachmentFile:(MSFile*) attachmentFile 
      attachmentFilename:(NSString*) attachmentFilename 
     
     auth:(OAuth1Client *) auth onSuccess: (void (^)(MSAttachment* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;

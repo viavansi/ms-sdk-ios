@@ -8,7 +8,6 @@
 @synthesize user = _user;
 @synthesize password = _password;
 @synthesize policyId = _policyId;
-@synthesize localCert = _localCert;
 @synthesize timestampAlgorithm = _timestampAlgorithm;
 @synthesize extensionOid = _extensionOid;
 @synthesize extensionValue = _extensionValue;
@@ -18,7 +17,6 @@
     user: (NSString*) user
     password: (NSString*) password
     policyId: (NSString*) policyId
-    localCert: (MSCertificateDTO*) localCert
     timestampAlgorithm: (NSString*) timestampAlgorithm
     extensionOid: (NSString*) extensionOid
     extensionValue: (NSString*) extensionValue
@@ -29,7 +27,6 @@
     _user = user;
     _password = password;
     _policyId = policyId;
-    _localCert = localCert;
     _timestampAlgorithm = timestampAlgorithm;
     _extensionOid = extensionOid;
     _extensionValue = extensionValue;
@@ -51,14 +48,6 @@
         _password = dict[@"password"];
         
         _policyId = dict[@"policyId"];
-        
-        
-        
-        id localCert_dict = dict[@"localCert"];
-        
-        if(localCert_dict != nil)
-            _localCert = [[MSCertificateDTO  alloc]initWithValues:localCert_dict];
-        
         
         _timestampAlgorithm = dict[@"timestampAlgorithm"];
         
@@ -93,31 +82,6 @@
     
             if(_policyId != nil) dict[@"policyId"] = _policyId ;
         
-    
-    
-    if(_localCert != nil){
-        if([_localCert isKindOfClass:[NSArray class]]){
-            NSMutableArray * array = [[NSMutableArray alloc] init];
-            for( int i=0 ; i<[(NSArray*)_localCert count] ; i++ ) {
-				MSCertificateDTO *localCert = [[MSCertificateDTO alloc]init];
-				localCert = [(NSArray*)_localCert objectAtIndex:i];
-                [array addObject:[(SWGObject*)localCert asDictionary]];
-            }
-            dict[@"localCert"] = array;
-        }
-        else if(_localCert && [_localCert isKindOfClass:[SWGDate class]]) {
-            NSString * dateString = [(SWGDate*)_localCert toString];
-            if(dateString){
-                dict[@"localCert"] = dateString;
-            }
-        }
-        else {
-        
-            if(_localCert != nil) dict[@"localCert"] = [(SWGObject*)_localCert asDictionary];
-        
-        }
-    }
-    
     
     
             if(_timestampAlgorithm != nil) dict[@"timestampAlgorithm"] = _timestampAlgorithm ;

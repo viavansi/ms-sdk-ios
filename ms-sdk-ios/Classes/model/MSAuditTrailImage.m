@@ -9,6 +9,7 @@
 @synthesize height = _height;
 @synthesize width = _width;
 @synthesize imageFormat = _imageFormat;
+@synthesize url = _url;
 
 -(id)relativePath: (NSString*) relativePath
     code: (NSString*) code
@@ -16,6 +17,7 @@
     height: (NSNumber*) height
     width: (NSNumber*) width
     imageFormat: (NSString*) imageFormat
+    url: (NSString*) url
     
 {
     _relativePath = relativePath;
@@ -24,6 +26,7 @@
     _height = height;
     _width = width;
     _imageFormat = imageFormat;
+    _url = url;
     
 
     return self;
@@ -44,6 +47,8 @@
         _width = dict[@"width"];
         
         _imageFormat = dict[@"imageFormat"];
+        
+        _url = dict[@"url"];
         
         
     }
@@ -75,6 +80,10 @@
     
     
             if(_imageFormat != nil) dict[@"imageFormat"] = _imageFormat ;
+        
+    
+    
+            if(_url != nil) dict[@"url"] = _url ;
         
     
 
