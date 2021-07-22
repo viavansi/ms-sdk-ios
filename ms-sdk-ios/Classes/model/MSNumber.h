@@ -4,8 +4,6 @@
 
 @interface MSNumber : SWGObject
 
-- (id) 
-
 - (id) initWithValues: (NSDictionary*)dict;
 - (NSDictionary*) asDictionary;
 
