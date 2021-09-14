@@ -16,6 +16,7 @@
 @synthesize sharedLink = _sharedLink;
 @synthesize updateDate = _updateDate;
 @synthesize retryTime = _retryTime;
+@synthesize retryCount = _retryCount;
 @synthesize customization = _customization;
 @synthesize deliveryGroup = _deliveryGroup;
 @synthesize deliveryUsers = _deliveryUsers;
@@ -23,6 +24,7 @@
 @synthesize deliveryAppCode = _deliveryAppCode;
 @synthesize metadata = _metadata;
 @synthesize devices = _devices;
+@synthesize recipientKey = _recipientKey;
 
 -(id)code: (NSString*) code
     messageCode: (NSString*) messageCode
@@ -37,6 +39,7 @@
     sharedLink: (MSSharedLink*) sharedLink
     updateDate: (NSNumber*) updateDate
     retryTime: (NSNumber*) retryTime
+    retryCount: (NSNumber*) retryCount
     customization: (MSCustomization*) customization
     deliveryGroup: (NSString*) deliveryGroup
     deliveryUsers: (NSString*) deliveryUsers
@@ -44,6 +47,7 @@
     deliveryAppCode: (NSString*) deliveryAppCode
     metadata: (NSArray*) metadata
     devices: (NSArray*) devices
+    recipientKey: (NSString*) recipientKey
     
 {
     _code = code;
@@ -59,6 +63,7 @@
     _sharedLink = sharedLink;
     _updateDate = updateDate;
     _retryTime = retryTime;
+    _retryCount = retryCount;
     _customization = customization;
     _deliveryGroup = deliveryGroup;
     _deliveryUsers = deliveryUsers;
@@ -66,6 +71,7 @@
     _deliveryAppCode = deliveryAppCode;
     _metadata = metadata;
     _devices = devices;
+    _recipientKey = recipientKey;
     
 
     return self;
@@ -106,6 +112,8 @@
         _updateDate = dict[@"updateDate"];
         
         _retryTime = dict[@"retryTime"];
+        
+        _retryCount = dict[@"retryCount"];
         
         
         
@@ -166,6 +174,8 @@
             _devices = [[NSArray alloc] init];
         }
         
+        
+        _recipientKey = dict[@"recipientKey"];
         
         
     }
@@ -246,6 +256,10 @@
     
     
             if(_retryTime != nil) dict[@"retryTime"] = _retryTime ;
+        
+    
+    
+            if(_retryCount != nil) dict[@"retryCount"] = _retryCount ;
         
     
     
@@ -338,6 +352,10 @@
         }
     }
     
+    
+    
+            if(_recipientKey != nil) dict[@"recipientKey"] = _recipientKey ;
+        
     
 
     NSDictionary* output = [dict copy];

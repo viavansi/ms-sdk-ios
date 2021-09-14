@@ -36,6 +36,7 @@
 @property(nonatomic) NSString* originalValue;  
 @property(nonatomic) NSNumber* scanHideTextfield;  
 @property(nonatomic) NSString* scanExpression;  
+@property(nonatomic) NSString* fillRequired;  
 - (id) key: (NSString*) key     
     value: (NSString*) value     
     type: (NSString*) type     
@@ -67,7 +68,8 @@
     scanTypes: (NSArray*) scanTypes     
     originalValue: (NSString*) originalValue     
     scanHideTextfield: (NSNumber*) scanHideTextfield     
-    scanExpression: (NSString*) scanExpression;
+    scanExpression: (NSString*) scanExpression     
+    fillRequired: (NSString*) fillRequired;
     
 
 - (id) initWithValues: (NSDictionary*)dict;

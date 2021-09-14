@@ -52,6 +52,7 @@
 @synthesize addLink = _addLink;
 @synthesize recipientKey = _recipientKey;
 @synthesize imageDataType = _imageDataType;
+@synthesize imageTextLocation = _imageTextLocation;
 
 -(id)type: (NSString*) type
     _id: (NSString*) _id
@@ -102,6 +103,7 @@
     addLink: (NSNumber*) addLink
     recipientKey: (NSString*) recipientKey
     imageDataType: (NSString*) imageDataType
+    imageTextLocation: (NSString*) imageTextLocation
     
 {
     _type = type;
@@ -153,6 +155,7 @@
     _addLink = addLink;
     _recipientKey = recipientKey;
     _imageDataType = imageDataType;
+    _imageTextLocation = imageTextLocation;
     
 
     return self;
@@ -355,6 +358,8 @@
         _recipientKey = dict[@"recipientKey"];
         
         _imageDataType = dict[@"imageDataType"];
+        
+        _imageTextLocation = dict[@"imageTextLocation"];
         
         
     }
@@ -747,6 +752,10 @@
     
     
             if(_imageDataType != nil) dict[@"imageDataType"] = _imageDataType ;
+        
+    
+    
+            if(_imageTextLocation != nil) dict[@"imageTextLocation"] = _imageTextLocation ;
         
     
 

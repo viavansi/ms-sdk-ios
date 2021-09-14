@@ -6,6 +6,10 @@
 @synthesize groupCode = _groupCode;
 @synthesize expires = _expires;
 @synthesize retryTime = _retryTime;
+@synthesize retryCount = _retryCount;
+@synthesize externalCode = _externalCode;
+@synthesize externalStatus = _externalStatus;
+@synthesize userCode = _userCode;
 @synthesize recipients = _recipients;
 @synthesize customization = _customization;
 @synthesize messages = _messages;
@@ -17,6 +21,10 @@
 -(id)groupCode: (NSString*) groupCode
     expires: (NSNumber*) expires
     retryTime: (NSNumber*) retryTime
+    retryCount: (NSNumber*) retryCount
+    externalCode: (NSString*) externalCode
+    externalStatus: (NSString*) externalStatus
+    userCode: (NSString*) userCode
     recipients: (NSArray*) recipients
     customization: (MSCustomization*) customization
     messages: (NSArray*) messages
@@ -29,6 +37,10 @@
     _groupCode = groupCode;
     _expires = expires;
     _retryTime = retryTime;
+    _retryCount = retryCount;
+    _externalCode = externalCode;
+    _externalStatus = externalStatus;
+    _userCode = userCode;
     _recipients = recipients;
     _customization = customization;
     _messages = messages;
@@ -50,6 +62,14 @@
         _expires = dict[@"expires"];
         
         _retryTime = dict[@"retryTime"];
+        
+        _retryCount = dict[@"retryCount"];
+        
+        _externalCode = dict[@"externalCode"];
+        
+        _externalStatus = dict[@"externalStatus"];
+        
+        _userCode = dict[@"userCode"];
         
         
         
@@ -149,6 +169,22 @@
     
     
             if(_retryTime != nil) dict[@"retryTime"] = _retryTime ;
+        
+    
+    
+            if(_retryCount != nil) dict[@"retryCount"] = _retryCount ;
+        
+    
+    
+            if(_externalCode != nil) dict[@"externalCode"] = _externalCode ;
+        
+    
+    
+            if(_externalStatus != nil) dict[@"externalStatus"] = _externalStatus ;
+        
+    
+    
+            if(_userCode != nil) dict[@"userCode"] = _userCode ;
         
     
     

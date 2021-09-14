@@ -27,6 +27,7 @@
 @synthesize callbackMailFilename = _callbackMailFilename;
 @synthesize metadataList = _metadataList;
 @synthesize retryTime = _retryTime;
+@synthesize retryCount = _retryCount;
 @synthesize workflowReferenceCode = _workflowReferenceCode;
 
 -(id)titleKey: (NSString*) titleKey
@@ -53,6 +54,7 @@
     callbackMailFilename: (NSString*) callbackMailFilename
     metadataList: (NSArray*) metadataList
     retryTime: (NSNumber*) retryTime
+    retryCount: (NSNumber*) retryCount
     workflowReferenceCode: (NSString*) workflowReferenceCode
     
 {
@@ -80,6 +82,7 @@
     _callbackMailFilename = callbackMailFilename;
     _metadataList = metadataList;
     _retryTime = retryTime;
+    _retryCount = retryCount;
     _workflowReferenceCode = workflowReferenceCode;
     
 
@@ -215,6 +218,8 @@
         
         
         _retryTime = dict[@"retryTime"];
+        
+        _retryCount = dict[@"retryCount"];
         
         _workflowReferenceCode = dict[@"workflowReferenceCode"];
         
@@ -446,6 +451,10 @@
     
     
             if(_retryTime != nil) dict[@"retryTime"] = _retryTime ;
+        
+    
+    
+            if(_retryCount != nil) dict[@"retryCount"] = _retryCount ;
         
     
     

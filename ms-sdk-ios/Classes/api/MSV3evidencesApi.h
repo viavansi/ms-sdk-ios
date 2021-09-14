@@ -6,6 +6,8 @@
 #import "MSEvidenceFingerPrint.h"
 #import "MSEvidenceGeneric.h"
 #import "MSEvidenceImage.h"
+#import "MSOtpList.h"
+#import "MSOtpBatchPrepare.h"
 #import "MSEvidenceSignature.h"
 #import "MSMessage.h"
 #import "SWGObject.h"
@@ -187,6 +189,47 @@
 
 /**
 
+ Method for get OTP group code evidences in set
+ 
+ Get OTP group evidences list info
+ 
+
+ 
+ @param setCode Set&#39;s unique code
+ 
+
+ return type: MSOtpList*
+ */
++(NSNumber*) getOTPGroupEvidences :(NSString*) setCode 
+    
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(MSOtpList* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    
+
+
+/**
+
+ Method for get OTP Mail operation Id
+ 
+ Get OTP Mail operation Id
+ 
+
+ 
+ @param setCode Set&#39;s unique code
+ 
+ @param groupCode OTP Mail Evidence&#39;s group code
+ 
+
+ return type: MSOtpBatchPrepare*
+ */
++(NSNumber*) prepareBatchOtpMailEvidence :(NSString*) setCode 
+     groupCode:(NSString*) groupCode 
+    
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(MSOtpBatchPrepare* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    
+
+
+/**
+
  Method for get OTP Mail info
  
  Get OTP Mail evidence info
@@ -234,6 +277,81 @@
 
 /**
 
+ Method for validate OTP SMS info
+ 
+ Get OTP Mail evidence info
+ 
+
+ 
+ @param setCode setCode
+ 
+ @param operationCode operationCode
+ 
+ @param groupCode groupCode
+ 
+ @param token token
+ 
+
+ return type: NSString*
+ */
++(NSNumber*) validateBatchOtpMailEvidence :(NSString*) setCode 
+     operationCode:(NSString*) operationCode 
+     groupCode:(NSString*) groupCode 
+     token:(NSString*) token 
+    
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(NSString* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    
+
+
+/**
+
+ Method for get OTP SMS operation Id
+ 
+ Get OTP SMS operation Id
+ 
+
+ 
+ @param setCode Set&#39;s unique code
+ 
+ @param groupCode OTP SMS Evidence&#39;s group code
+ 
+
+ return type: MSOtpBatchPrepare*
+ */
++(NSNumber*) prepareBatchOtpSmsEvidence :(NSString*) setCode 
+     groupCode:(NSString*) groupCode 
+    
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(MSOtpBatchPrepare* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    
+
+
+/**
+
+ Method for get OTP SMS operation Id
+ 
+ Get OTP SMS operation status
+ 
+
+ 
+ @param operationCode Operation code
+ 
+ @param setCode Set&#39;s unique code
+ 
+ @param groupCode OTP SMS Evidence&#39;s group code
+ 
+
+ return type: NSNumber*
+ */
++(NSNumber*) prepareValidationOtpSmsEvidence :(NSString*) operationCode 
+     setCode:(NSString*) setCode 
+     groupCode:(NSString*) groupCode 
+    
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(NSNumber* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    
+
+
+/**
+
  Method for get OTP SMS info
  
  Get OTP SMS evidence info
@@ -276,6 +394,34 @@
      token:(NSString*) token 
     
     auth:(OAuth1Client *) auth onSuccess: (void (^)(MSEvidence* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    
+
+
+/**
+
+ Method for validate OTP SMS info
+ 
+ Get OTP SMS evidence info
+ 
+
+ 
+ @param setCode setCode
+ 
+ @param operationCode operationCode
+ 
+ @param groupCode groupCode
+ 
+ @param token token
+ 
+
+ return type: NSString*
+ */
++(NSNumber*) validateBatchOtpSmsEvidence :(NSString*) setCode 
+     operationCode:(NSString*) operationCode 
+     groupCode:(NSString*) groupCode 
+     token:(NSString*) token 
+    
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(NSString* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     
 
 

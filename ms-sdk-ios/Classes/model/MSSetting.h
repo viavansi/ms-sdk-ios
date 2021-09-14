@@ -33,6 +33,7 @@
 @property(nonatomic) NSString* callbackMailFilename;  
 @property(nonatomic) NSArray* metadataList;  
 @property(nonatomic) NSNumber* retryTime;  
+@property(nonatomic) NSNumber* retryCount;  
 @property(nonatomic) NSString* workflowReferenceCode;  
 - (id) titleKey: (NSString*) titleKey     
     descriptionKey: (NSString*) descriptionKey     
@@ -58,6 +59,7 @@
     callbackMailFilename: (NSString*) callbackMailFilename     
     metadataList: (NSArray*) metadataList     
     retryTime: (NSNumber*) retryTime     
+    retryCount: (NSNumber*) retryCount     
     workflowReferenceCode: (NSString*) workflowReferenceCode;
     
 

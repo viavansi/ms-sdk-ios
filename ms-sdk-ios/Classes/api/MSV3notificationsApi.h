@@ -1,5 +1,6 @@
 #import <Foundation/Foundation.h>
 #import "MSNotification.h"
+#import "MSNotificationResponse.h"
 #import "SWGObject.h"
 #import "OAuth1Client.h"
 
@@ -198,7 +199,45 @@
 
  return type: NSArray*
  */
++(NSNumber*) findNotificationsByMessage :(NSString*) code 
+    
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(NSArray* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    
+
+
+/**
+
+ Method for get notifications by message code
+ 
+ Get notifications by message code
+ 
+
+ 
+ @param code Notification message code
+ 
+
+ return type: NSArray*
+ */
 +(NSNumber*) findNotificationsByMessageCode :(NSString*) code 
+    
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(NSArray* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    
+
+
+/**
+
+ Method for get notifications by set code
+ 
+ Get notifications by set code
+ 
+
+ 
+ @param code Notification set code
+ 
+
+ return type: NSArray*
+ */
++(NSNumber*) findNotificationsBySetCode :(NSString*) code 
     
     auth:(OAuth1Client *) auth onSuccess: (void (^)(NSArray* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     

@@ -35,6 +35,7 @@
 @synthesize originalValue = _originalValue;
 @synthesize scanHideTextfield = _scanHideTextfield;
 @synthesize scanExpression = _scanExpression;
+@synthesize fillRequired = _fillRequired;
 
 -(id)key: (NSString*) key
     value: (NSString*) value
@@ -68,6 +69,7 @@
     originalValue: (NSString*) originalValue
     scanHideTextfield: (NSNumber*) scanHideTextfield
     scanExpression: (NSString*) scanExpression
+    fillRequired: (NSString*) fillRequired
     
 {
     _key = key;
@@ -102,6 +104,7 @@
     _originalValue = originalValue;
     _scanHideTextfield = scanHideTextfield;
     _scanExpression = scanExpression;
+    _fillRequired = fillRequired;
     
 
     return self;
@@ -174,6 +177,8 @@
         _scanHideTextfield = dict[@"scanHideTextfield"];
         
         _scanExpression = dict[@"scanExpression"];
+        
+        _fillRequired = dict[@"fillRequired"];
         
         
     }
@@ -309,6 +314,10 @@
     
     
             if(_scanExpression != nil) dict[@"scanExpression"] = _scanExpression ;
+        
+    
+    
+            if(_fillRequired != nil) dict[@"fillRequired"] = _fillRequired ;
         
     
 

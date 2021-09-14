@@ -3,19 +3,19 @@
 
 @implementation MSTimeZone
 
-@synthesize dstsavings = _dstsavings;
 @synthesize rawOffset = _rawOffset;
+@synthesize dstsavings = _dstsavings;
 @synthesize _id = __id;
 @synthesize displayName = _displayName;
 
--(id)dstsavings: (NSNumber*) dstsavings
-    rawOffset: (NSNumber*) rawOffset
+-(id)rawOffset: (NSNumber*) rawOffset
+    dstsavings: (NSNumber*) dstsavings
     _id: (NSString*) _id
     displayName: (NSString*) displayName
     
 {
-    _dstsavings = dstsavings;
     _rawOffset = rawOffset;
+    _dstsavings = dstsavings;
     __id = _id;
     _displayName = displayName;
     
@@ -27,9 +27,9 @@
 {
     self = [super init];
     if(self) {
-        _dstsavings = dict[@"dstsavings"];
-        
         _rawOffset = dict[@"rawOffset"];
+        
+        _dstsavings = dict[@"dstsavings"];
         
         __id = dict[@"id"];
         
@@ -44,11 +44,11 @@
     NSMutableDictionary* dict = [[NSMutableDictionary alloc] init];
     
     
-            if(_dstsavings != nil) dict[@"dstsavings"] = _dstsavings ;
+            if(_rawOffset != nil) dict[@"rawOffset"] = _rawOffset ;
         
     
     
-            if(_rawOffset != nil) dict[@"rawOffset"] = _rawOffset ;
+            if(_dstsavings != nil) dict[@"dstsavings"] = _dstsavings ;
         
     
     

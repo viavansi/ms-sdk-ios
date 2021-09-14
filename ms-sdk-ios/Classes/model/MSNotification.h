@@ -21,6 +21,7 @@
 @property(nonatomic) MSSharedLink* sharedLink;  
 @property(nonatomic) NSNumber* updateDate;  /* epoch timestamp in milliseconds  */
 @property(nonatomic) NSNumber* retryTime;  
+@property(nonatomic) NSNumber* retryCount;  
 @property(nonatomic) MSCustomization* customization;  
 @property(nonatomic) NSString* deliveryGroup;  
 @property(nonatomic) NSString* deliveryUsers;  
@@ -28,6 +29,7 @@
 @property(nonatomic) NSString* deliveryAppCode;  
 @property(nonatomic) NSArray* metadata;  
 @property(nonatomic) NSArray* devices;  
+@property(nonatomic) NSString* recipientKey;  
 - (id) code: (NSString*) code     
     messageCode: (NSString*) messageCode     
     validateCode: (NSString*) validateCode     
@@ -41,13 +43,15 @@
     sharedLink: (MSSharedLink*) sharedLink     
     updateDate: (NSNumber*) updateDate     
     retryTime: (NSNumber*) retryTime     
+    retryCount: (NSNumber*) retryCount     
     customization: (MSCustomization*) customization     
     deliveryGroup: (NSString*) deliveryGroup     
     deliveryUsers: (NSString*) deliveryUsers     
     deliveryType: (NSString*) deliveryType     
     deliveryAppCode: (NSString*) deliveryAppCode     
     metadata: (NSArray*) metadata     
-    devices: (NSArray*) devices;
+    devices: (NSArray*) devices     
+    recipientKey: (NSString*) recipientKey;
     
 
 - (id) initWithValues: (NSDictionary*)dict;

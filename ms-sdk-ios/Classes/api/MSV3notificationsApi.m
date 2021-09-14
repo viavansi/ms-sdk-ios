@@ -2,6 +2,7 @@
 #import "SWGFile.h"
 #import "ApiClient.h"
 #import "MSNotification.h"
+#import "MSNotificationResponse.h"
 
 
 
@@ -562,6 +563,77 @@
     
 }
 
++(NSNumber*) findNotificationsByMessage: (NSString*) code
+        
+        auth:(OAuth1Client *) auth onSuccess: (void (^)(NSArray* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock
+         {
+
+    NSMutableString* requestUrl = [NSMutableString stringWithFormat:@"%@/v3/notifications/message/{code}", [[ApiClient sharedInstance] url]];
+
+    // remove format in URL if needed
+    if ([requestUrl rangeOfString:@".{format}"].location != NSNotFound){
+        [requestUrl replaceCharactersInRange: [requestUrl rangeOfString:@".{format}"] withString:@".json"];
+    }
+
+    [requestUrl replaceCharactersInRange: [requestUrl rangeOfString:[NSString stringWithFormat:@"%@%@%@", @"{", @"code", @"}"]] withString: [ApiClient escape:code]];
+    
+
+	NSArray * requestContentTypes = @[@"application/json"];
+    NSString* requestContentType = requestContentTypes.count > 0 ? requestContentTypes[0] : @"application/json";
+
+    NSArray * responseContentTypes = @[@"application/json"];
+    NSString* responseContentType = responseContentTypes.count > 0 ? responseContentTypes[0] : @"application/json";
+
+    NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
+    
+    NSMutableDictionary* headerParams = [[NSMutableDictionary alloc] init];
+    
+
+    id bodyDictionary = nil;
+    
+    
+    bodyDictionary = [[NSMutableArray alloc] init];
+
+    NSMutableDictionary * formParams = [[NSMutableDictionary alloc]init];
+
+    
+    [bodyDictionary addObject:formParams];
+    
+
+    
+
+    ApiClient* client = [ApiClient sharedInstance];
+
+        // array container response type
+    return [client dictionary: auth
+                   requestUrl: requestUrl 
+                       method: @"GET" 
+                  queryParams: queryParams 
+                         body: bodyDictionary 
+                 headerParams: headerParams
+           requestContentType: requestContentType
+          responseContentType: responseContentType
+              successBlock: ^(NSDictionary *data){
+                if([data isKindOfClass:[NSArray class]]){
+                    NSMutableArray * objs = [[NSMutableArray alloc] initWithCapacity:[data count]];
+                    for (NSDictionary* dict in (NSArray*)data) {
+                        
+                        
+                        MSNotification* d = [[MSNotification alloc]initWithValues: dict];
+                        
+                        [objs addObject:d];
+                    }
+                    onSuccessBlock(objs);
+                }
+              }
+              errorBlock: ^(NSError *error) {
+                onErrorBlock(error);
+                
+            }];
+    
+    
+}
+
 +(NSNumber*) findNotificationsByMessageCode: (NSString*) code
         
         auth:(OAuth1Client *) auth onSuccess: (void (^)(NSArray* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock
@@ -619,6 +691,77 @@
                         
                         
                         MSNotification* d = [[MSNotification alloc]initWithValues: dict];
+                        
+                        [objs addObject:d];
+                    }
+                    onSuccessBlock(objs);
+                }
+              }
+              errorBlock: ^(NSError *error) {
+                onErrorBlock(error);
+                
+            }];
+    
+    
+}
+
++(NSNumber*) findNotificationsBySetCode: (NSString*) code
+        
+        auth:(OAuth1Client *) auth onSuccess: (void (^)(NSArray* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock
+         {
+
+    NSMutableString* requestUrl = [NSMutableString stringWithFormat:@"%@/v3/notifications/set/{code}", [[ApiClient sharedInstance] url]];
+
+    // remove format in URL if needed
+    if ([requestUrl rangeOfString:@".{format}"].location != NSNotFound){
+        [requestUrl replaceCharactersInRange: [requestUrl rangeOfString:@".{format}"] withString:@".json"];
+    }
+
+    [requestUrl replaceCharactersInRange: [requestUrl rangeOfString:[NSString stringWithFormat:@"%@%@%@", @"{", @"code", @"}"]] withString: [ApiClient escape:code]];
+    
+
+	NSArray * requestContentTypes = @[@"application/json"];
+    NSString* requestContentType = requestContentTypes.count > 0 ? requestContentTypes[0] : @"application/json";
+
+    NSArray * responseContentTypes = @[@"application/json"];
+    NSString* responseContentType = responseContentTypes.count > 0 ? responseContentTypes[0] : @"application/json";
+
+    NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
+    
+    NSMutableDictionary* headerParams = [[NSMutableDictionary alloc] init];
+    
+
+    id bodyDictionary = nil;
+    
+    
+    bodyDictionary = [[NSMutableArray alloc] init];
+
+    NSMutableDictionary * formParams = [[NSMutableDictionary alloc]init];
+
+    
+    [bodyDictionary addObject:formParams];
+    
+
+    
+
+    ApiClient* client = [ApiClient sharedInstance];
+
+        // array container response type
+    return [client dictionary: auth
+                   requestUrl: requestUrl 
+                       method: @"GET" 
+                  queryParams: queryParams 
+                         body: bodyDictionary 
+                 headerParams: headerParams
+           requestContentType: requestContentType
+          responseContentType: responseContentType
+              successBlock: ^(NSDictionary *data){
+                if([data isKindOfClass:[NSArray class]]){
+                    NSMutableArray * objs = [[NSMutableArray alloc] initWithCapacity:[data count]];
+                    for (NSDictionary* dict in (NSArray*)data) {
+                        
+                        
+                        MSNotificationResponse* d = [[MSNotificationResponse alloc]initWithValues: dict];
                         
                         [objs addObject:d];
                     }

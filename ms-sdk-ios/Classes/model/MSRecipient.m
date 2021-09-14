@@ -13,6 +13,7 @@
 @synthesize status = _status;
 @synthesize order = _order;
 @synthesize deviceCode = _deviceCode;
+@synthesize appCode = _appCode;
 @synthesize presential = _presential;
 @synthesize label = _label;
 @synthesize optional = _optional;
@@ -27,6 +28,7 @@
     status: (NSString*) status
     order: (NSNumber*) order
     deviceCode: (NSString*) deviceCode
+    appCode: (NSString*) appCode
     presential: (NSNumber*) presential
     label: (NSString*) label
     optional: (NSNumber*) optional
@@ -42,6 +44,7 @@
     _status = status;
     _order = order;
     _deviceCode = deviceCode;
+    _appCode = appCode;
     _presential = presential;
     _label = label;
     _optional = optional;
@@ -73,6 +76,8 @@
         _order = dict[@"order"];
         
         _deviceCode = dict[@"deviceCode"];
+        
+        _appCode = dict[@"appCode"];
         
         _presential = dict[@"presential"];
         
@@ -126,6 +131,10 @@
     
     
             if(_deviceCode != nil) dict[@"deviceCode"] = _deviceCode ;
+        
+    
+    
+            if(_appCode != nil) dict[@"appCode"] = _appCode ;
         
     
     

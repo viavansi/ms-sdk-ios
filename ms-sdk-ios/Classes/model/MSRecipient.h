@@ -14,6 +14,7 @@
 @property(nonatomic) NSString* status;  
 @property(nonatomic) NSNumber* order;  
 @property(nonatomic) NSString* deviceCode;  
+@property(nonatomic) NSString* appCode;  
 @property(nonatomic) NSNumber* presential;  
 @property(nonatomic) NSString* label;  
 @property(nonatomic) NSNumber* optional;  
@@ -27,6 +28,7 @@
     status: (NSString*) status     
     order: (NSNumber*) order     
     deviceCode: (NSString*) deviceCode     
+    appCode: (NSString*) appCode     
     presential: (NSNumber*) presential     
     label: (NSString*) label     
     optional: (NSNumber*) optional;

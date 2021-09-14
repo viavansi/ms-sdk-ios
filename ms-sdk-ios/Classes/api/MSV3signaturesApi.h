@@ -1,8 +1,12 @@
 #import <Foundation/Foundation.h>
 #import "MSSignature.h"
 #import "MSWrapSignature.h"
+#import "MSWrapSignatureBatch.h"
+#import "MSSignatureBatch.h"
 #import "MSPrepareSignature.h"
 #import "MSDataToSign.h"
+#import "MSDataToSignBatch.h"
+#import "MSPrepareSignatureBatch.h"
 #import "MSEvidenceSignature.h"
 #import "MSPolicy.h"
 #import "MSFortressSignature.h"
@@ -36,6 +40,25 @@
 
 /**
 
+ Method for get signed message
+ 
+ 
+ 
+
+ 
+ @param body Data for wrap sign
+ 
+
+ return type: MSSignatureBatch*
+ */
++(NSNumber*) finalizeClientSignatureBatch :(MSWrapSignatureBatch*) body 
+    
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(MSSignatureBatch* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    
+
+
+/**
+
  Method for prepare a client signature
  
  
@@ -50,6 +73,25 @@
 +(NSNumber*) prepareClientSignature :(MSPrepareSignature*) body 
     
     auth:(OAuth1Client *) auth onSuccess: (void (^)(MSDataToSign* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    
+
+
+/**
+
+ Method for prepare a client signature batch
+ 
+ 
+ 
+
+ 
+ @param body List of Data for prepare sign
+ 
+
+ return type: MSDataToSignBatch*
+ */
++(NSNumber*) prepareClientSignatureBatch :(MSPrepareSignatureBatch*) body 
+    
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(MSDataToSignBatch* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     
 
 

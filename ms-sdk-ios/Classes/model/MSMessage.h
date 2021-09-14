@@ -59,6 +59,7 @@
 @property(nonatomic) NSString* auditTrailPage;  
 @property(nonatomic) NSNumber* order;  
 @property(nonatomic) NSString* callbackRedirectURLTargetWindow;  
+@property(nonatomic) NSString* callbackProcessMessage;  
 - (id) code: (NSString*) code     
     externalCode: (NSString*) externalCode     
     externalStatus: (NSString*) externalStatus     
@@ -104,7 +105,8 @@
     signPageServer: (NSString*) signPageServer     
     auditTrailPage: (NSString*) auditTrailPage     
     order: (NSNumber*) order     
-    callbackRedirectURLTargetWindow: (NSString*) callbackRedirectURLTargetWindow;
+    callbackRedirectURLTargetWindow: (NSString*) callbackRedirectURLTargetWindow     
+    callbackProcessMessage: (NSString*) callbackProcessMessage;
     
 
 - (id) initWithValues: (NSDictionary*)dict;

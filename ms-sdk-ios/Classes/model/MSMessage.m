@@ -49,6 +49,7 @@
 @synthesize auditTrailPage = _auditTrailPage;
 @synthesize order = _order;
 @synthesize callbackRedirectURLTargetWindow = _callbackRedirectURLTargetWindow;
+@synthesize callbackProcessMessage = _callbackProcessMessage;
 
 -(id)code: (NSString*) code
     externalCode: (NSString*) externalCode
@@ -96,6 +97,7 @@
     auditTrailPage: (NSString*) auditTrailPage
     order: (NSNumber*) order
     callbackRedirectURLTargetWindow: (NSString*) callbackRedirectURLTargetWindow
+    callbackProcessMessage: (NSString*) callbackProcessMessage
     
 {
     _code = code;
@@ -144,6 +146,7 @@
     _auditTrailPage = auditTrailPage;
     _order = order;
     _callbackRedirectURLTargetWindow = callbackRedirectURLTargetWindow;
+    _callbackProcessMessage = callbackProcessMessage;
     
 
     return self;
@@ -368,6 +371,8 @@
         _order = dict[@"order"];
         
         _callbackRedirectURLTargetWindow = dict[@"callbackRedirectURLTargetWindow"];
+        
+        _callbackProcessMessage = dict[@"callbackProcessMessage"];
         
         
     }
@@ -748,6 +753,10 @@
     
     
             if(_callbackRedirectURLTargetWindow != nil) dict[@"callbackRedirectURLTargetWindow"] = _callbackRedirectURLTargetWindow ;
+        
+    
+    
+            if(_callbackProcessMessage != nil) dict[@"callbackProcessMessage"] = _callbackProcessMessage ;
         
     
 

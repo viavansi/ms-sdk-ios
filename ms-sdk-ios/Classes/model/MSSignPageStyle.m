@@ -33,6 +33,7 @@
 @synthesize hideHeader = _hideHeader;
 @synthesize favicon = _favicon;
 @synthesize tabTitle = _tabTitle;
+@synthesize panelAttachmentsFirst = _panelAttachmentsFirst;
 
 -(id)logo: (NSString*) logo
     mainColor: (NSString*) mainColor
@@ -64,6 +65,7 @@
     hideHeader: (NSNumber*) hideHeader
     favicon: (NSString*) favicon
     tabTitle: (NSString*) tabTitle
+    panelAttachmentsFirst: (NSNumber*) panelAttachmentsFirst
     
 {
     _logo = logo;
@@ -96,6 +98,7 @@
     _hideHeader = hideHeader;
     _favicon = favicon;
     _tabTitle = tabTitle;
+    _panelAttachmentsFirst = panelAttachmentsFirst;
     
 
     return self;
@@ -164,6 +167,8 @@
         _favicon = dict[@"favicon"];
         
         _tabTitle = dict[@"tabTitle"];
+        
+        _panelAttachmentsFirst = dict[@"panelAttachmentsFirst"];
         
         
     }
@@ -291,6 +296,10 @@
     
     
             if(_tabTitle != nil) dict[@"tabTitle"] = _tabTitle ;
+        
+    
+    
+            if(_panelAttachmentsFirst != nil) dict[@"panelAttachmentsFirst"] = _panelAttachmentsFirst ;
         
     
 
