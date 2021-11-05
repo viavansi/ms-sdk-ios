@@ -63,6 +63,7 @@
 @property(nonatomic) NSString* recipientKey;  
 @property(nonatomic) NSString* imageDataType;  
 @property(nonatomic) NSString* imageTextLocation;  
+@property(nonatomic) NSNumber* imageTextSize;  
 - (id) type: (NSString*) type     
     _id: (NSString*) _id     
     enabledExpression: (NSString*) enabledExpression     
@@ -112,7 +113,8 @@
     addLink: (NSNumber*) addLink     
     recipientKey: (NSString*) recipientKey     
     imageDataType: (NSString*) imageDataType     
-    imageTextLocation: (NSString*) imageTextLocation;
+    imageTextLocation: (NSString*) imageTextLocation     
+    imageTextSize: (NSNumber*) imageTextSize;
     
 
 - (id) initWithValues: (NSDictionary*)dict;

@@ -34,6 +34,9 @@
 @synthesize favicon = _favicon;
 @synthesize tabTitle = _tabTitle;
 @synthesize panelAttachmentsFirst = _panelAttachmentsFirst;
+@synthesize hideImageUpload = _hideImageUpload;
+@synthesize hideImageCapture = _hideImageCapture;
+@synthesize hidePoweredByViafirma = _hidePoweredByViafirma;
 
 -(id)logo: (NSString*) logo
     mainColor: (NSString*) mainColor
@@ -66,6 +69,9 @@
     favicon: (NSString*) favicon
     tabTitle: (NSString*) tabTitle
     panelAttachmentsFirst: (NSNumber*) panelAttachmentsFirst
+    hideImageUpload: (NSNumber*) hideImageUpload
+    hideImageCapture: (NSNumber*) hideImageCapture
+    hidePoweredByViafirma: (NSNumber*) hidePoweredByViafirma
     
 {
     _logo = logo;
@@ -99,6 +105,9 @@
     _favicon = favicon;
     _tabTitle = tabTitle;
     _panelAttachmentsFirst = panelAttachmentsFirst;
+    _hideImageUpload = hideImageUpload;
+    _hideImageCapture = hideImageCapture;
+    _hidePoweredByViafirma = hidePoweredByViafirma;
     
 
     return self;
@@ -169,6 +178,12 @@
         _tabTitle = dict[@"tabTitle"];
         
         _panelAttachmentsFirst = dict[@"panelAttachmentsFirst"];
+        
+        _hideImageUpload = dict[@"hideImageUpload"];
+        
+        _hideImageCapture = dict[@"hideImageCapture"];
+        
+        _hidePoweredByViafirma = dict[@"hidePoweredByViafirma"];
         
         
     }
@@ -300,6 +315,18 @@
     
     
             if(_panelAttachmentsFirst != nil) dict[@"panelAttachmentsFirst"] = _panelAttachmentsFirst ;
+        
+    
+    
+            if(_hideImageUpload != nil) dict[@"hideImageUpload"] = _hideImageUpload ;
+        
+    
+    
+            if(_hideImageCapture != nil) dict[@"hideImageCapture"] = _hideImageCapture ;
+        
+    
+    
+            if(_hidePoweredByViafirma != nil) dict[@"hidePoweredByViafirma"] = _hidePoweredByViafirma ;
         
     
 

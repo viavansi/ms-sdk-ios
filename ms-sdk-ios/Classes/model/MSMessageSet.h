@@ -22,6 +22,7 @@
 @property(nonatomic) NSNumber* messagesStep;  
 @property(nonatomic) NSString* title;  
 @property(nonatomic) NSString* _description;  
+@property(nonatomic) NSNumber* autoFinalize;  
 - (id) groupCode: (NSString*) groupCode     
     expires: (NSNumber*) expires     
     retryTime: (NSNumber*) retryTime     
@@ -35,7 +36,8 @@
     metadataList: (NSArray*) metadataList     
     messagesStep: (NSNumber*) messagesStep     
     title: (NSString*) title     
-    _description: (NSString*) _description;
+    _description: (NSString*) _description     
+    autoFinalize: (NSNumber*) autoFinalize;
     
 
 - (id) initWithValues: (NSDictionary*)dict;

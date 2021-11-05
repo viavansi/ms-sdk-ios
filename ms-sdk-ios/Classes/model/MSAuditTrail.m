@@ -9,6 +9,7 @@
 @synthesize tableBlocks = _tableBlocks;
 @synthesize footer = _footer;
 @synthesize config = _config;
+@synthesize downloads = _downloads;
 
 -(id)header: (MSAuditTrailHeader*) header
     summaryBlock: (MSAuditTrailSummaryBlock*) summaryBlock
@@ -16,6 +17,7 @@
     tableBlocks: (NSArray*) tableBlocks
     footer: (MSAuditTrailFooter*) footer
     config: (MSAuditTrailConfig*) config
+    downloads: (MSAuditTrailDownload*) downloads
     
 {
     _header = header;
@@ -24,6 +26,7 @@
     _tableBlocks = tableBlocks;
     _footer = footer;
     _config = config;
+    _downloads = downloads;
     
 
     return self;
@@ -93,6 +96,14 @@
         
         if(config_dict != nil)
             _config = [[MSAuditTrailConfig  alloc]initWithValues:config_dict];
+        
+        
+        
+        
+        id downloads_dict = dict[@"downloads"];
+        
+        if(downloads_dict != nil)
+            _downloads = [[MSAuditTrailDownload  alloc]initWithValues:downloads_dict];
         
         
         
@@ -248,6 +259,31 @@
         else {
         
             if(_config != nil) dict[@"config"] = [(SWGObject*)_config asDictionary];
+        
+        }
+    }
+    
+    
+    
+    if(_downloads != nil){
+        if([_downloads isKindOfClass:[NSArray class]]){
+            NSMutableArray * array = [[NSMutableArray alloc] init];
+            for( int i=0 ; i<[(NSArray*)_downloads count] ; i++ ) {
+				MSAuditTrailDownload *downloads = [[MSAuditTrailDownload alloc]init];
+				downloads = [(NSArray*)_downloads objectAtIndex:i];
+                [array addObject:[(SWGObject*)downloads asDictionary]];
+            }
+            dict[@"downloads"] = array;
+        }
+        else if(_downloads && [_downloads isKindOfClass:[SWGDate class]]) {
+            NSString * dateString = [(SWGDate*)_downloads toString];
+            if(dateString){
+                dict[@"downloads"] = dateString;
+            }
+        }
+        else {
+        
+            if(_downloads != nil) dict[@"downloads"] = [(SWGObject*)_downloads asDictionary];
         
         }
     }

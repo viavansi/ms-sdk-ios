@@ -17,6 +17,7 @@
 @synthesize presential = _presential;
 @synthesize label = _label;
 @synthesize optional = _optional;
+@synthesize callbackType = _callbackType;
 
 -(id)key: (NSString*) key
     phone: (NSString*) phone
@@ -32,6 +33,7 @@
     presential: (NSNumber*) presential
     label: (NSString*) label
     optional: (NSNumber*) optional
+    callbackType: (NSString*) callbackType
     
 {
     _key = key;
@@ -48,6 +50,7 @@
     _presential = presential;
     _label = label;
     _optional = optional;
+    _callbackType = callbackType;
     
 
     return self;
@@ -84,6 +87,8 @@
         _label = dict[@"label"];
         
         _optional = dict[@"optional"];
+        
+        _callbackType = dict[@"callbackType"];
         
         
     }
@@ -147,6 +152,10 @@
     
     
             if(_optional != nil) dict[@"optional"] = _optional ;
+        
+    
+    
+            if(_callbackType != nil) dict[@"callbackType"] = _callbackType ;
         
     
 

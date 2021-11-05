@@ -36,6 +36,7 @@
 @synthesize scanHideTextfield = _scanHideTextfield;
 @synthesize scanExpression = _scanExpression;
 @synthesize fillRequired = _fillRequired;
+@synthesize pdfText = _pdfText;
 
 -(id)key: (NSString*) key
     value: (NSString*) value
@@ -70,6 +71,7 @@
     scanHideTextfield: (NSNumber*) scanHideTextfield
     scanExpression: (NSString*) scanExpression
     fillRequired: (NSString*) fillRequired
+    pdfText: (MSPdfText*) pdfText
     
 {
     _key = key;
@@ -105,6 +107,7 @@
     _scanHideTextfield = scanHideTextfield;
     _scanExpression = scanExpression;
     _fillRequired = fillRequired;
+    _pdfText = pdfText;
     
 
     return self;
@@ -179,6 +182,14 @@
         _scanExpression = dict[@"scanExpression"];
         
         _fillRequired = dict[@"fillRequired"];
+        
+        
+        
+        id pdfText_dict = dict[@"pdfText"];
+        
+        if(pdfText_dict != nil)
+            _pdfText = [[MSPdfText  alloc]initWithValues:pdfText_dict];
+        
         
         
     }
@@ -319,6 +330,31 @@
     
             if(_fillRequired != nil) dict[@"fillRequired"] = _fillRequired ;
         
+    
+    
+    if(_pdfText != nil){
+        if([_pdfText isKindOfClass:[NSArray class]]){
+            NSMutableArray * array = [[NSMutableArray alloc] init];
+            for( int i=0 ; i<[(NSArray*)_pdfText count] ; i++ ) {
+				MSPdfText *pdfText = [[MSPdfText alloc]init];
+				pdfText = [(NSArray*)_pdfText objectAtIndex:i];
+                [array addObject:[(SWGObject*)pdfText asDictionary]];
+            }
+            dict[@"pdfText"] = array;
+        }
+        else if(_pdfText && [_pdfText isKindOfClass:[SWGDate class]]) {
+            NSString * dateString = [(SWGDate*)_pdfText toString];
+            if(dateString){
+                dict[@"pdfText"] = dateString;
+            }
+        }
+        else {
+        
+            if(_pdfText != nil) dict[@"pdfText"] = [(SWGObject*)_pdfText asDictionary];
+        
+        }
+    }
+    
     
 
     NSDictionary* output = [dict copy];

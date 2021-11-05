@@ -21,6 +21,8 @@
 @property(nonatomic) NSNumber* lastUpdated;  
 @property(nonatomic) NSString* recipientKey;  
 @property(nonatomic) NSString* certificationLevel;  
+@property(nonatomic) NSString* reason;  
+@property(nonatomic) NSString* location;  
 - (id) type: (NSString*) type     
     code: (NSString*) code     
     status: (NSString*) status     
@@ -36,7 +38,9 @@
     stampers: (NSArray*) stampers     
     lastUpdated: (NSNumber*) lastUpdated     
     recipientKey: (NSString*) recipientKey     
-    certificationLevel: (NSString*) certificationLevel;
+    certificationLevel: (NSString*) certificationLevel     
+    reason: (NSString*) reason     
+    location: (NSString*) location;
     
 
 - (id) initWithValues: (NSDictionary*)dict;

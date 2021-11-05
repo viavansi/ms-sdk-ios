@@ -53,6 +53,7 @@
 @synthesize recipientKey = _recipientKey;
 @synthesize imageDataType = _imageDataType;
 @synthesize imageTextLocation = _imageTextLocation;
+@synthesize imageTextSize = _imageTextSize;
 
 -(id)type: (NSString*) type
     _id: (NSString*) _id
@@ -104,6 +105,7 @@
     recipientKey: (NSString*) recipientKey
     imageDataType: (NSString*) imageDataType
     imageTextLocation: (NSString*) imageTextLocation
+    imageTextSize: (NSNumber*) imageTextSize
     
 {
     _type = type;
@@ -156,6 +158,7 @@
     _recipientKey = recipientKey;
     _imageDataType = imageDataType;
     _imageTextLocation = imageTextLocation;
+    _imageTextSize = imageTextSize;
     
 
     return self;
@@ -360,6 +363,8 @@
         _imageDataType = dict[@"imageDataType"];
         
         _imageTextLocation = dict[@"imageTextLocation"];
+        
+        _imageTextSize = dict[@"imageTextSize"];
         
         
     }
@@ -756,6 +761,10 @@
     
     
             if(_imageTextLocation != nil) dict[@"imageTextLocation"] = _imageTextLocation ;
+        
+    
+    
+            if(_imageTextSize != nil) dict[@"imageTextSize"] = _imageTextSize ;
         
     
 

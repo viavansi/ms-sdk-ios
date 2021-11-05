@@ -15,6 +15,7 @@
 @synthesize templateType = _templateType;
 @synthesize formRequired = _formRequired;
 @synthesize formDisabled = _formDisabled;
+@synthesize formRecipientKey = _formRecipientKey;
 @synthesize items = _items;
 @synthesize pdfaCompliant = _pdfaCompliant;
 @synthesize font = _font;
@@ -42,6 +43,7 @@
     templateType: (NSString*) templateType
     formRequired: (NSNumber*) formRequired
     formDisabled: (NSNumber*) formDisabled
+    formRecipientKey: (NSString*) formRecipientKey
     items: (NSArray*) items
     pdfaCompliant: (NSNumber*) pdfaCompliant
     font: (MSFont*) font
@@ -70,6 +72,7 @@
     _templateType = templateType;
     _formRequired = formRequired;
     _formDisabled = formDisabled;
+    _formRecipientKey = formRecipientKey;
     _items = items;
     _pdfaCompliant = pdfaCompliant;
     _font = font;
@@ -122,6 +125,8 @@
         _formRequired = dict[@"formRequired"];
         
         _formDisabled = dict[@"formDisabled"];
+        
+        _formRecipientKey = dict[@"formRecipientKey"];
         
         
         
@@ -252,6 +257,10 @@
     
     
             if(_formDisabled != nil) dict[@"formDisabled"] = _formDisabled ;
+        
+    
+    
+            if(_formRecipientKey != nil) dict[@"formRecipientKey"] = _formRecipientKey ;
         
     
     

@@ -1,5 +1,6 @@
 #import <Foundation/Foundation.h>
 #import "SWGObject.h"
+#import "MSPdfText.h"
 
 
 @interface MSItem : SWGObject
@@ -37,6 +38,7 @@
 @property(nonatomic) NSNumber* scanHideTextfield;  
 @property(nonatomic) NSString* scanExpression;  
 @property(nonatomic) NSString* fillRequired;  
+@property(nonatomic) MSPdfText* pdfText;  
 - (id) key: (NSString*) key     
     value: (NSString*) value     
     type: (NSString*) type     
@@ -69,7 +71,8 @@
     originalValue: (NSString*) originalValue     
     scanHideTextfield: (NSNumber*) scanHideTextfield     
     scanExpression: (NSString*) scanExpression     
-    fillRequired: (NSString*) fillRequired;
+    fillRequired: (NSString*) fillRequired     
+    pdfText: (MSPdfText*) pdfText;
     
 
 - (id) initWithValues: (NSDictionary*)dict;

@@ -1,5 +1,7 @@
 #import <Foundation/Foundation.h>
 #import "MSMessage.h"
+#import "MSBatchLinkRequest.h"
+#import "MSBatchLink.h"
 #import "MSMessageBuild.h"
 #import "MSMessageData.h"
 #import "MSDownload.h"
@@ -36,6 +38,25 @@
 +(NSNumber*) sendMessage :(MSMessage*) body 
     
     auth:(OAuth1Client *) auth onSuccess: (void (^)(NSString* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    
+
+
+/**
+
+ Method for get link to batch client signature
+ 
+ 
+ 
+
+ 
+ @param body User batch link request
+ 
+
+ return type: MSBatchLink*
+ */
++(NSNumber*) getBatchLink :(MSBatchLinkRequest*) body 
+    
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(MSBatchLink* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     
 
 
@@ -324,9 +345,9 @@
 
 /**
 
- Method for get an existing message
+ Check if a message is finalizable
  
- Get message
+ Check if a set is finalizable by recipient
  
 
  

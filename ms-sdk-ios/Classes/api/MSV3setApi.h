@@ -30,6 +30,28 @@
 
 /**
 
+ Method for finalize set
+ 
+ 
+ 
+
+ 
+ @param setCode setCode
+ 
+ @param recipientKey recipientKey
+ 
+
+ return type: NSString*
+ */
++(NSNumber*) finalizeMessage_1 :(NSString*) setCode 
+     recipientKey:(NSString*) recipientKey 
+    
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(NSString* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    
+
+
+/**
+
  Method for get an existing message set summary
  
  Get message set
@@ -47,6 +69,28 @@
      recipientKey:(NSString*) recipientKey 
     
     auth:(OAuth1Client *) auth onSuccess: (void (^)(MSMessageSetInfo* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    
+
+
+/**
+
+ Check if a set is finalizable
+ 
+ Check if a set is finalizable
+ 
+
+ 
+ @param setCode setCode
+ 
+ @param recipientKey recipientKey
+ 
+
+ return type: NSNumber*
+ */
++(NSNumber*) isFinalizable_1 :(NSString*) setCode 
+     recipientKey:(NSString*) recipientKey 
+    
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(NSNumber* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     
 
 

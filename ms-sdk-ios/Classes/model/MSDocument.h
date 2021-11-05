@@ -19,6 +19,7 @@
 @property(nonatomic) NSString* templateType;  
 @property(nonatomic) NSNumber* formRequired;  
 @property(nonatomic) NSNumber* formDisabled;  
+@property(nonatomic) NSString* formRecipientKey;  
 @property(nonatomic) NSArray* items;  
 @property(nonatomic) NSNumber* pdfaCompliant;  /* generate pdf compliant with PDF/A-3A ISO 19005-3  */
 @property(nonatomic) MSFont* font;  
@@ -45,6 +46,7 @@
     templateType: (NSString*) templateType     
     formRequired: (NSNumber*) formRequired     
     formDisabled: (NSNumber*) formDisabled     
+    formRecipientKey: (NSString*) formRecipientKey     
     items: (NSArray*) items     
     pdfaCompliant: (NSNumber*) pdfaCompliant     
     font: (MSFont*) font     

@@ -1,5 +1,6 @@
 #import <Foundation/Foundation.h>
 #import "MSGroup.h"
+#import "MSAppCustomization.h"
 #import "MSUser.h"
 #import "MSSignPageStyle.h"
 #import "MSGroupInfo.h"
@@ -23,6 +24,25 @@
  */
 +(NSNumber*) getAllGroups :(OAuth1Client *) auth onSuccess:
     (void (^)(NSArray* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    
+
+
+/**
+
+ Method for get group style for app
+ 
+ Get group style
+ 
+
+ 
+ @param groupCode Group&#39;s identifier
+ 
+
+ return type: MSAppCustomization*
+ */
++(NSNumber*) getAppStyle :(NSString*) groupCode 
+    
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(MSAppCustomization* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     
 
 

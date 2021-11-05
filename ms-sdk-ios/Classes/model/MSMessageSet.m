@@ -17,6 +17,7 @@
 @synthesize messagesStep = _messagesStep;
 @synthesize title = _title;
 @synthesize _description = __description;
+@synthesize autoFinalize = _autoFinalize;
 
 -(id)groupCode: (NSString*) groupCode
     expires: (NSNumber*) expires
@@ -32,6 +33,7 @@
     messagesStep: (NSNumber*) messagesStep
     title: (NSString*) title
     _description: (NSString*) _description
+    autoFinalize: (NSNumber*) autoFinalize
     
 {
     _groupCode = groupCode;
@@ -48,6 +50,7 @@
     _messagesStep = messagesStep;
     _title = title;
     __description = _description;
+    _autoFinalize = autoFinalize;
     
 
     return self;
@@ -150,6 +153,8 @@
         _title = dict[@"title"];
         
         __description = dict[@"description"];
+        
+        _autoFinalize = dict[@"autoFinalize"];
         
         
     }
@@ -297,6 +302,10 @@
     
     
             if(__description != nil) dict[@"description"] = __description ;
+        
+    
+    
+            if(_autoFinalize != nil) dict[@"autoFinalize"] = _autoFinalize ;
         
     
 

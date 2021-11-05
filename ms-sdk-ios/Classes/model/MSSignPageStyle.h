@@ -35,6 +35,9 @@
 @property(nonatomic) NSString* favicon;  
 @property(nonatomic) NSString* tabTitle;  
 @property(nonatomic) NSNumber* panelAttachmentsFirst;  
+@property(nonatomic) NSNumber* hideImageUpload;  
+@property(nonatomic) NSNumber* hideImageCapture;  
+@property(nonatomic) NSNumber* hidePoweredByViafirma;  
 - (id) logo: (NSString*) logo     
     mainColor: (NSString*) mainColor     
     mainNegativeColor: (NSString*) mainNegativeColor     
@@ -65,7 +68,10 @@
     hideHeader: (NSNumber*) hideHeader     
     favicon: (NSString*) favicon     
     tabTitle: (NSString*) tabTitle     
-    panelAttachmentsFirst: (NSNumber*) panelAttachmentsFirst;
+    panelAttachmentsFirst: (NSNumber*) panelAttachmentsFirst     
+    hideImageUpload: (NSNumber*) hideImageUpload     
+    hideImageCapture: (NSNumber*) hideImageCapture     
+    hidePoweredByViafirma: (NSNumber*) hidePoweredByViafirma;
     
 
 - (id) initWithValues: (NSDictionary*)dict;

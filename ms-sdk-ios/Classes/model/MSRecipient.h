@@ -18,6 +18,7 @@
 @property(nonatomic) NSNumber* presential;  
 @property(nonatomic) NSString* label;  
 @property(nonatomic) NSNumber* optional;  
+@property(nonatomic) NSString* callbackType;  
 - (id) key: (NSString*) key     
     phone: (NSString*) phone     
     mail: (NSString*) mail     
@@ -31,7 +32,8 @@
     appCode: (NSString*) appCode     
     presential: (NSNumber*) presential     
     label: (NSString*) label     
-    optional: (NSNumber*) optional;
+    optional: (NSNumber*) optional     
+    callbackType: (NSString*) callbackType;
     
 
 - (id) initWithValues: (NSDictionary*)dict;

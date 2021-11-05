@@ -19,6 +19,8 @@
 @synthesize lastUpdated = _lastUpdated;
 @synthesize recipientKey = _recipientKey;
 @synthesize certificationLevel = _certificationLevel;
+@synthesize reason = _reason;
+@synthesize location = _location;
 
 -(id)type: (NSString*) type
     code: (NSString*) code
@@ -36,6 +38,8 @@
     lastUpdated: (NSNumber*) lastUpdated
     recipientKey: (NSString*) recipientKey
     certificationLevel: (NSString*) certificationLevel
+    reason: (NSString*) reason
+    location: (NSString*) location
     
 {
     _type = type;
@@ -54,6 +58,8 @@
     _lastUpdated = lastUpdated;
     _recipientKey = recipientKey;
     _certificationLevel = certificationLevel;
+    _reason = reason;
+    _location = location;
     
 
     return self;
@@ -114,6 +120,10 @@
         _recipientKey = dict[@"recipientKey"];
         
         _certificationLevel = dict[@"certificationLevel"];
+        
+        _reason = dict[@"reason"];
+        
+        _location = dict[@"location"];
         
         
     }
@@ -206,6 +216,14 @@
     
     
             if(_certificationLevel != nil) dict[@"certificationLevel"] = _certificationLevel ;
+        
+    
+    
+            if(_reason != nil) dict[@"reason"] = _reason ;
+        
+    
+    
+            if(_location != nil) dict[@"location"] = _location ;
         
     
 

@@ -118,6 +118,25 @@
 
  Method for get fortress client signature url
  
+ Method for get fortress client signature url
+ 
+
+ 
+ @param token Token
+ 
+
+ return type: NSString*
+ */
++(NSNumber*) getFortressSignatureBatchUrl :(NSString*) token 
+    
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(NSString* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    
+
+
+/**
+
+ Method for get fortress client signature url
+ 
  
  
 
