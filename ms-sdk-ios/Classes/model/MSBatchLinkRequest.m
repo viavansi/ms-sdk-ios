@@ -6,21 +6,27 @@
 @synthesize userCode = _userCode;
 @synthesize groupCode = _groupCode;
 @synthesize redirectURL = _redirectURL;
+@synthesize otpRecipient = _otpRecipient;
 @synthesize index = _index;
 @synthesize max = _max;
+@synthesize signType = _signType;
 
 -(id)userCode: (NSString*) userCode
     groupCode: (NSString*) groupCode
     redirectURL: (NSString*) redirectURL
+    otpRecipient: (NSString*) otpRecipient
     index: (NSNumber*) index
     max: (NSNumber*) max
+    signType: (NSString*) signType
     
 {
     _userCode = userCode;
     _groupCode = groupCode;
     _redirectURL = redirectURL;
+    _otpRecipient = otpRecipient;
     _index = index;
     _max = max;
+    _signType = signType;
     
 
     return self;
@@ -36,9 +42,13 @@
         
         _redirectURL = dict[@"redirectURL"];
         
+        _otpRecipient = dict[@"otpRecipient"];
+        
         _index = dict[@"index"];
         
         _max = dict[@"max"];
+        
+        _signType = dict[@"signType"];
         
         
     }
@@ -61,11 +71,19 @@
         
     
     
+            if(_otpRecipient != nil) dict[@"otpRecipient"] = _otpRecipient ;
+        
+    
+    
             if(_index != nil) dict[@"index"] = _index ;
         
     
     
             if(_max != nil) dict[@"max"] = _max ;
+        
+    
+    
+            if(_signType != nil) dict[@"signType"] = _signType ;
         
     
 

@@ -5,13 +5,16 @@
 
 @synthesize key = _key;
 @synthesize link = _link;
+@synthesize token = _token;
 
 -(id)key: (NSString*) key
     link: (NSString*) link
+    token: (NSString*) token
     
 {
     _key = key;
     _link = link;
+    _token = token;
     
 
     return self;
@@ -24,6 +27,8 @@
         _key = dict[@"key"];
         
         _link = dict[@"link"];
+        
+        _token = dict[@"token"];
         
         
     }
@@ -39,6 +44,10 @@
     
     
             if(_link != nil) dict[@"link"] = _link ;
+        
+    
+    
+            if(_token != nil) dict[@"token"] = _token ;
         
     
 

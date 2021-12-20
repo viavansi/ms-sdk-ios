@@ -4,6 +4,7 @@
 @implementation MSSignature
 
 @synthesize type = _type;
+@synthesize subType = _subType;
 @synthesize code = _code;
 @synthesize status = _status;
 @synthesize helpText = _helpText;
@@ -23,6 +24,7 @@
 @synthesize location = _location;
 
 -(id)type: (NSString*) type
+    subType: (NSString*) subType
     code: (NSString*) code
     status: (NSString*) status
     helpText: (NSString*) helpText
@@ -43,6 +45,7 @@
     
 {
     _type = type;
+    _subType = subType;
     _code = code;
     _status = status;
     _helpText = helpText;
@@ -70,6 +73,8 @@
     self = [super init];
     if(self) {
         _type = dict[@"type"];
+        
+        _subType = dict[@"subType"];
         
         _code = dict[@"code"];
         
@@ -135,6 +140,10 @@
     
     
             if(_type != nil) dict[@"type"] = _type ;
+        
+    
+    
+            if(_subType != nil) dict[@"subType"] = _subType ;
         
     
     

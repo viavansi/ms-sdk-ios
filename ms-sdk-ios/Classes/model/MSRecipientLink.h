@@ -6,8 +6,10 @@
 
 @property(nonatomic) NSString* key;  
 @property(nonatomic) NSString* link;  
+@property(nonatomic) NSString* token;  
 - (id) key: (NSString*) key     
-    link: (NSString*) link;
+    link: (NSString*) link     
+    token: (NSString*) token;
     
 
 - (id) initWithValues: (NSDictionary*)dict;

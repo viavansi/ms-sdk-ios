@@ -38,6 +38,7 @@
 @property(nonatomic) NSNumber* hideImageUpload;  
 @property(nonatomic) NSNumber* hideImageCapture;  
 @property(nonatomic) NSNumber* hidePoweredByViafirma;  
+@property(nonatomic) NSNumber* showSignOtpSms;  
 - (id) logo: (NSString*) logo     
     mainColor: (NSString*) mainColor     
     mainNegativeColor: (NSString*) mainNegativeColor     
@@ -71,7 +72,8 @@
     panelAttachmentsFirst: (NSNumber*) panelAttachmentsFirst     
     hideImageUpload: (NSNumber*) hideImageUpload     
     hideImageCapture: (NSNumber*) hideImageCapture     
-    hidePoweredByViafirma: (NSNumber*) hidePoweredByViafirma;
+    hidePoweredByViafirma: (NSNumber*) hidePoweredByViafirma     
+    showSignOtpSms: (NSNumber*) showSignOtpSms;
     
 
 - (id) initWithValues: (NSDictionary*)dict;

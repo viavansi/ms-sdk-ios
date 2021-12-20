@@ -20,6 +20,7 @@
 @synthesize changePassToken = _changePassToken;
 @synthesize logDevice = _logDevice;
 @synthesize status = _status;
+@synthesize showLastLogin = _showLastLogin;
 @synthesize groups = _groups;
 @synthesize groupsInfo = _groupsInfo;
 @synthesize properties = _properties;
@@ -44,6 +45,7 @@
     changePassToken: (NSString*) changePassToken
     logDevice: (NSNumber*) logDevice
     status: (NSString*) status
+    showLastLogin: (NSNumber*) showLastLogin
     groups: (NSArray*) groups
     groupsInfo: (NSArray*) groupsInfo
     properties: (NSArray*) properties
@@ -69,6 +71,7 @@
     _changePassToken = changePassToken;
     _logDevice = logDevice;
     _status = status;
+    _showLastLogin = showLastLogin;
     _groups = groups;
     _groupsInfo = groupsInfo;
     _properties = properties;
@@ -117,6 +120,8 @@
         _logDevice = dict[@"logDevice"];
         
         _status = dict[@"status"];
+        
+        _showLastLogin = dict[@"showLastLogin"];
         
         _groups = dict[@"groups"];
         
@@ -244,6 +249,10 @@
     
     
             if(_status != nil) dict[@"status"] = _status ;
+        
+    
+    
+            if(_showLastLogin != nil) dict[@"showLastLogin"] = _showLastLogin ;
         
     
     

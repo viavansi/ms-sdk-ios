@@ -10,6 +10,7 @@
 #import "MSEvidenceSignature.h"
 #import "MSPolicy.h"
 #import "MSFortressSignature.h"
+#import "MSOtpBatchPrepare.h"
 #import "MSTimestampResponse.h"
 #import "MSMessage.h"
 #import "SWGObject.h"
@@ -152,6 +153,94 @@
      signatureCode:(NSString*) signatureCode 
     
     auth:(OAuth1Client *) auth onSuccess: (void (^)(MSFortressSignature* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    
+
+
+/**
+
+ Method for get OTP Mail operation code
+ 
+ Get OTP Mail operation code
+ 
+
+ 
+ @param token Token
+ 
+
+ return type: MSOtpBatchPrepare*
+ */
++(NSNumber*) prepareBatchOtpMailEvidence_1 :(NSString*) token 
+    
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(MSOtpBatchPrepare* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    
+
+
+/**
+
+ Method for validate OTP Mail info
+ 
+ Get OTP Mail evidence info
+ 
+
+ 
+ @param token token
+ 
+ @param operationCode operationCode
+ 
+ @param value value
+ 
+
+ return type: NSString*
+ */
++(NSNumber*) validateBatchOtpMailEvidence_1 :(NSString*) token 
+     operationCode:(NSString*) operationCode 
+     value:(NSString*) value 
+    
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(NSString* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    
+
+
+/**
+
+ Method for get OTP SMS operation Id
+ 
+ Get OTP SMS operation Id
+ 
+
+ 
+ @param token Token
+ 
+
+ return type: MSOtpBatchPrepare*
+ */
++(NSNumber*) prepareBatchOtpSmsEvidence_1 :(NSString*) token 
+    
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(MSOtpBatchPrepare* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    
+
+
+/**
+
+ Method for validate OTP SMS info
+ 
+ Get OTP SMS evidence info
+ 
+
+ 
+ @param token token
+ 
+ @param operationCode operationCode
+ 
+ @param value value
+ 
+
+ return type: NSString*
+ */
++(NSNumber*) validateBatchOtpSmsEvidence_1 :(NSString*) token 
+     operationCode:(NSString*) operationCode 
+     value:(NSString*) value 
+    
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(NSString* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     
 
 

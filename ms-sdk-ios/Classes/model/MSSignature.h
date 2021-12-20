@@ -6,6 +6,7 @@
 @interface MSSignature : SWGObject
 
 @property(nonatomic) NSString* type;  
+@property(nonatomic) NSString* subType;  
 @property(nonatomic) NSString* code;  
 @property(nonatomic) NSString* status;  
 @property(nonatomic) NSString* helpText;  
@@ -24,6 +25,7 @@
 @property(nonatomic) NSString* reason;  
 @property(nonatomic) NSString* location;  
 - (id) type: (NSString*) type     
+    subType: (NSString*) subType     
     code: (NSString*) code     
     status: (NSString*) status     
     helpText: (NSString*) helpText     

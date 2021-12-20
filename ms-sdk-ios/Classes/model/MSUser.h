@@ -23,6 +23,7 @@
 @property(nonatomic) NSString* changePassToken;  
 @property(nonatomic) NSNumber* logDevice;  
 @property(nonatomic) NSString* status;  
+@property(nonatomic) NSNumber* showLastLogin;  /* epoch timestamp in milliseconds  */
 @property(nonatomic) NSArray* groups;  
 @property(nonatomic) NSArray* groupsInfo;  
 @property(nonatomic) NSArray* properties;  
@@ -46,6 +47,7 @@
     changePassToken: (NSString*) changePassToken     
     logDevice: (NSNumber*) logDevice     
     status: (NSString*) status     
+    showLastLogin: (NSNumber*) showLastLogin     
     groups: (NSArray*) groups     
     groupsInfo: (NSArray*) groupsInfo     
     properties: (NSArray*) properties     

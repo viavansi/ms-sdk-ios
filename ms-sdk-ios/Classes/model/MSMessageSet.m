@@ -18,6 +18,8 @@
 @synthesize title = _title;
 @synthesize _description = __description;
 @synthesize autoFinalize = _autoFinalize;
+@synthesize callbackURL = _callbackURL;
+@synthesize callbackAuthorization = _callbackAuthorization;
 
 -(id)groupCode: (NSString*) groupCode
     expires: (NSNumber*) expires
@@ -34,6 +36,8 @@
     title: (NSString*) title
     _description: (NSString*) _description
     autoFinalize: (NSNumber*) autoFinalize
+    callbackURL: (NSString*) callbackURL
+    callbackAuthorization: (NSString*) callbackAuthorization
     
 {
     _groupCode = groupCode;
@@ -51,6 +55,8 @@
     _title = title;
     __description = _description;
     _autoFinalize = autoFinalize;
+    _callbackURL = callbackURL;
+    _callbackAuthorization = callbackAuthorization;
     
 
     return self;
@@ -155,6 +161,10 @@
         __description = dict[@"description"];
         
         _autoFinalize = dict[@"autoFinalize"];
+        
+        _callbackURL = dict[@"callbackURL"];
+        
+        _callbackAuthorization = dict[@"callbackAuthorization"];
         
         
     }
@@ -306,6 +316,14 @@
     
     
             if(_autoFinalize != nil) dict[@"autoFinalize"] = _autoFinalize ;
+        
+    
+    
+            if(_callbackURL != nil) dict[@"callbackURL"] = _callbackURL ;
+        
+    
+    
+            if(_callbackAuthorization != nil) dict[@"callbackAuthorization"] = _callbackAuthorization ;
         
     
 
