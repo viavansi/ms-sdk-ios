@@ -3,30 +3,30 @@
 
 @implementation MSMenuOption
 
-@synthesize className = _className;
 @synthesize automatic = _automatic;
 @synthesize name = _name;
 @synthesize icon = _icon;
 @synthesize username = _username;
 @synthesize password = _password;
 @synthesize email = _email;
+@synthesize className = _className;
 
--(id)className: (NSString*) className
-    automatic: (NSNumber*) automatic
+-(id)automatic: (NSNumber*) automatic
     name: (NSString*) name
     icon: (NSString*) icon
     username: (NSString*) username
     password: (NSString*) password
     email: (MSMail*) email
+    className: (NSString*) className
     
 {
-    _className = className;
     _automatic = automatic;
     _name = name;
     _icon = icon;
     _username = username;
     _password = password;
     _email = email;
+    _className = className;
     
 
     return self;
@@ -36,8 +36,6 @@
 {
     self = [super init];
     if(self) {
-        _className = dict[@"className"];
-        
         _automatic = dict[@"automatic"];
         
         _name = dict[@"name"];
@@ -56,6 +54,8 @@
             _email = [[MSMail  alloc]initWithValues:email_dict];
         
         
+        _className = dict[@"className"];
+        
         
     }
     return self;
@@ -63,10 +63,6 @@
 
 -(NSDictionary*) asDictionary {
     NSMutableDictionary* dict = [[NSMutableDictionary alloc] init];
-    
-    
-            if(_className != nil) dict[@"className"] = _className ;
-        
     
     
             if(_automatic != nil) dict[@"automatic"] = _automatic ;
@@ -112,6 +108,10 @@
         }
     }
     
+    
+    
+            if(_className != nil) dict[@"className"] = _className ;
+        
     
 
     NSDictionary* output = [dict copy];

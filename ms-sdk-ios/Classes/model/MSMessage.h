@@ -37,6 +37,7 @@
 @property(nonatomic) NSArray* metadataList;  
 @property(nonatomic) NSArray* policies;  
 @property(nonatomic) NSString* callbackURL;  
+@property(nonatomic) NSString* callbackURLType;  
 @property(nonatomic) NSString* callbackPhones;  
 @property(nonatomic) NSString* callbackMails;  
 @property(nonatomic) NSString* callbackCheckListMails;  
@@ -84,6 +85,7 @@
     metadataList: (NSArray*) metadataList     
     policies: (NSArray*) policies     
     callbackURL: (NSString*) callbackURL     
+    callbackURLType: (NSString*) callbackURLType     
     callbackPhones: (NSString*) callbackPhones     
     callbackMails: (NSString*) callbackMails     
     callbackCheckListMails: (NSString*) callbackCheckListMails     

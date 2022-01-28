@@ -11,13 +11,15 @@
 @property(nonatomic) NSNumber* width;  
 @property(nonatomic) NSNumber* height;  
 @property(nonatomic) NSNumber* forEvidence;  
+@property(nonatomic) NSNumber* breakLines;  
 - (id) _id: (NSString*) _id     
     text: (NSString*) text     
     xoffset: (NSNumber*) xoffset     
     yoffset: (NSNumber*) yoffset     
     width: (NSNumber*) width     
     height: (NSNumber*) height     
-    forEvidence: (NSNumber*) forEvidence;
+    forEvidence: (NSNumber*) forEvidence     
+    breakLines: (NSNumber*) breakLines;
     
 
 - (id) initWithValues: (NSDictionary*)dict;

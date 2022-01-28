@@ -16,6 +16,7 @@
 @property(nonatomic) NSString* experianImage;  
 @property(nonatomic) NSString* lisimImage;  
 @property(nonatomic) NSString* jsonStyleFile;  
+@property(nonatomic) NSString* customLogo;  
 - (id) emailTemplateActionFile: (NSString*) emailTemplateActionFile     
     emailTemplateFile: (NSString*) emailTemplateFile     
     styleFile: (NSString*) styleFile     
@@ -27,7 +28,8 @@
     questionImage: (NSString*) questionImage     
     experianImage: (NSString*) experianImage     
     lisimImage: (NSString*) lisimImage     
-    jsonStyleFile: (NSString*) jsonStyleFile;
+    jsonStyleFile: (NSString*) jsonStyleFile     
+    customLogo: (NSString*) customLogo;
     
 
 - (id) initWithValues: (NSDictionary*)dict;

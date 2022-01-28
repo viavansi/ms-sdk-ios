@@ -27,6 +27,7 @@
 @synthesize metadataList = _metadataList;
 @synthesize policies = _policies;
 @synthesize callbackURL = _callbackURL;
+@synthesize callbackURLType = _callbackURLType;
 @synthesize callbackPhones = _callbackPhones;
 @synthesize callbackMails = _callbackMails;
 @synthesize callbackCheckListMails = _callbackCheckListMails;
@@ -75,6 +76,7 @@
     metadataList: (NSArray*) metadataList
     policies: (NSArray*) policies
     callbackURL: (NSString*) callbackURL
+    callbackURLType: (NSString*) callbackURLType
     callbackPhones: (NSString*) callbackPhones
     callbackMails: (NSString*) callbackMails
     callbackCheckListMails: (NSString*) callbackCheckListMails
@@ -124,6 +126,7 @@
     _metadataList = metadataList;
     _policies = policies;
     _callbackURL = callbackURL;
+    _callbackURLType = callbackURLType;
     _callbackPhones = callbackPhones;
     _callbackMails = callbackMails;
     _callbackCheckListMails = callbackCheckListMails;
@@ -281,6 +284,8 @@
         
         
         _callbackURL = dict[@"callbackURL"];
+        
+        _callbackURLType = dict[@"callbackURLType"];
         
         _callbackPhones = dict[@"callbackPhones"];
         
@@ -602,6 +607,10 @@
     
     
             if(_callbackURL != nil) dict[@"callbackURL"] = _callbackURL ;
+        
+    
+    
+            if(_callbackURLType != nil) dict[@"callbackURLType"] = _callbackURLType ;
         
     
     

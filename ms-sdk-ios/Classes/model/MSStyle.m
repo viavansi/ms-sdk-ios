@@ -15,6 +15,7 @@
 @synthesize experianImage = _experianImage;
 @synthesize lisimImage = _lisimImage;
 @synthesize jsonStyleFile = _jsonStyleFile;
+@synthesize customLogo = _customLogo;
 
 -(id)emailTemplateActionFile: (NSString*) emailTemplateActionFile
     emailTemplateFile: (NSString*) emailTemplateFile
@@ -28,6 +29,7 @@
     experianImage: (NSString*) experianImage
     lisimImage: (NSString*) lisimImage
     jsonStyleFile: (NSString*) jsonStyleFile
+    customLogo: (NSString*) customLogo
     
 {
     _emailTemplateActionFile = emailTemplateActionFile;
@@ -42,6 +44,7 @@
     _experianImage = experianImage;
     _lisimImage = lisimImage;
     _jsonStyleFile = jsonStyleFile;
+    _customLogo = customLogo;
     
 
     return self;
@@ -74,6 +77,8 @@
         _lisimImage = dict[@"lisimImage"];
         
         _jsonStyleFile = dict[@"jsonStyleFile"];
+        
+        _customLogo = dict[@"customLogo"];
         
         
     }
@@ -129,6 +134,10 @@
     
     
             if(_jsonStyleFile != nil) dict[@"jsonStyleFile"] = _jsonStyleFile ;
+        
+    
+    
+            if(_customLogo != nil) dict[@"customLogo"] = _customLogo ;
         
     
 

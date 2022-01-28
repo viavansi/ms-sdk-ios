@@ -23,7 +23,8 @@
 @synthesize clientSignature = _clientSignature;
 @synthesize finalizeActions = _finalizeActions;
 @synthesize groups = _groups;
-@synthesize sslpinningEnabled = _sslpinningEnabled;
+@synthesize termsUrl = _termsUrl;
+@synthesize SSLPinningEnabled = _SSLPinningEnabled;
 
 -(id)viafirmaURL: (NSString*) viafirmaURL
     editableURL: (NSNumber*) editableURL
@@ -45,7 +46,8 @@
     clientSignature: (NSNumber*) clientSignature
     finalizeActions: (NSArray*) finalizeActions
     groups: (NSArray*) groups
-    sslpinningEnabled: (NSNumber*) sslpinningEnabled
+    termsUrl: (NSString*) termsUrl
+    SSLPinningEnabled: (NSNumber*) SSLPinningEnabled
     
 {
     _viafirmaURL = viafirmaURL;
@@ -68,7 +70,8 @@
     _clientSignature = clientSignature;
     _finalizeActions = finalizeActions;
     _groups = groups;
-    _sslpinningEnabled = sslpinningEnabled;
+    _termsUrl = termsUrl;
+    _SSLPinningEnabled = SSLPinningEnabled;
     
 
     return self;
@@ -198,7 +201,9 @@
         }
         
         
-        _sslpinningEnabled = dict[@"sslpinningEnabled"];
+        _termsUrl = dict[@"termsUrl"];
+        
+        _SSLPinningEnabled = dict[@"SSLPinningEnabled"];
         
         
     }
@@ -373,7 +378,11 @@
     
     
     
-            if(_sslpinningEnabled != nil) dict[@"sslpinningEnabled"] = _sslpinningEnabled ;
+            if(_termsUrl != nil) dict[@"termsUrl"] = _termsUrl ;
+        
+    
+    
+            if(_SSLPinningEnabled != nil) dict[@"SSLPinningEnabled"] = _SSLPinningEnabled ;
         
     
 

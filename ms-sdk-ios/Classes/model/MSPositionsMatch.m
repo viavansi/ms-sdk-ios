@@ -10,6 +10,7 @@
 @synthesize width = _width;
 @synthesize height = _height;
 @synthesize forEvidence = _forEvidence;
+@synthesize breakLines = _breakLines;
 
 -(id)_id: (NSString*) _id
     text: (NSString*) text
@@ -18,6 +19,7 @@
     width: (NSNumber*) width
     height: (NSNumber*) height
     forEvidence: (NSNumber*) forEvidence
+    breakLines: (NSNumber*) breakLines
     
 {
     __id = _id;
@@ -27,6 +29,7 @@
     _width = width;
     _height = height;
     _forEvidence = forEvidence;
+    _breakLines = breakLines;
     
 
     return self;
@@ -49,6 +52,8 @@
         _height = dict[@"height"];
         
         _forEvidence = dict[@"forEvidence"];
+        
+        _breakLines = dict[@"breakLines"];
         
         
     }
@@ -84,6 +89,10 @@
     
     
             if(_forEvidence != nil) dict[@"forEvidence"] = _forEvidence ;
+        
+    
+    
+            if(_breakLines != nil) dict[@"breakLines"] = _breakLines ;
         
     
 

@@ -5,20 +5,20 @@
 
 @interface MSMenuOption : SWGObject
 
-@property(nonatomic) NSString* className;  
 @property(nonatomic) NSNumber* automatic;  
 @property(nonatomic) NSString* name;  
 @property(nonatomic) NSString* icon;  
 @property(nonatomic) NSString* username;  
 @property(nonatomic) NSString* password;  
 @property(nonatomic) MSMail* email;  
-- (id) className: (NSString*) className     
-    automatic: (NSNumber*) automatic     
+@property(nonatomic) NSString* className;  
+- (id) automatic: (NSNumber*) automatic     
     name: (NSString*) name     
     icon: (NSString*) icon     
     username: (NSString*) username     
     password: (NSString*) password     
-    email: (MSMail*) email;
+    email: (MSMail*) email     
+    className: (NSString*) className;
     
 
 - (id) initWithValues: (NSDictionary*)dict;
