@@ -4,11 +4,14 @@
 @implementation MSPrepareSignatureBatch
 
 @synthesize prepareSignatures = _prepareSignatures;
+@synthesize recipientKey = _recipientKey;
 
 -(id)prepareSignatures: (NSArray*) prepareSignatures
+    recipientKey: (NSString*) recipientKey
     
 {
     _prepareSignatures = prepareSignatures;
+    _recipientKey = recipientKey;
     
 
     return self;
@@ -39,6 +42,8 @@
             _prepareSignatures = [[NSArray alloc] init];
         }
         
+        
+        _recipientKey = dict[@"recipientKey"];
         
         
     }
@@ -72,6 +77,10 @@
         }
     }
     
+    
+    
+            if(_recipientKey != nil) dict[@"recipientKey"] = _recipientKey ;
+        
     
 
     NSDictionary* output = [dict copy];

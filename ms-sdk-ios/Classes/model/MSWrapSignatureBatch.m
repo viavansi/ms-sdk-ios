@@ -4,11 +4,14 @@
 @implementation MSWrapSignatureBatch
 
 @synthesize wrapSignatures = _wrapSignatures;
+@synthesize recipientKey = _recipientKey;
 
 -(id)wrapSignatures: (NSArray*) wrapSignatures
+    recipientKey: (NSString*) recipientKey
     
 {
     _wrapSignatures = wrapSignatures;
+    _recipientKey = recipientKey;
     
 
     return self;
@@ -39,6 +42,8 @@
             _wrapSignatures = [[NSArray alloc] init];
         }
         
+        
+        _recipientKey = dict[@"recipientKey"];
         
         
     }
@@ -72,6 +77,10 @@
         }
     }
     
+    
+    
+            if(_recipientKey != nil) dict[@"recipientKey"] = _recipientKey ;
+        
     
 
     NSDictionary* output = [dict copy];

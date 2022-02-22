@@ -6,7 +6,9 @@
 @interface MSPrepareSignatureBatch : SWGObject
 
 @property(nonatomic) NSArray* prepareSignatures;  /* (since 3.7.10) prepare signature list  */
-- (id) prepareSignatures: (NSArray*) prepareSignatures;
+@property(nonatomic) NSString* recipientKey;  /* (since 3.7.35) recipientKey  */
+- (id) prepareSignatures: (NSArray*) prepareSignatures     
+    recipientKey: (NSString*) recipientKey;
     
 
 - (id) initWithValues: (NSDictionary*)dict;
