@@ -5,13 +5,16 @@
 
 @synthesize prepareSignatures = _prepareSignatures;
 @synthesize recipientKey = _recipientKey;
+@synthesize publicKey = _publicKey;
 
 -(id)prepareSignatures: (NSArray*) prepareSignatures
     recipientKey: (NSString*) recipientKey
+    publicKey: (NSString*) publicKey
     
 {
     _prepareSignatures = prepareSignatures;
     _recipientKey = recipientKey;
+    _publicKey = publicKey;
     
 
     return self;
@@ -44,6 +47,8 @@
         
         
         _recipientKey = dict[@"recipientKey"];
+        
+        _publicKey = dict[@"publicKey"];
         
         
     }
@@ -80,6 +85,10 @@
     
     
             if(_recipientKey != nil) dict[@"recipientKey"] = _recipientKey ;
+        
+    
+    
+            if(_publicKey != nil) dict[@"publicKey"] = _publicKey ;
         
     
 

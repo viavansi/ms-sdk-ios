@@ -6,15 +6,18 @@
 @synthesize algorithm = _algorithm;
 @synthesize hash = _hash;
 @synthesize idSign = _idSign;
+@synthesize messageCode = _messageCode;
 
 -(id)algorithm: (NSString*) algorithm
     hash: (NSString*) hash
     idSign: (NSString*) idSign
+    messageCode: (NSString*) messageCode
     
 {
     _algorithm = algorithm;
     _hash = hash;
     _idSign = idSign;
+    _messageCode = messageCode;
     
 
     return self;
@@ -29,6 +32,8 @@
         _hash = dict[@"hash"];
         
         _idSign = dict[@"idSign"];
+        
+        _messageCode = dict[@"messageCode"];
         
         
     }
@@ -48,6 +53,10 @@
     
     
             if(_idSign != nil) dict[@"idSign"] = _idSign ;
+        
+    
+    
+            if(_messageCode != nil) dict[@"messageCode"] = _messageCode ;
         
     
 
