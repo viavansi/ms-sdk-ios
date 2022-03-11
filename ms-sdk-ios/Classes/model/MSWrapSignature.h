@@ -4,7 +4,7 @@
 
 @interface MSWrapSignature : SWGObject
 
-@property(nonatomic) NSString* signatureCode;  /* (since 3.5.0) signature code  */
+@property(nonatomic) NSString* signatureCode;  /* (since 3.7.36) signature code  */
 @property(nonatomic) NSString* publicKey;  /* (since 3.5.0) public Key  */
 @property(nonatomic) NSString* messageCode;  /* (since 3.5.0) message code  */
 @property(nonatomic) NSString* signedDataBase64;  /* (since 3.5.0) base 64 hash  */

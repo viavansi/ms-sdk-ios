@@ -37,7 +37,7 @@
 @synthesize hideImageUpload = _hideImageUpload;
 @synthesize hideImageCapture = _hideImageCapture;
 @synthesize hidePoweredByViafirma = _hidePoweredByViafirma;
-@synthesize showSignOtpSms = _showSignOtpSms;
+@synthesize allowedSignType = _allowedSignType;
 
 -(id)logo: (NSString*) logo
     mainColor: (NSString*) mainColor
@@ -73,7 +73,7 @@
     hideImageUpload: (NSNumber*) hideImageUpload
     hideImageCapture: (NSNumber*) hideImageCapture
     hidePoweredByViafirma: (NSNumber*) hidePoweredByViafirma
-    showSignOtpSms: (NSNumber*) showSignOtpSms
+    allowedSignType: (NSString*) allowedSignType
     
 {
     _logo = logo;
@@ -110,7 +110,7 @@
     _hideImageUpload = hideImageUpload;
     _hideImageCapture = hideImageCapture;
     _hidePoweredByViafirma = hidePoweredByViafirma;
-    _showSignOtpSms = showSignOtpSms;
+    _allowedSignType = allowedSignType;
     
 
     return self;
@@ -188,7 +188,7 @@
         
         _hidePoweredByViafirma = dict[@"hidePoweredByViafirma"];
         
-        _showSignOtpSms = dict[@"showSignOtpSms"];
+        _allowedSignType = dict[@"allowedSignType"];
         
         
     }
@@ -335,7 +335,7 @@
         
     
     
-            if(_showSignOtpSms != nil) dict[@"showSignOtpSms"] = _showSignOtpSms ;
+            if(_allowedSignType != nil) dict[@"allowedSignType"] = _allowedSignType ;
         
     
 

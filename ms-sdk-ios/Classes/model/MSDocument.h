@@ -34,6 +34,7 @@
 @property(nonatomic) NSNumber* extraPages;  
 @property(nonatomic) NSNumber* formUpdated;  
 @property(nonatomic) NSNumber* hideDocumentBeforeStart;  
+@property(nonatomic) NSNumber* custodyDays;  
 - (id) templateCode: (NSString*) templateCode     
     templateReference: (NSString*) templateReference     
     templateVersion: (NSNumber*) templateVersion     
@@ -60,7 +61,8 @@
     watermarkText: (NSString*) watermarkText     
     extraPages: (NSNumber*) extraPages     
     formUpdated: (NSNumber*) formUpdated     
-    hideDocumentBeforeStart: (NSNumber*) hideDocumentBeforeStart;
+    hideDocumentBeforeStart: (NSNumber*) hideDocumentBeforeStart     
+    custodyDays: (NSNumber*) custodyDays;
     
 
 - (id) initWithValues: (NSDictionary*)dict;

@@ -17,6 +17,7 @@
 @synthesize fileName = _fileName;
 @synthesize readOnly = _readOnly;
 @synthesize recipientKey = _recipientKey;
+@synthesize transfers = _transfers;
 
 -(id)type: (NSString*) type
     processType: (NSString*) processType
@@ -32,6 +33,7 @@
     fileName: (NSString*) fileName
     readOnly: (NSNumber*) readOnly
     recipientKey: (NSString*) recipientKey
+    transfers: (NSArray*) transfers
     
 {
     _type = type;
@@ -48,6 +50,7 @@
     _fileName = fileName;
     _readOnly = readOnly;
     _recipientKey = recipientKey;
+    _transfers = transfers;
     
 
     return self;
@@ -104,6 +107,28 @@
         _readOnly = dict[@"readOnly"];
         
         _recipientKey = dict[@"recipientKey"];
+        
+        
+        
+        id transfers_dict = dict[@"transfers"];
+        
+        if([transfers_dict isKindOfClass:[NSArray class]]) {
+            NSMutableArray * objs = [[NSMutableArray alloc] initWithCapacity:[(NSArray*)transfers_dict count]];
+            if([(NSArray*)transfers_dict count] > 0) {
+                for (int i=0 ; i<[(NSArray*)transfers_dict count] ; i++) {
+                	NSDictionary *dict = [[NSDictionary alloc] initWithDictionary:[transfers_dict objectAtIndex:i]];
+                    MSTransfer* d = [[MSTransfer alloc] initWithValues:dict];
+                    [objs addObject:d];
+                }
+                _transfers = [[NSArray alloc] initWithArray:objs];
+            }
+            else
+                _transfers = [[NSArray alloc] init];
+        }
+        else {
+            _transfers = [[NSArray alloc] init];
+        }
+        
         
         
     }
@@ -189,6 +214,31 @@
     
             if(_recipientKey != nil) dict[@"recipientKey"] = _recipientKey ;
         
+    
+    
+    if(_transfers != nil){
+        if([_transfers isKindOfClass:[NSArray class]]){
+            NSMutableArray * array = [[NSMutableArray alloc] init];
+            for( int i=0 ; i<[(NSArray*)_transfers count] ; i++ ) {
+				MSTransfer *transfers = [[MSTransfer alloc]init];
+				transfers = [(NSArray*)_transfers objectAtIndex:i];
+                [array addObject:[(SWGObject*)transfers asDictionary]];
+            }
+            dict[@"transfers"] = array;
+        }
+        else if(_transfers && [_transfers isKindOfClass:[SWGDate class]]) {
+            NSString * dateString = [(SWGDate*)_transfers toString];
+            if(dateString){
+                dict[@"transfers"] = dateString;
+            }
+        }
+        else {
+        
+            if(_transfers != nil) dict[@"transfers"] = [(SWGObject*)_transfers asDictionary];
+        
+        }
+    }
+    
     
 
     NSDictionary* output = [dict copy];

@@ -20,6 +20,7 @@
 @synthesize autoFinalize = _autoFinalize;
 @synthesize callbackURL = _callbackURL;
 @synthesize callbackAuthorization = _callbackAuthorization;
+@synthesize callbackMails = _callbackMails;
 
 -(id)groupCode: (NSString*) groupCode
     expires: (NSNumber*) expires
@@ -38,6 +39,7 @@
     autoFinalize: (NSNumber*) autoFinalize
     callbackURL: (NSString*) callbackURL
     callbackAuthorization: (NSString*) callbackAuthorization
+    callbackMails: (NSString*) callbackMails
     
 {
     _groupCode = groupCode;
@@ -57,6 +59,7 @@
     _autoFinalize = autoFinalize;
     _callbackURL = callbackURL;
     _callbackAuthorization = callbackAuthorization;
+    _callbackMails = callbackMails;
     
 
     return self;
@@ -165,6 +168,8 @@
         _callbackURL = dict[@"callbackURL"];
         
         _callbackAuthorization = dict[@"callbackAuthorization"];
+        
+        _callbackMails = dict[@"callbackMails"];
         
         
     }
@@ -324,6 +329,10 @@
     
     
             if(_callbackAuthorization != nil) dict[@"callbackAuthorization"] = _callbackAuthorization ;
+        
+    
+    
+            if(_callbackMails != nil) dict[@"callbackMails"] = _callbackMails ;
         
     
 

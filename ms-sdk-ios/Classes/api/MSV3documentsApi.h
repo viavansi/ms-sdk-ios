@@ -87,7 +87,7 @@
 
 /**
 
- Method for get signed document
+ Method for get auditory document
  
  Get audit trail document
  
@@ -99,6 +99,28 @@
  return type: MSDownload*
  */
 +(NSNumber*) downloadAuditTrail :(NSString*) messageCode 
+    
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(MSDownload* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    
+
+
+/**
+
+ Method for get auditory document in a certain language
+ 
+ Get audit trail document
+ 
+
+ 
+ @param messageCode Message&#39;s unique code
+ 
+ @param languageId Language to display the document
+ 
+
+ return type: MSDownload*
+ */
++(NSNumber*) downloadAuditTrailWithLanguageId :(NSString*) messageCode 
+     languageId:(NSString*) languageId 
     
     auth:(OAuth1Client *) auth onSuccess: (void (^)(MSDownload* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     

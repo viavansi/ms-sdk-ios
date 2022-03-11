@@ -30,6 +30,7 @@
 @synthesize extraPages = _extraPages;
 @synthesize formUpdated = _formUpdated;
 @synthesize hideDocumentBeforeStart = _hideDocumentBeforeStart;
+@synthesize custodyDays = _custodyDays;
 
 -(id)templateCode: (NSString*) templateCode
     templateReference: (NSString*) templateReference
@@ -58,6 +59,7 @@
     extraPages: (NSNumber*) extraPages
     formUpdated: (NSNumber*) formUpdated
     hideDocumentBeforeStart: (NSNumber*) hideDocumentBeforeStart
+    custodyDays: (NSNumber*) custodyDays
     
 {
     _templateCode = templateCode;
@@ -87,6 +89,7 @@
     _extraPages = extraPages;
     _formUpdated = formUpdated;
     _hideDocumentBeforeStart = hideDocumentBeforeStart;
+    _custodyDays = custodyDays;
     
 
     return self;
@@ -181,6 +184,8 @@
         _formUpdated = dict[@"formUpdated"];
         
         _hideDocumentBeforeStart = dict[@"hideDocumentBeforeStart"];
+        
+        _custodyDays = dict[@"custodyDays"];
         
         
     }
@@ -359,6 +364,10 @@
     
     
             if(_hideDocumentBeforeStart != nil) dict[@"hideDocumentBeforeStart"] = _hideDocumentBeforeStart ;
+        
+    
+    
+            if(_custodyDays != nil) dict[@"custodyDays"] = _custodyDays ;
         
     
 

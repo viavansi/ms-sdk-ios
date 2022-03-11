@@ -1,6 +1,7 @@
 #import <Foundation/Foundation.h>
 #import "SWGObject.h"
 #import "MSParam.h"
+#import "MSTransfer.h"
 
 
 @interface MSAttachment : SWGObject
@@ -19,6 +20,7 @@
 @property(nonatomic) NSString* fileName;  
 @property(nonatomic) NSNumber* readOnly;  
 @property(nonatomic) NSString* recipientKey;  
+@property(nonatomic) NSArray* transfers;  
 - (id) type: (NSString*) type     
     processType: (NSString*) processType     
     processId: (NSString*) processId     
@@ -32,7 +34,8 @@
     hash: (NSString*) hash     
     fileName: (NSString*) fileName     
     readOnly: (NSNumber*) readOnly     
-    recipientKey: (NSString*) recipientKey;
+    recipientKey: (NSString*) recipientKey     
+    transfers: (NSArray*) transfers;
     
 
 - (id) initWithValues: (NSDictionary*)dict;
