@@ -13,13 +13,15 @@
 @property(nonatomic) NSArray* transfers;  
 @property(nonatomic) NSString* languageId;  
 @property(nonatomic) NSString* externalCode;  
+@property(nonatomic) NSString* commentReject;  
 - (id) code: (NSString*) code     
     status: (NSString*) status     
     templateCode: (NSString*) templateCode     
     policies: (NSArray*) policies     
     transfers: (NSArray*) transfers     
     languageId: (NSString*) languageId     
-    externalCode: (NSString*) externalCode;
+    externalCode: (NSString*) externalCode     
+    commentReject: (NSString*) commentReject;
     
 
 - (id) initWithValues: (NSDictionary*)dict;

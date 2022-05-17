@@ -5,15 +5,18 @@
 
 @synthesize stamper = _stamper;
 @synthesize certificationLevel = _certificationLevel;
+@synthesize externalPkcs7Signature = _externalPkcs7Signature;
 @synthesize password = _password;
 
 -(id)stamper: (MSStamperDTO*) stamper
     certificationLevel: (NSString*) certificationLevel
+    externalPkcs7Signature: (NSNumber*) externalPkcs7Signature
     password: (NSString*) password
     
 {
     _stamper = stamper;
     _certificationLevel = certificationLevel;
+    _externalPkcs7Signature = externalPkcs7Signature;
     _password = password;
     
 
@@ -33,6 +36,8 @@
         
         
         _certificationLevel = dict[@"certificationLevel"];
+        
+        _externalPkcs7Signature = dict[@"externalPkcs7Signature"];
         
         _password = dict[@"password"];
         
@@ -71,6 +76,10 @@
     
     
             if(_certificationLevel != nil) dict[@"certificationLevel"] = _certificationLevel ;
+        
+    
+    
+            if(_externalPkcs7Signature != nil) dict[@"externalPkcs7Signature"] = _externalPkcs7Signature ;
         
     
     

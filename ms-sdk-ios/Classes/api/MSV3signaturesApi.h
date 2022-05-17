@@ -22,6 +22,34 @@
 +(unsigned long) requestQueueSize;
 /**
 
+ Method to sign with andes certificate
+ 
+ Method to sign with andes certificate
+ 
+
+ 
+ @param messageCode 
+ 
+ @param signatureCode 
+ 
+ @param nationalId 
+ 
+ @param pin 
+ 
+
+ return type: NSString*
+ */
++(NSNumber*) signWithAndesCertificate :(NSString*) messageCode 
+     signatureCode:(NSString*) signatureCode 
+     nationalId:(NSString*) nationalId 
+     pin:(NSString*) pin 
+    
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(NSString* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    
+
+
+/**
+
  Method for get signed message
  
  

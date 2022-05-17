@@ -389,6 +389,88 @@
 
 /**
 
+ Method for send a OTP Mail
+ 
+ Method for send a OTP Mail
+ 
+
+ 
+ @param messageCode Message&#39;s unique code
+ 
+
+ return type: MSMessage*
+ */
++(NSNumber*) prepareOtpMail :(NSString*) messageCode 
+    
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(MSMessage* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    
+
+
+/**
+
+ Method for validate OTP Mail info
+ 
+ Get OTP Mail evidence info
+ 
+
+ 
+ @param messageCode messageCode
+ 
+ @param token token
+ 
+
+ return type: MSMessage*
+ */
++(NSNumber*) validateOtpMail :(NSString*) messageCode 
+     token:(NSString*) token 
+    
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(MSMessage* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    
+
+
+/**
+
+ Method for send a OTP SMS
+ 
+ Method for send a OTP SMS
+ 
+
+ 
+ @param messageCode Message&#39;s unique code
+ 
+
+ return type: MSMessage*
+ */
++(NSNumber*) prepareOtpSms :(NSString*) messageCode 
+    
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(MSMessage* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    
+
+
+/**
+
+ Method for validate OTP SMS info
+ 
+ Get OTP SMS info
+ 
+
+ 
+ @param messageCode messageCode
+ 
+ @param token token
+ 
+
+ return type: MSMessage*
+ */
++(NSNumber*) validateOtpSms :(NSString*) messageCode 
+     token:(NSString*) token 
+    
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(MSMessage* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    
+
+
+/**
+
  Method for prepare new message
  
  Prepare new message

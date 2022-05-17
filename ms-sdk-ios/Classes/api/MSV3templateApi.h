@@ -47,6 +47,25 @@
 
 /**
 
+ Method for list oauth2 user group templates
+ 
+ 
+ 
+
+ 
+ @param groupCode groupCode
+ 
+
+ return type: NSArray*
+ */
++(NSNumber*) findMyGroupTemplates :(NSString*) groupCode 
+    
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(NSArray* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    
+
+
+/**
+
  Method for list user templates
  
  

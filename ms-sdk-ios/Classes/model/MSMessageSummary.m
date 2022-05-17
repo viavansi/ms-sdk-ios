@@ -10,6 +10,7 @@
 @synthesize transfers = _transfers;
 @synthesize languageId = _languageId;
 @synthesize externalCode = _externalCode;
+@synthesize commentReject = _commentReject;
 
 -(id)code: (NSString*) code
     status: (NSString*) status
@@ -18,6 +19,7 @@
     transfers: (NSArray*) transfers
     languageId: (NSString*) languageId
     externalCode: (NSString*) externalCode
+    commentReject: (NSString*) commentReject
     
 {
     _code = code;
@@ -27,6 +29,7 @@
     _transfers = transfers;
     _languageId = languageId;
     _externalCode = externalCode;
+    _commentReject = commentReject;
     
 
     return self;
@@ -89,6 +92,8 @@
         _languageId = dict[@"languageId"];
         
         _externalCode = dict[@"externalCode"];
+        
+        _commentReject = dict[@"commentReject"];
         
         
     }
@@ -166,6 +171,10 @@
     
     
             if(_externalCode != nil) dict[@"externalCode"] = _externalCode ;
+        
+    
+    
+            if(_commentReject != nil) dict[@"commentReject"] = _commentReject ;
         
     
 

@@ -11,6 +11,9 @@
 @property(nonatomic) NSString* code;  
 @property(nonatomic) NSString* messageCode;  
 @property(nonatomic) NSString* validateCode;  
+@property(nonatomic) NSString* validateCodeType;  
+@property(nonatomic) NSString* validateOperationId;  
+@property(nonatomic) NSString* validateOtpStatus;  
 @property(nonatomic) NSString* validateCodeFinish;  
 @property(nonatomic) NSString* text;  
 @property(nonatomic) NSString* detail;  
@@ -33,6 +36,9 @@
 - (id) code: (NSString*) code     
     messageCode: (NSString*) messageCode     
     validateCode: (NSString*) validateCode     
+    validateCodeType: (NSString*) validateCodeType     
+    validateOperationId: (NSString*) validateOperationId     
+    validateOtpStatus: (NSString*) validateOtpStatus     
     validateCodeFinish: (NSString*) validateCodeFinish     
     text: (NSString*) text     
     detail: (NSString*) detail     

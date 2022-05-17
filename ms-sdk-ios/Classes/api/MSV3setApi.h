@@ -1,6 +1,7 @@
 #import <Foundation/Foundation.h>
 #import "MSMessageSetResponse.h"
 #import "MSMessageSet.h"
+#import "MSSetExtendPeriod.h"
 #import "MSMessageSetInfo.h"
 #import "SWGObject.h"
 #import "OAuth1Client.h"
@@ -25,6 +26,25 @@
 +(NSNumber*) sendMessageSet :(MSMessageSet*) body 
     
     auth:(OAuth1Client *) auth onSuccess: (void (^)(MSMessageSetResponse* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    
+
+
+/**
+
+ Method for extend expired period for all set messages
+ 
+ Extend expired period
+ 
+
+ 
+ @param body Set to extend expired period
+ 
+
+ return type: NSString*
+ */
++(NSNumber*) extendSignaturePeriod_1 :(MSSetExtendPeriod*) body 
+    
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(NSString* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     
 
 
