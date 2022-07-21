@@ -18,6 +18,7 @@
 @synthesize readOnly = _readOnly;
 @synthesize recipientKey = _recipientKey;
 @synthesize transfers = _transfers;
+@synthesize signature = _signature;
 
 -(id)type: (NSString*) type
     processType: (NSString*) processType
@@ -34,6 +35,7 @@
     readOnly: (NSNumber*) readOnly
     recipientKey: (NSString*) recipientKey
     transfers: (NSArray*) transfers
+    signature: (MSSignature*) signature
     
 {
     _type = type;
@@ -51,6 +53,7 @@
     _readOnly = readOnly;
     _recipientKey = recipientKey;
     _transfers = transfers;
+    _signature = signature;
     
 
     return self;
@@ -128,6 +131,14 @@
         else {
             _transfers = [[NSArray alloc] init];
         }
+        
+        
+        
+        
+        id signature_dict = dict[@"signature"];
+        
+        if(signature_dict != nil)
+            _signature = [[MSSignature  alloc]initWithValues:signature_dict];
         
         
         
@@ -235,6 +246,31 @@
         else {
         
             if(_transfers != nil) dict[@"transfers"] = [(SWGObject*)_transfers asDictionary];
+        
+        }
+    }
+    
+    
+    
+    if(_signature != nil){
+        if([_signature isKindOfClass:[NSArray class]]){
+            NSMutableArray * array = [[NSMutableArray alloc] init];
+            for( int i=0 ; i<[(NSArray*)_signature count] ; i++ ) {
+				MSSignature *signature = [[MSSignature alloc]init];
+				signature = [(NSArray*)_signature objectAtIndex:i];
+                [array addObject:[(SWGObject*)signature asDictionary]];
+            }
+            dict[@"signature"] = array;
+        }
+        else if(_signature && [_signature isKindOfClass:[SWGDate class]]) {
+            NSString * dateString = [(SWGDate*)_signature toString];
+            if(dateString){
+                dict[@"signature"] = dateString;
+            }
+        }
+        else {
+        
+            if(_signature != nil) dict[@"signature"] = [(SWGObject*)_signature asDictionary];
         
         }
     }

@@ -9,10 +9,14 @@
 @property(nonatomic) NSString* code;  
 @property(nonatomic) NSString* status;  
 @property(nonatomic) NSArray* links;  
+@property(nonatomic) NSString* externalCode;  
+@property(nonatomic) NSString* externalStatus;  
 @property(nonatomic) NSArray* messages;  
 - (id) code: (NSString*) code     
     status: (NSString*) status     
     links: (NSArray*) links     
+    externalCode: (NSString*) externalCode     
+    externalStatus: (NSString*) externalStatus     
     messages: (NSArray*) messages;
     
 

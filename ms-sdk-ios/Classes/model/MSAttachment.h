@@ -2,6 +2,7 @@
 #import "SWGObject.h"
 #import "MSParam.h"
 #import "MSTransfer.h"
+#import "MSSignature.h"
 
 
 @interface MSAttachment : SWGObject
@@ -21,6 +22,7 @@
 @property(nonatomic) NSNumber* readOnly;  
 @property(nonatomic) NSString* recipientKey;  
 @property(nonatomic) NSArray* transfers;  
+@property(nonatomic) MSSignature* signature;  
 - (id) type: (NSString*) type     
     processType: (NSString*) processType     
     processId: (NSString*) processId     
@@ -35,7 +37,8 @@
     fileName: (NSString*) fileName     
     readOnly: (NSNumber*) readOnly     
     recipientKey: (NSString*) recipientKey     
-    transfers: (NSArray*) transfers;
+    transfers: (NSArray*) transfers     
+    signature: (MSSignature*) signature;
     
 
 - (id) initWithValues: (NSDictionary*)dict;

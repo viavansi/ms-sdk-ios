@@ -4,16 +4,16 @@
 
 @interface MSNotificationResend : SWGObject
 
-@property(nonatomic) NSString* messageCode;  
+@property(nonatomic) NSString* setCode;  
+@property(nonatomic) NSString* recipientKey;  
 @property(nonatomic) NSString* email;  
 @property(nonatomic) NSString* phone;  
-@property(nonatomic) NSString* userCode;  
-@property(nonatomic) NSString* deviceCode;  
-- (id) messageCode: (NSString*) messageCode     
+@property(nonatomic) NSString* notificationType;  
+- (id) setCode: (NSString*) setCode     
+    recipientKey: (NSString*) recipientKey     
     email: (NSString*) email     
     phone: (NSString*) phone     
-    userCode: (NSString*) userCode     
-    deviceCode: (NSString*) deviceCode;
+    notificationType: (NSString*) notificationType;
     
 
 - (id) initWithValues: (NSDictionary*)dict;

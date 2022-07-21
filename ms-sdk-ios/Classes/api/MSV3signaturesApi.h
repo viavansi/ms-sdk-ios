@@ -36,6 +36,10 @@
  
  @param pin 
  
+ @param docType 
+ 
+ @param ip 
+ 
 
  return type: NSString*
  */
@@ -43,6 +47,8 @@
      signatureCode:(NSString*) signatureCode 
      nationalId:(NSString*) nationalId 
      pin:(NSString*) pin 
+     docType:(NSString*) docType 
+     ip:(NSString*) ip 
     
     auth:(OAuth1Client *) auth onSuccess: (void (^)(NSString* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     

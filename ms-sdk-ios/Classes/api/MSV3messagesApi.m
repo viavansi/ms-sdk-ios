@@ -10,6 +10,7 @@
 #import "MSExtendPeriod.h"
 #import "MSMessageList.h"
 #import "MSMessagePaginatedList.h"
+#import "MSOtpInfo.h"
 #import "MSCallbackUrl.h"
 #import "MSCallbackMail.h"
 #import "MSNotificationResend.h"
@@ -769,13 +770,6 @@
     id bodyDictionary = nil;
     
     
-    bodyDictionary = [[NSMutableArray alloc] init];
-
-    NSMutableDictionary * formParams = [[NSMutableDictionary alloc]init];
-
-    
-    [bodyDictionary addObject:formParams];
-    
 
     
 
@@ -848,13 +842,6 @@
 
     id bodyDictionary = nil;
     
-    
-    bodyDictionary = [[NSMutableArray alloc] init];
-
-    NSMutableDictionary * formParams = [[NSMutableDictionary alloc]init];
-
-    
-    [bodyDictionary addObject:formParams];
     
 
     
@@ -931,13 +918,6 @@
 
     id bodyDictionary = nil;
     
-    
-    bodyDictionary = [[NSMutableArray alloc] init];
-
-    NSMutableDictionary * formParams = [[NSMutableDictionary alloc]init];
-
-    
-    [bodyDictionary addObject:formParams];
     
 
     
@@ -1321,13 +1301,6 @@
     id bodyDictionary = nil;
     
     
-    bodyDictionary = [[NSMutableArray alloc] init];
-
-    NSMutableDictionary * formParams = [[NSMutableDictionary alloc]init];
-
-    
-    [bodyDictionary addObject:formParams];
-    
 
     
 
@@ -1345,7 +1318,7 @@
                                   requestContentType: requestContentType
                                  responseContentType: responseContentType
                                      successBlock: ^(NSString *data) {
-										NSNumber *result = data ? [NSNumber numberWithInt:[data integerValue]] : nil;
+										NSNumber *result = data ? [[NSNumber  alloc]initWithInt: [data integerValue]] : nil;
                                         onSuccessBlock(result);
                                      }
                                      errorBlock: ^(NSError *error) {
@@ -1432,9 +1405,168 @@
     
 }
 
-+(NSNumber*) prepareOtpMail: (NSString*) messageCode
++(NSNumber*) callbackForm: (NSString*) message
         
-        auth:(OAuth1Client *) auth onSuccess: (void (^)(MSMessage* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock
+        auth:(OAuth1Client *) auth onSuccess: (void (^)(NSString* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock
+         {
+
+    NSMutableString* requestUrl = [NSMutableString stringWithFormat:@"%@/v3/messages/mock/callbackForm", [[ApiClient sharedInstance] url]];
+
+    // remove format in URL if needed
+    if ([requestUrl rangeOfString:@".{format}"].location != NSNotFound){
+        [requestUrl replaceCharactersInRange: [requestUrl rangeOfString:@".{format}"] withString:@".json"];
+    }
+
+    
+
+	NSArray * requestContentTypes = @[@"application/x-www-form-urlencoded"];
+    NSString* requestContentType = requestContentTypes.count > 0 ? requestContentTypes[0] : @"application/json";
+
+    NSArray * responseContentTypes = @[@"application/json"];
+    NSString* responseContentType = responseContentTypes.count > 0 ? responseContentTypes[0] : @"application/json";
+
+    NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
+    
+    NSMutableDictionary* headerParams = [[NSMutableDictionary alloc] init];
+    
+
+    id bodyDictionary = nil;
+    
+    
+    bodyDictionary = [[NSMutableArray alloc] init];
+
+    NSMutableDictionary * formParams = [[NSMutableDictionary alloc]init];
+
+    
+    if(message){
+    formParams[@"message"] = message;
+    }
+    
+    [bodyDictionary addObject:formParams];
+    
+
+    
+
+    ApiClient* client = [ApiClient sharedInstance];
+
+    
+    
+            // primitive response type
+    return [client stringWithCompletionBlock: auth
+					                                requestUrl: requestUrl 
+                                              method: @"POST"
+                                         queryParams: queryParams
+                                                body: bodyDictionary
+                                        headerParams: headerParams
+                                  requestContentType: requestContentType
+                                 responseContentType: responseContentType
+                                     successBlock: ^(NSString *data) {
+                                        NSString *result = data ? [[NSString  alloc]initWithString: data] : nil;
+                                        onSuccessBlock(result);
+                                     }
+                                     errorBlock: ^(NSError *error) {
+                         onErrorBlock(error);
+                     }];
+    
+    
+
+        
+
+    
+}
+
++(NSNumber*) callbackJSON: (MSMessage*) body
+        
+        auth:(OAuth1Client *) auth onSuccess: (void (^)(NSString* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock
+         {
+
+    NSMutableString* requestUrl = [NSMutableString stringWithFormat:@"%@/v3/messages/mock/callbackJSON", [[ApiClient sharedInstance] url]];
+
+    // remove format in URL if needed
+    if ([requestUrl rangeOfString:@".{format}"].location != NSNotFound){
+        [requestUrl replaceCharactersInRange: [requestUrl rangeOfString:@".{format}"] withString:@".json"];
+    }
+
+    
+
+	NSArray * requestContentTypes = @[@"application/json"];
+    NSString* requestContentType = requestContentTypes.count > 0 ? requestContentTypes[0] : @"application/json";
+
+    NSArray * responseContentTypes = @[@"application/json"];
+    NSString* responseContentType = responseContentTypes.count > 0 ? responseContentTypes[0] : @"application/json";
+
+    NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
+    
+    NSMutableDictionary* headerParams = [[NSMutableDictionary alloc] init];
+    
+
+    id bodyDictionary = nil;
+    
+    id __body = body;
+
+    if(__body != nil && [__body isKindOfClass:[NSArray class]]){
+        NSMutableArray * objs = [[NSMutableArray alloc] init];
+        for (id dict in (NSArray*)__body) {
+            if([dict respondsToSelector:@selector(asDictionary)]) {
+                [objs addObject:[(SWGObject*)dict asDictionary]];
+            }
+            else{
+                [objs addObject:dict];
+            }
+        }
+        bodyDictionary = objs;
+    }
+    else if([__body respondsToSelector:@selector(asDictionary)]) {
+        bodyDictionary = [(SWGObject*)__body asDictionary];
+    }
+    else if([__body isKindOfClass:[NSString class]]) {
+        // convert it to a dictionary
+        NSError * error;
+        NSString * str = (NSString*)__body;
+        NSDictionary *JSON =
+            [NSJSONSerialization JSONObjectWithData: [str dataUsingEncoding: NSUTF8StringEncoding]
+                                            options: NSJSONReadingMutableContainers
+                                              error: &error];
+        bodyDictionary = JSON;
+    }
+    
+    
+
+    
+
+    ApiClient* client = [ApiClient sharedInstance];
+
+    
+    
+            // primitive response type
+    return [client stringWithCompletionBlock: auth
+					                                requestUrl: requestUrl 
+                                              method: @"POST"
+                                         queryParams: queryParams
+                                                body: bodyDictionary
+                                        headerParams: headerParams
+                                  requestContentType: requestContentType
+                                 responseContentType: responseContentType
+                                     successBlock: ^(NSString *data) {
+                                        NSString *result = data ? [[NSString  alloc]initWithString: data] : nil;
+                                        onSuccessBlock(result);
+                                     }
+                                     errorBlock: ^(NSError *error) {
+                         onErrorBlock(error);
+                     }];
+    
+    
+
+        
+
+    
+}
+
++(NSNumber*) prepareOtpMail: (NSString*) messageCode
+         setCode: (NSString*) setCode
+         recipientKey: (NSString*) recipientKey
+        
+        auth:(OAuth1Client *) auth onSuccess: (void (^)(MSOtpInfo* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock
          {
 
     NSMutableString* requestUrl = [NSMutableString stringWithFormat:@"%@/v3/messages/otp/mail/prepare/{messageCode}", [[ApiClient sharedInstance] url]];
@@ -1454,19 +1586,16 @@
     NSString* responseContentType = responseContentTypes.count > 0 ? responseContentTypes[0] : @"application/json";
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
+    if(setCode != nil)
+        queryParams[@"setCode"] = setCode;
+    if(recipientKey != nil)
+        queryParams[@"recipientKey"] = recipientKey;
     
     NSMutableDictionary* headerParams = [[NSMutableDictionary alloc] init];
     
 
     id bodyDictionary = nil;
     
-    
-    bodyDictionary = [[NSMutableArray alloc] init];
-
-    NSMutableDictionary * formParams = [[NSMutableDictionary alloc]init];
-
-    
-    [bodyDictionary addObject:formParams];
     
 
     
@@ -1488,9 +1617,9 @@
           responseContentType: responseContentType
               successBlock: ^(NSDictionary *data) {
                 
-                MSMessage *result = nil;
+                MSOtpInfo *result = nil;
                 if (data) {
-                    result = [[MSMessage    alloc]initWithValues: data];
+                    result = [[MSOtpInfo    alloc]initWithValues: data];
                 }
                 onSuccessBlock(result);
                 
@@ -1506,6 +1635,8 @@
 
 +(NSNumber*) validateOtpMail: (NSString*) messageCode
          token: (NSString*) token
+         setCode: (NSString*) setCode
+         recipientKey: (NSString*) recipientKey
         
         auth:(OAuth1Client *) auth onSuccess: (void (^)(MSMessage* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock
          {
@@ -1544,6 +1675,14 @@
     
     if(token){
     formParams[@"token"] = token;
+    }
+    
+    if(setCode){
+    formParams[@"setCode"] = setCode;
+    }
+    
+    if(recipientKey){
+    formParams[@"recipientKey"] = recipientKey;
     }
     
     [bodyDictionary addObject:formParams];
@@ -1585,8 +1724,10 @@
 }
 
 +(NSNumber*) prepareOtpSms: (NSString*) messageCode
+         setCode: (NSString*) setCode
+         recipientKey: (NSString*) recipientKey
         
-        auth:(OAuth1Client *) auth onSuccess: (void (^)(MSMessage* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock
+        auth:(OAuth1Client *) auth onSuccess: (void (^)(MSOtpInfo* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock
          {
 
     NSMutableString* requestUrl = [NSMutableString stringWithFormat:@"%@/v3/messages/otp/sms/prepare/{messageCode}", [[ApiClient sharedInstance] url]];
@@ -1606,19 +1747,16 @@
     NSString* responseContentType = responseContentTypes.count > 0 ? responseContentTypes[0] : @"application/json";
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
+    if(setCode != nil)
+        queryParams[@"setCode"] = setCode;
+    if(recipientKey != nil)
+        queryParams[@"recipientKey"] = recipientKey;
     
     NSMutableDictionary* headerParams = [[NSMutableDictionary alloc] init];
     
 
     id bodyDictionary = nil;
     
-    
-    bodyDictionary = [[NSMutableArray alloc] init];
-
-    NSMutableDictionary * formParams = [[NSMutableDictionary alloc]init];
-
-    
-    [bodyDictionary addObject:formParams];
     
 
     
@@ -1640,9 +1778,9 @@
           responseContentType: responseContentType
               successBlock: ^(NSDictionary *data) {
                 
-                MSMessage *result = nil;
+                MSOtpInfo *result = nil;
                 if (data) {
-                    result = [[MSMessage    alloc]initWithValues: data];
+                    result = [[MSOtpInfo    alloc]initWithValues: data];
                 }
                 onSuccessBlock(result);
                 
@@ -1658,6 +1796,8 @@
 
 +(NSNumber*) validateOtpSms: (NSString*) messageCode
          token: (NSString*) token
+         setCode: (NSString*) setCode
+         recipientKey: (NSString*) recipientKey
         
         auth:(OAuth1Client *) auth onSuccess: (void (^)(MSMessage* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock
          {
@@ -1696,6 +1836,14 @@
     
     if(token){
     formParams[@"token"] = token;
+    }
+    
+    if(setCode){
+    formParams[@"setCode"] = setCode;
+    }
+    
+    if(recipientKey){
+    formParams[@"recipientKey"] = recipientKey;
     }
     
     [bodyDictionary addObject:formParams];

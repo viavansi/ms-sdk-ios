@@ -24,6 +24,7 @@
 @property(nonatomic) NSString* certificationLevel;  
 @property(nonatomic) NSString* reason;  
 @property(nonatomic) NSString* location;  
+@property(nonatomic) NSString* ip;  
 - (id) type: (NSString*) type     
     subType: (NSString*) subType     
     code: (NSString*) code     
@@ -42,7 +43,8 @@
     recipientKey: (NSString*) recipientKey     
     certificationLevel: (NSString*) certificationLevel     
     reason: (NSString*) reason     
-    location: (NSString*) location;
+    location: (NSString*) location     
+    ip: (NSString*) ip;
     
 
 - (id) initWithValues: (NSDictionary*)dict;

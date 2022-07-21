@@ -22,6 +22,7 @@
 @synthesize certificationLevel = _certificationLevel;
 @synthesize reason = _reason;
 @synthesize location = _location;
+@synthesize ip = _ip;
 
 -(id)type: (NSString*) type
     subType: (NSString*) subType
@@ -42,6 +43,7 @@
     certificationLevel: (NSString*) certificationLevel
     reason: (NSString*) reason
     location: (NSString*) location
+    ip: (NSString*) ip
     
 {
     _type = type;
@@ -63,6 +65,7 @@
     _certificationLevel = certificationLevel;
     _reason = reason;
     _location = location;
+    _ip = ip;
     
 
     return self;
@@ -129,6 +132,8 @@
         _reason = dict[@"reason"];
         
         _location = dict[@"location"];
+        
+        _ip = dict[@"ip"];
         
         
     }
@@ -233,6 +238,10 @@
     
     
             if(_location != nil) dict[@"location"] = _location ;
+        
+    
+    
+            if(_ip != nil) dict[@"ip"] = _ip ;
         
     
 

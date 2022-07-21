@@ -13,6 +13,9 @@
 @synthesize imageBase64 = _imageBase64;
 @synthesize positionsKey = _positionsKey;
 @synthesize timeZoneId = _timeZoneId;
+@synthesize textLine1 = _textLine1;
+@synthesize textLine2 = _textLine2;
+@synthesize textLine3 = _textLine3;
 @synthesize positionsMatch = _positionsMatch;
 
 -(id)type: (NSString*) type
@@ -25,6 +28,9 @@
     imageBase64: (NSString*) imageBase64
     positionsKey: (NSString*) positionsKey
     timeZoneId: (NSString*) timeZoneId
+    textLine1: (NSString*) textLine1
+    textLine2: (NSString*) textLine2
+    textLine3: (NSString*) textLine3
     positionsMatch: (NSArray*) positionsMatch
     
 {
@@ -38,6 +44,9 @@
     _imageBase64 = imageBase64;
     _positionsKey = positionsKey;
     _timeZoneId = timeZoneId;
+    _textLine1 = textLine1;
+    _textLine2 = textLine2;
+    _textLine3 = textLine3;
     _positionsMatch = positionsMatch;
     
 
@@ -67,6 +76,12 @@
         _positionsKey = dict[@"positionsKey"];
         
         _timeZoneId = dict[@"timeZoneId"];
+        
+        _textLine1 = dict[@"textLine1"];
+        
+        _textLine2 = dict[@"textLine2"];
+        
+        _textLine3 = dict[@"textLine3"];
         
         
         
@@ -136,6 +151,18 @@
     
     
             if(_timeZoneId != nil) dict[@"timeZoneId"] = _timeZoneId ;
+        
+    
+    
+            if(_textLine1 != nil) dict[@"textLine1"] = _textLine1 ;
+        
+    
+    
+            if(_textLine2 != nil) dict[@"textLine2"] = _textLine2 ;
+        
+    
+    
+            if(_textLine3 != nil) dict[@"textLine3"] = _textLine3 ;
         
     
     

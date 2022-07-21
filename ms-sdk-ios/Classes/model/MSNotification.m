@@ -9,6 +9,8 @@
 @synthesize validateCodeType = _validateCodeType;
 @synthesize validateOperationId = _validateOperationId;
 @synthesize validateOtpStatus = _validateOtpStatus;
+@synthesize validateOtpText = _validateOtpText;
+@synthesize validateOtpSubject = _validateOtpSubject;
 @synthesize validateCodeFinish = _validateCodeFinish;
 @synthesize text = _text;
 @synthesize detail = _detail;
@@ -35,6 +37,8 @@
     validateCodeType: (NSString*) validateCodeType
     validateOperationId: (NSString*) validateOperationId
     validateOtpStatus: (NSString*) validateOtpStatus
+    validateOtpText: (NSString*) validateOtpText
+    validateOtpSubject: (NSString*) validateOtpSubject
     validateCodeFinish: (NSString*) validateCodeFinish
     text: (NSString*) text
     detail: (NSString*) detail
@@ -62,6 +66,8 @@
     _validateCodeType = validateCodeType;
     _validateOperationId = validateOperationId;
     _validateOtpStatus = validateOtpStatus;
+    _validateOtpText = validateOtpText;
+    _validateOtpSubject = validateOtpSubject;
     _validateCodeFinish = validateCodeFinish;
     _text = text;
     _detail = detail;
@@ -101,6 +107,10 @@
         _validateOperationId = dict[@"validateOperationId"];
         
         _validateOtpStatus = dict[@"validateOtpStatus"];
+        
+        _validateOtpText = dict[@"validateOtpText"];
+        
+        _validateOtpSubject = dict[@"validateOtpSubject"];
         
         _validateCodeFinish = dict[@"validateCodeFinish"];
         
@@ -222,6 +232,14 @@
     
     
             if(_validateOtpStatus != nil) dict[@"validateOtpStatus"] = _validateOtpStatus ;
+        
+    
+    
+            if(_validateOtpText != nil) dict[@"validateOtpText"] = _validateOtpText ;
+        
+    
+    
+            if(_validateOtpSubject != nil) dict[@"validateOtpSubject"] = _validateOtpSubject ;
         
     
     

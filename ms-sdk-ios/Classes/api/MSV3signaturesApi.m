@@ -29,6 +29,8 @@
          signatureCode: (NSString*) signatureCode
          nationalId: (NSString*) nationalId
          pin: (NSString*) pin
+         docType: (NSString*) docType
+         ip: (NSString*) ip
         
         auth:(OAuth1Client *) auth onSuccess: (void (^)(NSString* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock
          {
@@ -69,6 +71,14 @@
     
     if(pin){
     formParams[@"pin"] = pin;
+    }
+    
+    if(docType){
+    formParams[@"docType"] = docType;
+    }
+    
+    if(ip){
+    formParams[@"ip"] = ip;
     }
     
     [bodyDictionary addObject:formParams];

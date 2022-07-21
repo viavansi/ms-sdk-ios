@@ -70,12 +70,12 @@ static inline NSString * AFNounce() {
 	}
 	NSData *secretStringData = [secretString dataUsingEncoding:NSUTF8StringEncoding];
 	
-	NSString *queryString = AFPercentEscapedQueryStringPairMemberFromStringWithEncoding([[[[[request URL] query] componentsSeparatedByString:@"&"] sortedArrayUsingSelector:@selector(compare:)] componentsJoinedByString:@"&"], NSUTF8StringEncoding);
+	NSString *queryString = [[[[[request URL] query] componentsSeparatedByString:@"&"] sortedArrayUsingSelector:@selector(compare:)] componentsJoinedByString:@"&"];
 	
 	NSString *requestString = [NSString stringWithFormat:@"%@&%@", [request HTTPMethod], AFPercentEscapedQueryStringPairMemberFromStringWithEncoding([[[request URL] absoluteString] componentsSeparatedByString:@"?"][0], NSUTF8StringEncoding)];
 	
 	if (queryString != nil) {
-		requestString = [NSString stringWithFormat:@"%@&%@", requestString, queryString];
+		oauthParameters = [NSString stringWithFormat:@"%@&%@", oauthParameters, queryString];
 	}
 	
 	NSString *contentType = [request valueForHTTPHeaderField:@"Content-Type"];

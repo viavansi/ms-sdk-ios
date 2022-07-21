@@ -50,6 +50,7 @@
 @property(nonatomic) NSString* stampsPolicy;  
 @property(nonatomic) NSArray* stylus;  
 @property(nonatomic) MSGeolocation* geolocation;  /* (since 3.5.0, internal) geolocation info  */
+@property(nonatomic) NSString* ip;  /* (since 3.7.42, internal) ip info  */
 @property(nonatomic) NSNumber* imageQuality;  /* (since 3.5.0) calidad de la imagen donde 100 representa el máximo de calidad y 0 el máximo nivel de compresión  */
 @property(nonatomic) NSNumber* imageScaleFactor;  /* (since 3.5.0) factor multiplicador del tamaño de la imagen, para permitir zoom, 1, 2, 3  */
 @property(nonatomic) MSOcrData* ocr;  
@@ -100,6 +101,7 @@
     stampsPolicy: (NSString*) stampsPolicy     
     stylus: (NSArray*) stylus     
     geolocation: (MSGeolocation*) geolocation     
+    ip: (NSString*) ip     
     imageQuality: (NSNumber*) imageQuality     
     imageScaleFactor: (NSNumber*) imageScaleFactor     
     ocr: (MSOcrData*) ocr     

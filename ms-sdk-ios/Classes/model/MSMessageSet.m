@@ -21,6 +21,8 @@
 @synthesize callbackURL = _callbackURL;
 @synthesize callbackAuthorization = _callbackAuthorization;
 @synthesize callbackMails = _callbackMails;
+@synthesize callbackRedirectURL = _callbackRedirectURL;
+@synthesize callbackRedirectURLTargetWindow = _callbackRedirectURLTargetWindow;
 
 -(id)groupCode: (NSString*) groupCode
     expires: (NSNumber*) expires
@@ -40,6 +42,8 @@
     callbackURL: (NSString*) callbackURL
     callbackAuthorization: (NSString*) callbackAuthorization
     callbackMails: (NSString*) callbackMails
+    callbackRedirectURL: (NSString*) callbackRedirectURL
+    callbackRedirectURLTargetWindow: (NSString*) callbackRedirectURLTargetWindow
     
 {
     _groupCode = groupCode;
@@ -60,6 +64,8 @@
     _callbackURL = callbackURL;
     _callbackAuthorization = callbackAuthorization;
     _callbackMails = callbackMails;
+    _callbackRedirectURL = callbackRedirectURL;
+    _callbackRedirectURLTargetWindow = callbackRedirectURLTargetWindow;
     
 
     return self;
@@ -170,6 +176,10 @@
         _callbackAuthorization = dict[@"callbackAuthorization"];
         
         _callbackMails = dict[@"callbackMails"];
+        
+        _callbackRedirectURL = dict[@"callbackRedirectURL"];
+        
+        _callbackRedirectURLTargetWindow = dict[@"callbackRedirectURLTargetWindow"];
         
         
     }
@@ -333,6 +343,14 @@
     
     
             if(_callbackMails != nil) dict[@"callbackMails"] = _callbackMails ;
+        
+    
+    
+            if(_callbackRedirectURL != nil) dict[@"callbackRedirectURL"] = _callbackRedirectURL ;
+        
+    
+    
+            if(_callbackRedirectURLTargetWindow != nil) dict[@"callbackRedirectURLTargetWindow"] = _callbackRedirectURLTargetWindow ;
         
     
 

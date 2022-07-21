@@ -1,6 +1,8 @@
 #import <Foundation/Foundation.h>
 #import "MSUser.h"
+#import "MSUserSimple.h"
 #import "MSAutoRegister.h"
+#import "MSUserInfo.h"
 #import "MSResetPassword.h"
 #import "SWGObject.h"
 #import "OAuth1Client.h"
@@ -104,6 +106,25 @@
 +(NSNumber*) findUserByEmail :(NSString*) email 
     
     auth:(OAuth1Client *) auth onSuccess: (void (^)(MSUser* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    
+
+
+/**
+
+ Method to get all users by group
+ 
+ 
+ 
+
+ 
+ @param groupCode 
+ 
+
+ return type: NSArray*
+ */
++(NSNumber*) getUsersByGroup :(NSString*) groupCode 
+    
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(NSArray* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     
 
 

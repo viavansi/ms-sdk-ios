@@ -8,6 +8,7 @@
 #import "MSExtendPeriod.h"
 #import "MSMessageList.h"
 #import "MSMessagePaginatedList.h"
+#import "MSOtpInfo.h"
 #import "MSCallbackUrl.h"
 #import "MSCallbackMail.h"
 #import "MSNotificationResend.h"
@@ -389,6 +390,44 @@
 
 /**
 
+ Mock method for callback message by default
+ 
+ Mock method for callback message by default
+ 
+
+ 
+ @param message Message object that needs to be delivery
+ 
+
+ return type: NSString*
+ */
++(NSNumber*) callbackForm :(NSString*) message 
+    
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(NSString* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    
+
+
+/**
+
+ Mock method for callback message with JSON callbackType
+ 
+ Mock method for callback message with JSON callbackType
+ 
+
+ 
+ @param body Message object that needs to be delivery
+ 
+
+ return type: NSString*
+ */
++(NSNumber*) callbackJSON :(MSMessage*) body 
+    
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(NSString* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    
+
+
+/**
+
  Method for send a OTP Mail
  
  Method for send a OTP Mail
@@ -397,12 +436,18 @@
  
  @param messageCode Message&#39;s unique code
  
+ @param setCode setCode
+ 
+ @param recipientKey recipientKey
+ 
 
- return type: MSMessage*
+ return type: MSOtpInfo*
  */
 +(NSNumber*) prepareOtpMail :(NSString*) messageCode 
+     setCode:(NSString*) setCode 
+     recipientKey:(NSString*) recipientKey 
     
-    auth:(OAuth1Client *) auth onSuccess: (void (^)(MSMessage* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(MSOtpInfo* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     
 
 
@@ -418,11 +463,17 @@
  
  @param token token
  
+ @param setCode setCode
+ 
+ @param recipientKey recipientKey
+ 
 
  return type: MSMessage*
  */
 +(NSNumber*) validateOtpMail :(NSString*) messageCode 
      token:(NSString*) token 
+     setCode:(NSString*) setCode 
+     recipientKey:(NSString*) recipientKey 
     
     auth:(OAuth1Client *) auth onSuccess: (void (^)(MSMessage* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     
@@ -438,12 +489,18 @@
  
  @param messageCode Message&#39;s unique code
  
+ @param setCode setCode
+ 
+ @param recipientKey recipientKey
+ 
 
- return type: MSMessage*
+ return type: MSOtpInfo*
  */
 +(NSNumber*) prepareOtpSms :(NSString*) messageCode 
+     setCode:(NSString*) setCode 
+     recipientKey:(NSString*) recipientKey 
     
-    auth:(OAuth1Client *) auth onSuccess: (void (^)(MSMessage* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(MSOtpInfo* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     
 
 
@@ -459,11 +516,17 @@
  
  @param token token
  
+ @param setCode setCode
+ 
+ @param recipientKey recipientKey
+ 
 
  return type: MSMessage*
  */
 +(NSNumber*) validateOtpSms :(NSString*) messageCode 
      token:(NSString*) token 
+     setCode:(NSString*) setCode 
+     recipientKey:(NSString*) recipientKey 
     
     auth:(OAuth1Client *) auth onSuccess: (void (^)(MSMessage* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     

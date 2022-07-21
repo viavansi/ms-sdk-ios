@@ -6,17 +6,23 @@
 @synthesize code = _code;
 @synthesize status = _status;
 @synthesize links = _links;
+@synthesize externalCode = _externalCode;
+@synthesize externalStatus = _externalStatus;
 @synthesize messages = _messages;
 
 -(id)code: (NSString*) code
     status: (NSString*) status
     links: (NSArray*) links
+    externalCode: (NSString*) externalCode
+    externalStatus: (NSString*) externalStatus
     messages: (NSArray*) messages
     
 {
     _code = code;
     _status = status;
     _links = links;
+    _externalCode = externalCode;
+    _externalStatus = externalStatus;
     _messages = messages;
     
 
@@ -52,6 +58,10 @@
             _links = [[NSArray alloc] init];
         }
         
+        
+        _externalCode = dict[@"externalCode"];
+        
+        _externalStatus = dict[@"externalStatus"];
         
         
         
@@ -115,6 +125,14 @@
         }
     }
     
+    
+    
+            if(_externalCode != nil) dict[@"externalCode"] = _externalCode ;
+        
+    
+    
+            if(_externalStatus != nil) dict[@"externalStatus"] = _externalStatus ;
+        
     
     
     if(_messages != nil){

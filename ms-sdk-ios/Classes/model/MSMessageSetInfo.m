@@ -5,15 +5,21 @@
 
 @synthesize code = _code;
 @synthesize status = _status;
+@synthesize callbackRedirectURL = _callbackRedirectURL;
+@synthesize callbackRedirectURLTargetWindow = _callbackRedirectURLTargetWindow;
 @synthesize messages = _messages;
 
 -(id)code: (NSString*) code
     status: (NSString*) status
+    callbackRedirectURL: (NSString*) callbackRedirectURL
+    callbackRedirectURLTargetWindow: (NSString*) callbackRedirectURLTargetWindow
     messages: (NSArray*) messages
     
 {
     _code = code;
     _status = status;
+    _callbackRedirectURL = callbackRedirectURL;
+    _callbackRedirectURLTargetWindow = callbackRedirectURLTargetWindow;
     _messages = messages;
     
 
@@ -27,6 +33,10 @@
         _code = dict[@"code"];
         
         _status = dict[@"status"];
+        
+        _callbackRedirectURL = dict[@"callbackRedirectURL"];
+        
+        _callbackRedirectURLTargetWindow = dict[@"callbackRedirectURLTargetWindow"];
         
         
         
@@ -64,6 +74,14 @@
     
     
             if(_status != nil) dict[@"status"] = _status ;
+        
+    
+    
+            if(_callbackRedirectURL != nil) dict[@"callbackRedirectURL"] = _callbackRedirectURL ;
+        
+    
+    
+            if(_callbackRedirectURLTargetWindow != nil) dict[@"callbackRedirectURLTargetWindow"] = _callbackRedirectURLTargetWindow ;
         
     
     

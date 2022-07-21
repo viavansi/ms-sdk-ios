@@ -3,6 +3,7 @@
 #import "MSMessageSet.h"
 #import "MSSetExtendPeriod.h"
 #import "MSMessageSetInfo.h"
+#import "MSNotificationResend.h"
 #import "SWGObject.h"
 #import "OAuth1Client.h"
 
@@ -116,6 +117,44 @@
 
 /**
 
+ Mock method for callback set by default
+ 
+ Mock method for callback set by default
+ 
+
+ 
+ @param message set object that needs to be delivery
+ 
+
+ return type: NSString*
+ */
++(NSNumber*) callbackForm_1 :(NSString*) message 
+    
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(NSString* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    
+
+
+/**
+
+ Mock method for callback set with JSON callbackType
+ 
+ Mock method for callback set with JSON callbackType
+ 
+
+ 
+ @param body set object that needs to be delivery
+ 
+
+ return type: NSString*
+ */
++(NSNumber*) callbackJSON_1 :(MSMessageSetResponse*) body 
+    
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(NSString* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    
+
+
+/**
+
  Method for reject an existing message set
  
  Reject set
@@ -149,7 +188,26 @@
 
  return type: MSMessageSet*
  */
-+(NSNumber*) resendNotificationByRecipient :(NSString*) setCode 
++(NSNumber*) resendNotifications :(NSString*) setCode 
+    
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(MSMessageSet* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    
+
+
+/**
+
+ Method for resend set recipient notification
+ 
+ Method for resend recipient notification in set
+ 
+
+ 
+ @param body Set recipient Data
+ 
+
+ return type: MSMessageSet*
+ */
++(NSNumber*) resendNotificationByRecipient :(MSNotificationResend*) body 
     
     auth:(OAuth1Client *) auth onSuccess: (void (^)(MSMessageSet* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     

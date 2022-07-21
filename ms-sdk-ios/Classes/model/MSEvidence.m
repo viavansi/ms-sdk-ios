@@ -40,6 +40,7 @@
 @synthesize stampsPolicy = _stampsPolicy;
 @synthesize stylus = _stylus;
 @synthesize geolocation = _geolocation;
+@synthesize ip = _ip;
 @synthesize imageQuality = _imageQuality;
 @synthesize imageScaleFactor = _imageScaleFactor;
 @synthesize ocr = _ocr;
@@ -91,6 +92,7 @@
     stampsPolicy: (NSString*) stampsPolicy
     stylus: (NSArray*) stylus
     geolocation: (MSGeolocation*) geolocation
+    ip: (NSString*) ip
     imageQuality: (NSNumber*) imageQuality
     imageScaleFactor: (NSNumber*) imageScaleFactor
     ocr: (MSOcrData*) ocr
@@ -143,6 +145,7 @@
     _stampsPolicy = stampsPolicy;
     _stylus = stylus;
     _geolocation = geolocation;
+    _ip = ip;
     _imageQuality = imageQuality;
     _imageScaleFactor = imageScaleFactor;
     _ocr = ocr;
@@ -322,6 +325,8 @@
         if(geolocation_dict != nil)
             _geolocation = [[MSGeolocation  alloc]initWithValues:geolocation_dict];
         
+        
+        _ip = dict[@"ip"];
         
         _imageQuality = dict[@"imageQuality"];
         
@@ -663,6 +668,10 @@
         }
     }
     
+    
+    
+            if(_ip != nil) dict[@"ip"] = _ip ;
+        
     
     
             if(_imageQuality != nil) dict[@"imageQuality"] = _imageQuality ;

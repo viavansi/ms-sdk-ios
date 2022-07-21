@@ -3,24 +3,24 @@
 
 @implementation MSNotificationResend
 
-@synthesize messageCode = _messageCode;
+@synthesize setCode = _setCode;
+@synthesize recipientKey = _recipientKey;
 @synthesize email = _email;
 @synthesize phone = _phone;
-@synthesize userCode = _userCode;
-@synthesize deviceCode = _deviceCode;
+@synthesize notificationType = _notificationType;
 
--(id)messageCode: (NSString*) messageCode
+-(id)setCode: (NSString*) setCode
+    recipientKey: (NSString*) recipientKey
     email: (NSString*) email
     phone: (NSString*) phone
-    userCode: (NSString*) userCode
-    deviceCode: (NSString*) deviceCode
+    notificationType: (NSString*) notificationType
     
 {
-    _messageCode = messageCode;
+    _setCode = setCode;
+    _recipientKey = recipientKey;
     _email = email;
     _phone = phone;
-    _userCode = userCode;
-    _deviceCode = deviceCode;
+    _notificationType = notificationType;
     
 
     return self;
@@ -30,15 +30,15 @@
 {
     self = [super init];
     if(self) {
-        _messageCode = dict[@"messageCode"];
+        _setCode = dict[@"setCode"];
+        
+        _recipientKey = dict[@"recipientKey"];
         
         _email = dict[@"email"];
         
         _phone = dict[@"phone"];
         
-        _userCode = dict[@"userCode"];
-        
-        _deviceCode = dict[@"deviceCode"];
+        _notificationType = dict[@"notificationType"];
         
         
     }
@@ -49,7 +49,11 @@
     NSMutableDictionary* dict = [[NSMutableDictionary alloc] init];
     
     
-            if(_messageCode != nil) dict[@"messageCode"] = _messageCode ;
+            if(_setCode != nil) dict[@"setCode"] = _setCode ;
+        
+    
+    
+            if(_recipientKey != nil) dict[@"recipientKey"] = _recipientKey ;
         
     
     
@@ -61,11 +65,7 @@
         
     
     
-            if(_userCode != nil) dict[@"userCode"] = _userCode ;
-        
-    
-    
-            if(_deviceCode != nil) dict[@"deviceCode"] = _deviceCode ;
+            if(_notificationType != nil) dict[@"notificationType"] = _notificationType ;
         
     
 

@@ -15,6 +15,9 @@
 @property(nonatomic) NSString* imageBase64;  
 @property(nonatomic) NSString* positionsKey;  
 @property(nonatomic) NSString* timeZoneId;  
+@property(nonatomic) NSString* textLine1;  
+@property(nonatomic) NSString* textLine2;  
+@property(nonatomic) NSString* textLine3;  
 @property(nonatomic) NSArray* positionsMatch;  
 - (id) type: (NSString*) type     
     rotation: (NSString*) rotation     
@@ -26,6 +29,9 @@
     imageBase64: (NSString*) imageBase64     
     positionsKey: (NSString*) positionsKey     
     timeZoneId: (NSString*) timeZoneId     
+    textLine1: (NSString*) textLine1     
+    textLine2: (NSString*) textLine2     
+    textLine3: (NSString*) textLine3     
     positionsMatch: (NSArray*) positionsMatch;
     
 

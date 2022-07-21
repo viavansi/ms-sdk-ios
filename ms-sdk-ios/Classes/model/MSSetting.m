@@ -16,6 +16,9 @@
 @synthesize callbackMailsFormKeys = _callbackMailsFormKeys;
 @synthesize validateCode = _validateCode;
 @synthesize validateCodeFinish = _validateCodeFinish;
+@synthesize validateCodeType = _validateCodeType;
+@synthesize validateOtpText = _validateOtpText;
+@synthesize validateOtpSubject = _validateOtpSubject;
 @synthesize workflow = _workflow;
 @synthesize font = _font;
 @synthesize acrofieldsPositions = _acrofieldsPositions;
@@ -43,6 +46,9 @@
     callbackMailsFormKeys: (NSArray*) callbackMailsFormKeys
     validateCode: (NSString*) validateCode
     validateCodeFinish: (NSString*) validateCodeFinish
+    validateCodeType: (NSString*) validateCodeType
+    validateOtpText: (NSString*) validateOtpText
+    validateOtpSubject: (NSString*) validateOtpSubject
     workflow: (NSString*) workflow
     font: (MSFont*) font
     acrofieldsPositions: (NSArray*) acrofieldsPositions
@@ -71,6 +77,9 @@
     _callbackMailsFormKeys = callbackMailsFormKeys;
     _validateCode = validateCode;
     _validateCodeFinish = validateCodeFinish;
+    _validateCodeType = validateCodeType;
+    _validateOtpText = validateOtpText;
+    _validateOtpSubject = validateOtpSubject;
     _workflow = workflow;
     _font = font;
     _acrofieldsPositions = acrofieldsPositions;
@@ -144,6 +153,12 @@
         _validateCode = dict[@"validateCode"];
         
         _validateCodeFinish = dict[@"validateCodeFinish"];
+        
+        _validateCodeType = dict[@"validateCodeType"];
+        
+        _validateOtpText = dict[@"validateOtpText"];
+        
+        _validateOtpSubject = dict[@"validateOtpSubject"];
         
         _workflow = dict[@"workflow"];
         
@@ -323,6 +338,18 @@
     
     
             if(_validateCodeFinish != nil) dict[@"validateCodeFinish"] = _validateCodeFinish ;
+        
+    
+    
+            if(_validateCodeType != nil) dict[@"validateCodeType"] = _validateCodeType ;
+        
+    
+    
+            if(_validateOtpText != nil) dict[@"validateOtpText"] = _validateOtpText ;
+        
+    
+    
+            if(_validateOtpSubject != nil) dict[@"validateOtpSubject"] = _validateOtpSubject ;
         
     
     

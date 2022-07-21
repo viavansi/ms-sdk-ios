@@ -26,6 +26,8 @@
 @property(nonatomic) NSString* callbackURL;  
 @property(nonatomic) NSString* callbackAuthorization;  
 @property(nonatomic) NSString* callbackMails;  
+@property(nonatomic) NSString* callbackRedirectURL;  
+@property(nonatomic) NSString* callbackRedirectURLTargetWindow;  
 - (id) groupCode: (NSString*) groupCode     
     expires: (NSNumber*) expires     
     retryTime: (NSNumber*) retryTime     
@@ -43,7 +45,9 @@
     autoFinalize: (NSNumber*) autoFinalize     
     callbackURL: (NSString*) callbackURL     
     callbackAuthorization: (NSString*) callbackAuthorization     
-    callbackMails: (NSString*) callbackMails;
+    callbackMails: (NSString*) callbackMails     
+    callbackRedirectURL: (NSString*) callbackRedirectURL     
+    callbackRedirectURLTargetWindow: (NSString*) callbackRedirectURLTargetWindow;
     
 
 - (id) initWithValues: (NSDictionary*)dict;
