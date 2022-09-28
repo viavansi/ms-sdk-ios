@@ -17,6 +17,8 @@
 @property (readwrite, nonatomic, copy) NSString *token;
 @property (readwrite, nonatomic, copy) NSString *tokenSecret;
 
+@property (readwrite, nonatomic) BOOL oauthReplaceHttps;
+
 - (void)authorizeRequest:(NSMutableURLRequest *)request;
 
 @end

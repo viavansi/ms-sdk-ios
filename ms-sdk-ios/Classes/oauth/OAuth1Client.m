@@ -72,7 +72,7 @@ static inline NSString * AFNounce() {
 	
 	NSString *queryString = [[[[[request URL] query] componentsSeparatedByString:@"&"] sortedArrayUsingSelector:@selector(compare:)] componentsJoinedByString:@"&"];
 	
-	NSString *requestString = [NSString stringWithFormat:@"%@&%@", [request HTTPMethod], AFPercentEscapedQueryStringPairMemberFromStringWithEncoding([[[request URL] absoluteString] componentsSeparatedByString:@"?"][0], NSUTF8StringEncoding)];
+	NSString *requestString = [NSString stringWithFormat:@"%@&%@", [request HTTPMethod], AFPercentEscapedQueryStringPairMemberFromStringWithEncoding([[self requestUrlString:request] componentsSeparatedByString:@"?"][0], NSUTF8StringEncoding)];
 	
 	if (queryString != nil) {
 		oauthParameters = [NSString stringWithFormat:@"%@&%@", oauthParameters, queryString];
@@ -152,6 +152,14 @@ static inline NSString * AFNounce() {
 	[request setHTTPShouldHandleCookies:NO];
 }
 
+- (NSString*) requestUrlString:(NSURLRequest*)request {
+	NSString* requestUrl = [[request URL] absoluteString];
+	if (self.oauthReplaceHttps) {
+		requestUrl = [requestUrl  stringByReplacingOccurrencesOfString:@"https://" withString:@"http://"];
+	}
+	return requestUrl;
+}
+
 - (NSString *)authorizationHeaderForRequest:(NSMutableURLRequest *)request
 {
 	static NSString * const kAFOAuth1AuthorizationFormatString = @"OAuth %@";
@@ -162,7 +170,7 @@ static inline NSString * AFNounce() {
 	NSString *oauthParameters = [[sortedComponents componentsJoinedByString:@"&"] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
 	
 	parameters[@"oauth_signature"] = [self OAuthSignatureForRequest:request oauthParameters:oauthParameters];
-	parameters[@"realm"] = [[request URL] absoluteString];
+	parameters[@"realm"] = [self requestUrlString:request];
 	
 	sortedComponents = [[[OAuth1Client queryStringFromParameters:parameters] componentsSeparatedByString:@"&"] sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)];
 	
