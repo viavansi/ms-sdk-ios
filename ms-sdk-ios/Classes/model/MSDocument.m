@@ -31,6 +31,8 @@
 @synthesize formUpdated = _formUpdated;
 @synthesize hideDocumentBeforeStart = _hideDocumentBeforeStart;
 @synthesize custodyDays = _custodyDays;
+@synthesize signedHash = _signedHash;
+@synthesize hashContent = _hashContent;
 
 -(id)templateCode: (NSString*) templateCode
     templateReference: (NSString*) templateReference
@@ -60,6 +62,8 @@
     formUpdated: (NSNumber*) formUpdated
     hideDocumentBeforeStart: (NSNumber*) hideDocumentBeforeStart
     custodyDays: (NSNumber*) custodyDays
+    signedHash: (NSString*) signedHash
+    hashContent: (NSString*) hashContent
     
 {
     _templateCode = templateCode;
@@ -90,6 +94,8 @@
     _formUpdated = formUpdated;
     _hideDocumentBeforeStart = hideDocumentBeforeStart;
     _custodyDays = custodyDays;
+    _signedHash = signedHash;
+    _hashContent = hashContent;
     
 
     return self;
@@ -186,6 +192,10 @@
         _hideDocumentBeforeStart = dict[@"hideDocumentBeforeStart"];
         
         _custodyDays = dict[@"custodyDays"];
+        
+        _signedHash = dict[@"signedHash"];
+        
+        _hashContent = dict[@"hashContent"];
         
         
     }
@@ -368,6 +378,14 @@
     
     
             if(_custodyDays != nil) dict[@"custodyDays"] = _custodyDays ;
+        
+    
+    
+            if(_signedHash != nil) dict[@"signedHash"] = _signedHash ;
+        
+    
+    
+            if(_hashContent != nil) dict[@"hashContent"] = _hashContent ;
         
     
 

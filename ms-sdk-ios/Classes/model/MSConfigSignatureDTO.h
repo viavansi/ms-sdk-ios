@@ -33,6 +33,7 @@
 @property(nonatomic) NSString* operationServer;  
 @property(nonatomic) NSString* timestampAlgorithm;  
 @property(nonatomic) NSNumber* autoVerifyDisabled;  
+@property(nonatomic) NSNumber* autoVerifyError;  
 @property(nonatomic) NSString* revocationRequestType;  
 - (id) idReference: (NSString*) idReference     
     signatureAlgorithm: (NSString*) signatureAlgorithm     
@@ -58,6 +59,7 @@
     operationServer: (NSString*) operationServer     
     timestampAlgorithm: (NSString*) timestampAlgorithm     
     autoVerifyDisabled: (NSNumber*) autoVerifyDisabled     
+    autoVerifyError: (NSNumber*) autoVerifyError     
     revocationRequestType: (NSString*) revocationRequestType;
     
 

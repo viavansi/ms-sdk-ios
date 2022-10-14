@@ -2,6 +2,8 @@
 #import "MSAttachment.h"
 #import "SWGFile.h"
 #import "MSAttachmentFile.h"
+#import "MSMessage.h"
+#import "MSEvidenceEdit.h"
 #import "MSEvidence.h"
 #import "MSEvidenceFingerPrint.h"
 #import "MSEvidenceGeneric.h"
@@ -9,7 +11,6 @@
 #import "MSOtpList.h"
 #import "MSOtpBatchPrepare.h"
 #import "MSEvidenceSignature.h"
-#import "MSMessage.h"
 #import "SWGObject.h"
 #import "OAuth1Client.h"
 
@@ -33,6 +34,10 @@
  
  @param attachmentFilename 
  
+ @param helpText 
+ 
+ @param attachmentType 
+ 
 
  return type: MSAttachment*
  */
@@ -40,6 +45,8 @@
      attachmentCode:(NSString*) attachmentCode 
      attachmentFile:(SWGFile*) attachmentFile 
      attachmentFilename:(NSString*) attachmentFilename 
+     helpText:(NSString*) helpText 
+     attachmentType:(NSString*) attachmentType 
     
     auth:(OAuth1Client *) auth onSuccess: (void (^)(MSAttachment* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     
@@ -108,6 +115,25 @@
      evidenceCode:(NSString*) evidenceCode 
     
     auth:(OAuth1Client *) auth onSuccess: (void (^)(NSString* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    
+
+
+/**
+
+ Edit evidence from message by code
+ 
+ Edit evidence  message by code. Only can be edit PENDING evidences
+ 
+
+ 
+ @param body Message object that needs to be delivery
+ 
+
+ return type: MSMessage*
+ */
++(NSNumber*) editEvidence :(MSEvidenceEdit*) body 
+    
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(MSMessage* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     
 
 

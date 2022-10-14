@@ -4,11 +4,14 @@
 @implementation MSXMLPdfPageHashes
 
 @synthesize pages = _pages;
+@synthesize hash = _hash;
 
 -(id)pages: (NSArray*) pages
+    hash: (NSString*) hash
     
 {
     _pages = pages;
+    _hash = hash;
     
 
     return self;
@@ -39,6 +42,8 @@
             _pages = [[NSArray alloc] init];
         }
         
+        
+        _hash = dict[@"hash"];
         
         
     }
@@ -72,6 +77,10 @@
         }
     }
     
+    
+    
+            if(_hash != nil) dict[@"hash"] = _hash ;
+        
     
 
     NSDictionary* output = [dict copy];

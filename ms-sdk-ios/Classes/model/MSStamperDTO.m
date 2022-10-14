@@ -19,6 +19,7 @@
 @synthesize signingDate = _signingDate;
 @synthesize transparent = _transparent;
 @synthesize timeZone = _timeZone;
+@synthesize addCsvLink = _addCsvLink;
 
 -(id)type: (NSString*) type
     rotation: (NSString*) rotation
@@ -36,6 +37,7 @@
     signingDate: (SWGDate*) signingDate
     transparent: (NSNumber*) transparent
     timeZone: (MSTimeZone*) timeZone
+    addCsvLink: (NSNumber*) addCsvLink
     
 {
     _type = type;
@@ -54,6 +56,7 @@
     _signingDate = signingDate;
     _transparent = transparent;
     _timeZone = timeZone;
+    _addCsvLink = addCsvLink;
     
 
     return self;
@@ -106,6 +109,8 @@
         if(timeZone_dict != nil)
             _timeZone = [[MSTimeZone  alloc]initWithValues:timeZone_dict];
         
+        
+        _addCsvLink = dict[@"addCsvLink"];
         
         
     }
@@ -220,6 +225,10 @@
         }
     }
     
+    
+    
+            if(_addCsvLink != nil) dict[@"addCsvLink"] = _addCsvLink ;
+        
     
 
     NSDictionary* output = [dict copy];

@@ -8,10 +8,12 @@
 @interface MSVerifierSignatureDTO : SWGObject
 
 @property(nonatomic) NSString* format;  
+@property(nonatomic) NSString* requestedFormat;  
 @property(nonatomic) NSString* encryptionAlgorithm;  
 @property(nonatomic) NSString* digestAlgorithm;  
 @property(nonatomic) NSString* level;  
 @property(nonatomic) SWGDate* signingTime;  
+@property(nonatomic) NSNumber* validationDisabled;  
 @property(nonatomic) NSString* validationStatus;  
 @property(nonatomic) NSString* indication;  
 @property(nonatomic) NSString* subIndication;  
@@ -23,10 +25,12 @@
 @property(nonatomic) NSArray* timeStamps;  
 @property(nonatomic) NSNumber* unsignedChanges;  
 - (id) format: (NSString*) format     
+    requestedFormat: (NSString*) requestedFormat     
     encryptionAlgorithm: (NSString*) encryptionAlgorithm     
     digestAlgorithm: (NSString*) digestAlgorithm     
     level: (NSString*) level     
     signingTime: (SWGDate*) signingTime     
+    validationDisabled: (NSNumber*) validationDisabled     
     validationStatus: (NSString*) validationStatus     
     indication: (NSString*) indication     
     subIndication: (NSString*) subIndication     

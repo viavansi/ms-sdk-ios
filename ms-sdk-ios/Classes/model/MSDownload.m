@@ -5,6 +5,7 @@
 
 @synthesize link = _link;
 @synthesize md5 = _md5;
+@synthesize hash = _hash;
 @synthesize fileName = _fileName;
 @synthesize expires = _expires;
 @synthesize base64 = _base64;
@@ -13,6 +14,7 @@
 
 -(id)link: (NSString*) link
     md5: (NSString*) md5
+    hash: (NSString*) hash
     fileName: (NSString*) fileName
     expires: (NSNumber*) expires
     base64: (NSString*) base64
@@ -22,6 +24,7 @@
 {
     _link = link;
     _md5 = md5;
+    _hash = hash;
     _fileName = fileName;
     _expires = expires;
     _base64 = base64;
@@ -39,6 +42,8 @@
         _link = dict[@"link"];
         
         _md5 = dict[@"md5"];
+        
+        _hash = dict[@"hash"];
         
         _fileName = dict[@"fileName"];
         
@@ -64,6 +69,10 @@
     
     
             if(_md5 != nil) dict[@"md5"] = _md5 ;
+        
+    
+    
+            if(_hash != nil) dict[@"hash"] = _hash ;
         
     
     

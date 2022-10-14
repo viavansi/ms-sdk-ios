@@ -4,10 +4,12 @@
 @implementation MSVerifierSignatureDTO
 
 @synthesize format = _format;
+@synthesize requestedFormat = _requestedFormat;
 @synthesize encryptionAlgorithm = _encryptionAlgorithm;
 @synthesize digestAlgorithm = _digestAlgorithm;
 @synthesize level = _level;
 @synthesize signingTime = _signingTime;
+@synthesize validationDisabled = _validationDisabled;
 @synthesize validationStatus = _validationStatus;
 @synthesize indication = _indication;
 @synthesize subIndication = _subIndication;
@@ -20,10 +22,12 @@
 @synthesize unsignedChanges = _unsignedChanges;
 
 -(id)format: (NSString*) format
+    requestedFormat: (NSString*) requestedFormat
     encryptionAlgorithm: (NSString*) encryptionAlgorithm
     digestAlgorithm: (NSString*) digestAlgorithm
     level: (NSString*) level
     signingTime: (SWGDate*) signingTime
+    validationDisabled: (NSNumber*) validationDisabled
     validationStatus: (NSString*) validationStatus
     indication: (NSString*) indication
     subIndication: (NSString*) subIndication
@@ -37,10 +41,12 @@
     
 {
     _format = format;
+    _requestedFormat = requestedFormat;
     _encryptionAlgorithm = encryptionAlgorithm;
     _digestAlgorithm = digestAlgorithm;
     _level = level;
     _signingTime = signingTime;
+    _validationDisabled = validationDisabled;
     _validationStatus = validationStatus;
     _indication = indication;
     _subIndication = subIndication;
@@ -62,6 +68,8 @@
     if(self) {
         _format = dict[@"format"];
         
+        _requestedFormat = dict[@"requestedFormat"];
+        
         _encryptionAlgorithm = dict[@"encryptionAlgorithm"];
         
         _digestAlgorithm = dict[@"digestAlgorithm"];
@@ -75,6 +83,8 @@
         if(signingTime_dict != nil)
             _signingTime = [[SWGDate  alloc]initWithValues:signingTime_dict];
         
+        
+        _validationDisabled = dict[@"validationDisabled"];
         
         _validationStatus = dict[@"validationStatus"];
         
@@ -135,6 +145,10 @@
         
     
     
+            if(_requestedFormat != nil) dict[@"requestedFormat"] = _requestedFormat ;
+        
+    
+    
             if(_encryptionAlgorithm != nil) dict[@"encryptionAlgorithm"] = _encryptionAlgorithm ;
         
     
@@ -170,6 +184,10 @@
         }
     }
     
+    
+    
+            if(_validationDisabled != nil) dict[@"validationDisabled"] = _validationDisabled ;
+        
     
     
             if(_validationStatus != nil) dict[@"validationStatus"] = _validationStatus ;

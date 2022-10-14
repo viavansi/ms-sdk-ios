@@ -12,6 +12,7 @@
 @synthesize url = _url;
 @synthesize info = _info;
 @synthesize revoked = _revoked;
+@synthesize disabled = _disabled;
 
 -(id)validRevocationSource: (NSNumber*) validRevocationSource
     method: (NSString*) method
@@ -22,6 +23,7 @@
     url: (NSString*) url
     info: (NSArray*) info
     revoked: (NSNumber*) revoked
+    disabled: (NSNumber*) disabled
     
 {
     _validRevocationSource = validRevocationSource;
@@ -33,6 +35,7 @@
     _url = url;
     _info = info;
     _revoked = revoked;
+    _disabled = disabled;
     
 
     return self;
@@ -77,6 +80,8 @@
         _info = dict[@"info"];
         
         _revoked = dict[@"revoked"];
+        
+        _disabled = dict[@"disabled"];
         
         
     }
@@ -183,6 +188,10 @@
     
     
             if(_revoked != nil) dict[@"revoked"] = _revoked ;
+        
+    
+    
+            if(_disabled != nil) dict[@"disabled"] = _disabled ;
         
     
 

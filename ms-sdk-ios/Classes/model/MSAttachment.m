@@ -19,6 +19,8 @@
 @synthesize recipientKey = _recipientKey;
 @synthesize transfers = _transfers;
 @synthesize signature = _signature;
+@synthesize fileReference = _fileReference;
+@synthesize inMail = _inMail;
 
 -(id)type: (NSString*) type
     processType: (NSString*) processType
@@ -36,6 +38,8 @@
     recipientKey: (NSString*) recipientKey
     transfers: (NSArray*) transfers
     signature: (MSSignature*) signature
+    fileReference: (NSString*) fileReference
+    inMail: (NSNumber*) inMail
     
 {
     _type = type;
@@ -54,6 +58,8 @@
     _recipientKey = recipientKey;
     _transfers = transfers;
     _signature = signature;
+    _fileReference = fileReference;
+    _inMail = inMail;
     
 
     return self;
@@ -140,6 +146,10 @@
         if(signature_dict != nil)
             _signature = [[MSSignature  alloc]initWithValues:signature_dict];
         
+        
+        _fileReference = dict[@"fileReference"];
+        
+        _inMail = dict[@"inMail"];
         
         
     }
@@ -275,6 +285,14 @@
         }
     }
     
+    
+    
+            if(_fileReference != nil) dict[@"fileReference"] = _fileReference ;
+        
+    
+    
+            if(_inMail != nil) dict[@"inMail"] = _inMail ;
+        
     
 
     NSDictionary* output = [dict copy];

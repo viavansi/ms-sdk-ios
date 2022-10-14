@@ -2,6 +2,7 @@
 #import "MSGroup.h"
 #import "MSAppCustomization.h"
 #import "MSUser.h"
+#import "MSCustomization.h"
 #import "MSSignPageStyle.h"
 #import "MSGroupInfo.h"
 #import "SWGObject.h"
@@ -84,6 +85,59 @@
      parentGroupCode:(NSString*) parentGroupCode 
     
     auth:(OAuth1Client *) auth onSuccess: (void (^)(MSUser* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    
+
+
+/**
+
+ 
+ 
+
+ 
+ @param groupCode Group&#39;s identifier
+ 
+
+ return type: 
+ */
++(NSNumber*) getGroupCustomizationNotification :(NSString*) groupCode 
+    
+    
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(void))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+
+
+/**
+
+ 
+ 
+
+ 
+ @param groupCode Group&#39;s identifier
+ 
+ @param body 
+ 
+
+ return type: 
+ */
++(NSNumber*) updateGroupCustomizationNotification :(NSString*) groupCode 
+     body:(MSCustomization*) body 
+    
+    
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(void))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+
+
+/**
+
+ Method for get default group style
+ 
+ Get default group style
+ 
+
+ 
+
+ return type: MSSignPageStyle*
+ */
++(NSNumber*) getSignPageStyleDefault :(OAuth1Client *) auth onSuccess:
+    (void (^)(MSSignPageStyle* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     
 
 

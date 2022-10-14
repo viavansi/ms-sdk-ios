@@ -3,6 +3,7 @@
 #import "MSMessageSet.h"
 #import "MSSetExtendPeriod.h"
 #import "MSMessageSetInfo.h"
+#import "MSSetCallbackUrl.h"
 #import "MSNotificationResend.h"
 #import "SWGObject.h"
 #import "OAuth1Client.h"
@@ -123,12 +124,12 @@
  
 
  
- @param message set object that needs to be delivery
+ @param set set object that needs to be delivery
  
 
  return type: NSString*
  */
-+(NSNumber*) callbackForm_1 :(NSString*) message 
++(NSNumber*) callbackForm_1 :(NSString*) set 
     
     auth:(OAuth1Client *) auth onSuccess: (void (^)(NSString* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     
@@ -172,6 +173,25 @@
      comment:(NSString*) comment 
     
     auth:(OAuth1Client *) auth onSuccess: (void (^)(MSMessageSetResponse* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    
+
+
+/**
+
+ Send callback URL
+ 
+ Send callback URL
+ 
+
+ 
+ @param body JSCallbackUrl object that needs to send callback URL
+ 
+
+ return type: NSNumber*
+ */
++(NSNumber*) sendCallbackUrl_1 :(MSSetCallbackUrl*) body 
+    
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(NSNumber* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     
 
 

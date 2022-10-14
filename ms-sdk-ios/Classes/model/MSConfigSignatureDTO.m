@@ -27,6 +27,7 @@
 @synthesize operationServer = _operationServer;
 @synthesize timestampAlgorithm = _timestampAlgorithm;
 @synthesize autoVerifyDisabled = _autoVerifyDisabled;
+@synthesize autoVerifyError = _autoVerifyError;
 @synthesize revocationRequestType = _revocationRequestType;
 
 -(id)idReference: (NSString*) idReference
@@ -53,6 +54,7 @@
     operationServer: (NSString*) operationServer
     timestampAlgorithm: (NSString*) timestampAlgorithm
     autoVerifyDisabled: (NSNumber*) autoVerifyDisabled
+    autoVerifyError: (NSNumber*) autoVerifyError
     revocationRequestType: (NSString*) revocationRequestType
     
 {
@@ -80,6 +82,7 @@
     _operationServer = operationServer;
     _timestampAlgorithm = timestampAlgorithm;
     _autoVerifyDisabled = autoVerifyDisabled;
+    _autoVerifyError = autoVerifyError;
     _revocationRequestType = revocationRequestType;
     
 
@@ -167,6 +170,8 @@
         _timestampAlgorithm = dict[@"timestampAlgorithm"];
         
         _autoVerifyDisabled = dict[@"autoVerifyDisabled"];
+        
+        _autoVerifyError = dict[@"autoVerifyError"];
         
         _revocationRequestType = dict[@"revocationRequestType"];
         
@@ -377,6 +382,10 @@
     
     
             if(_autoVerifyDisabled != nil) dict[@"autoVerifyDisabled"] = _autoVerifyDisabled ;
+        
+    
+    
+            if(_autoVerifyError != nil) dict[@"autoVerifyError"] = _autoVerifyError ;
         
     
     

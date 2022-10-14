@@ -8,6 +8,8 @@
 @synthesize links = _links;
 @synthesize externalCode = _externalCode;
 @synthesize externalStatus = _externalStatus;
+@synthesize groupCode = _groupCode;
+@synthesize commentReject = _commentReject;
 @synthesize messages = _messages;
 
 -(id)code: (NSString*) code
@@ -15,6 +17,8 @@
     links: (NSArray*) links
     externalCode: (NSString*) externalCode
     externalStatus: (NSString*) externalStatus
+    groupCode: (NSString*) groupCode
+    commentReject: (NSString*) commentReject
     messages: (NSArray*) messages
     
 {
@@ -23,6 +27,8 @@
     _links = links;
     _externalCode = externalCode;
     _externalStatus = externalStatus;
+    _groupCode = groupCode;
+    _commentReject = commentReject;
     _messages = messages;
     
 
@@ -62,6 +68,10 @@
         _externalCode = dict[@"externalCode"];
         
         _externalStatus = dict[@"externalStatus"];
+        
+        _groupCode = dict[@"groupCode"];
+        
+        _commentReject = dict[@"commentReject"];
         
         
         
@@ -132,6 +142,14 @@
     
     
             if(_externalStatus != nil) dict[@"externalStatus"] = _externalStatus ;
+        
+    
+    
+            if(_groupCode != nil) dict[@"groupCode"] = _groupCode ;
+        
+    
+    
+            if(_commentReject != nil) dict[@"commentReject"] = _commentReject ;
         
     
     

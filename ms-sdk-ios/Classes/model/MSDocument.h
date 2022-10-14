@@ -35,6 +35,8 @@
 @property(nonatomic) NSNumber* formUpdated;  
 @property(nonatomic) NSNumber* hideDocumentBeforeStart;  
 @property(nonatomic) NSNumber* custodyDays;  
+@property(nonatomic) NSString* signedHash;  
+@property(nonatomic) NSString* hashContent;  
 - (id) templateCode: (NSString*) templateCode     
     templateReference: (NSString*) templateReference     
     templateVersion: (NSNumber*) templateVersion     
@@ -62,7 +64,9 @@
     extraPages: (NSNumber*) extraPages     
     formUpdated: (NSNumber*) formUpdated     
     hideDocumentBeforeStart: (NSNumber*) hideDocumentBeforeStart     
-    custodyDays: (NSNumber*) custodyDays;
+    custodyDays: (NSNumber*) custodyDays     
+    signedHash: (NSString*) signedHash     
+    hashContent: (NSString*) hashContent;
     
 
 - (id) initWithValues: (NSDictionary*)dict;

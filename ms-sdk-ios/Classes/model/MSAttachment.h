@@ -23,6 +23,8 @@
 @property(nonatomic) NSString* recipientKey;  
 @property(nonatomic) NSArray* transfers;  
 @property(nonatomic) MSSignature* signature;  
+@property(nonatomic) NSString* fileReference;  
+@property(nonatomic) NSNumber* inMail;  
 - (id) type: (NSString*) type     
     processType: (NSString*) processType     
     processId: (NSString*) processId     
@@ -38,7 +40,9 @@
     readOnly: (NSNumber*) readOnly     
     recipientKey: (NSString*) recipientKey     
     transfers: (NSArray*) transfers     
-    signature: (MSSignature*) signature;
+    signature: (MSSignature*) signature     
+    fileReference: (NSString*) fileReference     
+    inMail: (NSNumber*) inMail;
     
 
 - (id) initWithValues: (NSDictionary*)dict;

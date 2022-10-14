@@ -39,6 +39,7 @@
 @property(nonatomic) NSString* metadataCipherPublicKey;  
 @property(nonatomic) NSString* encryptionKeyAlias;  
 @property(nonatomic) NSNumber* optional;  
+@property(nonatomic) NSString* rotation;  
 @property(nonatomic) NSString* ratioH;  
 @property(nonatomic) NSString* ratioW;  
 @property(nonatomic) MSEvidenceSignature* signatureData;  
@@ -90,6 +91,7 @@
     metadataCipherPublicKey: (NSString*) metadataCipherPublicKey     
     encryptionKeyAlias: (NSString*) encryptionKeyAlias     
     optional: (NSNumber*) optional     
+    rotation: (NSString*) rotation     
     ratioH: (NSString*) ratioH     
     ratioW: (NSString*) ratioW     
     signatureData: (MSEvidenceSignature*) signatureData     

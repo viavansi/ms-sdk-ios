@@ -29,6 +29,7 @@
 @synthesize metadataCipherPublicKey = _metadataCipherPublicKey;
 @synthesize encryptionKeyAlias = _encryptionKeyAlias;
 @synthesize optional = _optional;
+@synthesize rotation = _rotation;
 @synthesize ratioH = _ratioH;
 @synthesize ratioW = _ratioW;
 @synthesize signatureData = _signatureData;
@@ -81,6 +82,7 @@
     metadataCipherPublicKey: (NSString*) metadataCipherPublicKey
     encryptionKeyAlias: (NSString*) encryptionKeyAlias
     optional: (NSNumber*) optional
+    rotation: (NSString*) rotation
     ratioH: (NSString*) ratioH
     ratioW: (NSString*) ratioW
     signatureData: (MSEvidenceSignature*) signatureData
@@ -134,6 +136,7 @@
     _metadataCipherPublicKey = metadataCipherPublicKey;
     _encryptionKeyAlias = encryptionKeyAlias;
     _optional = optional;
+    _rotation = rotation;
     _ratioH = ratioH;
     _ratioW = ratioW;
     _signatureData = signatureData;
@@ -259,6 +262,8 @@
         _encryptionKeyAlias = dict[@"encryptionKeyAlias"];
         
         _optional = dict[@"optional"];
+        
+        _rotation = dict[@"rotation"];
         
         _ratioH = dict[@"ratioH"];
         
@@ -518,6 +523,10 @@
     
     
             if(_optional != nil) dict[@"optional"] = _optional ;
+        
+    
+    
+            if(_rotation != nil) dict[@"rotation"] = _rotation ;
         
     
     

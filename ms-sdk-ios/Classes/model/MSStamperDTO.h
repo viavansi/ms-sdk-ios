@@ -22,6 +22,7 @@
 @property(nonatomic) SWGDate* signingDate;  
 @property(nonatomic) NSNumber* transparent;  
 @property(nonatomic) MSTimeZone* timeZone;  
+@property(nonatomic) NSNumber* addCsvLink;  
 - (id) type: (NSString*) type     
     rotation: (NSString*) rotation     
     width: (NSNumber*) width     
@@ -37,7 +38,8 @@
     logo: (NSArray*) logo     
     signingDate: (SWGDate*) signingDate     
     transparent: (NSNumber*) transparent     
-    timeZone: (MSTimeZone*) timeZone;
+    timeZone: (MSTimeZone*) timeZone     
+    addCsvLink: (NSNumber*) addCsvLink;
     
 
 - (id) initWithValues: (NSDictionary*)dict;

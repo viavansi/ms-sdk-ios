@@ -40,6 +40,8 @@
 @property(nonatomic) NSString* callbackURLType;  
 @property(nonatomic) NSString* callbackPhones;  
 @property(nonatomic) NSString* callbackMails;  
+@property(nonatomic) NSString* callbackMailsCc;  
+@property(nonatomic) NSString* callbackMailsBcc;  
 @property(nonatomic) NSString* callbackCheckListMails;  
 @property(nonatomic) NSArray* callbackMailsFormKeys;  
 @property(nonatomic) NSString* callbackMailFilename;  
@@ -88,6 +90,8 @@
     callbackURLType: (NSString*) callbackURLType     
     callbackPhones: (NSString*) callbackPhones     
     callbackMails: (NSString*) callbackMails     
+    callbackMailsCc: (NSString*) callbackMailsCc     
+    callbackMailsBcc: (NSString*) callbackMailsBcc     
     callbackCheckListMails: (NSString*) callbackCheckListMails     
     callbackMailsFormKeys: (NSArray*) callbackMailsFormKeys     
     callbackMailFilename: (NSString*) callbackMailFilename     

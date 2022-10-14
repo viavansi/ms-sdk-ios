@@ -30,6 +30,8 @@
 @synthesize callbackURLType = _callbackURLType;
 @synthesize callbackPhones = _callbackPhones;
 @synthesize callbackMails = _callbackMails;
+@synthesize callbackMailsCc = _callbackMailsCc;
+@synthesize callbackMailsBcc = _callbackMailsBcc;
 @synthesize callbackCheckListMails = _callbackCheckListMails;
 @synthesize callbackMailsFormKeys = _callbackMailsFormKeys;
 @synthesize callbackMailFilename = _callbackMailFilename;
@@ -79,6 +81,8 @@
     callbackURLType: (NSString*) callbackURLType
     callbackPhones: (NSString*) callbackPhones
     callbackMails: (NSString*) callbackMails
+    callbackMailsCc: (NSString*) callbackMailsCc
+    callbackMailsBcc: (NSString*) callbackMailsBcc
     callbackCheckListMails: (NSString*) callbackCheckListMails
     callbackMailsFormKeys: (NSArray*) callbackMailsFormKeys
     callbackMailFilename: (NSString*) callbackMailFilename
@@ -129,6 +133,8 @@
     _callbackURLType = callbackURLType;
     _callbackPhones = callbackPhones;
     _callbackMails = callbackMails;
+    _callbackMailsCc = callbackMailsCc;
+    _callbackMailsBcc = callbackMailsBcc;
     _callbackCheckListMails = callbackCheckListMails;
     _callbackMailsFormKeys = callbackMailsFormKeys;
     _callbackMailFilename = callbackMailFilename;
@@ -290,6 +296,10 @@
         _callbackPhones = dict[@"callbackPhones"];
         
         _callbackMails = dict[@"callbackMails"];
+        
+        _callbackMailsCc = dict[@"callbackMailsCc"];
+        
+        _callbackMailsBcc = dict[@"callbackMailsBcc"];
         
         _callbackCheckListMails = dict[@"callbackCheckListMails"];
         
@@ -619,6 +629,14 @@
     
     
             if(_callbackMails != nil) dict[@"callbackMails"] = _callbackMails ;
+        
+    
+    
+            if(_callbackMailsCc != nil) dict[@"callbackMailsCc"] = _callbackMailsCc ;
+        
+    
+    
+            if(_callbackMailsBcc != nil) dict[@"callbackMailsBcc"] = _callbackMailsBcc ;
         
     
     

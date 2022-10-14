@@ -16,6 +16,7 @@
 @property(nonatomic) NSString* url;  
 @property(nonatomic) NSArray* info;  
 @property(nonatomic) NSNumber* revoked;  
+@property(nonatomic) NSNumber* disabled;  
 - (id) validRevocationSource: (NSNumber*) validRevocationSource     
     method: (NSString*) method     
     ocspResponse: (MSVerifierOcspDTO*) ocspResponse     
@@ -24,7 +25,8 @@
     revocationReason: (NSString*) revocationReason     
     url: (NSString*) url     
     info: (NSArray*) info     
-    revoked: (NSNumber*) revoked;
+    revoked: (NSNumber*) revoked     
+    disabled: (NSNumber*) disabled;
     
 
 - (id) initWithValues: (NSDictionary*)dict;

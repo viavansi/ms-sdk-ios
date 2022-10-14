@@ -11,12 +11,16 @@
 @property(nonatomic) NSArray* links;  
 @property(nonatomic) NSString* externalCode;  
 @property(nonatomic) NSString* externalStatus;  
+@property(nonatomic) NSString* groupCode;  
+@property(nonatomic) NSString* commentReject;  
 @property(nonatomic) NSArray* messages;  
 - (id) code: (NSString*) code     
     status: (NSString*) status     
     links: (NSArray*) links     
     externalCode: (NSString*) externalCode     
     externalStatus: (NSString*) externalStatus     
+    groupCode: (NSString*) groupCode     
+    commentReject: (NSString*) commentReject     
     messages: (NSArray*) messages;
     
 
