@@ -10,6 +10,7 @@
 @interface MSVerifierCertificateDTO : SWGObject
 
 @property(nonatomic) NSString* certX509Base64;  
+@property(nonatomic) NSString* name;  
 @property(nonatomic) NSString* subject;  
 @property(nonatomic) NSString* issuer;  
 @property(nonatomic) SWGDate* notafter;  
@@ -31,6 +32,7 @@
 @property(nonatomic) MSVerifierDTO* validation;  
 @property(nonatomic) MSVerifierCertificateDTO* issuerCert;  
 - (id) certX509Base64: (NSString*) certX509Base64     
+    name: (NSString*) name     
     subject: (NSString*) subject     
     issuer: (NSString*) issuer     
     notafter: (SWGDate*) notafter     

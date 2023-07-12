@@ -5,8 +5,10 @@
 
 @interface MSOtpList : SWGObject
 
+@property(nonatomic) NSNumber* allEvidencesOTPGroup;  
 @property(nonatomic) NSArray* otpGroupEvidences;  
-- (id) otpGroupEvidences: (NSArray*) otpGroupEvidences;
+- (id) allEvidencesOTPGroup: (NSNumber*) allEvidencesOTPGroup     
+    otpGroupEvidences: (NSArray*) otpGroupEvidences;
     
 
 - (id) initWithValues: (NSDictionary*)dict;

@@ -25,6 +25,10 @@
 @property(nonatomic) MSSignature* signature;  
 @property(nonatomic) NSString* fileReference;  
 @property(nonatomic) NSNumber* inMail;  
+@property(nonatomic) NSString* enabledExpression;  
+@property(nonatomic) NSString* visibleExpression;  
+@property(nonatomic) NSNumber* enabled;  
+@property(nonatomic) NSNumber* visible;  
 - (id) type: (NSString*) type     
     processType: (NSString*) processType     
     processId: (NSString*) processId     
@@ -42,7 +46,11 @@
     transfers: (NSArray*) transfers     
     signature: (MSSignature*) signature     
     fileReference: (NSString*) fileReference     
-    inMail: (NSNumber*) inMail;
+    inMail: (NSNumber*) inMail     
+    enabledExpression: (NSString*) enabledExpression     
+    visibleExpression: (NSString*) visibleExpression     
+    enabled: (NSNumber*) enabled     
+    visible: (NSNumber*) visible;
     
 
 - (id) initWithValues: (NSDictionary*)dict;

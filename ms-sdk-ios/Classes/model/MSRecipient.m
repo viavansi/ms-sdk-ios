@@ -8,6 +8,7 @@
 @synthesize mail = _mail;
 @synthesize name = _name;
 @synthesize notificationType = _notificationType;
+@synthesize smsType = _smsType;
 @synthesize userCode = _userCode;
 @synthesize _id = __id;
 @synthesize status = _status;
@@ -24,6 +25,7 @@
     mail: (NSString*) mail
     name: (NSString*) name
     notificationType: (NSString*) notificationType
+    smsType: (NSString*) smsType
     userCode: (NSString*) userCode
     _id: (NSString*) _id
     status: (NSString*) status
@@ -41,6 +43,7 @@
     _mail = mail;
     _name = name;
     _notificationType = notificationType;
+    _smsType = smsType;
     _userCode = userCode;
     __id = _id;
     _status = status;
@@ -69,6 +72,8 @@
         _name = dict[@"name"];
         
         _notificationType = dict[@"notificationType"];
+        
+        _smsType = dict[@"smsType"];
         
         _userCode = dict[@"userCode"];
         
@@ -116,6 +121,10 @@
     
     
             if(_notificationType != nil) dict[@"notificationType"] = _notificationType ;
+        
+    
+    
+            if(_smsType != nil) dict[@"smsType"] = _smsType ;
         
     
     

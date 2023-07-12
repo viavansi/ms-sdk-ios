@@ -341,11 +341,14 @@
  
  @param groupCode OTP SMS Evidence&#39;s group code
  
+ @param smsType OTP SMS Evidence&#39;s sms type
+ 
 
  return type: MSOtpBatchPrepare*
  */
 +(NSNumber*) prepareBatchOtpSmsEvidence :(NSString*) setCode 
      groupCode:(NSString*) groupCode 
+     smsType:(NSString*) smsType 
     
     auth:(OAuth1Client *) auth onSuccess: (void (^)(MSOtpBatchPrepare* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     
@@ -388,11 +391,14 @@
  
  @param evidenceCode Evidence&#39;s unique code
  
+ @param smsType OTP SMS Evidence&#39;s sms type
+ 
 
  return type: MSEvidence*
  */
 +(NSNumber*) prepareOtpSmsEvidence :(NSString*) messageCode 
      evidenceCode:(NSString*) evidenceCode 
+     smsType:(NSString*) smsType 
     
     auth:(OAuth1Client *) auth onSuccess: (void (^)(MSEvidence* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     

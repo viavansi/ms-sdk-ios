@@ -21,6 +21,10 @@
 @synthesize signature = _signature;
 @synthesize fileReference = _fileReference;
 @synthesize inMail = _inMail;
+@synthesize enabledExpression = _enabledExpression;
+@synthesize visibleExpression = _visibleExpression;
+@synthesize enabled = _enabled;
+@synthesize visible = _visible;
 
 -(id)type: (NSString*) type
     processType: (NSString*) processType
@@ -40,6 +44,10 @@
     signature: (MSSignature*) signature
     fileReference: (NSString*) fileReference
     inMail: (NSNumber*) inMail
+    enabledExpression: (NSString*) enabledExpression
+    visibleExpression: (NSString*) visibleExpression
+    enabled: (NSNumber*) enabled
+    visible: (NSNumber*) visible
     
 {
     _type = type;
@@ -60,6 +68,10 @@
     _signature = signature;
     _fileReference = fileReference;
     _inMail = inMail;
+    _enabledExpression = enabledExpression;
+    _visibleExpression = visibleExpression;
+    _enabled = enabled;
+    _visible = visible;
     
 
     return self;
@@ -150,6 +162,14 @@
         _fileReference = dict[@"fileReference"];
         
         _inMail = dict[@"inMail"];
+        
+        _enabledExpression = dict[@"enabledExpression"];
+        
+        _visibleExpression = dict[@"visibleExpression"];
+        
+        _enabled = dict[@"enabled"];
+        
+        _visible = dict[@"visible"];
         
         
     }
@@ -292,6 +312,22 @@
     
     
             if(_inMail != nil) dict[@"inMail"] = _inMail ;
+        
+    
+    
+            if(_enabledExpression != nil) dict[@"enabledExpression"] = _enabledExpression ;
+        
+    
+    
+            if(_visibleExpression != nil) dict[@"visibleExpression"] = _visibleExpression ;
+        
+    
+    
+            if(_enabled != nil) dict[@"enabled"] = _enabled ;
+        
+    
+    
+            if(_visible != nil) dict[@"visible"] = _visible ;
         
     
 

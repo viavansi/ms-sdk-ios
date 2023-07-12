@@ -3,11 +3,14 @@
 
 @implementation MSOtpList
 
+@synthesize allEvidencesOTPGroup = _allEvidencesOTPGroup;
 @synthesize otpGroupEvidences = _otpGroupEvidences;
 
--(id)otpGroupEvidences: (NSArray*) otpGroupEvidences
+-(id)allEvidencesOTPGroup: (NSNumber*) allEvidencesOTPGroup
+    otpGroupEvidences: (NSArray*) otpGroupEvidences
     
 {
+    _allEvidencesOTPGroup = allEvidencesOTPGroup;
     _otpGroupEvidences = otpGroupEvidences;
     
 
@@ -18,6 +21,8 @@
 {
     self = [super init];
     if(self) {
+        _allEvidencesOTPGroup = dict[@"allEvidencesOTPGroup"];
+        
         
         
         id otpGroupEvidences_dict = dict[@"otpGroupEvidences"];
@@ -47,6 +52,10 @@
 
 -(NSDictionary*) asDictionary {
     NSMutableDictionary* dict = [[NSMutableDictionary alloc] init];
+    
+    
+            if(_allEvidencesOTPGroup != nil) dict[@"allEvidencesOTPGroup"] = _allEvidencesOTPGroup ;
+        
     
     
     if(_otpGroupEvidences != nil){

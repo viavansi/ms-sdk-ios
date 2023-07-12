@@ -4,6 +4,7 @@
 @implementation MSVerifierCertificateDTO
 
 @synthesize certX509Base64 = _certX509Base64;
+@synthesize name = _name;
 @synthesize subject = _subject;
 @synthesize issuer = _issuer;
 @synthesize notafter = _notafter;
@@ -26,6 +27,7 @@
 @synthesize issuerCert = _issuerCert;
 
 -(id)certX509Base64: (NSString*) certX509Base64
+    name: (NSString*) name
     subject: (NSString*) subject
     issuer: (NSString*) issuer
     notafter: (SWGDate*) notafter
@@ -49,6 +51,7 @@
     
 {
     _certX509Base64 = certX509Base64;
+    _name = name;
     _subject = subject;
     _issuer = issuer;
     _notafter = notafter;
@@ -79,6 +82,8 @@
     self = [super init];
     if(self) {
         _certX509Base64 = dict[@"certX509Base64"];
+        
+        _name = dict[@"name"];
         
         _subject = dict[@"subject"];
         
@@ -180,6 +185,10 @@
     
     
             if(_certX509Base64 != nil) dict[@"certX509Base64"] = _certX509Base64 ;
+        
+    
+    
+            if(_name != nil) dict[@"name"] = _name ;
         
     
     

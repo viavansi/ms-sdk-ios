@@ -6,6 +6,7 @@
 @synthesize validationStatus = _validationStatus;
 @synthesize evidenceInfo = _evidenceInfo;
 @synthesize evidenceName = _evidenceName;
+@synthesize evidenceDescription = _evidenceDescription;
 @synthesize signatureInfo = _signatureInfo;
 @synthesize validationMessages = _validationMessages;
 @synthesize validationErrors = _validationErrors;
@@ -13,6 +14,7 @@
 -(id)validationStatus: (NSString*) validationStatus
     evidenceInfo: (MSXMLEvidenceDTO*) evidenceInfo
     evidenceName: (NSString*) evidenceName
+    evidenceDescription: (NSString*) evidenceDescription
     signatureInfo: (MSVerifierSignatureDTO*) signatureInfo
     validationMessages: (NSArray*) validationMessages
     validationErrors: (NSArray*) validationErrors
@@ -21,6 +23,7 @@
     _validationStatus = validationStatus;
     _evidenceInfo = evidenceInfo;
     _evidenceName = evidenceName;
+    _evidenceDescription = evidenceDescription;
     _signatureInfo = signatureInfo;
     _validationMessages = validationMessages;
     _validationErrors = validationErrors;
@@ -44,6 +47,8 @@
         
         
         _evidenceName = dict[@"evidenceName"];
+        
+        _evidenceDescription = dict[@"evidenceDescription"];
         
         
         
@@ -96,6 +101,10 @@
     
     
             if(_evidenceName != nil) dict[@"evidenceName"] = _evidenceName ;
+        
+    
+    
+            if(_evidenceDescription != nil) dict[@"evidenceDescription"] = _evidenceDescription ;
         
     
     

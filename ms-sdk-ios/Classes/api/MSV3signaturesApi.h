@@ -56,6 +56,37 @@
 
 /**
 
+ Method to sign with andes certificate
+ 
+ Method to sign with andes certificate
+ 
+
+ 
+ @param token 
+ 
+ @param nationalId 
+ 
+ @param pin 
+ 
+ @param docType 
+ 
+ @param ip 
+ 
+
+ return type: NSString*
+ */
++(NSNumber*) signWithAndesCertificate_1 :(NSString*) token 
+     nationalId:(NSString*) nationalId 
+     pin:(NSString*) pin 
+     docType:(NSString*) docType 
+     ip:(NSString*) ip 
+    
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(NSString* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    
+
+
+/**
+
  Method for get signed message
  
  

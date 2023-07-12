@@ -1,7 +1,7 @@
 #import "MSV3composeApi.h"
 #import "SWGFile.h"
 #import "ApiClient.h"
-#import "MSToken.h"
+#import "MSComposeToken.h"
 
 
 
@@ -14,7 +14,7 @@
 
 +(NSNumber*) getWriteToken: (NSString*) groupCode
         
-        auth:(OAuth1Client *) auth onSuccess: (void (^)(MSToken* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock
+        auth:(OAuth1Client *) auth onSuccess: (void (^)(MSComposeToken* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock
          {
 
     NSMutableString* requestUrl = [NSMutableString stringWithFormat:@"%@/v3/compose/token/{groupCode}", [[ApiClient sharedInstance] url]];
@@ -68,9 +68,9 @@
           responseContentType: responseContentType
               successBlock: ^(NSDictionary *data) {
                 
-                MSToken *result = nil;
+                MSComposeToken *result = nil;
                 if (data) {
-                    result = [[MSToken    alloc]initWithValues: data];
+                    result = [[MSComposeToken    alloc]initWithValues: data];
                 }
                 onSuccessBlock(result);
                 

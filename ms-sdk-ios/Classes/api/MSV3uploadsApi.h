@@ -1,5 +1,6 @@
 #import <Foundation/Foundation.h>
 #import "MSUpload.h"
+#import "MSUploadLink.h"
 #import "SWGObject.h"
 #import "OAuth1Client.h"
 
@@ -40,6 +41,28 @@
  return type: MSUpload*
  */
 +(NSNumber*) getUploadLink :(NSString*) extension 
+    
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(MSUpload* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    
+
+
+/**
+
+ Method for upload document
+ 
+ 
+ 
+
+ 
+ @param body Link to download
+ 
+ @param token 
+ 
+
+ return type: MSUpload*
+ */
++(NSNumber*) uploadLink :(MSUploadLink*) body 
+     token:(NSString*) token 
     
     auth:(OAuth1Client *) auth onSuccess: (void (^)(MSUpload* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     

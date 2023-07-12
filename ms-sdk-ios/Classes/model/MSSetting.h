@@ -4,6 +4,7 @@
 #import "MSParam.h"
 #import "MSPolicy.h"
 #import "MSAcrofieldPosition.h"
+#import "MSTransfer.h"
 #import "MSFont.h"
 
 
@@ -16,6 +17,7 @@
 @property(nonatomic) NSArray* policies;  
 @property(nonatomic) NSString* callbackAuthorization;  
 @property(nonatomic) NSString* callbackURL;  
+@property(nonatomic) NSString* callbackRedirectURL;  
 @property(nonatomic) NSString* callbackCheckListMails;  
 @property(nonatomic) NSString* callbackMails;  
 @property(nonatomic) NSString* callbackPhones;  
@@ -38,6 +40,7 @@
 @property(nonatomic) NSNumber* retryTime;  
 @property(nonatomic) NSNumber* retryCount;  
 @property(nonatomic) NSString* workflowReferenceCode;  
+@property(nonatomic) NSArray* transfers;  
 - (id) titleKey: (NSString*) titleKey     
     descriptionKey: (NSString*) descriptionKey     
     policy: (MSPolicy*) policy     
@@ -45,6 +48,7 @@
     policies: (NSArray*) policies     
     callbackAuthorization: (NSString*) callbackAuthorization     
     callbackURL: (NSString*) callbackURL     
+    callbackRedirectURL: (NSString*) callbackRedirectURL     
     callbackCheckListMails: (NSString*) callbackCheckListMails     
     callbackMails: (NSString*) callbackMails     
     callbackPhones: (NSString*) callbackPhones     
@@ -66,7 +70,8 @@
     metadataList: (NSArray*) metadataList     
     retryTime: (NSNumber*) retryTime     
     retryCount: (NSNumber*) retryCount     
-    workflowReferenceCode: (NSString*) workflowReferenceCode;
+    workflowReferenceCode: (NSString*) workflowReferenceCode     
+    transfers: (NSArray*) transfers;
     
 
 - (id) initWithValues: (NSDictionary*)dict;

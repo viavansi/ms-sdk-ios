@@ -10,6 +10,7 @@
 @synthesize policies = _policies;
 @synthesize callbackAuthorization = _callbackAuthorization;
 @synthesize callbackURL = _callbackURL;
+@synthesize callbackRedirectURL = _callbackRedirectURL;
 @synthesize callbackCheckListMails = _callbackCheckListMails;
 @synthesize callbackMails = _callbackMails;
 @synthesize callbackPhones = _callbackPhones;
@@ -32,6 +33,7 @@
 @synthesize retryTime = _retryTime;
 @synthesize retryCount = _retryCount;
 @synthesize workflowReferenceCode = _workflowReferenceCode;
+@synthesize transfers = _transfers;
 
 -(id)titleKey: (NSString*) titleKey
     descriptionKey: (NSString*) descriptionKey
@@ -40,6 +42,7 @@
     policies: (NSArray*) policies
     callbackAuthorization: (NSString*) callbackAuthorization
     callbackURL: (NSString*) callbackURL
+    callbackRedirectURL: (NSString*) callbackRedirectURL
     callbackCheckListMails: (NSString*) callbackCheckListMails
     callbackMails: (NSString*) callbackMails
     callbackPhones: (NSString*) callbackPhones
@@ -62,6 +65,7 @@
     retryTime: (NSNumber*) retryTime
     retryCount: (NSNumber*) retryCount
     workflowReferenceCode: (NSString*) workflowReferenceCode
+    transfers: (NSArray*) transfers
     
 {
     _titleKey = titleKey;
@@ -71,6 +75,7 @@
     _policies = policies;
     _callbackAuthorization = callbackAuthorization;
     _callbackURL = callbackURL;
+    _callbackRedirectURL = callbackRedirectURL;
     _callbackCheckListMails = callbackCheckListMails;
     _callbackMails = callbackMails;
     _callbackPhones = callbackPhones;
@@ -93,6 +98,7 @@
     _retryTime = retryTime;
     _retryCount = retryCount;
     _workflowReferenceCode = workflowReferenceCode;
+    _transfers = transfers;
     
 
     return self;
@@ -141,6 +147,8 @@
         _callbackAuthorization = dict[@"callbackAuthorization"];
         
         _callbackURL = dict[@"callbackURL"];
+        
+        _callbackRedirectURL = dict[@"callbackRedirectURL"];
         
         _callbackCheckListMails = dict[@"callbackCheckListMails"];
         
@@ -239,6 +247,28 @@
         _workflowReferenceCode = dict[@"workflowReferenceCode"];
         
         
+        
+        id transfers_dict = dict[@"transfers"];
+        
+        if([transfers_dict isKindOfClass:[NSArray class]]) {
+            NSMutableArray * objs = [[NSMutableArray alloc] initWithCapacity:[(NSArray*)transfers_dict count]];
+            if([(NSArray*)transfers_dict count] > 0) {
+                for (int i=0 ; i<[(NSArray*)transfers_dict count] ; i++) {
+                	NSDictionary *dict = [[NSDictionary alloc] initWithDictionary:[transfers_dict objectAtIndex:i]];
+                    MSTransfer* d = [[MSTransfer alloc] initWithValues:dict];
+                    [objs addObject:d];
+                }
+                _transfers = [[NSArray alloc] initWithArray:objs];
+            }
+            else
+                _transfers = [[NSArray alloc] init];
+        }
+        else {
+            _transfers = [[NSArray alloc] init];
+        }
+        
+        
+        
     }
     return self;
 }
@@ -314,6 +344,10 @@
     
     
             if(_callbackURL != nil) dict[@"callbackURL"] = _callbackURL ;
+        
+    
+    
+            if(_callbackRedirectURL != nil) dict[@"callbackRedirectURL"] = _callbackRedirectURL ;
         
     
     
@@ -487,6 +521,31 @@
     
             if(_workflowReferenceCode != nil) dict[@"workflowReferenceCode"] = _workflowReferenceCode ;
         
+    
+    
+    if(_transfers != nil){
+        if([_transfers isKindOfClass:[NSArray class]]){
+            NSMutableArray * array = [[NSMutableArray alloc] init];
+            for( int i=0 ; i<[(NSArray*)_transfers count] ; i++ ) {
+				MSTransfer *transfers = [[MSTransfer alloc]init];
+				transfers = [(NSArray*)_transfers objectAtIndex:i];
+                [array addObject:[(SWGObject*)transfers asDictionary]];
+            }
+            dict[@"transfers"] = array;
+        }
+        else if(_transfers && [_transfers isKindOfClass:[SWGDate class]]) {
+            NSString * dateString = [(SWGDate*)_transfers toString];
+            if(dateString){
+                dict[@"transfers"] = dateString;
+            }
+        }
+        else {
+        
+            if(_transfers != nil) dict[@"transfers"] = [(SWGObject*)_transfers asDictionary];
+        
+        }
+    }
+    
     
 
     NSDictionary* output = [dict copy];

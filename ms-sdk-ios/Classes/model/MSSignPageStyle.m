@@ -37,7 +37,10 @@
 @synthesize hideImageUpload = _hideImageUpload;
 @synthesize hideImageCapture = _hideImageCapture;
 @synthesize hidePoweredByViafirma = _hidePoweredByViafirma;
+@synthesize hideUserConsentBiometricSign = _hideUserConsentBiometricSign;
 @synthesize allowedSignType = _allowedSignType;
+@synthesize apiVersion = _apiVersion;
+@synthesize iframeDisabled = _iframeDisabled;
 
 -(id)logo: (NSString*) logo
     mainColor: (NSString*) mainColor
@@ -73,7 +76,10 @@
     hideImageUpload: (NSNumber*) hideImageUpload
     hideImageCapture: (NSNumber*) hideImageCapture
     hidePoweredByViafirma: (NSNumber*) hidePoweredByViafirma
+    hideUserConsentBiometricSign: (NSNumber*) hideUserConsentBiometricSign
     allowedSignType: (NSString*) allowedSignType
+    apiVersion: (NSString*) apiVersion
+    iframeDisabled: (NSNumber*) iframeDisabled
     
 {
     _logo = logo;
@@ -110,7 +116,10 @@
     _hideImageUpload = hideImageUpload;
     _hideImageCapture = hideImageCapture;
     _hidePoweredByViafirma = hidePoweredByViafirma;
+    _hideUserConsentBiometricSign = hideUserConsentBiometricSign;
     _allowedSignType = allowedSignType;
+    _apiVersion = apiVersion;
+    _iframeDisabled = iframeDisabled;
     
 
     return self;
@@ -188,7 +197,13 @@
         
         _hidePoweredByViafirma = dict[@"hidePoweredByViafirma"];
         
+        _hideUserConsentBiometricSign = dict[@"hideUserConsentBiometricSign"];
+        
         _allowedSignType = dict[@"allowedSignType"];
+        
+        _apiVersion = dict[@"apiVersion"];
+        
+        _iframeDisabled = dict[@"iframeDisabled"];
         
         
     }
@@ -335,7 +350,19 @@
         
     
     
+            if(_hideUserConsentBiometricSign != nil) dict[@"hideUserConsentBiometricSign"] = _hideUserConsentBiometricSign ;
+        
+    
+    
             if(_allowedSignType != nil) dict[@"allowedSignType"] = _allowedSignType ;
+        
+    
+    
+            if(_apiVersion != nil) dict[@"apiVersion"] = _apiVersion ;
+        
+    
+    
+            if(_iframeDisabled != nil) dict[@"iframeDisabled"] = _iframeDisabled ;
         
     
 

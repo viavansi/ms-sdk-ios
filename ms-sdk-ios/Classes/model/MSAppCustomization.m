@@ -45,6 +45,7 @@
 @synthesize debugMessagesZip = _debugMessagesZip;
 @synthesize target = _target;
 @synthesize loginBackground = _loginBackground;
+@synthesize _newAttachments = __newAttachments;
 
 -(id)logo: (NSString*) logo
     mainColor: (NSString*) mainColor
@@ -88,6 +89,7 @@
     debugMessagesZip: (NSNumber*) debugMessagesZip
     target: (NSString*) target
     loginBackground: (NSString*) loginBackground
+    _newAttachments: (NSNumber*) _newAttachments
     
 {
     _logo = logo;
@@ -132,6 +134,7 @@
     _debugMessagesZip = debugMessagesZip;
     _target = target;
     _loginBackground = loginBackground;
+    __newAttachments = _newAttachments;
     
 
     return self;
@@ -224,6 +227,8 @@
         _target = dict[@"target"];
         
         _loginBackground = dict[@"loginBackground"];
+        
+        __newAttachments = dict[@"newAttachments"];
         
         
     }
@@ -399,6 +404,10 @@
     
     
             if(_loginBackground != nil) dict[@"loginBackground"] = _loginBackground ;
+        
+    
+    
+            if(__newAttachments != nil) dict[@"newAttachments"] = __newAttachments ;
         
     
 

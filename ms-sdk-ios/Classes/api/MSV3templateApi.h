@@ -1,6 +1,6 @@
 #import <Foundation/Foundation.h>
-#import "MSDownload.h"
 #import "MSTemplateList.h"
+#import "MSDownload.h"
 #import "MSDocument.h"
 #import "MSTemplate.h"
 #import "SWGObject.h"
@@ -10,6 +10,50 @@
 @interface MSV3templateApi: NSObject
 
 +(unsigned long) requestQueueSize;
+/**
+
+ Method for list user policy templates
+ 
+ Only show templates with form json
+ 
+
+ 
+ @param groupCode groupCode
+ 
+ @param userCode userCode
+ 
+
+ return type: NSArray*
+ */
++(NSNumber*) findAllTemplatesByUserAndGroup :(NSString*) groupCode 
+     userCode:(NSString*) userCode 
+    
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(NSArray* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    
+
+
+/**
+
+ Method for list user templates
+ 
+ 
+ 
+
+ 
+ @param groupCode groupCode
+ 
+ @param userCode userCode
+ 
+
+ return type: NSArray*
+ */
++(NSNumber*) findTemplatesByUserAndGroupWithFormAndTemplate :(NSString*) groupCode 
+     userCode:(NSString*) userCode 
+    
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(NSArray* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    
+
+
 /**
 
  Method for download font from server

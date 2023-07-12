@@ -5,6 +5,7 @@
 #import "MSMessageSetInfo.h"
 #import "MSSetCallbackUrl.h"
 #import "MSNotificationResend.h"
+#import "MSMessageSetStatus.h"
 #import "SWGObject.h"
 #import "OAuth1Client.h"
 
@@ -28,6 +29,63 @@
 +(NSNumber*) sendMessageSet :(MSMessageSet*) body 
     
     auth:(OAuth1Client *) auth onSuccess: (void (^)(MSMessageSetResponse* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    
+
+
+/**
+
+ Method for delete draft
+ 
+ Stores a SET JSON, stores the documents associated with the request.
+ 
+
+ 
+ @param setCode setCode
+ 
+
+ return type: NSString*
+ */
++(NSNumber*) removeDraft :(NSString*) setCode 
+    
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(NSString* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    
+
+
+/**
+
+ Stores a SET JSON, stores the documents associated with the request.
+ 
+ Stores a SET JSON, stores the documents associated with the request.
+ 
+
+ 
+ @param setCode setCode
+ 
+
+ return type: MSMessageSet*
+ */
++(NSNumber*) loadDraft :(NSString*) setCode 
+    
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(MSMessageSet* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    
+
+
+/**
+
+ Stores a SET JSON, stores the documents associated with the request.
+ 
+ Stores a SET JSON, stores the documents associated with the request.
+ 
+
+ 
+ @param body Set object that needs to be delivery
+ 
+
+ return type: MSMessageSet*
+ */
++(NSNumber*) saveDraft :(MSMessageSet*) body 
+    
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(MSMessageSet* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     
 
 
@@ -230,6 +288,25 @@
 +(NSNumber*) resendNotificationByRecipient :(MSNotificationResend*) body 
     
     auth:(OAuth1Client *) auth onSuccess: (void (^)(MSMessageSet* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    
+
+
+/**
+
+ Method for get message set status
+ 
+ Get message set status
+ 
+
+ 
+ @param setCode Message&#39;s set identifier
+ 
+
+ return type: MSMessageSetStatus*
+ */
++(NSNumber*) getMessageSetStatus :(NSString*) setCode 
+    
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(MSMessageSetStatus* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     
 
 

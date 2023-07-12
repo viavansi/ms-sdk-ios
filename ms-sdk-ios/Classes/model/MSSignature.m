@@ -23,6 +23,7 @@
 @synthesize reason = _reason;
 @synthesize location = _location;
 @synthesize ip = _ip;
+@synthesize signaturePolicy = _signaturePolicy;
 
 -(id)type: (NSString*) type
     subType: (NSString*) subType
@@ -44,6 +45,7 @@
     reason: (NSString*) reason
     location: (NSString*) location
     ip: (NSString*) ip
+    signaturePolicy: (MSSignaturePolicy*) signaturePolicy
     
 {
     _type = type;
@@ -66,6 +68,7 @@
     _reason = reason;
     _location = location;
     _ip = ip;
+    _signaturePolicy = signaturePolicy;
     
 
     return self;
@@ -134,6 +137,14 @@
         _location = dict[@"location"];
         
         _ip = dict[@"ip"];
+        
+        
+        
+        id signaturePolicy_dict = dict[@"signaturePolicy"];
+        
+        if(signaturePolicy_dict != nil)
+            _signaturePolicy = [[MSSignaturePolicy  alloc]initWithValues:signaturePolicy_dict];
+        
         
         
     }
@@ -243,6 +254,31 @@
     
             if(_ip != nil) dict[@"ip"] = _ip ;
         
+    
+    
+    if(_signaturePolicy != nil){
+        if([_signaturePolicy isKindOfClass:[NSArray class]]){
+            NSMutableArray * array = [[NSMutableArray alloc] init];
+            for( int i=0 ; i<[(NSArray*)_signaturePolicy count] ; i++ ) {
+				MSSignaturePolicy *signaturePolicy = [[MSSignaturePolicy alloc]init];
+				signaturePolicy = [(NSArray*)_signaturePolicy objectAtIndex:i];
+                [array addObject:[(SWGObject*)signaturePolicy asDictionary]];
+            }
+            dict[@"signaturePolicy"] = array;
+        }
+        else if(_signaturePolicy && [_signaturePolicy isKindOfClass:[SWGDate class]]) {
+            NSString * dateString = [(SWGDate*)_signaturePolicy toString];
+            if(dateString){
+                dict[@"signaturePolicy"] = dateString;
+            }
+        }
+        else {
+        
+            if(_signaturePolicy != nil) dict[@"signaturePolicy"] = [(SWGObject*)_signaturePolicy asDictionary];
+        
+        }
+    }
+    
     
 
     NSDictionary* output = [dict copy];

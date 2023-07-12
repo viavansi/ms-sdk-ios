@@ -19,6 +19,7 @@
 @property(nonatomic) NSArray* pagesHashes;  
 @property(nonatomic) NSString* hashPdfContent;  
 @property(nonatomic) NSString* hash;  
+@property(nonatomic) NSString* lastSignatureCode;  
 - (id) signatureCode: (MSSignatureCodeDTO*) signatureCode     
     validationTime: (SWGDate*) validationTime     
     signaturesCount: (NSNumber*) signaturesCount     
@@ -29,7 +30,8 @@
     evidences: (NSArray*) evidences     
     pagesHashes: (NSArray*) pagesHashes     
     hashPdfContent: (NSString*) hashPdfContent     
-    hash: (NSString*) hash;
+    hash: (NSString*) hash     
+    lastSignatureCode: (NSString*) lastSignatureCode;
     
 
 - (id) initWithValues: (NSDictionary*)dict;

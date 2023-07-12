@@ -1,5 +1,5 @@
 #import <Foundation/Foundation.h>
-#import "MSToken.h"
+#import "MSComposeToken.h"
 #import "SWGObject.h"
 #import "OAuth1Client.h"
 
@@ -18,11 +18,11 @@
  @param groupCode Group code
  
 
- return type: MSToken*
+ return type: MSComposeToken*
  */
 +(NSNumber*) getWriteToken :(NSString*) groupCode 
     
-    auth:(OAuth1Client *) auth onSuccess: (void (^)(MSToken* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(MSComposeToken* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     
 
 

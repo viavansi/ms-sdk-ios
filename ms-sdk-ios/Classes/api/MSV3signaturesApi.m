@@ -114,6 +114,93 @@
     
 }
 
++(NSNumber*) signWithAndesCertificate_1: (NSString*) token
+         nationalId: (NSString*) nationalId
+         pin: (NSString*) pin
+         docType: (NSString*) docType
+         ip: (NSString*) ip
+        
+        auth:(OAuth1Client *) auth onSuccess: (void (^)(NSString* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock
+         {
+
+    NSMutableString* requestUrl = [NSMutableString stringWithFormat:@"%@/v3/signatures/andes/signBatch/{token}", [[ApiClient sharedInstance] url]];
+
+    // remove format in URL if needed
+    if ([requestUrl rangeOfString:@".{format}"].location != NSNotFound){
+        [requestUrl replaceCharactersInRange: [requestUrl rangeOfString:@".{format}"] withString:@".json"];
+    }
+
+    [requestUrl replaceCharactersInRange: [requestUrl rangeOfString:[NSString stringWithFormat:@"%@%@%@", @"{", @"token", @"}"]] withString: [ApiClient escape:token]];
+    
+
+	NSArray * requestContentTypes = @[@"application/x-www-form-urlencoded"];
+    NSString* requestContentType = requestContentTypes.count > 0 ? requestContentTypes[0] : @"application/json";
+
+    NSArray * responseContentTypes = @[@"application/json"];
+    NSString* responseContentType = responseContentTypes.count > 0 ? responseContentTypes[0] : @"application/json";
+
+    NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
+    
+    NSMutableDictionary* headerParams = [[NSMutableDictionary alloc] init];
+    
+
+    id bodyDictionary = nil;
+    
+    
+    bodyDictionary = [[NSMutableArray alloc] init];
+
+    NSMutableDictionary * formParams = [[NSMutableDictionary alloc]init];
+
+    
+    if(nationalId){
+    formParams[@"nationalId"] = nationalId;
+    }
+    
+    if(pin){
+    formParams[@"pin"] = pin;
+    }
+    
+    if(docType){
+    formParams[@"docType"] = docType;
+    }
+    
+    if(ip){
+    formParams[@"ip"] = ip;
+    }
+    
+    [bodyDictionary addObject:formParams];
+    
+
+    
+
+    ApiClient* client = [ApiClient sharedInstance];
+
+    
+    
+            // primitive response type
+    return [client stringWithCompletionBlock: auth
+					                                requestUrl: requestUrl 
+                                              method: @"POST"
+                                         queryParams: queryParams
+                                                body: bodyDictionary
+                                        headerParams: headerParams
+                                  requestContentType: requestContentType
+                                 responseContentType: responseContentType
+                                     successBlock: ^(NSString *data) {
+                                        NSString *result = data ? [[NSString  alloc]initWithString: data] : nil;
+                                        onSuccessBlock(result);
+                                     }
+                                     errorBlock: ^(NSError *error) {
+                         onErrorBlock(error);
+                     }];
+    
+    
+
+        
+
+    
+}
+
 +(NSNumber*) finalizeClientSignature: (MSWrapSignature*) body
         
         auth:(OAuth1Client *) auth onSuccess: (void (^)(MSSignature* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock

@@ -9,6 +9,7 @@
 @property(nonatomic) NSString* mail;  
 @property(nonatomic) NSString* name;  
 @property(nonatomic) NSString* notificationType;  
+@property(nonatomic) NSString* smsType;  
 @property(nonatomic) NSString* userCode;  
 @property(nonatomic) NSString* _id;  
 @property(nonatomic) NSString* status;  
@@ -24,6 +25,7 @@
     mail: (NSString*) mail     
     name: (NSString*) name     
     notificationType: (NSString*) notificationType     
+    smsType: (NSString*) smsType     
     userCode: (NSString*) userCode     
     _id: (NSString*) _id     
     status: (NSString*) status     

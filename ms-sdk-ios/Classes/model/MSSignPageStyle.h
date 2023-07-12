@@ -38,7 +38,10 @@
 @property(nonatomic) NSNumber* hideImageUpload;  
 @property(nonatomic) NSNumber* hideImageCapture;  
 @property(nonatomic) NSNumber* hidePoweredByViafirma;  
+@property(nonatomic) NSNumber* hideUserConsentBiometricSign;  
 @property(nonatomic) NSString* allowedSignType;  
+@property(nonatomic) NSString* apiVersion;  
+@property(nonatomic) NSNumber* iframeDisabled;  
 - (id) logo: (NSString*) logo     
     mainColor: (NSString*) mainColor     
     mainNegativeColor: (NSString*) mainNegativeColor     
@@ -73,7 +76,10 @@
     hideImageUpload: (NSNumber*) hideImageUpload     
     hideImageCapture: (NSNumber*) hideImageCapture     
     hidePoweredByViafirma: (NSNumber*) hidePoweredByViafirma     
-    allowedSignType: (NSString*) allowedSignType;
+    hideUserConsentBiometricSign: (NSNumber*) hideUserConsentBiometricSign     
+    allowedSignType: (NSString*) allowedSignType     
+    apiVersion: (NSString*) apiVersion     
+    iframeDisabled: (NSNumber*) iframeDisabled;
     
 
 - (id) initWithValues: (NSDictionary*)dict;

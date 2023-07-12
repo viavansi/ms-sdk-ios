@@ -7,17 +7,20 @@
 @synthesize certificationLevel = _certificationLevel;
 @synthesize externalPkcs7Signature = _externalPkcs7Signature;
 @synthesize password = _password;
+@synthesize validatePdfSyntax = _validatePdfSyntax;
 
 -(id)stamper: (MSStamperDTO*) stamper
     certificationLevel: (NSString*) certificationLevel
     externalPkcs7Signature: (NSNumber*) externalPkcs7Signature
     password: (NSString*) password
+    validatePdfSyntax: (NSNumber*) validatePdfSyntax
     
 {
     _stamper = stamper;
     _certificationLevel = certificationLevel;
     _externalPkcs7Signature = externalPkcs7Signature;
     _password = password;
+    _validatePdfSyntax = validatePdfSyntax;
     
 
     return self;
@@ -40,6 +43,8 @@
         _externalPkcs7Signature = dict[@"externalPkcs7Signature"];
         
         _password = dict[@"password"];
+        
+        _validatePdfSyntax = dict[@"validatePdfSyntax"];
         
         
     }
@@ -84,6 +89,10 @@
     
     
             if(_password != nil) dict[@"password"] = _password ;
+        
+    
+    
+            if(_validatePdfSyntax != nil) dict[@"validatePdfSyntax"] = _validatePdfSyntax ;
         
     
 

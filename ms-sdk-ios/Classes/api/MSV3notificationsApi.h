@@ -19,11 +19,11 @@
  @param body Notification object that needs to be delivery
  
 
- return type: MSNotification*
+ return type: MSNotificationResponse*
  */
 +(NSNumber*) sendNotification :(MSNotification*) body 
     
-    auth:(OAuth1Client *) auth onSuccess: (void (^)(MSNotification* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(MSNotificationResponse* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     
 
 
@@ -122,6 +122,31 @@
      user_code:(NSString*) user_code 
      index:(NSString*) index 
      page_size:(NSString*) page_size 
+    
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(NSArray* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    
+
+
+/**
+
+ Method for get notifications by message code
+ 
+ Get notifications by message code
+ 
+
+ 
+ @param groupCode Notification group code
+ 
+ @param type Notification type
+ 
+ @param status Notification status
+ 
+
+ return type: NSArray*
+ */
++(NSNumber*) findCallbackErrors :(NSString*) groupCode 
+     type:(NSString*) type 
+     status:(NSString*) status 
     
     auth:(OAuth1Client *) auth onSuccess: (void (^)(NSArray* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     

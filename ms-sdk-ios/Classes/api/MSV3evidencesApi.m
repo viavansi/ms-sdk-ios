@@ -1186,6 +1186,7 @@
 
 +(NSNumber*) prepareBatchOtpSmsEvidence: (NSString*) setCode
          groupCode: (NSString*) groupCode
+         smsType: (NSString*) smsType
         
         auth:(OAuth1Client *) auth onSuccess: (void (^)(MSOtpBatchPrepare* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock
          {
@@ -1208,19 +1209,14 @@
     NSString* responseContentType = responseContentTypes.count > 0 ? responseContentTypes[0] : @"application/json";
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
+    if(smsType != nil)
+        queryParams[@"smsType"] = smsType;
     
     NSMutableDictionary* headerParams = [[NSMutableDictionary alloc] init];
     
 
     id bodyDictionary = nil;
     
-    
-    bodyDictionary = [[NSMutableArray alloc] init];
-
-    NSMutableDictionary * formParams = [[NSMutableDictionary alloc]init];
-
-    
-    [bodyDictionary addObject:formParams];
     
 
     
@@ -1331,6 +1327,7 @@
 
 +(NSNumber*) prepareOtpSmsEvidence: (NSString*) messageCode
          evidenceCode: (NSString*) evidenceCode
+         smsType: (NSString*) smsType
         
         auth:(OAuth1Client *) auth onSuccess: (void (^)(MSEvidence* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock
          {
@@ -1353,19 +1350,14 @@
     NSString* responseContentType = responseContentTypes.count > 0 ? responseContentTypes[0] : @"application/json";
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
+    if(smsType != nil)
+        queryParams[@"smsType"] = smsType;
     
     NSMutableDictionary* headerParams = [[NSMutableDictionary alloc] init];
     
 
     id bodyDictionary = nil;
     
-    
-    bodyDictionary = [[NSMutableArray alloc] init];
-
-    NSMutableDictionary * formParams = [[NSMutableDictionary alloc]init];
-
-    
-    [bodyDictionary addObject:formParams];
     
 
     

@@ -16,10 +16,13 @@
 @synthesize policyId = _policyId;
 @synthesize errorMessage = _errorMessage;
 @synthesize signedBy = _signedBy;
+@synthesize issuerBy = _issuerBy;
 @synthesize code = _code;
 @synthesize certificate = _certificate;
 @synthesize timeStamps = _timeStamps;
 @synthesize unsignedChanges = _unsignedChanges;
+@synthesize reason = _reason;
+@synthesize location = _location;
 
 -(id)format: (NSString*) format
     requestedFormat: (NSString*) requestedFormat
@@ -34,10 +37,13 @@
     policyId: (NSString*) policyId
     errorMessage: (NSString*) errorMessage
     signedBy: (NSString*) signedBy
+    issuerBy: (NSString*) issuerBy
     code: (NSString*) code
     certificate: (MSVerifierCertificateDTO*) certificate
     timeStamps: (NSArray*) timeStamps
     unsignedChanges: (NSNumber*) unsignedChanges
+    reason: (NSString*) reason
+    location: (NSString*) location
     
 {
     _format = format;
@@ -53,10 +59,13 @@
     _policyId = policyId;
     _errorMessage = errorMessage;
     _signedBy = signedBy;
+    _issuerBy = issuerBy;
     _code = code;
     _certificate = certificate;
     _timeStamps = timeStamps;
     _unsignedChanges = unsignedChanges;
+    _reason = reason;
+    _location = location;
     
 
     return self;
@@ -98,6 +107,8 @@
         
         _signedBy = dict[@"signedBy"];
         
+        _issuerBy = dict[@"issuerBy"];
+        
         _code = dict[@"code"];
         
         
@@ -131,6 +142,10 @@
         
         
         _unsignedChanges = dict[@"unsignedChanges"];
+        
+        _reason = dict[@"reason"];
+        
+        _location = dict[@"location"];
         
         
     }
@@ -214,6 +229,10 @@
         
     
     
+            if(_issuerBy != nil) dict[@"issuerBy"] = _issuerBy ;
+        
+    
+    
             if(_code != nil) dict[@"code"] = _code ;
         
     
@@ -269,6 +288,14 @@
     
     
             if(_unsignedChanges != nil) dict[@"unsignedChanges"] = _unsignedChanges ;
+        
+    
+    
+            if(_reason != nil) dict[@"reason"] = _reason ;
+        
+    
+    
+            if(_location != nil) dict[@"location"] = _location ;
         
     
 

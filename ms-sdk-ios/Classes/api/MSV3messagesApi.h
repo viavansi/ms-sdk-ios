@@ -5,6 +5,7 @@
 #import "MSMessageBuild.h"
 #import "MSMessageData.h"
 #import "MSDownload.h"
+#import "MSValidateCodeEdit.h"
 #import "MSExtendPeriod.h"
 #import "MSMessageList.h"
 #import "MSMessagePaginatedList.h"
@@ -153,6 +154,25 @@
 +(NSNumber*) documentBuild :(MSMessage*) body 
     
     auth:(OAuth1Client *) auth onSuccess: (void (^)(MSDownload* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    
+
+
+/**
+
+ Edit validate from message by code
+ 
+ Edit validate  message by code. Only can be edit PENDING messages
+ 
+
+ 
+ @param body Message object that needs to be delivery
+ 
+
+ return type: MSMessage*
+ */
++(NSNumber*) editValidation :(MSValidateCodeEdit*) body 
+    
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(MSMessage* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     
 
 

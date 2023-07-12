@@ -3,6 +3,7 @@
 
 @implementation MSMessageSet
 
+@synthesize code = _code;
 @synthesize groupCode = _groupCode;
 @synthesize expires = _expires;
 @synthesize retryTime = _retryTime;
@@ -24,7 +25,8 @@
 @synthesize callbackRedirectURL = _callbackRedirectURL;
 @synthesize callbackRedirectURLTargetWindow = _callbackRedirectURLTargetWindow;
 
--(id)groupCode: (NSString*) groupCode
+-(id)code: (NSString*) code
+    groupCode: (NSString*) groupCode
     expires: (NSNumber*) expires
     retryTime: (NSNumber*) retryTime
     retryCount: (NSNumber*) retryCount
@@ -46,6 +48,7 @@
     callbackRedirectURLTargetWindow: (NSString*) callbackRedirectURLTargetWindow
     
 {
+    _code = code;
     _groupCode = groupCode;
     _expires = expires;
     _retryTime = retryTime;
@@ -75,6 +78,8 @@
 {
     self = [super init];
     if(self) {
+        _code = dict[@"code"];
+        
         _groupCode = dict[@"groupCode"];
         
         _expires = dict[@"expires"];
@@ -188,6 +193,10 @@
 
 -(NSDictionary*) asDictionary {
     NSMutableDictionary* dict = [[NSMutableDictionary alloc] init];
+    
+    
+            if(_code != nil) dict[@"code"] = _code ;
+        
     
     
             if(_groupCode != nil) dict[@"groupCode"] = _groupCode ;

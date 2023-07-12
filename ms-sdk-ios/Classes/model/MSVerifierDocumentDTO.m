@@ -14,6 +14,7 @@
 @synthesize pagesHashes = _pagesHashes;
 @synthesize hashPdfContent = _hashPdfContent;
 @synthesize hash = _hash;
+@synthesize lastSignatureCode = _lastSignatureCode;
 
 -(id)signatureCode: (MSSignatureCodeDTO*) signatureCode
     validationTime: (SWGDate*) validationTime
@@ -26,6 +27,7 @@
     pagesHashes: (NSArray*) pagesHashes
     hashPdfContent: (NSString*) hashPdfContent
     hash: (NSString*) hash
+    lastSignatureCode: (NSString*) lastSignatureCode
     
 {
     _signatureCode = signatureCode;
@@ -39,6 +41,7 @@
     _pagesHashes = pagesHashes;
     _hashPdfContent = hashPdfContent;
     _hash = hash;
+    _lastSignatureCode = lastSignatureCode;
     
 
     return self;
@@ -121,6 +124,8 @@
         _hashPdfContent = dict[@"hashPdfContent"];
         
         _hash = dict[@"hash"];
+        
+        _lastSignatureCode = dict[@"lastSignatureCode"];
         
         
     }
@@ -256,6 +261,10 @@
     
     
             if(_hash != nil) dict[@"hash"] = _hash ;
+        
+    
+    
+            if(_lastSignatureCode != nil) dict[@"lastSignatureCode"] = _lastSignatureCode ;
         
     
 

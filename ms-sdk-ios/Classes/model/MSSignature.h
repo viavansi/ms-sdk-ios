@@ -1,6 +1,7 @@
 #import <Foundation/Foundation.h>
 #import "SWGObject.h"
 #import "MSStamper.h"
+#import "MSSignaturePolicy.h"
 
 
 @interface MSSignature : SWGObject
@@ -25,6 +26,7 @@
 @property(nonatomic) NSString* reason;  
 @property(nonatomic) NSString* location;  
 @property(nonatomic) NSString* ip;  
+@property(nonatomic) MSSignaturePolicy* signaturePolicy;  
 - (id) type: (NSString*) type     
     subType: (NSString*) subType     
     code: (NSString*) code     
@@ -44,7 +46,8 @@
     certificationLevel: (NSString*) certificationLevel     
     reason: (NSString*) reason     
     location: (NSString*) location     
-    ip: (NSString*) ip;
+    ip: (NSString*) ip     
+    signaturePolicy: (MSSignaturePolicy*) signaturePolicy;
     
 
 - (id) initWithValues: (NSDictionary*)dict;

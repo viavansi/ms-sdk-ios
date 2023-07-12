@@ -14,6 +14,7 @@
 @property(nonatomic) NSNumber* getyAxis;  
 @property(nonatomic) NSNumber* page;  
 @property(nonatomic) NSString* csvPath;  
+@property(nonatomic) NSString* csvId;  
 @property(nonatomic) NSString* textLine1;  
 @property(nonatomic) NSString* textLine2;  
 @property(nonatomic) NSString* textLine3;  
@@ -31,6 +32,7 @@
     getyAxis: (NSNumber*) getyAxis     
     page: (NSNumber*) page     
     csvPath: (NSString*) csvPath     
+    csvId: (NSString*) csvId     
     textLine1: (NSString*) textLine1     
     textLine2: (NSString*) textLine2     
     textLine3: (NSString*) textLine3     

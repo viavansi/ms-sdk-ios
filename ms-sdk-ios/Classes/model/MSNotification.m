@@ -17,6 +17,7 @@
 @synthesize sound = _sound;
 @synthesize status = _status;
 @synthesize notificationType = _notificationType;
+@synthesize smsType = _smsType;
 @synthesize location = _location;
 @synthesize sharedLink = _sharedLink;
 @synthesize updateDate = _updateDate;
@@ -45,6 +46,7 @@
     sound: (NSString*) sound
     status: (NSString*) status
     notificationType: (NSString*) notificationType
+    smsType: (NSString*) smsType
     location: (NSString*) location
     sharedLink: (MSSharedLink*) sharedLink
     updateDate: (NSNumber*) updateDate
@@ -74,6 +76,7 @@
     _sound = sound;
     _status = status;
     _notificationType = notificationType;
+    _smsType = smsType;
     _location = location;
     _sharedLink = sharedLink;
     _updateDate = updateDate;
@@ -123,6 +126,8 @@
         _status = dict[@"status"];
         
         _notificationType = dict[@"notificationType"];
+        
+        _smsType = dict[@"smsType"];
         
         _location = dict[@"location"];
         
@@ -264,6 +269,10 @@
     
     
             if(_notificationType != nil) dict[@"notificationType"] = _notificationType ;
+        
+    
+    
+            if(_smsType != nil) dict[@"smsType"] = _smsType ;
         
     
     

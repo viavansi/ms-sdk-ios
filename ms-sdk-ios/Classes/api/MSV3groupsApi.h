@@ -49,6 +49,22 @@
 
 /**
 
+ Method to obtain all the groups in which the application is found.
+ 
+ 
+ 
+
+ 
+
+ return type: NSArray*
+ */
++(NSNumber*) getAllGroupsByApp :(OAuth1Client *) auth onSuccess:
+    (void (^)(NSArray* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    
+
+
+/**
+
  Method for create groups
  
  

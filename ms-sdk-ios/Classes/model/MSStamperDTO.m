@@ -11,6 +11,7 @@
 @synthesize getyAxis = _getyAxis;
 @synthesize page = _page;
 @synthesize csvPath = _csvPath;
+@synthesize csvId = _csvId;
 @synthesize textLine1 = _textLine1;
 @synthesize textLine2 = _textLine2;
 @synthesize textLine3 = _textLine3;
@@ -29,6 +30,7 @@
     getyAxis: (NSNumber*) getyAxis
     page: (NSNumber*) page
     csvPath: (NSString*) csvPath
+    csvId: (NSString*) csvId
     textLine1: (NSString*) textLine1
     textLine2: (NSString*) textLine2
     textLine3: (NSString*) textLine3
@@ -48,6 +50,7 @@
     _getyAxis = getyAxis;
     _page = page;
     _csvPath = csvPath;
+    _csvId = csvId;
     _textLine1 = textLine1;
     _textLine2 = textLine2;
     _textLine3 = textLine3;
@@ -81,6 +84,8 @@
         _page = dict[@"page"];
         
         _csvPath = dict[@"csvPath"];
+        
+        _csvId = dict[@"csvId"];
         
         _textLine1 = dict[@"textLine1"];
         
@@ -150,6 +155,10 @@
     
     
             if(_csvPath != nil) dict[@"csvPath"] = _csvPath ;
+        
+    
+    
+            if(_csvId != nil) dict[@"csvId"] = _csvId ;
         
     
     

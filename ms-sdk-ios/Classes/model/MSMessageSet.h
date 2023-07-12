@@ -8,6 +8,7 @@
 
 @interface MSMessageSet : SWGObject
 
+@property(nonatomic) NSString* code;  
 @property(nonatomic) NSString* groupCode;  
 @property(nonatomic) NSNumber* expires;  /* epoch timestamp in milliseconds  */
 @property(nonatomic) NSNumber* retryTime;  
@@ -28,7 +29,8 @@
 @property(nonatomic) NSString* callbackMails;  
 @property(nonatomic) NSString* callbackRedirectURL;  
 @property(nonatomic) NSString* callbackRedirectURLTargetWindow;  
-- (id) groupCode: (NSString*) groupCode     
+- (id) code: (NSString*) code     
+    groupCode: (NSString*) groupCode     
     expires: (NSNumber*) expires     
     retryTime: (NSNumber*) retryTime     
     retryCount: (NSNumber*) retryCount     

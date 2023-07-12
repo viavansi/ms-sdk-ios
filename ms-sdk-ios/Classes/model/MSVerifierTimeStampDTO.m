@@ -8,14 +8,20 @@
 @synthesize subIndication = _subIndication;
 @synthesize digestAlgo = _digestAlgo;
 @synthesize productionTime = _productionTime;
+@synthesize signedBy = _signedBy;
 @synthesize certificate = _certificate;
+@synthesize validationStatus = _validationStatus;
+@synthesize issuerBy = _issuerBy;
 
 -(id)type: (NSString*) type
     indication: (NSString*) indication
     subIndication: (NSString*) subIndication
     digestAlgo: (NSString*) digestAlgo
     productionTime: (SWGDate*) productionTime
+    signedBy: (NSString*) signedBy
     certificate: (MSVerifierCertificateDTO*) certificate
+    validationStatus: (NSString*) validationStatus
+    issuerBy: (NSString*) issuerBy
     
 {
     _type = type;
@@ -23,7 +29,10 @@
     _subIndication = subIndication;
     _digestAlgo = digestAlgo;
     _productionTime = productionTime;
+    _signedBy = signedBy;
     _certificate = certificate;
+    _validationStatus = validationStatus;
+    _issuerBy = issuerBy;
     
 
     return self;
@@ -49,6 +58,8 @@
             _productionTime = [[SWGDate  alloc]initWithValues:productionTime_dict];
         
         
+        _signedBy = dict[@"signedBy"];
+        
         
         
         id certificate_dict = dict[@"certificate"];
@@ -56,6 +67,10 @@
         if(certificate_dict != nil)
             _certificate = [[MSVerifierCertificateDTO  alloc]initWithValues:certificate_dict];
         
+        
+        _validationStatus = dict[@"validationStatus"];
+        
+        _issuerBy = dict[@"issuerBy"];
         
         
     }
@@ -107,6 +122,10 @@
     
     
     
+            if(_signedBy != nil) dict[@"signedBy"] = _signedBy ;
+        
+    
+    
     if(_certificate != nil){
         if([_certificate isKindOfClass:[NSArray class]]){
             NSMutableArray * array = [[NSMutableArray alloc] init];
@@ -130,6 +149,14 @@
         }
     }
     
+    
+    
+            if(_validationStatus != nil) dict[@"validationStatus"] = _validationStatus ;
+        
+    
+    
+            if(_issuerBy != nil) dict[@"issuerBy"] = _issuerBy ;
+        
     
 
     NSDictionary* output = [dict copy];

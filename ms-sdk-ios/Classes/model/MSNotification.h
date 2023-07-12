@@ -22,6 +22,7 @@
 @property(nonatomic) NSString* sound;  
 @property(nonatomic) NSString* status;  
 @property(nonatomic) NSString* notificationType;  
+@property(nonatomic) NSString* smsType;  
 @property(nonatomic) NSString* location;  
 @property(nonatomic) MSSharedLink* sharedLink;  
 @property(nonatomic) NSNumber* updateDate;  /* epoch timestamp in milliseconds  */
@@ -49,6 +50,7 @@
     sound: (NSString*) sound     
     status: (NSString*) status     
     notificationType: (NSString*) notificationType     
+    smsType: (NSString*) smsType     
     location: (NSString*) location     
     sharedLink: (MSSharedLink*) sharedLink     
     updateDate: (NSNumber*) updateDate     

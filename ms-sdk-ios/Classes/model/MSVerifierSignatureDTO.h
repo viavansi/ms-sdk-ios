@@ -20,10 +20,13 @@
 @property(nonatomic) NSString* policyId;  
 @property(nonatomic) NSString* errorMessage;  
 @property(nonatomic) NSString* signedBy;  
+@property(nonatomic) NSString* issuerBy;  
 @property(nonatomic) NSString* code;  
 @property(nonatomic) MSVerifierCertificateDTO* certificate;  
 @property(nonatomic) NSArray* timeStamps;  
 @property(nonatomic) NSNumber* unsignedChanges;  
+@property(nonatomic) NSString* reason;  
+@property(nonatomic) NSString* location;  
 - (id) format: (NSString*) format     
     requestedFormat: (NSString*) requestedFormat     
     encryptionAlgorithm: (NSString*) encryptionAlgorithm     
@@ -37,10 +40,13 @@
     policyId: (NSString*) policyId     
     errorMessage: (NSString*) errorMessage     
     signedBy: (NSString*) signedBy     
+    issuerBy: (NSString*) issuerBy     
     code: (NSString*) code     
     certificate: (MSVerifierCertificateDTO*) certificate     
     timeStamps: (NSArray*) timeStamps     
-    unsignedChanges: (NSNumber*) unsignedChanges;
+    unsignedChanges: (NSNumber*) unsignedChanges     
+    reason: (NSString*) reason     
+    location: (NSString*) location;
     
 
 - (id) initWithValues: (NSDictionary*)dict;
