@@ -46,6 +46,7 @@
 @synthesize target = _target;
 @synthesize loginBackground = _loginBackground;
 @synthesize addAttachments = _addAttachments;
+@synthesize addImageEvidences = _addImageEvidences;
 
 -(id)logo: (NSString*) logo
     mainColor: (NSString*) mainColor
@@ -89,7 +90,8 @@
     debugMessagesZip: (NSNumber*) debugMessagesZip
     target: (NSString*) target
     loginBackground: (NSString*) loginBackground
-	addAttachments: (NSNumber*) addAttachments
+    addAttachments: (NSNumber*) addAttachments
+    addImageEvidences: (NSNumber*) addImageEvidences
     
 {
     _logo = logo;
@@ -135,6 +137,7 @@
     _target = target;
     _loginBackground = loginBackground;
     _addAttachments = addAttachments;
+    _addImageEvidences = addImageEvidences;
     
 
     return self;
@@ -230,6 +233,7 @@
         
         _addAttachments = dict[@"newAttachments"];
         
+        _addImageEvidences = dict[@"newImageEvidences"];
         
     }
     return self;
@@ -410,6 +414,7 @@
             if(_addAttachments != nil) dict[@"newAttachments"] = _addAttachments ;
         
     
+            if(_addImageEvidences != nil) dict[@"newImageEvidences"] = _addImageEvidences ;
 
     NSDictionary* output = [dict copy];
     return output;

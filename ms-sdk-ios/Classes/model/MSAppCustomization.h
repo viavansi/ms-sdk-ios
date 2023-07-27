@@ -47,6 +47,7 @@
 @property(nonatomic) NSString* target;  
 @property(nonatomic) NSString* loginBackground;  
 @property(nonatomic) NSNumber* addAttachments;
+@property(nonatomic) NSNumber* addImageEvidences;  
 - (id) logo: (NSString*) logo     
     mainColor: (NSString*) mainColor     
     mainNegativeColor: (NSString*) mainNegativeColor     
@@ -89,7 +90,8 @@
     debugMessagesZip: (NSNumber*) debugMessagesZip     
     target: (NSString*) target     
     loginBackground: (NSString*) loginBackground     
-	addAttachments: (NSNumber*) addAttachments;
+    addAttachments: (NSNumber*) addAttachments
+    addImageEvidences: (NSNumber*) addImageEvidences;
     
 
 - (id) initWithValues: (NSDictionary*)dict;
