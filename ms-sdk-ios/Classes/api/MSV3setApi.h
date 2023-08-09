@@ -3,6 +3,7 @@
 #import "MSMessageSet.h"
 #import "MSSetExtendPeriod.h"
 #import "MSMessageSetInfo.h"
+#import "MSSetListUserGroup.h"
 #import "MSSetCallbackUrl.h"
 #import "MSNotificationResend.h"
 #import "MSMessageSetStatus.h"
@@ -171,6 +172,52 @@
      recipientKey:(NSString*) recipientKey 
     
     auth:(OAuth1Client *) auth onSuccess: (void (^)(NSNumber* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    
+
+
+/**
+
+ Method for listing Sets
+ 
+ Get status set
+ 
+
+ 
+ @param userCode User identifier
+ 
+ @param groupCode Group identifier
+ 
+ @param numPag Group identifier
+ 
+ @param limit Group identifier
+ 
+ @param orderBy Group identifier
+ 
+ @param status Status request
+ 
+ @param title Title request
+ 
+ @param _description Description request
+ 
+ @param recipient Recipient request
+ 
+ @param creationDate Init Creation date
+ 
+
+ return type: MSSetListUserGroup*
+ */
++(NSNumber*) getSetByUserAndOrGroup :(NSString*) userCode 
+     groupCode:(NSString*) groupCode 
+     numPag:(NSNumber*) numPag 
+     limit:(NSNumber*) limit 
+     orderBy:(NSString*) orderBy 
+     status:(NSString*) status 
+     title:(NSString*) title 
+     _description:(NSString*) _description 
+     recipient:(NSString*) recipient 
+     creationDate:(NSNumber*) creationDate 
+    
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(MSSetListUserGroup* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
     
 
 

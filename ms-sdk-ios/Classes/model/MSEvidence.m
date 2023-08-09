@@ -55,6 +55,7 @@
 @synthesize imageDataType = _imageDataType;
 @synthesize imageTextLocation = _imageTextLocation;
 @synthesize imageTextSize = _imageTextSize;
+@synthesize legalText = _legalText;
 
 -(id)type: (NSString*) type
     _id: (NSString*) _id
@@ -108,6 +109,7 @@
     imageDataType: (NSString*) imageDataType
     imageTextLocation: (NSString*) imageTextLocation
     imageTextSize: (NSNumber*) imageTextSize
+    legalText: (NSString*) legalText
     
 {
     _type = type;
@@ -162,6 +164,7 @@
     _imageDataType = imageDataType;
     _imageTextLocation = imageTextLocation;
     _imageTextSize = imageTextSize;
+    _legalText = legalText;
     
 
     return self;
@@ -370,6 +373,8 @@
         _imageTextLocation = dict[@"imageTextLocation"];
         
         _imageTextSize = dict[@"imageTextSize"];
+        
+        _legalText = dict[@"legalText"];
         
         
     }
@@ -774,6 +779,10 @@
     
     
             if(_imageTextSize != nil) dict[@"imageTextSize"] = _imageTextSize ;
+        
+    
+    
+            if(_legalText != nil) dict[@"legalText"] = _legalText ;
         
     
 

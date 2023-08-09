@@ -65,6 +65,7 @@
 @property(nonatomic) NSString* imageDataType;  
 @property(nonatomic) NSString* imageTextLocation;  
 @property(nonatomic) NSNumber* imageTextSize;  
+@property(nonatomic) NSString* legalText;  
 - (id) type: (NSString*) type     
     _id: (NSString*) _id     
     enabledExpression: (NSString*) enabledExpression     
@@ -116,7 +117,8 @@
     recipientKey: (NSString*) recipientKey     
     imageDataType: (NSString*) imageDataType     
     imageTextLocation: (NSString*) imageTextLocation     
-    imageTextSize: (NSNumber*) imageTextSize;
+    imageTextSize: (NSNumber*) imageTextSize     
+    legalText: (NSString*) legalText;
     
 
 - (id) initWithValues: (NSDictionary*)dict;

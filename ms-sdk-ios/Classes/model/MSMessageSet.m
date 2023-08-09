@@ -24,6 +24,7 @@
 @synthesize callbackMails = _callbackMails;
 @synthesize callbackRedirectURL = _callbackRedirectURL;
 @synthesize callbackRedirectURLTargetWindow = _callbackRedirectURLTargetWindow;
+@synthesize callbackType = _callbackType;
 
 -(id)code: (NSString*) code
     groupCode: (NSString*) groupCode
@@ -46,6 +47,7 @@
     callbackMails: (NSString*) callbackMails
     callbackRedirectURL: (NSString*) callbackRedirectURL
     callbackRedirectURLTargetWindow: (NSString*) callbackRedirectURLTargetWindow
+    callbackType: (NSString*) callbackType
     
 {
     _code = code;
@@ -69,6 +71,7 @@
     _callbackMails = callbackMails;
     _callbackRedirectURL = callbackRedirectURL;
     _callbackRedirectURLTargetWindow = callbackRedirectURLTargetWindow;
+    _callbackType = callbackType;
     
 
     return self;
@@ -185,6 +188,8 @@
         _callbackRedirectURL = dict[@"callbackRedirectURL"];
         
         _callbackRedirectURLTargetWindow = dict[@"callbackRedirectURLTargetWindow"];
+        
+        _callbackType = dict[@"callbackType"];
         
         
     }
@@ -360,6 +365,10 @@
     
     
             if(_callbackRedirectURLTargetWindow != nil) dict[@"callbackRedirectURLTargetWindow"] = _callbackRedirectURLTargetWindow ;
+        
+    
+    
+            if(_callbackType != nil) dict[@"callbackType"] = _callbackType ;
         
     
 

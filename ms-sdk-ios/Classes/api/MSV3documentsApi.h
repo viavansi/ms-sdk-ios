@@ -51,6 +51,25 @@
 
  Method for get signed document
  
+ Return byte[] with the document
+ 
+
+ 
+ @param externalCode External&#39;s unique code
+ 
+
+ return type: NSArray*
+ */
++(NSNumber*) downloadSignedByExternaCode :(NSString*) externalCode 
+    
+    auth:(OAuth1Client *) auth onSuccess: (void (^)(NSArray* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock;
+    
+
+
+/**
+
+ Method for get signed document
+ 
  Get signed document
  
 

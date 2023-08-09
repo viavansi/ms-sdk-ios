@@ -5,6 +5,7 @@
 #import "MSMessageSet.h"
 #import "MSSetExtendPeriod.h"
 #import "MSMessageSetInfo.h"
+#import "MSSetListUserGroup.h"
 #import "MSSetCallbackUrl.h"
 #import "MSNotificationResend.h"
 #import "MSMessageSetStatus.h"
@@ -636,6 +637,96 @@
     
 
         
+
+    
+}
+
++(NSNumber*) getSetByUserAndOrGroup: (NSString*) userCode
+         groupCode: (NSString*) groupCode
+         numPag: (NSNumber*) numPag
+         limit: (NSNumber*) limit
+         orderBy: (NSString*) orderBy
+         status: (NSString*) status
+         title: (NSString*) title
+         _description: (NSString*) _description
+         recipient: (NSString*) recipient
+         creationDate: (NSNumber*) creationDate
+        
+        auth:(OAuth1Client *) auth onSuccess: (void (^)(MSSetListUserGroup* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock
+         {
+
+    NSMutableString* requestUrl = [NSMutableString stringWithFormat:@"%@/v3/set/list/{userCode}/{groupCode}/{numPag}", [[ApiClient sharedInstance] url]];
+
+    // remove format in URL if needed
+    if ([requestUrl rangeOfString:@".{format}"].location != NSNotFound){
+        [requestUrl replaceCharactersInRange: [requestUrl rangeOfString:@".{format}"] withString:@".json"];
+    }
+
+    [requestUrl replaceCharactersInRange: [requestUrl rangeOfString:[NSString stringWithFormat:@"%@%@%@", @"{", @"userCode", @"}"]] withString: [ApiClient escape:userCode]];
+    [requestUrl replaceCharactersInRange: [requestUrl rangeOfString:[NSString stringWithFormat:@"%@%@%@", @"{", @"groupCode", @"}"]] withString: [ApiClient escape:groupCode]];
+    [requestUrl replaceCharactersInRange: [requestUrl rangeOfString:[NSString stringWithFormat:@"%@%@%@", @"{", @"numPag", @"}"]] withString: [ApiClient escape:numPag]];
+    
+
+	NSArray * requestContentTypes = @[@"application/json"];
+    NSString* requestContentType = requestContentTypes.count > 0 ? requestContentTypes[0] : @"application/json";
+
+    NSArray * responseContentTypes = @[@"application/json"];
+    NSString* responseContentType = responseContentTypes.count > 0 ? responseContentTypes[0] : @"application/json";
+
+    NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
+    if(limit != nil)
+        queryParams[@"limit"] = limit;
+    if(orderBy != nil)
+        queryParams[@"orderBy"] = orderBy;
+    if(status != nil)
+        queryParams[@"status"] = status;
+    if(title != nil)
+        queryParams[@"title"] = title;
+    if(_description != nil)
+        queryParams[@"description"] = _description;
+    if(recipient != nil)
+        queryParams[@"recipient"] = recipient;
+    if(creationDate != nil)
+        queryParams[@"creationDate"] = creationDate;
+    
+    NSMutableDictionary* headerParams = [[NSMutableDictionary alloc] init];
+    
+
+    id bodyDictionary = nil;
+    
+    
+
+    
+
+    ApiClient* client = [ApiClient sharedInstance];
+
+    
+    
+    
+        
+    // comples response type
+    return [client dictionary: auth
+					         requestUrl: requestUrl 
+                       method: @"GET"
+                  queryParams: queryParams
+                         body: bodyDictionary
+                 headerParams: headerParams
+           requestContentType: requestContentType
+          responseContentType: responseContentType
+              successBlock: ^(NSDictionary *data) {
+                
+                MSSetListUserGroup *result = nil;
+                if (data) {
+                    result = [[MSSetListUserGroup    alloc]initWithValues: data];
+                }
+                onSuccessBlock(result);
+                
+              }
+              errorBlock: ^(NSError *error) {
+                    onErrorBlock(error);
+                    
+              }];
+    
 
     
 }
