@@ -146,9 +146,9 @@ static inline NSString * AFNounce() {
 	return [entries componentsJoinedByString:@"&"];
 }
 
-- (void) authorizeRequest:(NSMutableURLRequest *)request
+- (void) authorizeRequest:(NSMutableURLRequest *)request error:(NSError*__strong*)error
 {
-	[request setValue:[self authorizationHeaderForRequest:request] forHTTPHeaderField:@"Authorization"];
+    [request setValue:[self authorizationHeaderForRequest:request error:error] forHTTPHeaderField:@"Authorization"];
 	[request setHTTPShouldHandleCookies:NO];
 }
 
@@ -160,7 +160,15 @@ static inline NSString * AFNounce() {
 	return requestUrl;
 }
 
-- (NSString *)authorizationHeaderForRequest:(NSMutableURLRequest *)request
+- (NSString*) authorizationHeaderForRequest:(NSMutableURLRequest*)request error:(NSError*__strong*)error {
+    if (self.oauth2delegate) {
+        return [self oAuth2AuthorizationHeaderForRequest:request error:error];
+    } else {
+        return [self oAuth1AuthorizationHeaderForRequest:request];
+    }
+}
+
+- (NSString *)oAuth1AuthorizationHeaderForRequest:(NSMutableURLRequest *)request
 {
 	static NSString * const kAFOAuth1AuthorizationFormatString = @"OAuth %@";
 	
@@ -187,6 +195,16 @@ static inline NSString * AFNounce() {
 	NSString *authorization = [NSString stringWithFormat:kAFOAuth1AuthorizationFormatString, [mutableComponents componentsJoinedByString:@", "]];
 	//NSLog(@"%@", authorization);
 	return authorization;
+}
+
+- (NSString *)oAuth2AuthorizationHeaderForRequest:(NSMutableURLRequest *)request error:(NSError*__strong*)error {
+    if (!self.oauth2delegate) return nil;
+    
+    NSString *accessToken = [self.oauth2delegate accessToken:error];
+    if (accessToken.length == 0) return nil;
+    
+    NSString* result = [NSString stringWithFormat:@"Bearer %@", accessToken];
+    return result;
 }
 
 @end

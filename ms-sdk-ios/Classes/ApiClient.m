@@ -333,7 +333,12 @@ static bool loggingEnabled = true;
         [self logRequest:request];
     }
 
-    [auth authorizeRequest:request];
+    NSError* error = nil;
+    [auth authorizeRequest:request error:&error];
+    if (error) {
+        errorBlock(error);
+        return nil;
+    }
 
     AFHTTPRequestOperation *op =
     [self HTTPRequestOperationWithRequest:request
@@ -493,7 +498,12 @@ static bool loggingEnabled = true;
     // Always disable cookies!
     [request setHTTPShouldHandleCookies:NO];
 
-    [auth authorizeRequest:request];
+    NSError* error = nil;
+    [auth authorizeRequest:request error:&error];
+    if (error) {
+        errorBlock(error);
+        return nil;
+    }
 
     AFHTTPRequestOperation *op = [self HTTPRequestOperationWithRequest:request
                                                                success:^(AFHTTPRequestOperation *operation, id responseObject) {
