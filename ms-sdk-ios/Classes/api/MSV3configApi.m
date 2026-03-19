@@ -1,0 +1,159 @@
+#import "MSV3configApi.h"
+#import "SWGFile.h"
+#import "ApiClient.h"
+#import "MSPublicAuthConfig.h"
+
+
+
+@implementation MSV3configApi
+
++(unsigned long) requestQueueSize {
+    return [ApiClient requestQueueSize];
+}
+
+
++(NSNumber*) getAuthConfig:(OAuth1Client *) auth onSuccess: 
+        (void (^)(MSPublicAuthConfig* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock
+         {
+
+    NSMutableString* requestUrl = [NSMutableString stringWithFormat:@"%@/v3/config/auth", [[ApiClient sharedInstance] url]];
+
+    // remove format in URL if needed
+    if ([requestUrl rangeOfString:@".{format}"].location != NSNotFound){
+        [requestUrl replaceCharactersInRange: [requestUrl rangeOfString:@".{format}"] withString:@".json"];
+    }
+
+    
+
+	NSArray * requestContentTypes = @[];
+    NSString* requestContentType = requestContentTypes.count > 0 ? requestContentTypes[0] : @"application/json";
+
+    NSArray * responseContentTypes = @[@"application/json"];
+    NSString* responseContentType = responseContentTypes.count > 0 ? responseContentTypes[0] : @"application/json";
+
+    NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
+    
+    NSMutableDictionary* headerParams = [[NSMutableDictionary alloc] init];
+    
+
+    id bodyDictionary = nil;
+    
+    
+    bodyDictionary = [[NSMutableArray alloc] init];
+
+    NSMutableDictionary * formParams = [[NSMutableDictionary alloc]init];
+
+    
+    [bodyDictionary addObject:formParams];
+    
+
+    
+
+    ApiClient* client = [ApiClient sharedInstance];
+
+    
+    
+    
+        
+    // comples response type
+    return [client dictionary: auth
+					         requestUrl: requestUrl 
+                       method: @"GET"
+                  queryParams: queryParams
+                         body: bodyDictionary
+                 headerParams: headerParams
+           requestContentType: requestContentType
+          responseContentType: responseContentType
+              successBlock: ^(NSDictionary *data) {
+                
+                MSPublicAuthConfig *result = nil;
+                if (data) {
+                    result = [[MSPublicAuthConfig    alloc]initWithValues: data];
+                }
+                onSuccessBlock(result);
+                
+              }
+              errorBlock: ^(NSError *error) {
+                    onErrorBlock(error);
+                    
+              }];
+    
+
+    
+}
+
++(NSNumber*) getAuthConfigByApp: (NSString*) appCode
+        
+        auth:(OAuth1Client *) auth onSuccess: (void (^)(MSPublicAuthConfig* response))onSuccessBlock onError:(void (^)(NSError* error)) onErrorBlock
+         {
+
+    NSMutableString* requestUrl = [NSMutableString stringWithFormat:@"%@/v3/config/auth/{appCode}", [[ApiClient sharedInstance] url]];
+
+    // remove format in URL if needed
+    if ([requestUrl rangeOfString:@".{format}"].location != NSNotFound){
+        [requestUrl replaceCharactersInRange: [requestUrl rangeOfString:@".{format}"] withString:@".json"];
+    }
+
+    [requestUrl replaceCharactersInRange: [requestUrl rangeOfString:[NSString stringWithFormat:@"%@%@%@", @"{", @"appCode", @"}"]] withString: [ApiClient escape:appCode]];
+    
+
+	NSArray * requestContentTypes = @[];
+    NSString* requestContentType = requestContentTypes.count > 0 ? requestContentTypes[0] : @"application/json";
+
+    NSArray * responseContentTypes = @[@"application/json"];
+    NSString* responseContentType = responseContentTypes.count > 0 ? responseContentTypes[0] : @"application/json";
+
+    NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
+    
+    NSMutableDictionary* headerParams = [[NSMutableDictionary alloc] init];
+    
+
+    id bodyDictionary = nil;
+    
+    
+    bodyDictionary = [[NSMutableArray alloc] init];
+
+    NSMutableDictionary * formParams = [[NSMutableDictionary alloc]init];
+
+    
+    [bodyDictionary addObject:formParams];
+    
+
+    
+
+    ApiClient* client = [ApiClient sharedInstance];
+
+    
+    
+    
+        
+    // comples response type
+    return [client dictionary: auth
+					         requestUrl: requestUrl 
+                       method: @"GET"
+                  queryParams: queryParams
+                         body: bodyDictionary
+                 headerParams: headerParams
+           requestContentType: requestContentType
+          responseContentType: responseContentType
+              successBlock: ^(NSDictionary *data) {
+                
+                MSPublicAuthConfig *result = nil;
+                if (data) {
+                    result = [[MSPublicAuthConfig    alloc]initWithValues: data];
+                }
+                onSuccessBlock(result);
+                
+              }
+              errorBlock: ^(NSError *error) {
+                    onErrorBlock(error);
+                    
+              }];
+    
+
+    
+}
+
+
+
+@end
