@@ -148,7 +148,10 @@ static inline NSString * AFNounce() {
 
 - (void) authorizeRequest:(NSMutableURLRequest *)request error:(NSError*__strong*)error
 {
-    [request setValue:[self authorizationHeaderForRequest:request error:error] forHTTPHeaderField:@"Authorization"];
+    NSString *authHeader = [self authorizationHeaderForRequest:request error:error];
+    if (authHeader) {
+        [request setValue:authHeader forHTTPHeaderField:@"Authorization"];
+    }
 	[request setHTTPShouldHandleCookies:NO];
 }
 
@@ -163,8 +166,10 @@ static inline NSString * AFNounce() {
 - (NSString*) authorizationHeaderForRequest:(NSMutableURLRequest*)request error:(NSError*__strong*)error {
     if (self.oauth2delegate) {
         return [self oAuth2AuthorizationHeaderForRequest:request error:error];
-    } else {
+    } else if (self.consumerSecret && self.consumerKey) {
         return [self oAuth1AuthorizationHeaderForRequest:request];
+    } else {
+        return nil;
     }
 }
 
