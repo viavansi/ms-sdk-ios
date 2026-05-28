@@ -6,7 +6,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "AFNetworking.h"
+@import AFNetworking;
 
 @class OAuth1Client;
 

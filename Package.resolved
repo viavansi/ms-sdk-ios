@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "AFNetworking",
+        "repositoryURL": "https://github.com/elaget/AFNetworking.git",
+        "state": {
+          "branch": null,
+          "revision": "3a3d2625de8564de832891720836cad45bf61776",
+          "version": "2.7.2"
+        }
+      }
+    ]
+  },
+  "version": 1
+}

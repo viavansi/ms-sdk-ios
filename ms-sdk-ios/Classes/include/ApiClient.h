@@ -1,5 +1,5 @@
 #import <Foundation/Foundation.h>
-#import "AFHTTPRequestOperationManager.h"
+@import AFNetworking;
 #import "OAuth1Client.h"
 
 /**

@@ -351,7 +351,7 @@ static bool loggingEnabled = true;
                                           if(operation.responseObject) {
                                               // Add in the (parsed) response body.
                                               NSError *jsonError;
-                                              id jsonDictionaryOrArray = [NSJSONSerialization JSONObjectWithData:operation.responseData options:NULL error:&jsonError];
+                                              id jsonDictionaryOrArray = [NSJSONSerialization JSONObjectWithData:operation.responseData options:0 error:&jsonError];
                                               if(jsonError) {
                                                   // check the error description
                                                   userInfo[SWGResponseObjectErrorKey] = operation.responseObject;
@@ -516,7 +516,7 @@ static bool loggingEnabled = true;
                                                                        if(operation.responseObject) {
                                                                            // Add in the (parsed) response body.
                                                                            NSError *jsonError;
-                                                                           id jsonDictionaryOrArray = [NSJSONSerialization JSONObjectWithData:operation.responseData options:NULL error:&jsonError];
+                                                                           id jsonDictionaryOrArray = [NSJSONSerialization JSONObjectWithData:operation.responseData options:0 error:&jsonError];
                                                                            if(jsonError) {
                                                                                // check the error description
                                                                                userInfo[SWGResponseObjectErrorKey] = operation.responseObject;

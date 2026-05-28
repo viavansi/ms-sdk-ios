@@ -6,7 +6,7 @@
 //
 
 #import "OAuth1Client.h"
-#import "AFNetworking.h"
+@import AFNetworking;
 
 #import <CommonCrypto/CommonHMAC.h>
 
