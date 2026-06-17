@@ -10,7 +10,7 @@ let package = Package(
         .library(name: "ms-sdk-ios", targets: ["ms-sdk-ios"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/elaget/AFNetworking.git", .exact("2.7.2")),
+        .package(url: "https://github.com/elaget/AFNetworking.git", .exact("2.7.3")),
     ],
     targets: [
         .target(
