@@ -3,10 +3,27 @@ viafirma documents (SDK iOS)
 
 Cliente iOS para para hacer uso de la capa de servicios REST de viafirma documents
 
-###Instalación
-Para instalar la librería será necesario añadir en nuestro Podfile la siguiente línea:
+### Instalación
+La librería se distribuye con Swift Package Manager (iOS 9+ y macOS 10.13+).
+
+En Xcode, desde *File → Add Package Dependencies…*, añade la URL `https://github.com/viavansi/ms-sdk-ios.git` con la regla *Up to Next Major Version* y selecciona el producto `ms-sdk-ios`.
+
+Desde un `Package.swift`:
+```swift
+dependencies: [
+    .package(url: "https://github.com/viavansi/ms-sdk-ios.git", from: "3.7.81"),
+],
+targets: [
+    .target(name: "MyApp", dependencies: [
+        .product(name: "ms-sdk-ios", package: "ms-sdk-ios"),
+    ]),
+]
 ```
-pod 'ms-sdk-ios', :git => 'https://github.com/viavansi/ms-sdk-ios.git', :tag => '3.4.7'
+
+Las cabeceras públicas se importan directamente:
+```objective-c
+#import "ApiClient.h"
+#import "MSV3usersApi.h"
 ```
 ####Petición de un token:
 Este método nos servirá de ayuda para solicitar un nuevo token.
