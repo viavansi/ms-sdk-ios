@@ -19,11 +19,10 @@ static bool loggingEnabled = true;
 
 +(ApiClient * ) sharedInstance{
 
-    if(singleton==nil){
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
         singleton = [[ApiClient alloc] init];
-    }
 
-    if(_pool == nil) {
         // setup static vars
         // create queue
         sharedQueue = [[NSOperationQueue alloc] init];
@@ -33,7 +32,7 @@ static bool loggingEnabled = true;
 
         // initialize URL cache
         [ApiClient configureCacheWithMemoryAndDiskCapacity:4*1024*1024 diskSize:32*1024*1024];
-    }
+    });
 
     return singleton;
 }
@@ -196,18 +195,17 @@ static bool loggingEnabled = true;
          successBlock: (void (^)(NSDictionary*))successBlock
               errorBlock: (void (^)(NSError *))errorBlock{
 
+    // Per-request serializer: the shared instance is used concurrently from several threads,
+    // so the manager's serializers must never be reassigned here.
+    AFHTTPRequestSerializer *requestSerializer;
     if([requestContentType isEqualToString:@"application/json"]){
-        self.requestSerializer = [AFJSONRequestSerializer serializer];
+        requestSerializer = [AFJSONRequestSerializer serializer];
     }else{
-        self.requestSerializer = [AFHTTPRequestSerializer serializer];
-    }
-
-    if([responseContentType isEqualToString:@"application/json"]){
-        self.responseSerializer = [AFJSONResponseSerializer serializer];
+        requestSerializer = [AFHTTPRequestSerializer serializer];
     }
 
     if (self.timeoutInterval) {
-        [self.requestSerializer setTimeoutInterval:self.timeoutInterval];
+        [requestSerializer setTimeoutInterval:self.timeoutInterval];
     }
 
     NSMutableURLRequest * request = nil;
@@ -236,7 +234,7 @@ static bool loggingEnabled = true;
         NSString * urlString = [[NSURL URLWithString:path relativeToURL:absoluteURL] absoluteString];
 
         if(file != nil) {
-            request = [self.requestSerializer multipartFormRequestWithMethod: @"POST"
+            request = [requestSerializer multipartFormRequestWithMethod: @"POST"
                                                                    URLString: urlString
                                                                   parameters: nil
                                                    constructingBodyWithBlock: ^(id<AFMultipartFormData> formData) {
@@ -264,7 +262,7 @@ static bool loggingEnabled = true;
 			} else {
 				parameters = params;
 			}
-            request = [self.requestSerializer requestWithMethod:method
+            request = [requestSerializer requestWithMethod:method
                                                       URLString:urlString
                                                      parameters:parameters
                                                           error:nil];
@@ -274,7 +272,7 @@ static bool loggingEnabled = true;
         NSURL *absoluteURL = [NSURL URLWithString:self.url];
         NSString * urlString = [[NSURL URLWithString:pathWithQueryParams relativeToURL:absoluteURL] absoluteString];
 
-        request = [self.requestSerializer requestWithMethod:method
+        request = [requestSerializer requestWithMethod:method
                                                   URLString:urlString
                                                  parameters:body
                                                       error:nil];
@@ -301,8 +299,6 @@ static bool loggingEnabled = true;
         [request setCachePolicy:NSURLRequestReloadIgnoringLocalCacheData];
     }
 
-    AFJSONRequestSerializer *requestSerializer = [AFJSONRequestSerializer serializer];
-
     if(body != nil) {
         if([body isKindOfClass:[NSDictionary class]]){
             if ([(NSDictionary*)[body allKeys] count] > 0) {
@@ -323,7 +319,6 @@ static bool loggingEnabled = true;
             [request setValue:[headerParams valueForKey:key] forHTTPHeaderField:key];
         }
     }
-    [requestSerializer setValue:responseContentType forHTTPHeaderField:@"Accept"];
 
     // Always disable cookies!
     [request setHTTPShouldHandleCookies:NO];
@@ -365,9 +360,14 @@ static bool loggingEnabled = true;
                                           if(self.logServerResponses)
                                               [self logResponse:nil forRequest:request error:augmentedError];
                                           errorBlock(augmentedError);
-                                      
+
                                   }
      ];
+
+    // Otherwise the operation keeps the manager's default response serializer (JSON).
+    if([responseContentType isEqualToString:@"application/json"]){
+        op.responseSerializer = [AFJSONResponseSerializer serializer];
+    }
 
     AFSecurityPolicy *securityPolicy = [AFSecurityPolicy policyWithPinningMode:AFSSLPinningModeNone];
     if (self.sslPinningEnabled) {
@@ -375,8 +375,8 @@ static bool loggingEnabled = true;
     }
     //securityPolicy.allowInvalidCertificates = YES;
     op.securityPolicy = securityPolicy;
-    
-    [op setCompletionQueue:dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)];
+
+    [op setCompletionQueue:self.completionQueue ?: dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)];
     
     [self.operationQueue addOperation:op];
     return [NSNumber numberWithUnsignedInt:1];
@@ -393,16 +393,17 @@ static bool loggingEnabled = true;
                            successBlock: (void (^)(NSString*))successBlock
                              errorBlock: (void (^)(NSError *))errorBlock{
 
+    // Per-request serializer: the shared instance is used concurrently from several threads,
+    // so the manager's serializers must never be reassigned here.
+    AFHTTPRequestSerializer *requestSerializer;
     if([requestContentType isEqualToString:@"application/json"]){
-        self.requestSerializer = [AFJSONRequestSerializer serializer];
+        requestSerializer = [AFJSONRequestSerializer serializer];
     }else{
-        self.requestSerializer = [AFHTTPRequestSerializer serializer];
+        requestSerializer = [AFHTTPRequestSerializer serializer];
     }
 
-    self.responseSerializer = [AFHTTPResponseSerializer serializer];
-
     if (self.timeoutInterval) {
-        [self.requestSerializer setTimeoutInterval:self.timeoutInterval];
+        [requestSerializer setTimeoutInterval:self.timeoutInterval];
     }
 
     NSMutableURLRequest * request = nil;
@@ -424,7 +425,7 @@ static bool loggingEnabled = true;
         NSString * urlString = [[NSURL URLWithString:path relativeToURL:absoluteURL] absoluteString];
 
         if(file != nil) {
-            request = [self.requestSerializer multipartFormRequestWithMethod: @"POST"
+            request = [requestSerializer multipartFormRequestWithMethod: @"POST"
                                                                    URLString: urlString
                                                                   parameters: nil
                                                    constructingBodyWithBlock: ^(id<AFMultipartFormData> formData) {
@@ -446,7 +447,7 @@ static bool loggingEnabled = true;
         NSURL *absoluteURL = [NSURL URLWithString:self.url];
         NSString * urlString = [[NSURL URLWithString:pathWithQueryParams relativeToURL:absoluteURL] absoluteString];
 
-        request = [self.requestSerializer requestWithMethod: method
+        request = [requestSerializer requestWithMethod: method
                                                   URLString: urlString
                                                  parameters: body
                                                       error: nil];
@@ -532,14 +533,16 @@ static bool loggingEnabled = true;
                                                                        errorBlock(augmentedError);
                                                                }];
 
+    op.responseSerializer = [AFHTTPResponseSerializer serializer];
+
     AFSecurityPolicy *securityPolicy = [AFSecurityPolicy policyWithPinningMode:AFSSLPinningModeNone];
     if (self.sslPinningEnabled) {
         securityPolicy = [AFSecurityPolicy policyWithPinningMode:AFSSLPinningModeCertificate];
     }
     //securityPolicy.allowInvalidCertificates = YES;
     op.securityPolicy = securityPolicy;
-    
-    [op setCompletionQueue:dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)];
+
+    [op setCompletionQueue:self.completionQueue ?: dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)];
     
     [self.operationQueue addOperation:op];
     return [NSNumber numberWithUnsignedInt:1];

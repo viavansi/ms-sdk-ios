@@ -10,6 +10,12 @@
 extern NSString *const SWGResponseObjectErrorKey;
 
 
+/**
+ Responses are delivered on `completionQueue`, inherited from `AFHTTPRequestOperationManager`.
+ Unlike AFNetworking, a nil value (the default) means a global background queue, not the main queue.
+ Set it to `dispatch_get_main_queue()` to receive responses on the main thread, but never do so if
+ the caller blocks the main thread waiting for the response (e.g. with a semaphore): it deadlocks.
+ */
 @interface ApiClient : AFHTTPRequestOperationManager
 
 @property(nonatomic, assign) NSURLRequestCachePolicy cachePolicy;
